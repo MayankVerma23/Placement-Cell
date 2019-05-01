@@ -29,7 +29,7 @@
             <%String roll = (String)request.getAttribute("roll"); %>
            
             <input type="text" value="<%=roll%>"  name="t1">
-           <p>Image<input type="file" name="i"><br></p>
+            <p>Image<input type="file" name="i" required><br></p>
            <p><input type="submit" onclick="demo()"></p>
        
         </form>

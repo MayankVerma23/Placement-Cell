@@ -36,11 +36,11 @@
     </head>
     <body>
         <%@include file = "database_connection.jsp"%>  
-
+        <%@include file = "logocomp.jsp"%>
         <div class="container">
             <div class="row">
                 <h1 style="float:left;padding-left:20px;">Placement<br>Cell</h1>
-                <a href="#"><h4 style="float:right;padding-right:20px;">Logout</h4></a>
+                <a href="logout"><h4 style="float:right;padding-right:20px;">Logout</h4></a>
             </div>
             
 <section> 
@@ -52,12 +52,18 @@
   <ul class="nav navbar-nav">
       <li><a href="profile_company.jsp" class="nav_links">Complete Info</a></li>
     <li><a href="placement_company.jsp" class="nav_links">Placement Info</a></li>
+     <li><a href="company_response.jsp" class="nav_links">Send Requirements</a></li>
     <li><a href="changepassword_company.jsp" class="nav_links">Change Password</a></li>
     
   </ul>
 
 </nav>
 </section> 
-        </div>  
+        </div>
+
+
+      
+        
     </body>
+  
 </html>

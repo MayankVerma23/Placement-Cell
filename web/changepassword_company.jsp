@@ -98,21 +98,79 @@ body
     border-radius:5px;
     }
         </style>
+        
+          <script>
+           
+	function checkpassword()
+	{
+		password=document.getElementById("t1").value;
+		length=document.getElementById("t1").value.length;
+		var flag_number=0;
+		var flag_lowercase=0;
+		var flag_upercase=0;
+		for(i=0;i<length;i++)
+		 {
+			if(password.charAt(i)>=0&&password.charAt(i)<=9)
+			{
+				flag_number=flag_number+1;
+			}
+			if(password.charAt(i)>='a'&&password.charAt(i)<='z')
+			{
+				flag_lowercase=flag_lowercase+1;
+			}
+			if(password.charAt(i)>='A'&&password.charAt(i)<='Z')
+			{
+				flag_upercase=flag_upercase+1;
+			}
+		}
+		if(length<8)
+		{
+                    alert("Your password must be at least 8 characters long.");
+		    return false;
+		} 
+                else if(flag_number===0)
+		{
+                    alert("Your password must contain at least one digit .");
+	            return false;	
+                }
+		else if(flag_lowercase===0)
+		{
+                    alert("Your password must contain at least a letter in lower case .");
+	            return false;	
+                }
+                else if(flag_upercase===0)
+		{
+                    alert("Your password must contain at least a letter in uper case .");
+	            return false;	
+                }
+               
+                else
+                {
+              
+                     return true;}
+                
+                }	
+	}
+
+  
+
+</script>
     </head>
     <body>
+       
        <div class="box">
            <h2>CHANGE PASSWORD</h2>
-            <form action="changepassword_company.jsp" method="post">
+            <form action="changepassword_company.jsp" method="post" onsubmit="return checkpassword()">
                <div class="inputBox">
-                   <input type="password" name="old_pass" required="">
+                   <input type="password" name="old_pass" required>
                    <label>OLD PASSWORD</label>
                </div>
                <div class="inputBox">
-                   <input type="password" name="new_pass" required="">
+                   <input type="password" name="new_pass" required id="t1">
                    <label>NEW PASSWORD</label>
                </div>
                 <div class="inputBox">
-                   <input type="password" name="confirm_pass" required="">
+                   <input type="password" name="confirm_pass" required>
                    <label>CONFIRM PASSWORD</label>
                </div>
                <input type="submit" name="" value="Submit">
@@ -122,7 +180,7 @@ body
         
         
           <%!
-              String oldpass="",newpass="",confirmpass="",tpopass="",rollno="";
+              String oldpass="",newpass="",confirmpass="",tpopass="",company_email="";
        
         %>
         <%
@@ -130,7 +188,7 @@ body
          newpass =request.getParameter("new_pass");
          confirmpass =request.getParameter("confirm_pass");
             HttpSession hs=request.getSession();
-         String tpo_username= hs.getAttribute("tpo_name").toString();
+         String company_email= hs.getAttribute("company_email").toString();
           
          
        
@@ -139,19 +197,19 @@ body
          Class.forName("com.mysql.jdbc.Driver");
          Connection con=DriverManager.getConnection("jdbc:mysql://Localhost/placementcell","root","");
          Statement stmt=con.createStatement();
-          String x="select * from companysignup where companyemail='"+email+"'";
+         String x="select * from companysignup where companyemail='"+company_email+"'";
          ResultSet rs=stmt.executeQuery(x);
           while(rs.next())
           {          
-            companypass=rs.getString("companypassword");
+            confirmpass=rs.getString("companypassword");
           
           }
               
-          if(oldpass.equals(companypass))
+          if(oldpass.equals(confirmpass))
           {
             if(newpass.equals(confirmpass))
             {
-              String y="Update companysignup set companypassword='"+newpass+"' where companyemail='"+email+"'";
+              String y="Update companysignup set companypassword='"+newpass+"' where companyemail='"+company_email+"'";
                 stmt.executeUpdate(y);
                 response.sendRedirect("home_company.jsp");
             }

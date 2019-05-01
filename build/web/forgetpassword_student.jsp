@@ -27,7 +27,7 @@
     <body background="image/bg1.png">
         <div>
         
-        <form action="forgetpassword" method="post">
+        <form action="sendingOTP_student.jsp" method="post">
             
             <label><h1>Forget Password</h1></label><br>
             <label style="margin-top:8%;margin-right:20px">Enter Email</label>

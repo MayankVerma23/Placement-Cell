@@ -90,7 +90,7 @@
             <h1>STUDENT SIGNUP</h1>
         </div>
         <div class="box" >
-         <form action="studentsignup" method="post">
+            <form action="studentsignup" method="post" onsubmit=" return checkpassword()">
              <input class="text" type="text" name="name" placeholder="Name" required="">
                 <input class="text" type="text" name="roll" placeholder="Roll"  required>
                 <input class="text" type="text" name="email" placeholder="Email"    required>    

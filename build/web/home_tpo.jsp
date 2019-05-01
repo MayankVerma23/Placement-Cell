@@ -46,7 +46,7 @@
         <div class="container">
             <div class="row">
                 <h1 style="float:left;padding-left:20px;">Placement<br>Cell</h1>
-                <a href="#"><h4 style="float:right;padding-right:20px;">Logout</h4></a>
+                <a href="logout"><h4 style="float:right;padding-right:20px;">Logout</h4></a>
             </div>
             
 <section> 
@@ -60,11 +60,11 @@
         <li><a href="placement_tpo.jsp" class="nav_links">New Company Request</a></li>
         <li><a href="approved_table.jsp" class="nav_links">Approved Compnies</a></li>
         <li><a href="declined_table.jsp" class="nav_links">Declined Compnies</a></li>
+        <li><a href="company_responsetable.jsp" class="nav_links">Accepted Company response</a></li>
         <li><a href="changepassword_tpo.jsp" class="nav_links">Change Password</a></li>
-  </ul>
-
+ </ul>
 </nav>
 </section> 
-        </div>  
+    </div>  
     </body>
 </html>

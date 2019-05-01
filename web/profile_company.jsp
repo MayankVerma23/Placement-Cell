@@ -35,10 +35,11 @@
     </head>
     
     <body>
+         <%@include file = "logocomp.jsp"%>
 <%!String com_name="",com_email="",com_phno="",com_location="",com_Password="",com_status="",com_email1="";%>
           
        <%   
-               HttpSession hs=request.getSession();
+            //  HttpSession hs=request.getSession();
                com_email=hs.getAttribute("company_email").toString();
                Class.forName("com.mysql.jdbc.Driver");
                Connection conn = DriverManager.getConnection("jdbc:mysql://localhost/placementcell", "root", "");

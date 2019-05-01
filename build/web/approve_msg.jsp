@@ -15,11 +15,11 @@
          <%@include file = "database_connection.jsp"%> 
       <%
           String msg = request.getParameter("myText");
-          String idd = request.getParameter("id");
+          String companyid = request.getParameter("id");
           String date = request.getParameter("date");
           
           Statement fetchStatement = conn.createStatement();
-          String z = "insert into company_date value(null,'"+msg+"','"+idd+"','"+date+"')";
+          String z = "insert into approved_comp value(null,'"+msg+"','"+companyid+"','"+date+"')";
           fetchStatement.executeUpdate(z);
        %>
     </body>

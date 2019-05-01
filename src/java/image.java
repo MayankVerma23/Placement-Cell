@@ -37,14 +37,10 @@ public class image extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        try (PrintWriter out = response.getWriter()) {
-        
-     
-                
-       String x=request.getParameter("pn1");
-      
-      String contentType = request.getContentType();
-if ((contentType != null) && (contentType.indexOf("multipart/form-data") >= 0)) {
+        try (PrintWriter out = response.getWriter()) {         
+       String x=request.getParameter("pn1");  
+       String contentType = request.getContentType();
+       if ((contentType != null) && (contentType.indexOf("multipart/form-data") >= 0)) {
  		DataInputStream in = new DataInputStream(request.getInputStream());
 		//we are taking the length of Content type data
 		int formDataLength = request.getContentLength();
@@ -81,14 +77,14 @@ if ((contentType != null) && (contentType.indexOf("multipart/form-data") >= 0)) 
              Class.forName("com.mysql.jdbc.Driver");
             Connection con=(Connection)DriverManager.getConnection("jdbc:mysql://localhost/placementcell","root","");
            Statement st=(Statement) con.createStatement();
- String query="insert into filetable values('"+x+"','"+saveFile+"')";
+ String query="insert into stu_img values('"+x+"','"+saveFile+"')";
 st.execute(query);
                         }
             catch(Exception ex)
             {
                out.println(ex);
             }
-  saveFile="C:/Users/hp/Documents/NetBeansProjects/Placement Cell/web/image/"+saveFile;
+  saveFile="F:/netbeams/Placement Cell/web/image/"+saveFile;
 
 		FileOutputStream fileOut = new FileOutputStream(saveFile);
 		fileOut.write(dataBytes, startPos, (endPos - startPos));

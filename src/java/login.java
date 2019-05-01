@@ -68,13 +68,12 @@ public class login extends HttpServlet {
           if(rollno.equals(sturoll)&&studentpass.equals(stupass))
           {
               hs.setAttribute("stu_roll",sturoll);
-               
               response.sendRedirect("home_student.jsp");
           }
           else
           {
             out.print("<script>alert('Wrong Id or Password')</script>");
-            response.sendRedirect("student_login.jsp");
+            response.sendRedirect("login_student.jsp");
           }
        }
        catch(Exception ex)
@@ -164,7 +163,7 @@ public class login extends HttpServlet {
           else
           {
             out.print("<script>alert('Wrong Id or Password')</script>");
-            response.sendRedirect("company_login.jsp");
+            response.sendRedirect("login_company.jsp");
           }
        }
        catch(Exception ex)

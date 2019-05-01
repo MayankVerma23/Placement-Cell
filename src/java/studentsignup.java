@@ -4,10 +4,13 @@
  * and open the template in the editor.
  */
 
+import com.sun.xml.wss.saml.internal.saml11.jaxb10.ConfirmationMethod;
 import java.io.IOException;
 import java.io.PrintWriter;
+import static java.lang.System.out;
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.ResultSet;
 import java.sql.Statement;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -17,7 +20,7 @@ import javax.servlet.http.HttpServletResponse;
 
 /**
  *
- * @author hp
+ * @author My Lappy
  */
 @WebServlet(urlPatterns = {"/studentsignup"})
 public class studentsignup extends HttpServlet {
@@ -34,8 +37,9 @@ public class studentsignup extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        try (PrintWriter out = response.getWriter()) {
-           /* TODO output your page here. You may use following sample code. */
+        try (PrintWriter out = response.getWriter()) { 
+            
+            
              String name = request.getParameter("name");
              String roll = request.getParameter("roll");
              String email = request.getParameter("email");
@@ -44,31 +48,38 @@ public class studentsignup extends HttpServlet {
              String gender = request.getParameter("gender");
              String pass = request.getParameter("pass");
              String confpass = request.getParameter("confpass");
-                  
-          
-     try{
-             Class.forName("com.mysql.jdbc.Driver");
-             Connection con=DriverManager.getConnection("jdbc:mysql://localhost/placementcell","root","");
-             Statement stmt=con.createStatement();
-             String x="insert into studentsignup values(null,'"+name+"','"+roll+"','"+email+"','"+degree+"','"+phoneno+"','"+gender+"','"+pass+"')";
-             stmt.executeUpdate(x);  
-             out.print("<script> alert('done') </script>");
+             String rollno="";
              
-
-              request.setAttribute("roll", roll);
-              request.getRequestDispatcher("image.jsp").forward(request, response);
-              response.sendRedirect("image.jsp");
-         }
-         
+             
+             Class.forName("com.mysql.jdbc.Driver");
+             Connection con=DriverManager.getConnection("jdbc:mysql://Localhost/placementcell","root","");
+             Statement stmt=con.createStatement();
+             String y="select * from studentsignup where studentrollno='"+roll+"'";
+             ResultSet rs=stmt.executeQuery(y);
+             while(rs.next())
+             {
+                 rollno=rs.getString("studentrollno");
+             }
+            
+         if(!roll.equals(rollno)) {
+             String x="insert into studentsignup values(null,'"+name+"','"+roll+"','"+email+"','"+degree+"','"+phoneno+"','"+gender+"','"+pass+"','"+"unplaced"+"')";
+             stmt.executeUpdate(x);
+             request.setAttribute("roll", roll);
+             request.getRequestDispatcher("image.jsp").forward(request, response);
+             response.sendRedirect("image.jsp");
+             }
+          else{
+                  out.print("<script> window.alert('RollNo Already Use Please Select Another RollNo') </script>");
+               out.print("<script> window.location.href='registration_student.jsp' </script>");
+                         
+              }
+              
+              }
+     
          catch(Exception ex)
          {
            out.print(ex);
-         } 
-        
-         
-    
-        }
-       
+         }  
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

@@ -6,8 +6,10 @@
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import static java.lang.System.out;
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.ResultSet;
 import java.sql.Statement;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -35,39 +37,48 @@ public class companysignup extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
          try (PrintWriter out = response.getWriter()) {
-           
-            /* TODO output your page here. You may use following sample code. */
-               String name = request.getParameter("name");
+          
+            String name = request.getParameter("name");
             String email = request.getParameter("email");
             String phoneno = request.getParameter("phoneno");
             String loc = request.getParameter("loc");
             String pass = request.getParameter("pass");
             String confpass = request.getParameter("confpass");
             String status = "waiting";
+            String em="";
+              
                   
-               if(pass.equals(confpass)){     
-                   try{
+                   
              Class.forName("com.mysql.jdbc.Driver");
              Connection con=DriverManager.getConnection("jdbc:mysql://Localhost/placementcell","root","");
              Statement stmt=con.createStatement();
+             String y="select * from companysignup where companyemail='"+email+"'";
+             ResultSet rs=stmt.executeQuery(y);
+             while(rs.next())
+             {
+                 em=rs.getString("companyemail");
+             }
+             if(!email.equals(em)) {
              String x="insert into companysignup values(null,'"+name+"','"+email+"','"+phoneno+"','"+loc+"','"+pass+"','"+status+"')";
-             stmt.executeUpdate(x);
-          
-             out.print("<script> alert('done') </script>");
-             
-         
-             
+             stmt.executeUpdate(x);           
+             request.setAttribute("email", email);
+             request.getRequestDispatcher("image_comp.jsp").forward(request, response);
+             response.sendRedirect("image_comp.jsp");
+         }
+              else{
+              out.print("<script> window.alert('Email Already Use Please Select Another Email') </script>");
+               out.print("<script> window.location.href='registration_company.jsp' </script>");
+                 
+                  }
          }
          
          catch(Exception ex)
          {
            out.print(ex);
          }
-               }
-               else{
-             out.print("<script> alert('password is not match with confpass') </script>");
-         }
-        }
+               
+          
+        
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

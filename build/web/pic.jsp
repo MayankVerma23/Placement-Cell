@@ -29,7 +29,7 @@
          Class.forName("com.mysql.jdbc.Driver");
          Connection con=(Connection)DriverManager.getConnection("jdbc:mysql://localhost/placementcell","root","");
          Statement st=con.createStatement();
-         String x1="Select * from filetable where rollno='"+rolno+"'";
+         String x1="Select * from stu_img where rollno='"+rolno+"'";
          ResultSet rs=st.executeQuery(x1);
          while(rs.next())
          {

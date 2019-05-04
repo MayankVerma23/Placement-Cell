@@ -39,15 +39,14 @@ public class studentsignup extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) { 
             
-            
-             String name = request.getParameter("name");
+           String name = request.getParameter("name");
              String roll = request.getParameter("roll");
              String email = request.getParameter("email");
-             String degree = request.getParameter("degree");
-             String phoneno = request.getParameter("phoneno");
-             String gender = request.getParameter("gender");
+             String degree = request.getParameter("degree");           
              String branch = request.getParameter("branch");
              String batch = request.getParameter("batch");
+              String phoneno = request.getParameter("phoneno");
+                String gender = request.getParameter("gender");
              String ten = request.getParameter("ten");
              String twe = request.getParameter("twe");
              String sem1 = request.getParameter("sem1");
@@ -60,40 +59,38 @@ public class studentsignup extends HttpServlet {
              String sem8 = request.getParameter("sem8");
              String cgpa = request.getParameter("cgpa");
              String pass = request.getParameter("pass");
-           
-          
-             String rollno="";
-            
-             
+               String rolno="";
+                  
+                   
              Class.forName("com.mysql.jdbc.Driver");
              Connection con=DriverManager.getConnection("jdbc:mysql://Localhost/placementcell","root","");
              Statement stmt=con.createStatement();
-             String y="select * from studentsignup where studentrollno='"+rollno+"'";
+             String y="select * from studentsignup where studentrollno='"+roll+"'";
              ResultSet rs=stmt.executeQuery(y);
              while(rs.next())
              {
-                 rollno=rs.getString("studentrollno");
-               
+                 rolno=rs.getString("studentrollno");
              }
-         if(!roll.equals(rollno)) {
-             String x="insert into studentsignup values(null,'"+name+"','"+roll+"','"+email+"','"+degree+"','"+phoneno+"','"+gender+"','"+branch+"','"+batch+"','"+ten+"','"+twe+"','"+sem1+"','"+sem2+"','"+sem3+"','"+sem4+"','"+sem5+"','"+sem6+"','"+sem7+"','"+sem8+"','"+cgpa+"','"+pass+"','"+"unplaced"+"')";
-             stmt.executeUpdate(x);  
-             request.setAttribute("roll", roll);
+             if(!roll.equals(rolno)) {
+            String x="insert into studentsignup values(null,'"+name+"','"+roll+"','"+email+"','"+degree+"','"+branch+"','"+batch+"','"+phoneno+"','"+gender+"','"+ten+"','"+twe+"','"+sem1+"','"+sem2+"','"+sem3+"','"+sem4+"','"+sem5+"','"+sem6+"','"+sem7+"','"+sem8+"','"+cgpa+"','"+pass+"','"+"unplaced"+"')";
+              stmt.executeUpdate(x);           
+            request.setAttribute("roll", roll);
              request.getRequestDispatcher("image_studentt.jsp").forward(request, response);
              response.sendRedirect("image_studentt.jsp");  
              }
-          else{
-               out.print("<script> window.alert('RollNo Already Use Please Select Another RollNo') </script>");
-               out.print("<script> window.location.href='registration_student.jsp' </script>");
-                         
-              }
-              
-              }
-     
+              else{
+              out.print("<script> window.alert('RollNo Already Use Please Select Another RollNo') </script>");
+              out.print("<script> window.location.href='registration_student.jsp' </script>");
+                  
+                  }
+         }
+         
          catch(Exception ex)
          {
            out.print(ex);
-         }  
+         }
+               
+  
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

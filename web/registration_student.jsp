@@ -17,23 +17,73 @@
         <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
       
         <style>
-            #drop{
-                background-color: black;
-            }
+           
             #degree{
-                background-color: black;
+               color: black;
             }
-             #t1{
-                background-color: black;
-            }
-             #t2{
-                background-color: black;
-            }
-             #t3{
-                background-color: black;
-            }
+         
         </style>
         <script>
+          
+            
+               function sublist()
+        {
+            h1=document.getElementById("degree").value;
+            
+             var a2;
+                if (window.XMLHttpRequest) {
+                    a2 = new XMLHttpRequest();
+                }
+                else {
+                    a2 = new ActiveXObject("Microsoft.XMLHTTP");
+                }
+
+                a2.onreadystatechange = function () {
+                    if (a2.readyState == 4 && a2.status == 200) 
+                    {
+             
+                      document.getElementById("drp2").innerHTML = a2.responseText;
+                    
+                    } 
+                }
+                 
+                a2.open("GET","degree_category_student.jsp?degree="+h1, true);
+                a2.send(); 
+                subtext(h1);
+            
+        }
+        
+        
+        function subtext(degree)
+        {
+            
+
+            
+          
+              var a3;
+                if (window.XMLHttpRequest) {
+                    a3 = new XMLHttpRequest();
+                }
+                else {
+                    a3 = new ActiveXObject("Microsoft.XMLHTTP");
+                }
+
+                a3.onreadystatechange = function () {
+                    if (a3.readyState == 4 && a3.status == 200) 
+                    {
+             
+                      document.getElementById("drp3").innerHTML = a3.responseText;
+                    
+                    } 
+                }
+                 
+                a3.open("GET","branch_category_student.jsp?degree="+degree, true);
+                a3.send(); 
+            
+            
+            
+        }
+      
            
 	function checkpassword()
 	{
@@ -80,15 +130,15 @@
 	            return false;	
                 }
                   
-                 else if(isNaN(a)){
+                else if(isNaN(a)){
                       alert("Eneter only numeric value in Phoneno");
                       return false;
                   }
-                  else if(a.length<10){
+                 else if(a.length<10){
                       alert("Phoneno must be 10 digit");
                       return false;
                   }
-                    else if(a.length>10){
+                 else if(a.length>10){
                       alert("Phoneno must be 10 digit");
                       return false;
                   }
@@ -116,35 +166,33 @@
 
 </script>
 <script>
-    function onDegreeChange() {
-        var deg = document.getElementById("degree").value;
-        $('#BTechBranch').hide();
-        $('#MCABranch').hide();
-         $('#BCABranch').hide();
-          $('#MBABranch').hide();
-           $('#btechbach').hide();
-            $('#mcabach').hide();
-             $('#bcabach').hide();
-              $('#mbabach').hide();
-             
-        if(deg === 'B.tech') {
-            $('#BTechBranch').show();
-            $('#btechbach').show();
+      function validrollno()
+             {
+            h1=document.getElementById("roll").value;
+            if(h1 !== "") {
+             var a2;
+                if (window.XMLHttpRequest) {
+                    a2 = new XMLHttpRequest();
+                }
+                else {
+                    a2 = new ActiveXObject("Microsoft.XMLHTTP");
+                }
+
+                a2.onreadystatechange = function () {
+                    if (a2.readyState == 4 && a2.status == 200) 
+                    {
+                      document.getElementById("na").innerHTML = a2.responseText;
+                    
+                    } 
+                }
+                 
+                a2.open("GET","valid_roll_student.jsp?rol="+h1, true);
+                a2.send(); 
+                
+            }
         }
-        else if(deg === 'MCA') {
-            $('#MCABranch').show();
-              $('#mcabach').show();
-        }
-          else if(deg === 'BCA') {
-            $('#BCABranch').show();
-              $('#bcabach').show();
-        }
-          else if(deg === 'MBA') {
-            $('#MBABranch').show();
-              $('#mbabach').show();
-        }
-    }
-</script>
+    </script>
+
         
     </head>
     
@@ -152,98 +200,39 @@
       
         <div class="container">
         <div class="btn-groupb">
-            <h1>STUDENT SIGNUP</h1>
+        <h1>STUDENT SIGNUP</h1>
         </div>
+            
         <div class="box" >
-         <form action="studentsignup" method="post" onsubmit="return checkpassword()" autocomplete="on">
-             <input class="text" type="text" name="name" placeholder="Name" required="" id="drop">
-                <input class="text" type="text" name="roll" placeholder="Roll"  required id="drop">
+        <form action="studentsignup" method="post" onsubmit="return checkpassword()" autocomplete="on">
+                <input class="text" type="text" name="name" placeholder="Name" required="" id="drop">
+                <input class="text" type="text" name="roll" id="roll" placeholder="Roll" onkeyup="validrollno()" required >
+                <div id="na"> 
+                
+                </div>
                 <input class="text" type="text" name="email" placeholder="Email"    required id="drop">   
                 
-                <select id="degree" class="text" name="degree"  onchange="onDegreeChange()" required>
+               
+     
+                <select id="degree" class="text" name="degree"  onchange="sublist()" required>
                 <option value="">DEGREE</option>
-                <option value="B.tech">B.tech</option>
+                <option value="Btech">B.tech</option>
                 <option value="MCA">MCA</option>
                 <option value="BCA">BCA</option>
                 <option value="MBA">MBA</option>
                 </select>
                
-   
-                <div id="BTechBranch" hidden="">
-                <select id="drop"  class="text" name="branch">
-                <option value="">Branch</option>
-                <option value="CSE">CSE</option>
-                <option value="MCE">MCE</option>
-                <option value="CIVIL">CIVIL</option>
-                <option value="ECE">ECE</option>
-                </select>
-                </div>
-                
-               <div id="MCABranch" hidden=""> 
-                <select id="drop"  class="text" name="branch" hidden="">
-                <option value="">Branch</option>
-                <option value="MCA1">MCA1</option>
-                <option value="MCA2">MCA2</option>
-                </select>
-                    </div>
-                
-                <div id="MBABranch" hidden=""> 
-                <select id="drop"  class="text" name="branch" hidden="">
-                <option value="">Branch</option>
-                <option value="MBA1">MBA1</option>
-                <option value="MBA2">MBA2</option>
-                </select>
-                    </div>
-                <div id="BCABranch" hidden=""> 
-                <select id="drop"  class="text" name="branch" hidden="">
-                <option value="">Branch</option>
-                <option value="MCA1">BCA1</option>
-                <option value="MCA2">BCA2</option>
-                </select>
-                    </div>
-                
-                <div id="btechbach" hidden="">
-                <select id="drop" class="text" name="batch" required>
-                <option value="">Batch</option>
-                <option value="2013-2017">2013-2017</option>
-                <option value="2014-2018">2014-2018</option>
-                <option value="2015-2019">2015-2019</option>
-                <option value="2016-2020">2016-2020</option>
-                </select>
-                </div>
-                
-                <div id="mcabach" hidden="">
-                <select id="drop" class="text" name="batch" required>
-                <option value="">Batch</option>
-                <option value="2013-2015">2013-2015</option>
-                <option value="2014-2016">2014-2016</option>
-                <option value="2015-2017">2015-2017</option>
-                <option value="2016-2018">2016-2018</option>
-                </select>
-                </div>
-                
-                <div id="bcabach" hidden="">
-                <select id="drop" class="text" name="batch" required>
-                <option value="">Batch</option>
-                <option value="2013-2016">2013-2016</option>
-                <option value="2014-2017">2014-2017</option>
-                <option value="2015-2018">2015-2018</option>
-                <option value="2016-2019">2016-2019</option>
-                </select>
-                </div>
-                
-                <div id="mbabach" hidden="">
-                <select id="drop" class="text" name="batch" required>
-                <option value="">Batch</option>
-                <option value="2013-2016">2013-2016</option>
-                <option value="2014-2017">2014-2017</option>
-                <option value="2015-2018">2015-2018</option>
-                <option value="2016-2019">2016-2019</option>
-                </select>
-                </div>
+                  <DIV id="drp2" >
+         
+                 </DIV>   
+     
+                 <div id="drp3" >
+         
+                  </div> 
+ 
                 
                 
-                 <input class="text" type="text" name="phoneno" placeholder="phoneno"  id="t3" required >
+                <input class="text" type="text" name="phoneno" placeholder="phoneno"  id="t3" required >
               
                 
                 <div class="radio" >
@@ -268,7 +257,7 @@
                
                 <input class="text" type="password" name="pass" placeholder="Password"  id="t1" required >
                 <input class="text" type="password" name="confpass" placeholder="Confirm Password"  id="t2" required>
-                <button type="submit" class="text" value="SignUp" id="drop">SIGNUP</button>
+                <button type="submit" class="text" value="SignUp" >SIGNUP</button>
             </form>
             
         </div>

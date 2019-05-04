@@ -17,7 +17,7 @@
     </head>
     <body>
        
-         <%!String pn="",im="",rolno="";%>
+         <%!String pn="",im="",rolno="",pdf="";%>
      
        
          
@@ -32,19 +32,26 @@
          {
          
            im=rs.getString("name");
-         }
-        %>
+           pdf=rs.getString("old_papers");
          
-             
-            <h1><%=im%></h1>
-             <img src="old_paper/<%=im%>"  height="500" width="500" align="center">
-             <object data="old_paper/<%=im%>" height="500" width="1300"></object>
-          
-           
+        %>
+        <table style="padding:20px">     
+    <tr>
+        <td>
+            <%=im%>
+        </td>
+        <td>
+        <a href="view_pdf.jsp?pdf=<%=pdf%>">View</a>
+        </td>
+       
+    </tr>     
+        </table> 
            
 
          <%   
+             }
             }
+
              catch(Exception ex)
                 {
                 out.println(ex);

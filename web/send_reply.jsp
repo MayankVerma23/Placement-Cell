@@ -45,7 +45,7 @@
              email=rs.getString("studentemail");
              phno=rs.getString("studentphno");
            }
-               Connection con=(Connection)DriverManager.getConnection("jdbc:mysql://localhost/contact","root","");
+               Connection con=(Connection)DriverManager.getConnection("jdbc:mysql://localhost/placementcell","root","");
          Statement st=con.createStatement();
          String y="insert into queries values(null,'"+name+"','"+email+"','student','"+sub+"','"+issue+"','Yet to be answered','"+phno+"',0)";
          st.executeUpdate(y);

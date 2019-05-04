@@ -15,15 +15,29 @@
     <body>
         <!--Database connectivity-->
          <%@include file = "database_connection.jsp"%> 
-         
+          <%!
+                String idd = "";
+                String status = "accept";
+            %>
+            
+            <%
+                    idd = request.getParameter("id");
+            %>
+            
+            <%  //Create the preparedstatement(s)
+                Statement fetchStatement = conn.createStatement();
+                String y = "update companysignup set status='"+status+"' where companyid='"+idd+"'";
+                fetchStatement.executeUpdate(y);
+            %>
          <!--Save msg and date in database for approved compines--> 
             <%
                 String msg = request.getParameter("myText");
                 String companyid = request.getParameter("id");
                 String date = request.getParameter("date");
-                Statement fetchStatement = conn.createStatement();
+                fetchStatement = conn.createStatement();
                 String z = "insert into approved_comp value(null,'"+msg+"','"+companyid+"','"+date+"')";
                 fetchStatement.executeUpdate(z);
+                out.print("<script>window.close();</script>");
              %>
     </body>
 </html>

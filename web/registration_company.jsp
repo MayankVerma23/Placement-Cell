@@ -91,7 +91,7 @@
         </div>
         <div class="box">
 
-            <form action="companysignup" method="post" onsubmit="return checkpassword()" autocomplete="on">
+            <form action="companysignup" method="post" onsubmit="return checkpassword()">
                 <input class="text" type="text" name="name" placeholder="Company Name" required>  
                 <input class="text" type="email" name="email" placeholder="Company Email" required>
                 <input class="text" type="text" name="phoneno" placeholder="Contact No." required>

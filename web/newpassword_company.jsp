@@ -10,7 +10,7 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>JSP Page</title>
-    
+    </head>
     
     <style>
         body
@@ -93,79 +93,17 @@
             border-radius:5px;
             }
     </style>
-     <script>
-           
-	function checkpassword()
-	{
-		password=document.getElementById("t1").value;
-		length=document.getElementById("t1").value.length;
-		var flag_number=0;
-		var flag_lowercase=0;
-		var flag_upercase=0;
-		for(i=0;i<length;i++)
-		 {
-			if(password.charAt(i)>=0&&password.charAt(i)<=9)
-			{
-				flag_number=flag_number+1;
-			}
-			if(password.charAt(i)>='a'&&password.charAt(i)<='z')
-			{
-				flag_lowercase=flag_lowercase+1;
-			}
-			if(password.charAt(i)>='A'&&password.charAt(i)<='Z')
-			{
-				flag_upercase=flag_upercase+1;
-			}
-		}
-		if(length<8)
-		{
-                    alert("Your password must be at least 8 characters long.");
-		    return false;
-		} 
-                else if(flag_number===0)
-		{
-                    alert("Your password must contain at least one digit .");
-	            return false;	
-                }
-		else if(flag_lowercase===0)
-		{
-                    alert("Your password must contain at least a letter in lower case .");
-	            return false;	
-                }
-                else if(flag_upercase===0)
-		{
-                    alert("Your password must contain at least a letter in uper case .");
-	            return false;	
-                }
-               
-                else
-                {
-                   var a=(document.getElementById("t1").value);
-                   var b=(document.getElementById("t2").value);
-                   if(a!==b){
-                    alert("pass not match");
-                     return false;}
-                   else{
-                    alert("pass match");
-                     return true;}
-                
-                }	
-	}
 
-  
-
-</script>
-    </head>
     <body>
         <div class="box">
         <form action="newpassword_company_update.jsp">
             <h2>SET NEW PASSWORD</h2>
             <div class="inputBox">
-                   <input type="text" name="new_pass" id="t1" required>
+                   <input type="text" name="new_pass" required>
                    <label>NEW PASSWORD</label>
                </div>
                 <div class="inputBox">
-                   <input type="text" name="confirm_pass" id="t2" required>
+                   <input type="text" name="confirm_pass" required>
                    <label>CONFIRM PASSWORD</label>
                </div>
             <input type="submit"  value="Submit">

@@ -14,27 +14,28 @@
     <head>
         <title id="title">STUDENT_INFORMATION</title>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
-        <link rel="stylesheet" href="loginsignup.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
         <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
       
-        
         <script>
-            function changeprofile1()
-                {
-                    var r = confirm("R U SURE!! U WANT CHANGES IN PROFILE");
-                       
-                        if (r == true) 
-                        {
-      window.open('profile_student_1.jsp','popUpWindow','height=500,width=400,left=100,top=100,resizable=yes,scrollbars=yes,toolbar=yes,menubar=no,location=no,directories=no, status=yes');
-         }
+            function changeprofile1(){
+                    var r = confirm("R U SURE!! U WANT CHANGES IN PROFILE");     
+                    if (r == true) {
+                    window.open('profile_student_1.jsp','popUpWindow','height=500,width=400,left=100,top=100,resizable=yes,scrollbars=yes,toolbar=yes,menubar=no,location=no,directories=no, status=yes');
+                    }
               }
         </script>
+        
     </head>
     
-    <body >
+    <body>
+        
+        <!--Start of Navbar Section-->
+        <%@include file = "header_student.jsp"%>
+        <!--End of Navbar Section-->
+        
+        
         <%@include file = "pic.jsp"%>
           <%!String stu_roll1="",sturoll="",stuname="",stuemail="",studegree="",stuphno="",stugender="",stupass="";%>
           

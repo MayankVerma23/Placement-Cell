@@ -36,29 +36,17 @@
                 text-align: center;
             }
             
-            .navbar
-            {
-                background-color: #4379C0;
-                border-color: #4353C0;
-            }
-            .nav_links{
-                color:white;
-            }
-            .nav_links:hover{
-                color: black;
-            }  
-            section{
-                margin-top: 10px;
-            }
         </style>
-        
-       
-  
-  
-       
-        
+ 
     </head>
     <body>
+        
+        <%@include file = "database_connection.jsp"%>
+        
+        <!--Start of Navbar Section-->
+        <%@include file = "header_student.jsp"%>
+        <!--End of Navbar Section-->
+        
        <section> 
             <table>
                 <tr>
@@ -70,32 +58,29 @@
                    
                </tr>
                 
-                        <%  
-       HttpSession hs=request.getSession();
-       String stu_roll1=hs.getAttribute("stu_roll").toString();
-                            
-               Class.forName("com.mysql.jdbc.Driver");
-        Connection con=DriverManager.getConnection("jdbc:mysql://Localhost/placementcell","root","");
+                <%  
+                HttpSession hs=request.getSession();
+                String stu_roll1=hs.getAttribute("stu_roll").toString();
 
-        String fetchQuery = "select * from interestedstudents where student_rollno='"+stu_roll1+"'";
-        Statement fetchStatement = con.createStatement();
-         ResultSet rs = fetchStatement.executeQuery(fetchQuery);
-         while(rs.next()){
-                              %> 
+                Class.forName("com.mysql.jdbc.Driver");
+                Connection con=DriverManager.getConnection("jdbc:mysql://Localhost/placementcell","root","");
 
-   <tr>
-    
-     <td><%=rs.getString("company_name")%></td>                              
-    <td><%=rs.getString("id")%></td>
-    <td><%=rs.getString("student_name")%></td>
-    <td><%=rs.getString("student_rollno")%></td>
-       <td><%=rs.getString("status")%></td>
-    
-    
- </tr>
-                                       
-      <% } %>
+                String fetchQuery = "select * from interestedstudents where student_rollno='"+stu_roll1+"'";
+                Statement fetchStatement = con.createStatement();
+                ResultSet rs = fetchStatement.executeQuery(fetchQuery);
+                while(rs.next()){
+                %> 
+
+                <tr>
+                    <td><%=rs.getString("company_name")%></td>                              
+                    <td><%=rs.getString("id")%></td>
+                    <td><%=rs.getString("student_name")%></td>
+                    <td><%=rs.getString("student_rollno")%></td>
+                    <td><%=rs.getString("status")%></td>
+                </tr>
+
+                <% } %>
             </table>
         </section> 
-
+    </body>
 </html>

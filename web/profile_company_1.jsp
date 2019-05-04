@@ -16,36 +16,35 @@
     </head>
     
     <body>
-<%!String com_name="",com_email="",com_phno="",com_location="",com_Password="",com_status="",com_email1="";%>
+        <%@include file = "database_connection.jsp"%>  
+
+        
+        <%!String com_name="",com_email="",com_phno="",com_location="",com_Password="",com_status="",com_email1="";%>
           
        <%   
-            
-           
-            HttpSession hs=request.getSession();
-            
+               HttpSession hs=request.getSession();
 
-               
                com_email=hs.getAttribute("company_email").toString();
                Class.forName("com.mysql.jdbc.Driver");
-               Connection conn = DriverManager.getConnection("jdbc:mysql://localhost/placementcell", "root", "");
+               conn = DriverManager.getConnection("jdbc:mysql://localhost/placementcell", "root", "");
                Statement stmt=conn.createStatement();
                String x="select * from companysignup where companyemail='"+com_email+"'";
                ResultSet rs=stmt.executeQuery(x);
                while(rs.next())
-           {      
-              com_name=rs.getString("companyname");
-              com_email1=rs.getString("companyemail");
-              com_phno=rs.getString("companyphno");
-              com_location=rs.getString("companylocation");
-              com_status=rs.getString("status");
-           }
+                {      
+                   com_name=rs.getString("companyname");
+                   com_email1=rs.getString("companyemail");
+                   com_phno=rs.getString("companyphno");
+                   com_location=rs.getString("companylocation");
+                   com_status=rs.getString("status");
+                }
           
        %>
              
                
        <form action="companyprofile" method="post">
-                  <div>
-<table style="margin-top:50px;margin-left:20px">
+        <div>
+        <table style="margin-top:50px;margin-left:20px">
 		<tr></tr><tr></tr><tr></tr><tr>
 			<td></td><td></td>
 			<th style="text-align:center"><u><b><h2>UPDATE CHANGES FORM<h2></u></b><th>
@@ -78,12 +77,6 @@
 		</tr>
 	</table>
        </div>
-       </form>
- 
- 
-
-       
-              
-            
+       </form>  
     </body>
 </html>

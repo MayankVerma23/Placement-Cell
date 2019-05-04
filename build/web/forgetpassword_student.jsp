@@ -27,7 +27,7 @@
     <body background="background_images/bg1.png">
         <div>
         
-        <form action="sendingOTP_student.jsp" method="post" autocomplete="off">
+        <form action="sendingOTP_student.jsp" method="post">
             
             <label><h1>Forget Password</h1></label><br>
             <label style="margin-top:8%;margin-right:20px">Enter Email</label>

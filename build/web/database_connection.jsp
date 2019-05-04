@@ -15,7 +15,7 @@
         <title>Database Connection</title>
     </head>
     <body>
-   <% Class.forName("com.mysql.jdbc.Driver");
-                    Connection conn = DriverManager.getConnection("jdbc:mysql://localhost/placementcell", "root", "");%>
+            <% Class.forName("com.mysql.jdbc.Driver");
+            Connection conn = DriverManager.getConnection("jdbc:mysql://localhost/placementcell", "root", "");%>
     </body>
 </html>

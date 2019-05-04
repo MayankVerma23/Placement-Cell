@@ -19,23 +19,24 @@
         <%
          String name1=request.getParameter("name");
          String collname=request.getParameter("coll");
-          String coll_roll1=request.getParameter("coll_roll");
+         String coll_roll1=request.getParameter("coll_roll");
+         String email=request.getParameter("email");
          String coursename =request.getParameter("course");
          String branchname =request.getParameter("branch");
          String backlog1 =request.getParameter("backlog");
          String passyear1 =request.getParameter("passyear");
          String percent1 =request.getParameter("12");
          String percent2 =request.getParameter("degree_per");
-         String password =request.getParameter("pass");
+         
                  
          try{
          Class.forName("com.mysql.jdbc.Driver");
          Connection con=DriverManager.getConnection("jdbc:mysql://Localhost/placementcell","root","");
          Statement stmt=con.createStatement();
           
-              String y="insert into offcampus_table values(null,'"+name1+"','"+collname+"','"+coll_roll1+"','"+coursename+"','"+branchname+"','"+backlog1+"','"+passyear1+"','"+percent1+"','"+percent2+"','"+password+"')";
+              String y="insert into offcampus_table values(null,'"+name1+"','"+collname+"','"+coll_roll1+"','"+email+"','"+coursename+"','"+branchname+"','"+backlog1+"','"+passyear1+"','"+percent1+"','"+percent2+"')";
                 stmt.executeUpdate(y);
-                response.sendRedirect("index.jsp");
+                response.sendRedirect("https://template0706.000webhostapp.com/placementCell/offcampus_student_mail.php?email="+email+"&&name="+name1+"");
             
             
         }

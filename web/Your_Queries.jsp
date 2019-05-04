@@ -23,7 +23,6 @@
             
             td
             {
-                
                 padding : 20px;
                 width : 100px;
                 height : 50px;
@@ -34,23 +33,6 @@
                 background-color: #4CAF50;
                 color: white;
                 text-align: left;
-            }
-            .navbar{
-            background-color: #E9967A;
-            border-color: #E9967A;
-           
-            }
-            .nav_links{
-                color:white;
-            }
-            .nav_links:hover{
-                color: black;
-            }  
-            section{
-                margin-top: 10px;
-              
-                 margin-right: 400px;
-                    margin-left:400px;
             }
             
             .hover tr:hover{
@@ -78,30 +60,12 @@
     
     </head>
     <body>
-        <%@include file = "database_connection.jsp"%>
-        <div class="container"></div>
-        <section>
-            <div class="row">
-                <h1 style="float:left;padding-left:20px;">Placement<br>Cell</h1>
-                <a href="#"><h4 style="float:right;padding-right:20px;">Logout</h4></a>
-            </div>
-        </section>    
-
-        <section> 
-            <%@include file = "sliding_text.jsp"%>
-        </section> 
-
-        <section> 
-            <nav class="navbar">
-                    <ul class="nav navbar-nav">
-                        <li><a href="profile.jsp" class="nav_links">Complete Info</a></li>
-                        <li><a href="placement_tpo.jsp" class="nav_links">New Company Request</a></li>
-                        <li><a href="approved_table.jsp" class="nav_links">Approved Compnies</a></li>
-                        <li><a href="declined_table.jsp" class="nav_links">Declined Compnies</a></li>
-                        <li><a href="Your_Queries.jsp" class="nav_links"><i class="fas fa-envelope"></i>  Messages</a></li>
-                                </ul>
-            </nav>
-        </section>
+        <%@include file = "database_connection.jsp"%>  
+        
+        <!--Start of Navbar Section-->
+            <%@include file = "header_tpo.jsp"%>
+        <!--End of Navbar Section-->
+        
         <%! String name="";
             String email="";
             String subject=""; 
@@ -111,62 +75,60 @@
         <section> 
             <table class="hover">
                 <tr>
-                 
-                    
-                    <th>Name</th>
-                    
+                    <th>Name</th> 
                     <th>Subject</th>
                     <th>Email</th>
-                    <th>       </th>
+                    <th></th>
                 </tr>
         
         
         <%  
           try{
-           String stud="student";
-         Class.forName("com.mysql.jdbc.Driver");
-         Connection con=(Connection)DriverManager.getConnection("jdbc:mysql://localhost/placementcell","root","");
-         Statement st=con.createStatement();
-         String x1="Select * from queries where status='0'";
+            String stud="student";
+            Class.forName("com.mysql.jdbc.Driver");
+            Connection con=(Connection)DriverManager.getConnection("jdbc:mysql://localhost/placementcell","root","");
+            Statement st=con.createStatement();
+            String x1="Select * from queries where status='0'";
         
-         ResultSet rs=st.executeQuery(x1);
-         while(rs.next())
-         {
-           id=rs.getString("ID");
-           name=rs.getString("Name");
-           email=rs.getString("Email");
-           subject=rs.getString("Subject");
-           design=rs.getString("Designation");
-             %>
-                <tr>            
-                  
-                    <td><%if(design.equals("student"))
-                   {
-                       
-                       %>
-                       <i class="fas fa-user-graduate"></i>
-                       <%
-                            
-                     }else{
+            ResultSet rs=st.executeQuery(x1);
+                while(rs.next())
+                {
+                  id=rs.getString("ID");
+                  name=rs.getString("Name");
+                  email=rs.getString("Email");
+                  subject=rs.getString("Subject");
+                  design=rs.getString("Designation");
+                %>
+                    <tr>            
+                        <td>
+                        <%
+                            if(design.equals("student"))
+                            { 
                             %>
-                            <i class="fas fa-building"></i>
-                       <%
-                         }
-                       %><%=name%></td>
-                   
-                   <td><%=subject%></td>
-                   <td><%=email%></td>
-                   <td> <a href="tickets.jsp?id=<%=id%>"><i class="far fa-comment-dots fa-2x"></i></a></td>
-                </tr>
+                                <i class="fas fa-user-graduate"></i>
+                           <%       
+                            }
+                            else
+                            {
+                            %>
+                                <i class="fas fa-building"></i>
+                            <%
+                            }
+                            %>
+                            <%=name%></td>
+
+                        <td><%=subject%></td>
+                        <td><%=email%></td>
+                        <td> <a href="tickets.jsp?id=<%=id%>"><i class="far fa-comment-dots fa-2x"></i></a></td>
+                    </tr>
                 <%
-          
-            }
-         
+                }
+            
             }
             catch(Exception ex)
-                {
+            {
                 out.println(ex);
-                }
+            }
             %>
         
     </body>

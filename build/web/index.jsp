@@ -29,12 +29,12 @@
         <%--logo crousel->
         <section style="margin-top:10px">
                     <%@include file = "logocrousel.jsp"%>
-        </section>--%>
+        </section>
 
         <!--GALLERY-->
         <section style="margin-top:10px">
                     <%@include file = "gallery.jsp"%>
-        </section>
+        </section>--%>
 
         <!--FOOTER-->
          <section>

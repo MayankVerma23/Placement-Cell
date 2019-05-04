@@ -36,23 +36,15 @@
                 text-align: center;
             }
             
-            .navbar
-            {
-                background-color: #4379C0;
-                border-color: #4353C0;
-            }
-            .nav_links{
-                color:white;
-            }
-            .nav_links:hover{
-                color: black;
-            }  
-            section{
-                margin-top: 10px;
-            }
         </style>
     </head>
     <body>
+        <%@include file = "database_connection.jsp"%>  
+
+        <!--Start of Navbar Section-->
+        <%@include file = "header_company.jsp"%>
+        <!--End of Navbar Section-->
+        
        <section> 
             <table>
                 <tr>
@@ -61,29 +53,27 @@
                     <th>STUDENT ROLL NO.</th>   
                </tr>
                 
-                        <%  
-       HttpSession hs=request.getSession();
-       String comp_name=hs.getAttribute("company_name").toString();
-                            
-               Class.forName("com.mysql.jdbc.Driver");
-        Connection con=DriverManager.getConnection("jdbc:mysql://Localhost/placementcell","root","");
+                    <%  
+                    HttpSession hs=request.getSession();
+                    String comp_name=hs.getAttribute("company_name").toString();
 
-          String fetchQuery = "select * from interestedstudents where company_name='"+comp_name+"'";
-        Statement fetchStatement = con.createStatement();
-         ResultSet rs = fetchStatement.executeQuery(fetchQuery);
-         while(rs.next()){
-                              %> 
+                    Class.forName("com.mysql.jdbc.Driver");
+                    Connection con=DriverManager.getConnection("jdbc:mysql://Localhost/placementcell","root","");
 
-   <tr>
-    
-                                   
-    <td><%=rs.getString("id")%></td>
-    <td><%=rs.getString("student_name")%></td>
-    <td><%=rs.getString("student_rollno")%></td>
-    
- </tr>
+                    String fetchQuery = "select * from interestedstudents where company_name='"+comp_name+"'";
+                    Statement fetchStatement = con.createStatement();
+                    ResultSet rs = fetchStatement.executeQuery(fetchQuery);
+                    while(rs.next()){
+                    %> 
+
+                <tr>                 
+                    <td><%=rs.getString("id")%></td>
+                    <td><%=rs.getString("student_name")%></td>
+                    <td><%=rs.getString("student_rollno")%></td>
+                </tr>
                                        
-      <% } %>
+                <% } %>
             </table>
-        </section> 
-    </html>
+        </section>
+    </body>
+</html>

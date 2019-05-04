@@ -47,66 +47,58 @@
            }
        %>
        <form action="studentprofile">
-                  <div>
-<table style="margin-top:50px;margin-left:20px">
-		<tr></tr><tr></tr><tr></tr><tr>
-			<td></td><td></td>
+            <div>
+                <table style="margin-top:50px;margin-left:20px">
+                    <tr>
 			<th style="text-align:center"><u><b><h2>UPDATE CHANGES FORM<h2></u></b><th>
-		</tr>
-		<tr>
+                    </tr>
+		
+                    <tr>
 			<td></td><td></td>
 			<td>Enter Name:</td>
 			<td><input type="text" value=<%=stuname%> name="t1"> </td>
-		</tr>
-		<tr>
+                    </tr>
+		
+                    <tr>
 			<td></td><td></td>
 			<td>Enter ROLL NO:</td>
 			<td><input type="text" value=<%=sturoll%> name="t2"></td>
-		</tr>
-		<tr>
+                    </tr>
+		
+                    <tr>
 			<td></td><td></td>
 			<td>Enter Email:</td>
 			<td><input type="text" value=<%=stuemail%> name="t3"> </td>
-		</tr>
-		<tr>
+                    </tr>
+		
+                    <tr>
 			<td></td><td></td>
 			<td>Enter PhoneNo.:</td>
 			<td><input type="text" value=<%=stuphno%> name="t4"> </td>
-		</tr>
-                <tr>
+		
+                    </tr>
+                
+                    <tr>
 			<td></td><td></td>
 			<td>Enter Degree:</td>
 			<td><input type="text" value=<%=studegree%> name="t5"> </td>
-		</tr>
-                <tr>
+                    </tr>
+                
+                    <tr>
 			<td></td><td></td>
 			<td>Enter your gender:</td>
 			<td><input type="text" value=<%=stugender%> name="t6"> </td>
-		</tr>
+                    </tr>
 		
-		<tr>
+		
+                    <tr>
 			<td></td><td></td>
 			<td><input type="submit" value="Submit"></td>
 			<td></td>
-		</tr>
-	</table>
-       </div>
+                    </tr>
+                </table>
+            </div>
        </form>
  
- 
-       <!--  <form action="studentprofile">
-         Name:<input type="text" value=<%=stuname%> name="t1"><br>
-         rollno:<input type="text" value=<%=sturoll%> name="t2"><br>
-         email:<input type="text" value=<%=stuemail%> name="t3"><br>
-          phno:<input type="text" value=<%=stuphno%> name="t4"><br>
-         degree:<input type="text" value=<%=studegree%> name="t5"><br>
-         gender:<input type="text" value=<%=stugender%> name="t6"><br>
-         <input type="submit" value="submit updates">
-         </form>   -->
-    
-
-              
-           
-       
     </body>
 </html>

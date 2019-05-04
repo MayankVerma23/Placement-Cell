@@ -36,33 +36,28 @@ public class studentprofile extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
-          String a=request.getParameter("t1");
-           String b=request.getParameter("t2"); 
-           String c=request.getParameter("t3");
-           String d=request.getParameter("t4"); 
-           String e=request.getParameter("t5");
+            String a=request.getParameter("t1");
+            String b=request.getParameter("t2"); 
+            String c=request.getParameter("t3");
+            String d=request.getParameter("t4"); 
+            String e=request.getParameter("t5");
             String g=request.getParameter("t6");
             HttpSession hs=request.getSession();
             String f=hs.getAttribute("stu_roll").toString();
             try
-        {
-          Class.forName("com.mysql.jdbc.Driver");
-          Connection conn=(Connection) DriverManager.getConnection("jdbc:mysql://localhost/placementcell","root","");
-          Statement stm=conn.createStatement();
-          String str="update studentsignup set studentname='"+a+"', studentrollno='"+b+"', studentemail='"+c+"',studentdegree='"+d+"',studentphno='"+e+"',studentgender='"+g+"' where studentrollno='"+f+"'";
-          stm.executeUpdate(str);
-          //response.sendRedirect("home_student.jsp");
-         
-          
-        }
-        catch(Exception ex)
-        {
-            out.print(ex);
-        } 
-            
-          
-        
-    
+            {
+                Class.forName("com.mysql.jdbc.Driver");
+                Connection conn=(Connection) DriverManager.getConnection("jdbc:mysql://localhost/placementcell","root","");
+                Statement stm=conn.createStatement();
+                String str="update studentsignup set studentname='"+a+"', studentrollno='"+b+"', studentemail='"+c+"',studentdegree='"+d+"',studentphno='"+e+"',studentgender='"+g+"' where studentrollno='"+f+"'";
+                stm.executeUpdate(str);
+ 
+            }
+            catch(Exception ex)
+            {
+                out.print(ex);
+            } 
+
         }
     }
 

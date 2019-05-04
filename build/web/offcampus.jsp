@@ -19,7 +19,7 @@ body
     margin:0;
     padding:0;
     font-family:sans-serif;
-    background:url(balls3.jpg);
+    background:url(background_images/balls3.jpg);
     background-size:cover;
 }
 .box
@@ -98,7 +98,7 @@ body
     </head>
     <body>
        <div class="box">
-           <h2>CHANGE PASSWORD</h2>
+           <h2>Apply For Off Campus Placement</h2>
             <form action="offcampus_signup.jsp" method="post">
                <div class="inputBox">
                    <input type="text" name="name" required="">
@@ -111,6 +111,10 @@ body
                 <div class="inputBox">
                    <input type="text" name="coll_roll" required="">
                    <label>COLLEGE ROLL NO.</label>
+               </div>
+                <div class="inputBox">
+                   <input type="text" name="email" required="">
+                   <label>Email</label>
                </div>
                 <div class="inputBox">
                    <input type="text" name="course" required="">
@@ -136,10 +140,7 @@ body
                    <input type="text" name="degree_per" required="">
                    <label>DEGREE %AGE</label>
                </div>
-                <div class="inputBox">
-                   <input type="password" name="pass" required="">
-                   <label>PASSWORD</label>
-               </div>
+                
                 
                <input type="submit" name="" value="Submit">
                </form>

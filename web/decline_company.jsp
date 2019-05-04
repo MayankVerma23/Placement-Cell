@@ -13,26 +13,13 @@
     </head>
     
     <body>
-        <%@include file = "database_connection.jsp"%> 
+        <!--Database connectivity-->
+        <%@include file = "database_connection.jsp"%>  
         
-        <%!String idd="";
-        String status = "reject";
-        %>
-        <%
-                idd = request.getParameter("companyid");
-                
-        %>
-         
-        <% 
-            Statement  fetchStatement = conn.createStatement();
-            String y = "update companysignup set status='"+status+"' where companyid='"+idd+"'";
-            fetchStatement.executeUpdate(y);
-            %>
-        
-        
-            <form action="decline_msg.jsp?id=<%=request.getParameter("companyid")%>" method="POST">
-            <input type="text" name="myText" id="myText">
-            <input type="Submit" value="Click to Submit">
+        <!--Msg form for declined compines--> 
+           <form action="decline_msg.jsp?id=<%=request.getParameter("companyid")%>" method="POST">
+            <input type="text" name="myText" id="myText" required>
+            <input type="submit" value="click to submit">  
         </form>       
     </body>
 </html>

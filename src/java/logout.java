@@ -40,37 +40,39 @@ public class logout extends HttpServlet {
            
             
             if(b.equals("student")){ 
-            hs.setAttribute("stu_roll", null);
-            hs.removeAttribute("stu_roll");
-            hs.setAttribute("student", null);
-            hs.removeAttribute("student");
-            hs.invalidate();
-            response.sendRedirect("index.jsp");   
-        }
-             else if(b.equals("tpo"))
-    {       hs.setAttribute("tpo_name", null);
-            hs.removeAttribute("tpo_name");
-            hs.setAttribute("tpo", null);
-            hs.removeAttribute("tpo");
-            hs.invalidate();
-            response.sendRedirect("index.jsp");   
-    }
-             else if(b.equals("company")){
-              hs.setAttribute("company_name", null);
-            hs.removeAttribute("company_name");
-            hs.setAttribute("company_email", null);
-            hs.removeAttribute("company_email");
-            hs.setAttribute("company_phno", null);
-            hs.removeAttribute("company_phno");
-            hs.setAttribute("company_location", null);
-            hs.removeAttribute("company_location");
-            hs.setAttribute("company_status", null);
-            hs.removeAttribute("company_status");
-            hs.setAttribute("company", null);
-            hs.removeAttribute("company");
-            hs.invalidate();
-            response.sendRedirect("index.jsp"); 
-             
+                hs.setAttribute("stu_roll", null);
+                hs.removeAttribute("stu_roll");
+                hs.setAttribute("student", null);
+                hs.removeAttribute("student");
+                hs.invalidate();
+                response.sendRedirect("index.jsp");   
+            }
+            
+            else if(b.equals("tpo"))
+            {       
+                hs.setAttribute("tpo_name", null);
+                hs.removeAttribute("tpo_name");
+                hs.setAttribute("tpo", null);
+                hs.removeAttribute("tpo");
+                hs.invalidate();
+                response.sendRedirect("index.jsp");   
+            }
+            
+            else if(b.equals("company")){
+                hs.setAttribute("company_name", null);
+                hs.removeAttribute("company_name");
+                hs.setAttribute("company_email", null);
+                hs.removeAttribute("company_email");
+                hs.setAttribute("company_phno", null);
+                hs.removeAttribute("company_phno");
+                hs.setAttribute("company_location", null);
+                hs.removeAttribute("company_location");
+                hs.setAttribute("company_status", null);
+                hs.removeAttribute("company_status");
+                hs.setAttribute("company", null);
+                hs.removeAttribute("company");
+                hs.invalidate();
+                response.sendRedirect("index.jsp"); 
              }
             
         }

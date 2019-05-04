@@ -16,16 +16,22 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
         <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
       
-        
+        <style>
+            #drop{
+                background-color: black;
+            }
+        </style>
         <script>
            
 	function checkpassword()
 	{
+                
 		password=document.getElementById("t1").value;
 		length=document.getElementById("t1").value.length;
 		var flag_number=0;
 		var flag_lowercase=0;
 		var flag_upercase=0;
+                var a=document.getElementById("t3").value;
 		for(i=0;i<length;i++)
 		 {
 			if(password.charAt(i)>=0&&password.charAt(i)<=9)
@@ -61,6 +67,24 @@
                     alert("Your password must contain at least a letter in uper case .");
 	            return false;	
                 }
+                  
+                 else if(isNaN(a)){
+                      alert("Eneter only numeric value in Phoneno");
+                      return false;
+                  }
+                  else if(a.length<10){
+                      alert("Phoneno must be 10 digit");
+                      return false;
+                  }
+                    else if(a.length>10){
+                      alert("Phoneno must be 10 digit");
+                      return false;
+                  }
+                    else if((a.charAt(0)!=9)&&(a.charAt(0)!=8)&&(a.charAt(0)!=7)&&(a.charAt(0)!=6)){
+                      alert("Phone number must start with 9,8,7 and 6");
+                      return false;
+                  }
+    
                
                 else
                 {
@@ -70,7 +94,7 @@
                     alert("pass not match");
                      return false;}
                    else{
-                    alert("pass match");
+                     alert("pass  match");
                      return true;}
                 
                 }	
@@ -95,7 +119,7 @@
                 <input class="text" type="text" name="roll" placeholder="Roll"  required>
                 <input class="text" type="text" name="email" placeholder="Email"    required>   
                
-                <select class="text" name="degree" required>
+                <select id="drop" class="text" name="degree" required>
                 <option value="">DEGREE</option>
                 <option value="B.tech">B.tech</option>
                 <option value="MCA">MCA</option>
@@ -104,7 +128,9 @@
                 </select>
      
                 
-                <input class="text" type="text" name="phoneno" placeholder="phoneno"  required><br>
+                <input class="text" type="text" name="phoneno" placeholder="phoneno"  id="t3" required>
+                
+                <br>
    
                 <div class="radio">
                 <label><input type="radio" name="gender" value="Male" required>Male</label>
@@ -112,15 +138,15 @@
                 <div class="radio">
                 <label><input type="radio" name="gender" value="Female">Female</label>
                 </div>
-                <select class="text" name="branch" required>
+                <select id="drop" class="text" name="branch" required>
                 <option value="">Branch</option>
                 <option value="CSE">CSE</option>
                 <option value="MCE">MCE</option>
                 <option value="CIVIL">CIVIL</option>
                 <option value="ECE">ECE</option>
                 </select>
-                 <select class="text" name="batch" required>
-                <option value="">batch</option>
+                 <select id="drop" class="text" name="batch" required>
+                <option value="">Batch</option>
                 <option value="2013-2017">2013-2017</option>
                 <option value="2014-2018">2014-2018</option>
                 <option value="2015-2019">2015-2019</option>

@@ -37,23 +37,15 @@
                 text-align: center;
             }
             
-            .navbar
-            {
-                background-color: #4379C0;
-                border-color: #4353C0;
-            }
-            .nav_links{
-                color:white;
-            }
-            .nav_links:hover{
-                color: black;
-            }  
-            section{
-                margin-top: 10px;
-            }
         </style>
     </head>
     <body>
+        <%@include file = "database_connection.jsp"%>  
+        
+        <!--Start of Navbar Section-->
+            <%@include file = "header_tpo.jsp"%>
+        <!--End of Navbar Section-->
+        
        <section> 
             <table>
                 <tr>
@@ -62,31 +54,28 @@
                     <th>STUDENT NAME</th>
                     <th>STUDENT ROLL NO.</th>
                     
-               </tr>
+                </tr>
                 
-                        <%  
-                  String status="placed";
+                    <%  
+                    String status="placed";
                      
-     Class.forName("com.mysql.jdbc.Driver");
-        Connection con=DriverManager.getConnection("jdbc:mysql://Localhost/placementcell","root","");
+                    Class.forName("com.mysql.jdbc.Driver");
+                    Connection con=DriverManager.getConnection("jdbc:mysql://Localhost/placementcell","root","");
 
-          String fetchQuery = "select * from interestedstudents where status='"+status+"'";
-        Statement fetchStatement = con.createStatement();
-         ResultSet rs = fetchStatement.executeQuery(fetchQuery);
-         while(rs.next()){
-                              %> 
+                    String fetchQuery = "select * from interestedstudents where status='"+status+"'";
+                    Statement fetchStatement = con.createStatement();
+                    ResultSet rs = fetchStatement.executeQuery(fetchQuery);
+                    while(rs.next()){
+                    %> 
 
-   <tr>
-    
-     <td><%=rs.getString("company_name")%></td>                              
-    <td><%=rs.getString("id")%></td>
-    <td><%=rs.getString("student_name")%></td>
-    <td><%=rs.getString("student_rollno")%></td>
-    
-    
- </tr>
+                        <tr>
+                            <td><%=rs.getString("company_name")%></td>                              
+                            <td><%=rs.getString("id")%></td>
+                            <td><%=rs.getString("student_name")%></td>
+                            <td><%=rs.getString("student_rollno")%></td>
+                        </tr>
                                        
-      <% } %>
+                    <% } %>
             </table>
         </section> 
 

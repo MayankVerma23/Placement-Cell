@@ -36,36 +36,22 @@
                 text-align: center;
             }
             
-            .navbar
-            {
-                background-color: #4379C0;
-                border-color: #4353C0;
-            }
-            .nav_links{
-                color:white;
-            }
-            .nav_links:hover{
-                color: black;
-            }  
-            section{
-                margin-top: 10px;
-            }
         </style>
         
           <script>
-            function unplaced(x)
-                {
-      
-    window.location.href = "unplaced_receive.jsp?studentid="+x;
-
+            function unplaced(x){
+                window.location.href = "unplaced_receive.jsp?studentid="+x;
            }
-       
-  
-  
         </script>
         
     </head>
     <body>
+        <%@include file = "database_connection.jsp"%>  
+
+        <!--Start of Navbar Section-->
+        <%@include file = "header_company.jsp"%>
+        <!--End of Navbar Section-->
+        
        <section> 
             <table>
                 <tr>
@@ -75,32 +61,29 @@
                     <th>CHANGE RESULT ?</th>
                </tr>
                 
-                        <%  
-                            String status="placed";
-       HttpSession hs=request.getSession();
-       String comp_name=hs.getAttribute("company_name").toString();
-                            
-               Class.forName("com.mysql.jdbc.Driver");
-        Connection con=DriverManager.getConnection("jdbc:mysql://Localhost/placementcell","root","");
+                <%  
+                    String status="placed";
+                    HttpSession hs=request.getSession();
+                    String comp_name=hs.getAttribute("company_name").toString();
 
-          String fetchQuery = "select * from interestedstudents where company_name='"+comp_name+"' and status='"+status+"'";
-        Statement fetchStatement = con.createStatement();
-         ResultSet rs = fetchStatement.executeQuery(fetchQuery);
-         while(rs.next()){
-                              %> 
+                    Class.forName("com.mysql.jdbc.Driver");
+                    Connection con=DriverManager.getConnection("jdbc:mysql://Localhost/placementcell","root","");
 
-   <tr>
-    
-                                   
-    <td><%=rs.getString("id")%></td>
-    <td><%=rs.getString("student_name")%></td>
-    <td><%=rs.getString("student_rollno")%></td>
-    <td><button class="btn btn-danger" onclick="unplaced(<%=rs.getString("id")%>)">reject</button></td>
-    
- </tr>
+                    String fetchQuery = "select * from interestedstudents where company_name='"+comp_name+"' and status='"+status+"'";
+                    Statement fetchStatement = con.createStatement();
+                    ResultSet rs = fetchStatement.executeQuery(fetchQuery);
+                    while(rs.next()){
+                 %> 
+
+                <tr>                               
+                    <td><%=rs.getString("id")%></td>
+                    <td><%=rs.getString("student_name")%></td>
+                    <td><%=rs.getString("student_rollno")%></td>
+                    <td><button class="btn btn-danger" onclick="unplaced(<%=rs.getString("id")%>)">reject</button></td>
+                </tr>
                                        
-      <% } %>
+                <% } %>
             </table>
         </section> 
-
+    </body>
 </html>

@@ -13,13 +13,31 @@
     </head>
     <body>
          <%@include file = "database_connection.jsp"%> 
-      <%
-          String msg = request.getParameter("myText");
-          String idd = request.getParameter("id");
+
+        <%!String idd="";
+        String status = "reject";
+               
+        %>
+        <%
+                idd = request.getParameter("companyid");
+                
+        %>
+        <% 
+            Statement  fetchStatement = conn.createStatement();
+            String y = "update companysignup set status='"+status+"' where companyid='"+idd+"'";
+            fetchStatement.executeUpdate(y);
+        %>
+        
+        
+        <%
+                String msg = request.getParameter("myText");
+                String idd = request.getParameter("id");
           
-             Statement fetchStatement = conn.createStatement();
-             String z = "insert into message value(null,'"+msg+"','"+idd+"')";
-             fetchStatement.executeUpdate(z);
-          %>
+                fetchStatement = conn.createStatement();
+                String z = "insert into message value(null,'"+msg+"','"+idd+"')";
+                fetchStatement.executeUpdate(z);
+                out.print("<script>window.close();</script>");
+        %>
+       
     </body>
 </html>

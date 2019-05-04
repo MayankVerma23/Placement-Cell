@@ -16,104 +16,98 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
-        <link rel="stylesheet" href="loginsignup.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
         <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
       
         
         <script>
             function changeprofile1()
-                {
+            {
                     var r = confirm("R U SURE!! U WANT CHANGES IN PROFILE");
-                       
-                        if (r == true) 
-                        {
-      window.open('profile_company_1.jsp','popUpWindow','height=500,width=400,left=100,top=100,resizable=yes,scrollbars=yes,toolbar=yes,menubar=no,location=no,directories=no, status=yes');
-         }
-              }
+                    if (r == true) {
+                        window.open('profile_company_1.jsp','popUpWindow','height=500,width=400,left=100,top=100,resizable=yes,scrollbars=yes,toolbar=yes,menubar=no,location=no,directories=no, status=yes');
+                    }
+            }
         </script>
+        
     </head>
     
     <body>
-         <%@include file = "logocomp.jsp"%>
-<%!String com_name="",com_email="",com_phno="",com_location="",com_Password="",com_status="",com_email1="";%>
+        <%@include file = "database_connection.jsp"%>  
+
+        <!--Start of Navbar Section-->
+        <%@include file = "header_company.jsp"%>
+        <!--End of Navbar Section-->
+        
+         <%--<%@include file = "logocomp.jsp"%>--%>
+            
+            <%!String com_name="",com_email="",com_phno="",com_location="",com_Password="",com_status="",com_email1="";%>
           
-       <%   
-            //  HttpSession hs=request.getSession();
+            <%   
+               HttpSession hs=request.getSession();
                com_email=hs.getAttribute("company_email").toString();
                Class.forName("com.mysql.jdbc.Driver");
-               Connection conn = DriverManager.getConnection("jdbc:mysql://localhost/placementcell", "root", "");
+               conn = DriverManager.getConnection("jdbc:mysql://localhost/placementcell", "root", "");
                Statement stmt=conn.createStatement();
                String x="select * from companysignup where companyemail='"+com_email+"'";
                ResultSet rs=stmt.executeQuery(x);
                while(rs.next())
-           {      
-              com_name=rs.getString("companyname");
-              com_email1=rs.getString("companyemail");
-              com_phno=rs.getString("companyphno");
-              com_location=rs.getString("companylocation");
-              com_status=rs.getString("status");
-           }
-       %>
+                {      
+                    com_name=rs.getString("companyname");
+                    com_email1=rs.getString("companyemail");
+                    com_phno=rs.getString("companyphno");
+                    com_location=rs.getString("companylocation");
+                    com_status=rs.getString("status");
+                }
+            %>
              
                
-         <%
-                 if(com_email.equals(com_email1)){
-               %>
- 
- 
+            <%
+                    if(com_email.equals(com_email1)){
+            %>
+            
+            <div style="text-align:right;">
+             <img src="pimages.jpg">
+            </div>
+            
+            <br>
+            
+            <form action=" " method="post" >
+            <table class="table table-hover">
 
-        <div style="text-align:right;">
-         <img src="pimages.jpg">
-       </div>
-        <br>
-         <form action=" " method="post" >
-             <table class="table table-hover">
+                <tr>
+                    <td>NAME</td>
+                    <td></td>
+                    <td><%=com_name%></td>
+                    </tr>
+                <tr>
+                    <td>EMAIL ID</td>
+                    <td></td>
+                    <td><%=com_email%></td>
+                </tr>
 
-<tr>
-<td>NAME</td>
-<td></td>
+                <tr>
+                    <td>PHONE NO.</td>
+                    <td></td>
+                    <td><%=com_phno%></td>
+                </tr>
 
-<td><%=com_name%></td>
-</tr>
-<tr>
-<td>EMAIL ID</td>
-<td></td>
-
-<td><%=com_email%></td>
-</tr>
-
-<tr>
-<td>PHONE NO.</td>
-
-<td></td>
-
-<td><%=com_phno%></td>
-</tr>
-
-<tr>
-<td>LOCATION</td>
-
-<td></td>
-
-<td><%=com_location%></td>
-</tr>
+                <tr>
+                    <td>LOCATION</td>
+                    <td></td>
+                    <td><%=com_location%></td>
+                </tr>
 
 
-<tr>
-<td>STATUS</td>
-
-<td></td>
-
-<td><%=com_status%></td>
-</tr>
-
-
-
-
-</table>
-<%}%>
-             <input type="button" value="UPDATE PROFILE" onclick="changeprofile1()"> 
+                <tr>
+                    <td>STATUS</td>
+                    <td></td>
+                    <td><%=com_status%></td>
+                </tr>
+                
+                </table>
+                <%}%>
+                <input type="button" value="UPDATE PROFILE" onclick="changeprofile1()"> 
             </form>
     </body>
 </html>

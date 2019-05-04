@@ -23,49 +23,15 @@
                 width : 200px;
                 height : 100px;
             }
-            .navbar{
-            background-color: #4379C0;
-            border-color: #4353C0;
-           
-            }
-            .nav_links{
-                color:white;
-            }
-            .nav_links:hover{
-                color: black;
-            }  
-            section{
-                margin-top: 10px;
-            }
+            
             </style>
     </head>
     <body>
          <%@include file = "database_connection.jsp"%>  
         
-        
-        <div class="container">
-            <div class="row">
-                <h1 style="float:left;padding-left:20px;">Placement<br>Cell</h1>
-                <a href="logout"><h4 style="float:right;padding-right:20px;">Logout</h4></a>
-            </div>
-            
-<section> 
-        <%@include file = "sliding_text.jsp"%>
-</section> 
-
- <!--NAVBAR-->
-        <section> 
-            <nav class="navbar">
-                <ul class="nav navbar-nav">
-                    <li><a href="profile_student.jsp" class="nav_links">Complete Info</a></li>
-                    <li><a href="placement_student.jsp" class="nav_links">Upcoming Compnies</a></li>
-                    <li><a href="contactf_stud.jsp" class="nav_links"><i class="fas fa-cog"></i>Contact Form</a></li>
-                    <li><a href="apply_job.jsp" class="nav_links">Apply Job</a></li>
-                    <li><a href="student_inbox.jsp" class="nav_links"><i class="fas fa-envelope"></i>Message</a></li>
-                    <li><a href="changepassword_student.jsp" class="nav_links">Change Password</a></li>
-                </ul>
-            </nav>
-        </section> 
+        <!--Start of Navbar Section-->
+        <%@include file = "header_student.jsp"%>
+        <!--End of Navbar Section-->  
 
         <section>
         <table>

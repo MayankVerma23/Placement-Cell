@@ -3,16 +3,13 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/F:/netbeams/Placement%20Cell/web/signup.jsp</file>
-            <file>file:/F:/netbeams/Placement%20Cell/web/login.jsp</file>
-            <file>file:/F:/netbeams/Placement%20Cell/web/company_response_2.jsp</file>
-            <file>file:/F:/netbeams/Placement%20Cell/web/home_company.jsp</file>
-            <file>file:/F:/netbeams/Placement%20Cell/web/participation_tpo.jsp</file>
-            <file>file:/F:/netbeams/Placement%20Cell/web/newpassword_company.jsp</file>
-            <file>file:/F:/netbeams/Placement%20Cell/web/newpassword_student.jsp</file>
+            <file>file:/F:/netbeams/Placement%20Cell/web/tpo_paper_uploaad.jsp</file>
+            <file>file:/F:/netbeams/Placement%20Cell/src/java/image_tpo.java</file>
+            <file>file:/F:/netbeams/Placement%20Cell/web/header_tpo.jsp</file>
+            <file>file:/F:/netbeams/Placement%20Cell/web/stu_company_paper.jsp</file>
+            <file>file:/F:/netbeams/Placement%20Cell/web/header_student.jsp</file>
+            <file>file:/F:/netbeams/Placement%20Cell/web/pic.jsp</file>
             <file>file:/F:/netbeams/Placement%20Cell/web/home_tpo.jsp</file>
-            <file>file:/F:/netbeams/Placement%20Cell/web/home_student.jsp</file>
-            <file>file:/F:/netbeams/Placement%20Cell/web/changepassword_company.jsp</file>
         </group>
     </open-files>
 </project-private>

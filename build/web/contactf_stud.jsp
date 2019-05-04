@@ -16,21 +16,7 @@
         <title>Home Student</title>
         
         <style>
-            .navbar{
-            background-color: #4379C0;
-            border-color: #4353C0;
-           
-            }
-            .nav_links{
-                color:white;
-            }
-            .nav_links:hover{
-                color: black;
-            }  
-            section{
-                margin-top: 10px;
-               
-            }
+
             textarea{
                   width: 100%;
                   height: 150px;
@@ -43,35 +29,23 @@
                    resize: none;
             }            
              h4{
-                   color: #008B8B;
-                   font-size: 1.5em;
-                   font-weight: bold;
-                   font-family: Arial, Helvetica, sans-serif;
-               }
-            
-            h1{
-                color:#6495ED;
-                font-weight: bold;
+                    color: #008B8B;
+                    font-size: 1.5em;
+                    font-weight: bold;
+                    font-family: Arial, Helvetica, sans-serif;
             }
-                           .form-submit-button {
-
+            
+            .form-submit-button {
                     background: #4379C0;
-
                     color: white;
-
                     border-style: outset;
-
                     border-color: #4379C0;
-
                     height: 50px;
-
                     width: 100px;
-
                     font: bold 15px arial, sans-serif;
-                    }
-                    .subject{
-                                          width: 100%;
-                
+            }
+            .subject{
+                   width: 100%;
                    padding: 12px 20px;
                    box-sizing: border-box;
                    border: 2px solid #ccc;
@@ -79,73 +53,38 @@
                    background-color: #f8f8f8;
                    font-size: 16px;
                    resize: none;
-                    }
+            }
             
         </style>
     </head>
     
     <body>
-         <%@include file = "database_connection.jsp"%>  
+            <%@include file = "database_connection.jsp"%>  
     
-    <div class="container">
-        
-        <!--TOP LOGOS--> 
-        <section>
-            <div class="row">
-                <h1 style="float:left;padding-left:20px;">Placement<br>Cell</h1>
-                <a href="logout"><h4 style="float:right;padding-right:20px;">Logout</h4></a>
+            <!--Start of Navbar Section-->
+            <%@include file = "header_student.jsp"%>
+            <!--End of Navbar Section-->
+
+     
+            <%!String roll =""; %>
+
+            <div class="container"> 
+            <secton>
+                    <i class="fas fa-cogs fa-5x" style="color:84868D" ></i><br><br>
+                     <form action="send_reply_student.jsp">
+                     <h4>
+                         <label>Subject</label></h4>
+                         <input type="text" name="subject" class="subject" placeholder="subject...">
+                         <br><br>
+                         <h4><label>Please Describe your Issue</label></h4>
+                         <br>
+                         <textarea name="issue"  placeholder="...." required ></textarea>
+                         <br>
+                         <input type="submit" class=form-submit-button value="submit">
+                     </form>
+
+            </secton>   
             </div>
-        </section> 
-        
-        <!--SLIDING TEXT-->    
-        <section> 
-                <%@include file = "sliding_text.jsp"%>
-        </section> 
-
-        <!--NAVBAR-->
-        <section> 
-            <nav class="navbar">
-                <ul class="nav navbar-nav">
-                    <li><a href="profile_student.jsp" class="nav_links">Complete Info</a></li>
-                    <li><a href="placement_student.jsp" class="nav_links">Upcoming Compnies</a></li>
-                    <li><a href="contactf_stud.jsp" class="nav_links"><i class="fas fa-cog"></i>Contact Form</a></li>
-                    <li><a href="apply_job.jsp" class="nav_links">Apply Job</a></li>
-                    <li><a href="student_inbox.jsp" class="nav_links"><i class="fas fa-envelope"></i>Message</a></li>
-                    <li><a href="changepassword_student.jsp" class="nav_links">Change Password</a></li>
-                </ul>
-            </nav>
-        </section> 
-
-    </div>
-        
-        <br>
-         <%!String roll =""; %>
-
-       <div class="container"> 
-       <secton>
-               <i class="fas fa-cogs fa-5x" style="color:84868D" ></i>
-               <%--<h1>Contact us</h1>--%>
-                       <br><br>
-                <form action="send_reply.jsp">
-              <h4>
-                    <label>Subject</label></h4>
-                  <input type="text" name="subject" class="subject" placeholder="subject...">
-                    <br>
-                    <br>
-                    <h4>
-                    <label>Please Describe your Issue</label>
-                    </h4>
-                     <br>
-                   
-                    <textarea name="issue"  placeholder="...." ></textarea>
-                    </br>
-                    <input type="submit" class=form-submit-button value="submit">
-                </form>
-              
-       </secton>   
-       </div>
-        
-        
     </body>
 </html>
 

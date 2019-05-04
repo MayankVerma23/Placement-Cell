@@ -102,7 +102,7 @@
       <ul class="nav navbar-right navbar-nav">
         <li><a href="index.jsp" style="color:white;font-size: 25px">Home</a></li>
         <li><a href="aboutus.jsp" style="color:white;font-size: 25px">About Us</a></li>
-        <li><a href="#" style="color:white;font-size: 25px">Contact Us</a></li>
+        <li><a href="offcampus.jsp" style="color:white;font-size: 25px">Apply OffCampus Placement</a></li>
         <li><a href="our_recruiter.jsp" style="color:white;font-size: 25px">Our Recruiter</a></li>
       </ul>
     </div>		

@@ -233,15 +233,15 @@ body, html {
     <body >
         
         <div class="container">
-            <form action="login" autocomplete="off" > 
+            <form action="login" > 
 	<div id="login-box">
 		<div class="logo">
 			<img src="http://lorempixel.com/output/people-q-c-100-100-1.jpg" class="img img-responsive img-circle center-block"/>
 			<h1 class="logo-caption"><span class="tweak">L</span>ogin</h1>
 		</div><!-- /.logo -->
 		<div class="controls">
-                    <input type="text" name="email" placeholder="Enter EMail" class="form-control" required><br>
-                    <input type="password" name="pass" placeholder="Enter Password" class="form-control" required><br>
+                    <input type="text" name="email" placeholder="Enter EMail" class="form-control"/><br>
+                    <input type="text" name="pass" placeholder="Enter Password" class="form-control" /><br>
                     <button type="submit" class="text" value="LOGIN" style="text-align:center">LOGIN</button><br>
                         <a href="forgetpassword_company.jsp">Forget Password</a>
 		</div><!-- /.controls -->

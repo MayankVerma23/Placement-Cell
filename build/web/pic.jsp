@@ -29,7 +29,7 @@
          Class.forName("com.mysql.jdbc.Driver");
          Connection con=(Connection)DriverManager.getConnection("jdbc:mysql://localhost/placementcell","root","");
          Statement st=con.createStatement();
-         String x1="Select * from stu_img where rollno='"+rolno+"'";
+         String x1="Select * from student_image where rollno='"+rolno+"'";
          ResultSet rs=st.executeQuery(x1);
          while(rs.next())
          {
@@ -40,7 +40,7 @@
              %>
              
            <!--  <h1><%=im%></h1>-->
-             <img src="image/<%=im%>"  height="200" width="180" align="right">
+             <img src="student_images/<%=im%>"  height="200" width="180" align="right">
              <!--<object data="image/ height="500" width="1300">-->
           
            

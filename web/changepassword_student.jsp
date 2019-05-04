@@ -22,7 +22,7 @@ body
     margin:0;
     padding:0;
     font-family:sans-serif;
-    background:url(image/balls3.jpg);
+    background:url(background_images/balls3.jpg);
     background-size:cover;
 }
 .box
@@ -64,8 +64,7 @@ body
     background:transparent;
    }
 .box .inputBox label
-{
-        
+{   
     position:absolute;
     top:0;
     left:0;
@@ -98,8 +97,7 @@ body
     border-radius:5px;
     }
         </style>
-        
-           <script>
+         <script>
            
 	function checkpassword()
 	{
@@ -146,8 +144,16 @@ body
                
                 else
                 {
-              
-                     return true;}
+                   var a=(document.getElementById("t1").value);
+                   var b=(document.getElementById("t2").value);
+                   if(a!==b){
+                    alert("pass not match");
+                     return false;}
+                   else{
+                       alert("pass match");
+                       return true;
+                 
+                     }
                 
                 }	
 	}
@@ -160,23 +166,23 @@ body
          <%@include file = "pic.jsp"%>
        <div class="box">
            <h2>CHANGE PASSWORD</h2>
-            <form action="changepassword_student.jsp" method="post" onsubmit="return checkpassword()">
+            <form action="changepassword_student.jsp" method="post" onsubmit="return checkpassword() " autocomplete="on">
                <div class="inputBox">
-                   <input type="text" name="old_pass" required>
+                   <input type="text" name="old_pass" required="">
                    <label>OLD PASSWORD</label>
                </div>
                <div class="inputBox">
-                   <input type="text" name="new_pass" required id="t1">
+                   <input type="text" name="new_pass" id="t1" required >
                    <label>NEW PASSWORD</label>
                </div>
                 <div class="inputBox">
-                   <input type="text" name="confirm_pass" required>
+                   <input type="text" name="confirm_pass" id="t2" required>
                    <label>CONFIRM PASSWORD</label>
                </div>
-               <input type="submit"  value="Submit">
+               <input type="submit"  value="Submit" >
                </form>
        </div>
-       <section>
+        
         <%!
               String oldpass="",newpass="",confirmpass="",stupass="",rollno="";
        
@@ -208,8 +214,7 @@ body
             {
                 String y="update studentsignup set studentpassword='"+newpass+"' where studentrollno='"+rollno+"'";
                 stmt.executeUpdate(y);
-                response.sendRedirect("home_student.jsp");
-            }
+                out.print("<script>window.close();</script>");           }
             else{
             out.print("<script>alert('new password & confirm password must match')</script>");
                 }
@@ -224,14 +229,14 @@ body
         }
      
      
-     
+  
      %>
         
         
         
         
         
-       </section>  
+        
         
         
         

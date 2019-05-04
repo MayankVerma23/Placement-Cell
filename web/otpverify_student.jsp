@@ -54,7 +54,7 @@
                 }
         </script>
     </head>
-    <body background="image/bg1.png">
+    <body background="background_images/bg1.png">
 
         <div>
            

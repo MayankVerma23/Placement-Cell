@@ -11,29 +11,35 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Approve Company</title>
     </head>
+    
     <body>
+        
+        <!--Database connectivity-->
         <%@include file = "database_connection.jsp"%>  
-       <%!
-            String idd = "";
-            String status = "accept";
-       %>
-       <%
-                idd = request.getParameter("companyid");
-        %>
-         <%    //Create the preparedstatement(s)
-                            Statement fetchStatement = conn.createStatement();
-                            String y = "update companysignup set status='"+status+"' where companyid='"+idd+"'";
-                            
-                            fetchStatement.executeUpdate(y);
-                           
-                            %>
+        
+        <!--Start of Status update for approved companies-->
+            <%!
+                String idd = "";
+                String status = "accept";
+            %>
+            
+            <%
+                    idd = request.getParameter("companyid");
+            %>
+            
+            <%  //Create the preparedstatement(s)
+                Statement fetchStatement = conn.createStatement();
+                String y = "update companysignup set status='"+status+"' where companyid='"+idd+"'";
+                fetchStatement.executeUpdate(y);
+            %>
+        <!--End of Status update for approved companies-->
+        
+        <!--Date allotment form for approved compines--> 
             <form action="approve_msg.jsp?id=<%=request.getParameter("companyid")%>" method="POST">
-            <input type="text" name="myText" id="myText">
-            <input type="date" name="date" >
-            <input type="Submit" value="Click to Submit">
+                <input type="text" name="myText" id="myText">
+                <input type="date" name="date" >
+                <input type="Submit" value="Click to Submit">
             </form>
-                           
-                            
-                           
+            
     </body>
 </html>

@@ -22,7 +22,7 @@ body
     margin:0;
     padding:0;
     font-family:sans-serif;
-    background:url(balls3.jpg);
+    background:url(background_images/balls3.jpg);
     background-size:cover;
 }
 .box
@@ -97,8 +97,42 @@ body
     cursor:pointer;
     border-radius:5px;
     }
+     table
+            {
+                width : 100%;
+            }
+            
+            td
+            {
+                border : 2px solid black;
+                padding : 20px;
+                width : 200px;
+                height : 100px;
+            }
+                
+            th
+            {
+                border : 2px solid black;
+                text-align: center;
+            }
+            
+            .navbar
+            {
+                background-color: #4379C0;
+                border-color: #4353C0;
+            }
+            .nav_links{
+                color:white;
+            }
+            .nav_links:hover{
+                color: black;
+            }  
+            section{
+                margin-top: 10px;
+            }
         </style>
-           <script>
+        
+        <script>
            
 	function checkpassword()
 	{
@@ -145,7 +179,13 @@ body
                
                 else
                 {
-              
+                   var a=(document.getElementById("t1").value);
+                   var b=(document.getElementById("t2").value);
+                   if(a!==b){
+                    alert("pass not match");
+                     return false;}
+                   else{
+                    alert("pass match");
                      return true;}
                 
                 }	
@@ -156,27 +196,29 @@ body
 </script>
     </head>
     <body>
+        <%@include file = "database_connection.jsp"%>
+       
        <div class="box">
            <h2>CHANGE PASSWORD</h2>
-           <form action="changepassword_tpo.jsp" method="post" onsubmit="return checkpassword()">
+           <form action="changepassword_tpo.jsp" method="post" onsubmit="return checkpassword() " autocomplete="on">
                <div class="inputBox">
-                   <input type="password" name="old_pass" required>
+                   <input type="password" name="old_pass" required="">
                    <label>OLD PASSWORD</label>
                </div>
                <div class="inputBox">
-                   <input type="password" name="new_pass" required id="t1">
+                   <input type="password" name="new_pass" id="t1" required>
                    <label>NEW PASSWORD</label>
                </div>
                 <div class="inputBox">
-                   <input type="password" name="confirm_pass" required>
+                   <input type="password" name="confirm_pass" id="t2" required="">
                    <label>CONFIRM PASSWORD</label>
                </div>
                <input type="submit" name="" value="Submit">
                </form>
        </div>
+        </section>
         
-        
-         <%!
+            <%!
               String oldpass="",newpass="",confirmpass="",tpopass="";
        
         %>
@@ -206,7 +248,7 @@ body
             {
              String y="update tpo_password set password='"+newpass+"' where username='"+tpo_username+"'";
                 stmt.executeUpdate(y);
-                response.sendRedirect("home_tpo.jsp");
+                out.print("<script>window.close();</script>");
             }
             else{
             out.print("<script>alert('new password & confirm password must match')</script>");

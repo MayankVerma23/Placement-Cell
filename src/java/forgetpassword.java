@@ -38,7 +38,7 @@ public class forgetpassword extends HttpServlet {
         try (PrintWriter out = response.getWriter()) {
            try{
                 String email = request.getParameter("email");
-               
+                String stuid = "";
                 int count=0;
                 
                 Class.forName("com.mysql.jdbc.Driver");
@@ -49,17 +49,20 @@ public class forgetpassword extends HttpServlet {
                 while(rs.next())
                 {      
                     count++;
+                    stuid=rs.getString("studentid");
+                    
                 }
 
                 if(count>0){
-                    response.sendRedirect("https://template0706.000webhostapp.com/placementCell/forgetPassProcess.php?email="+email);
+                    response.sendRedirect("https://template0706.000webhostapp.com/placementCell/forgetPassProcess.php?email="+email+"&&id="+stuid+"");
                 }
                 
                 else{
                     out.print("<script>alert('email not exists')</script>");
-                    response.sendRedirect("forgetpassword_student.jsp");
+                   response.sendRedirect("forgetpassword_student.jsp");
                }
                 count=0;
+                
            }
            
             

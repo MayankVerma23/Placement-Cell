@@ -46,30 +46,47 @@ public class studentsignup extends HttpServlet {
              String degree = request.getParameter("degree");
              String phoneno = request.getParameter("phoneno");
              String gender = request.getParameter("gender");
+             String branch = request.getParameter("branch");
+             String batch = request.getParameter("batch");
+             String ten = request.getParameter("ten");
+             String twe = request.getParameter("twe");
+             String sem1 = request.getParameter("sem1");
+             String sem2 = request.getParameter("sem2");
+             String sem3 = request.getParameter("sem3");
+             String sem4 = request.getParameter("sem4");
+             String sem5 = request.getParameter("sem5");
+             String sem6 = request.getParameter("sem6");
+             String sem7 = request.getParameter("sem7");
+             String sem8 = request.getParameter("sem8");
              String pass = request.getParameter("pass");
-             String confpass = request.getParameter("confpass");
+           
+             out.print(name);
+             out.print(sem1);
+             out.print(branch+" "+batch+" "+twe+" "+ten+" "+sem1+" "+gender+" "+sem2+" "+sem3+" "+pass+" "+phoneno+" "+sem4+" "+sem5+" "+sem6+" "+sem7+" "+sem8);
              String rollno="";
-             
+              String ea="";
              
              Class.forName("com.mysql.jdbc.Driver");
              Connection con=DriverManager.getConnection("jdbc:mysql://Localhost/placementcell","root","");
              Statement stmt=con.createStatement();
-             String y="select * from studentsignup where studentrollno='"+roll+"'";
+             String y="select * from studentsignup where studentrollno='"+rollno+"' ";
              ResultSet rs=stmt.executeQuery(y);
              while(rs.next())
              {
                  rollno=rs.getString("studentrollno");
+                 ea=rs.getString("studentemail");
              }
             
          if(!roll.equals(rollno)) {
-             String x="insert into studentsignup values(null,'"+name+"','"+roll+"','"+email+"','"+degree+"','"+phoneno+"','"+gender+"','"+pass+"','"+"unplaced"+"')";
-             stmt.executeUpdate(x);
+            String x="insert into studentsignup values(null,'"+name+"','"+roll+"','"+email+"','"+degree+"','"+phoneno+"','"+gender+"','"+branch+"','"+batch+"','"+ten+"','"+twe+"','"+sem1+"','"+sem2+"','"+sem3+"','"+sem4+"','"+sem5+"','"+sem6+"','"+sem7+"','"+sem8+"','"+pass+"','"+"unplaced"+"')";
+             stmt.executeUpdate(x);  
              request.setAttribute("roll", roll);
-             request.getRequestDispatcher("image.jsp").forward(request, response);
-             response.sendRedirect("image.jsp");
+             request.getRequestDispatcher("image_studentt.jsp").forward(request, response);
+             response.sendRedirect("image_studentt.jsp");
+               
              }
           else{
-                  out.print("<script> window.alert('RollNo Already Use Please Select Another RollNo') </script>");
+               out.print("<script> window.alert('RollNo Already Use Please Select Another RollNo') </script>");
                out.print("<script> window.location.href='registration_student.jsp' </script>");
                          
               }

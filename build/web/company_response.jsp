@@ -22,7 +22,7 @@ body
     margin:0;
     padding:0;
     font-family:sans-serif;
-    background:url(image/balls3.jpg);
+    background:url(background_images/balls3.jpg);
     background-size:cover;
 }
 .box
@@ -138,10 +138,7 @@ body
                    <div class="box">
            <h2>ELIGIBILITY REQUIREMENTS</h2>
             <form action="company_response_2.jsp" method="post">
-                  <div class="inputBox">
-                   <input type="text" name="name" required="">
-                   <label>COMPANY NAME</label>
-               </div>
+              
                
                <div class="inputBox">
                    <input type="text" name="course" required="">
@@ -171,10 +168,22 @@ body
                    <input type="text" name="batch" required="">
                    <label>STUDENT BATCH</label>
                </div>
-               
+                     <div class="inputBox">
+                   <input type="text" name="job">
+                   <label>JOB PROFILE</label>
+               </div>
+                     <div class="inputBox">
+                   <input type="text" name="package">
+                   <label>PACKAGE</label>
+               </div>
+                 </div>
+                     <div class="inputBox">
+                   <input type="text" name="job_location">
+                   <label>JOB LOCATION</label>
+               </div>
                <input type="submit"  value="Submit">
-               </form>
-       </div>
+              </form>
+     </div>
             <%}%>
     </body>
 </html>

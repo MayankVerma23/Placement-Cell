@@ -35,7 +35,7 @@
         <section>
             <div class="row">
                 <h1 style="float:left;padding-left:20px;">Placement<br>Cell</h1>
-                <a href="#"><h4 style="float:right;padding-right:20px;">Logout</h4></a>
+                <a href="logout"><h4 style="float:right;padding-right:20px;">Logout</h4></a>
             </div>
         </section>  
         

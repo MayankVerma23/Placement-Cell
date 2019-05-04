@@ -30,7 +30,7 @@
             <div class="container">
                 
                 <div class="btn-group">
-                    <h1>SIGNUP</h1>
+                    <h1 style="color:white;">SIGNUP</h1>
                 </div>
                 
                 <div class="box">

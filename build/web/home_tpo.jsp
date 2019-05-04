@@ -20,22 +20,82 @@
         <title>Home Tpo</title>
     
         <style>
-            .navbar{
-            background-color: #4379C0;
-            border-color: #4353C0;
-           
-            }
-            .nav_links{
-                color:white;
-            }
-            .nav_links:hover{
-                color: black;
-            }  
-            section{
-                margin-top: 10px;
-            }
+           body
+            {
+               background:url("")center;
+               height:100vh;
+               background-size:cover;
+                }
+                .menudropdown1{
+                   
+                     width:1000px;
+                     height:100px;
+                  margin:0px auto;
+                    
+                }
+                .menudropdown1 ul{
+                  padding:0px;  
+                }
+                
+                .menudropdown1 ul li{
+                
+                 float:left;
+                 background-color:black;
+                 color:white;
+                 width:200px;
+                 list-style:none;
+                 height:50px;
+                 line-height:50px;
+                 font-size:12px;
+                 list-style:none;
+                 text-align:center;
+                 opacity:0.6;
+                 
+                    
+                }
+                .menudropdown1 ul li ul{
+                    display:none;
+                   
+                }
+                .menudropdown1 ul li:hover > ul{
+                   display:block; 
+                }
+                .menudropdown1 ul li:hover {
+                    background-color:#32CD32;
+                    opacity:0.9;
+                }   
+                .menudropdown1 ul li ul li {
+                    position:relative;
+                }
+                .menudropdown1 ul li ul li ul{
+                    position:absolute;
+                    left:200px;
+                    top:0px;
+                } 
+                #b1
+                {
+                  width:200px;
+                  height:50px;
+                  background-color:black;
+                  border:black;
+                  margin:0px auto;
+                    
+                }
+                #b1:hover{
+                 background-color:#32CD32;
+                    opacity:0.9;
+
+                }
+            
         </style>
-        
+           <script>
+            function changepassword()
+                {
+                   
+      window.open('changepassword_tpo.jsp','popUpWindow','height=500,width=600,left=100,top=100,resizable=yes,scrollbars=yes,toolbar=yes,menubar=no,location=no,directories=no, status=yes');
+         
+              }
+        </script>
     </head>
 
     
@@ -52,19 +112,50 @@
 <section> 
         <%@include file = "sliding_text.jsp"%>
 </section> 
+<section>
+    
+     <div class="menudropdown1">
+           <ul>
+               
+                   <li>
+                MY PROFILE   
+                   </li> 
+                 
+                   <li>STUDENT SECTION
+                   <ul>
+                     
+                         <li><a href="participation_tpo.jsp">Intrested Candidates</a></li>
+                       
+                         <li>placement information
+                         <ul>
+                             <li><a href="tpo_placed_student.jsp">placed students</a></li>
+                             <li><a href="tpo_unplaced_student.jsp">unplaced students</a></li>
+                         </ul>
+                         </li>
+                   </ul>
+                   </li>
+                 
+                   <li>COMPANY SECTION
+                                 <ul>
+        <li><a href="placement_tpo.jsp">New Company Request</a></li>
+        <li><a href="approved_table.jsp">Approved Compnies</a></li>
+        <li><a href="declined_table.jsp">Declined Compnies</a></li>
+        <li><a href="company_responsetable.jsp">Company Requirments</a></li>
+  
+                                 </ul>
+                         </li>
+                   
+                
+     <li><a href="Your_Queries.jsp"><i class="fas fa-envelope"></i>Message</a></li>
+     <li><button id="b1" onclick="changepassword()">Change Password</button></li>
+                   
+                     
+                      
+                   
+           </ul>
+</div>
 
-<section> 
-    <nav class="navbar">
-  <ul class="nav navbar-nav">
-        <li><a href="profile.jsp" class="nav_links">Complete Info</a></li>
-        <li><a href="placement_tpo.jsp" class="nav_links">New Company Request</a></li>
-        <li><a href="approved_table.jsp" class="nav_links">Approved Compnies</a></li>
-        <li><a href="declined_table.jsp" class="nav_links">Declined Compnies</a></li>
-        <li><a href="company_responsetable.jsp" class="nav_links">Accepted Company response</a></li>
-        <li><a href="changepassword_tpo.jsp" class="nav_links">Change Password</a></li>
- </ul>
-</nav>
-</section> 
-    </div>  
-    </body>
+</section>
+        </div>
+ </body>
 </html>

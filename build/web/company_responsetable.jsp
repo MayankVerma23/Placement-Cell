@@ -54,6 +54,34 @@
         </style>
     </head>
     <body>
+        <%@include file = "database_connection.jsp"%>
+        <div class="container">
+            
+        <section>
+            <div class="row">
+                <h1 style="float:left;padding-left:20px;">Placement<br>Cell</h1>
+                <a href="logout"><h4 style="float:right;padding-right:20px;">Logout</h4></a>
+            </div>
+        </section>    
+
+        <section> 
+            <%@include file = "sliding_text.jsp"%>
+        </section> 
+
+        <section> 
+            <nav class="navbar">
+                    <ul class="nav navbar-nav">
+                        <li><a href="profile.jsp" class="nav_links">Complete Info</a></li>
+                        <li><a href="placement_tpo.jsp" class="nav_links">New Company Request</a></li>
+                        <li><a href="approved_table.jsp" class="nav_links">Approved Compnies</a></li>
+                        <li><a href="declined_table.jsp" class="nav_links">Declined Compnies</a></li>
+                        <li><a href="company_responsetable.jsp" class="nav_links">Accepted Company Reequirments</a></li>
+                        <li><a href="participation_tpo.jsp" class="nav_links">Intrested Candidates</a></li>
+                        <li><a href="Your_Queries.jsp" class="nav_links"><i class="fas fa-envelope"></i>Message</a></li>
+                        <li><a href="changepassword_tpo.jsp" class="nav_links">Change Password</a></li>
+                    </ul>
+            </nav>
+        </section>
        <section> 
             <table>
                 <tr>
@@ -65,6 +93,9 @@
                     <th>SKILLS</th>
                     <th>SELECTION PROCEDURE</th>
                    <th>STUDENTS BATCH</th>
+                   <th>JOB PROFILE</th>
+                   <th>PACKAGE</th>
+                   <th>JOB LOCATION</th>
                 </tr>
                 
                         <%    
@@ -88,6 +119,9 @@
     <td><%=rs.getString("requiredskill")%></td>
     <td><%=rs.getString("requiredprocedure")%></td>
     <td><%=rs.getString("requiredbatch")%></td>
+    <td><%=rs.getString("job_profile")%></td>
+    <td><%=rs.getString("package")%></td>
+    <td><%=rs.getString("job_location")%></td>
  </tr>
                                        
       <% } %>

@@ -98,10 +98,10 @@ $(document).ready(function(){
 <div id="div1" class="text"><b><u><h1>Our CSE Recruiters </h1></u></b></div>
 <div>
     
-<div id="pic"><img src="image/cse.png" width="1500"></div>
+<div id="pic"><img src="background_images/cse.png" width="1500"></div>
 </div>
 <div id="div2" class="text"><b><u><h1>Our other field Recruiters </h1></u></b></div>
-<div id="pic2"><img src="image/other.jpg" width="1500"></div>
+<div id="pic2"><img src="background_images/other.jpg" width="1500"></div>
 </section>
         
         

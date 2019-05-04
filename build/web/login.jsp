@@ -27,7 +27,7 @@
             <div class="container">
                 
                 <div class="btn-group">
-                    <h1>LOGIN</h1>
+                    <h1 style="color:white">LOGIN</h1>
                 </div>
                 
                 <div class="box" >         

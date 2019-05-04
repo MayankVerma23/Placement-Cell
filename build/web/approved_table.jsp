@@ -13,6 +13,7 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
         <title>Approved Compnies</title>
+        
         <style>
             table
             {
@@ -61,74 +62,89 @@
                     
                 }
         </script>
+        
     </head>
+    
     <body>
+        <!--Database connectivity-->
         <%@include file = "database_connection.jsp"%>
         
         <div class="container">
             
-        <section>
-            <div class="row">
-                <h1 style="float:left;padding-left:20px;">Placement<br>Cell</h1>
-                <a href="#"><h4 style="float:right;padding-right:20px;">Logout</h4></a>
-            </div>
-        </section>    
-
-        <section> 
-            <%@include file = "sliding_text.jsp"%>
-        </section> 
-
-        <section> 
-            <nav class="navbar">
-                    <ul class="nav navbar-nav">
-                        <li><a href="profile.jsp" class="nav_links">Complete Info</a></li>
-                        <li><a href="placement_tpo.jsp" class="nav_links">New Company Request</a></li>
-                        <li><a href="approved_table.jsp" class="nav_links">Approved Compnies</a></li>
-                        <li><a href="declined_table.jsp" class="nav_links">Declined Compnies</a></li>
-                    </ul>
-            </nav>
-        </section>
+            <!--Start of top navbar-->
+            <section>
+                <div class="row">
+                    <h1 style="float:left;padding-left:20px;">Placement<br>Cell</h1>
+                    <a href="logout"><h4 style="float:right;padding-right:20px;">Logout</h4></a>
+                </div>
+            </section>    
+            <!--End of top navbar-->
+            
+            <!--Start of sliding text-->
+            <section> 
+                <%@include file = "sliding_text.jsp"%>
+            </section> 
+            <!--End of sliding text-->
+            
+            <!--Start of navbar-->
+            <section> 
+                <nav class="navbar">
+                        <ul class="nav navbar-nav">
+                            <li><a href="profile.jsp" class="nav_links">Complete Info</a></li>
+                            <li><a href="placement_tpo.jsp" class="nav_links">New Company Request</a></li>
+                            <li><a href="approved_table.jsp" class="nav_links">Approved Compnies</a></li>
+                            <li><a href="declined_table.jsp" class="nav_links">Declined Compnies</a></li>
+                            <li><a href="company_responsetable.jsp" class="nav_links">Accepted Company Reequirments</a></li>
+                            <li><a href="participation_tpo.jsp" class="nav_links">Intrested Candidates</a></li>
+                            <li><a href="Your_Queries.jsp" class="nav_links"><i class="fas fa-envelope"></i>Message</a></li>
+                            <li><a href="changepassword_tpo.jsp" class="nav_links">Change Password</a></li>
+                        </ul>
+                </nav>
+            </section>
+            <!--End of navbar-->
         
-        <section> 
-            <table>
-                <tr>
-                    <th>Sno</th>
-                    <th>ID</th>
-                    <th>NAME</th>
-                    <th>EMAIL</th>
-                    <th>PHONE NO</th>
-                    <th>LOCATION</th>
-                    <th>DECLINED</th>
-                </tr>
-                <%! int i=0;
-                String status = "accept"; %>
-                        <%    //Create the preparedstatement(s)
-                            String fetchQuery = "select * from companysignup where status = '"+status+"'";
-                            Statement fetchStatement = conn.createStatement();
-                            ResultSet rs = fetchStatement.executeQuery(fetchQuery);
+            <!--Start of Display data-->
+            <section> 
+                <table>
+                    <tr>
+                        <th>Sno</th>
+                        <th>ID</th>
+                        <th>NAME</th>
+                        <th>EMAIL</th>
+                        <th>PHONE NO</th>
+                        <th>LOCATION</th>
+                        <th>DECLINED</th>
+                    </tr>
+                    <%! int i=0;
+                    String status = "accept"; %>
+                            <%    //Create the preparedstatement(s)
+                                String fetchQuery = "select * from companysignup where status = '"+status+"'";
+                                Statement fetchStatement = conn.createStatement();
+                                ResultSet rs = fetchStatement.executeQuery(fetchQuery);
 
 
-                            while(rs.next()){
-                              %> 
+                                while(rs.next()){
+                                  %> 
 
-                                <tr>
-                                    <td><%=i%></td>
-                                    <td><%=rs.getString("companyid")%></td>
-                                    <td><%=rs.getString("companyname")%></td>
-                                    <td><%=rs.getString("companyemail")%></td>
-                                    <td><%=rs.getString("companyphno")%></td>
-                                    <td><%=rs.getString("companylocation")%></td>
-                                    <td><button class="btn btn-danger" onclick="Decline(<%=rs.getString("companyid")%>)">DECLINE</button></td>
-                                </tr>
-                                <%i=i+1;%>                                    
-                            <%
+                                    <tr>
+                                        <td><%=i%></td>
+                                        <td><%=rs.getString("companyid")%></td>
+                                        <td><%=rs.getString("companyname")%></td>
+                                        <td><%=rs.getString("companyemail")%></td>
+                                        <td><%=rs.getString("companyphno")%></td>
+                                        <td><%=rs.getString("companylocation")%></td>
+                                        <td><button class="btn btn-danger" onclick="Decline(<%=rs.getString("companyid")%>)">DECLINE</button></td>
+                                    </tr>
+                                    <%i=i+1;%>                                    
+                                <%
 
-                            }
+                                }
 
-                            %>
-            </table>
-        </section> 
-        
+                                %>
+                </table>
+            </section> 
+            <!--End of Display data-->
+            
         </div>
     </body>
 </html>

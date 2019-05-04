@@ -23,10 +23,10 @@
         <div class="btn-group">
         <h1>LOGIN</h1>
         </div>
-        <form class="box" action="login" >
+        <form class="box" action="login" autocomplete="off" >
            
-        <input class="text" type="text" name="name" placeholder="Username">
-         <input class="text" type="text" name="pass" placeholder="Password">
+        <input class="text" type="text" name="name" placeholder="Username" required>
+        <input class="text" type="password" name="pass" placeholder="Password" required>
         <button type="submit" class="text" value="LOGIN">LOGIN</button>
 
         </form>

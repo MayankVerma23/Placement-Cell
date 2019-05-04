@@ -15,28 +15,94 @@
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
-        <title>Home Tpo</title>
+        <title>Home company</title>
     
         <style>
-            .navbar{
-            background-color: #4379C0;
-            border-color: #4353C0;
-           
-            }
-             .nav_links{
-                color:white;
-            }
-            .nav_links:hover{
-                color: black;
-            } 
-            section{
-                margin-top: 10px;
-            }
+           body
+            {
+               background:url("")center;
+               height:100vh;
+               background-size:cover;
+                }
+                .menudropdown1{
+                   
+                     width:1000px;
+                     height:100px;
+                  margin:0px auto;
+                    
+                }
+                .menudropdown1 ul{
+                  padding:0px;  
+                }
+                
+                .menudropdown1 ul li{
+                
+                 float:left;
+                 background-color:black;
+                 color:white;
+                 width:200px;
+                 list-style:none;
+                 height:50px;
+                 line-height:50px;
+                 font-size:12px;
+                 list-style:none;
+                 text-align:center;
+                 opacity:0.6;
+                 
+                    
+                }
+                .menudropdown1 ul li ul{
+                    display:none;
+                   
+                }
+                .menudropdown1 ul li:hover > ul{
+                   display:block; 
+                }
+                .menudropdown1 ul li:hover {
+                    background-color:#32CD32;
+                    opacity:0.9;
+                }   
+                .menudropdown1 ul li ul li {
+                    position:relative;
+                }
+                .menudropdown1 ul li ul li ul{
+                    position:absolute;
+                    left:200px;
+                    top:0px;
+                } 
+                #b1
+                {
+                  width:200px;
+                  height:50px;
+                  background-color:black;
+                  border:black;
+                  margin:0px auto;
+                    
+                }
+                #b1:hover{
+                 background-color:#32CD32;
+                    opacity:0.9;
+
+                }
+            
         </style>
+        <script>
+            function changepassword()
+                {
+                   
+      window.open('changepassword_company.jsp','popUpWindow','height=500,width=600,left=100,top=100,resizable=yes,scrollbars=yes,toolbar=yes,menubar=no,location=no,directories=no, status=yes');
+         
+              }
+        </script>
+  
+        
     </head>
-    <body>
+
+    
+ <body>
         <%@include file = "database_connection.jsp"%>  
-        <%@include file = "logocomp.jsp"%>
+        
+        
         <div class="container">
             <div class="row">
                 <h1 style="float:left;padding-left:20px;">Placement<br>Cell</h1>
@@ -46,24 +112,47 @@
 <section> 
         <%@include file = "sliding_text.jsp"%>
 </section> 
-
-<section> 
-    <nav class="navbar">
-  <ul class="nav navbar-nav">
-      <li><a href="profile_company.jsp" class="nav_links">Complete Info</a></li>
-    <li><a href="placement_company.jsp" class="nav_links">Placement Info</a></li>
-     <li><a href="company_response.jsp" class="nav_links">Send Requirements</a></li>
-    <li><a href="changepassword_company.jsp" class="nav_links">Change Password</a></li>
+<section>
     
-  </ul>
+     <div class="menudropdown1">
+           <ul>
+               
+                    
+                 
+      <li><a href="profile_company.jsp" class="nav_links">COMPANY PROFILE</a></li>
+                   
+                     
+        <li><a href="company_response.jsp" class="nav_links">STATUS</a></li> 
+                   
+                 
+                 <li>STUDENT SECTION
+                                 <ul>
+   <li><a href="interested_stu_in_comp.jsp" class="nav_links">Participated Candidates</a></li>
+    <li><a href="company_decl_res.jsp" class="nav_links">declare result</a></li>
+    <li><a href="selected_candidates.jsp" class="nav_links">selected candidates</a></li>
+   
+                                 </ul>
+                         </li>
+                   
+                         <li><button id="b1" onclick="changepassword()">Change Password</button></li>
+              
+   <li></li>
+                           
+                     
+                
+                   
+                        
+                   
+           </ul>
+</div>
 
-</nav>
-</section> 
+</section>
         </div>
+    </body>
 
 
       
         
-    </body>
+  
   
 </html>

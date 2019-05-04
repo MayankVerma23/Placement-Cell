@@ -12,7 +12,7 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
-       <!-- <link rel="stylesheet" href="loginsignup.css">-->
+        <link rel="stylesheet" href="student.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
         <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
       
@@ -91,9 +91,9 @@
         </div>
         <div class="box" >
          <form action="studentsignup" method="post" onsubmit="return checkpassword()" autocomplete="on">
-             <input class="text" type="text" name="name" placeholder="Name" required=""><br>
-                <input class="text" type="text" name="roll" placeholder="Roll"  required><br>
-                <input class="text" type="text" name="email" placeholder="Email"    required>  <br>  
+             <input class="text" type="text" name="name" placeholder="Name" required="">
+                <input class="text" type="text" name="roll" placeholder="Roll"  required>
+                <input class="text" type="text" name="email" placeholder="Email"    required>   
                
                 <select class="text" name="degree" required>
                 <option value="">DEGREE</option>
@@ -101,7 +101,7 @@
                 <option value="MCA">MCA</option>
                 <option value="BCA">BCA</option>
                 <option value="MBA">MBA</option>
-                </select><br>
+                </select>
      
                 
                 <input class="text" type="text" name="phoneno" placeholder="phoneno"  required><br>
@@ -111,14 +111,14 @@
                 </div>
                 <div class="radio">
                 <label><input type="radio" name="gender" value="Female">Female</label>
-                </div><br>
+                </div>
                 <select class="text" name="branch" required>
                 <option value="">Branch</option>
                 <option value="CSE">CSE</option>
                 <option value="MCE">MCE</option>
                 <option value="CIVIL">CIVIL</option>
                 <option value="ECE">ECE</option>
-                </select><br>
+                </select>
                  <select class="text" name="batch" required>
                 <option value="">batch</option>
                 <option value="2013-2017">2013-2017</option>
@@ -126,21 +126,22 @@
                 <option value="2015-2019">2015-2019</option>
                 <option value="2016-2020">2016-2020</option>
                 
-                </select><br>
+                </select>
                 
-                 <input class="text" type="text" name="ten" placeholder="10%" required><br>
-                 <input class="text" type="text" name="twe" placeholder="12%" required><br>
-                 <input class="text" type="text" name="sem1" placeholder="sem1 marks" required><br>
-                 <input class="text" type="text" name="sem2" placeholder="sem2 marks" required><br>
-                 <input class="text" type="text" name="sem3" placeholder="sem3 marks" required><br>
-                 <input class="text" type="text" name="sem4" placeholder="sem4 marks" required><br>
-                 <input class="text" type="text" name="sem5" placeholder="sem5 marks" required><br>
-                 <input class="text" type="text" name="sem6" placeholder="sem6 marks" required><br>
-                 <input class="text" type="text" name="sem7" placeholder="sem7 marks" required><br>
-                 <input class="text" type="text" name="sem8" placeholder="sem8 marks" required><br>
+                 <input class="text" type="text" name="ten" placeholder="10%" required>
+                 <input class="text" type="text" name="twe" placeholder="12%" required>
+                 <input class="text" type="text" name="sem1" placeholder="sem1 marks" required>
+                 <input class="text" type="text" name="sem2" placeholder="sem2 marks" required>
+                 <input class="text" type="text" name="sem3" placeholder="sem3 marks" required>
+                 <input class="text" type="text" name="sem4" placeholder="sem4 marks" required>
+                 <input class="text" type="text" name="sem5" placeholder="sem5 marks" required>
+                 <input class="text" type="text" name="sem6" placeholder="sem6 marks" required>
+                 <input class="text" type="text" name="sem7" placeholder="sem7 marks" required>
+                 <input class="text" type="text" name="sem8" placeholder="sem8 marks" required>
+                 <input class="text" type="text" name="cgpa" placeholder="Overall CGPA" required>
                
                
-                <input class="text" type="password" name="pass" placeholder="Password"  id="t1" required><br>
+                <input class="text" type="password" name="pass" placeholder="Password"  id="t1" required>
                 <input class="text" type="password" name="confpass" placeholder="Confirm Password"  id="t2" required>
                 <button type="submit" class="text" value="SignUp">SIGNUP</button>
             </form>

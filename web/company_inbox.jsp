@@ -35,9 +35,9 @@
                 color: white;
                 text-align: left;
             }
-            .navbar{
-            background-color: #E9967A;
-            border-color: #E9967A;
+           .navbar{
+            background-color: #4379C0;
+            border-color: #4353C0;
            
             }
             .nav_links{
@@ -94,12 +94,13 @@
         <section> 
             <nav class="navbar">
                     <ul class="nav navbar-nav">
-                        <li><a href="profile.jsp" class="nav_links">Complete Info</a></li>
-                        <li><a href="placement_tpo.jsp" class="nav_links">New Company Request</a></li>
-                        <li><a href="approved_table.jsp" class="nav_links">Approved Compnies</a></li>
-                        <li><a href="declined_table.jsp" class="nav_links">Declined Compnies</a></li>
-                        <li><a href="Your_Queries.jsp" class="nav_links"><i class="fas fa-envelope"></i>  Messages</a></li>
-                                </ul>
+                         <li><a href="profile_company.jsp" class="nav_links">Complete Info</a></li>
+                        <li><a href="placement_company.jsp" class="nav_links">Placement Info</a></li>
+                         <li><a href="changepassword_company.jsp" class="nav_links">Change Password</a></li>
+                          <li><a href="contactf_company.jsp" class="nav_links"><i class="fas fa-cog"></i>Support</a></li>
+                            <li><a href="company_inbox.jsp" class="nav_links"><i class="fas fa-envelope"></i>inbox</a></li>
+            
+                     </ul>
             </nav>
         </section>
         <%! String name="";
@@ -113,21 +114,23 @@
                 <tr>
                  
                     
-                    <th>Name</th>
+                 
                     
                     <th>Subject</th>
-                    <th>Email</th>
+                 
                     <th>       </th>
                 </tr>
         
         
         <%  
+                HttpSession hs = request.getSession();
+            name=hs.getAttribute("company_name").toString();
           try{
            String stud="student";
          Class.forName("com.mysql.jdbc.Driver");
          Connection con=(Connection)DriverManager.getConnection("jdbc:mysql://localhost/placementcell","root","");
          Statement st=con.createStatement();
-         String x1="Select * from queries where status='0'";
+        String x1="Select * from queries where Name='"+name+"' group by ID having Designation='company'";
         
          ResultSet rs=st.executeQuery(x1);
          while(rs.next())
@@ -140,23 +143,11 @@
              %>
                 <tr>            
                   
-                    <td><%if(design.equals("student"))
-                   {
-                       
-                       %>
-                       <i class="fas fa-user-graduate"></i>
-                       <%
-                            
-                     }else{
-                            %>
-                            <i class="fas fa-building"></i>
-                       <%
-                         }
-                       %><%=name%></td>
+                   
                    
                    <td><%=subject%></td>
-                   <td><%=email%></td>
-                   <td> <a href="tickets.jsp?id=<%=id%>"><i class="far fa-comment-dots fa-2x"></i></a></td>
+                  
+                   <td> <a href="company_ticket.jsp?id=<%=id%>"><i class="far fa-comment-dots fa-2x"></i></a></td>
                 </tr>
                 <%
           

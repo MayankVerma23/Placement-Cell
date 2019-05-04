@@ -1,3 +1,4 @@
+
 <%-- 
     Document   : contactf_stud.jsp
     Created on : Mar 31, 2019, 2:02:41 PM
@@ -106,12 +107,11 @@
         <section> 
             <nav class="navbar">
                 <ul class="nav navbar-nav">
-                  
-                         <li><a href="profile_student.jsp" class="nav_links">Complete Info</a></li>
-                        <li><a href="placement_student.jsp" class="nav_links">Placement Info</a></li>
-                        <li><a href="changepassword_student.jsp" class="nav_links">Change Password</a></li>
-                        <li><a href="contactf_stud.jsp" class="nav_links"><i class="fas fa-cog"></i>Support</a></li>
-                        <li><a href="your_inbox_student.jsp" class="nav_links"><i class="fas fa-envelope"></i>Your Queries</a></li>
+                       <li><a href="profile_company.jsp" class="nav_links">Complete Info</a></li>
+                        <li><a href="placement_company.jsp" class="nav_links">Placement Info</a></li>
+                        <li><a href="changepassword_company.jsp" class="nav_links">Change Password</a></li>
+                         <li><a href="contactf_company.jsp" class="nav_links"><i class="fas fa-cog"></i>Support</a></li>
+                         <li><a href="company_inbox.jsp" class="nav_links"><i class="fas fa-envelope"></i>inbox</a></li>
 
                 </ul>
             </nav>
@@ -127,7 +127,7 @@
                <i class="fas fa-cogs fa-5x" style="color:84868D" ></i>
                <%--<h1>Contact us</h1>--%>
                        <br><br>
-                <form action="send_reply_student.jsp">
+                <form action="send_reply_company.jsp">
               <h4>
                     <label>Subject</label></h4>
                   <input type="text" name="subject" class="subject" placeholder="subject...">
@@ -138,7 +138,7 @@
                     </h4>
                      <br>
                    
-                     <textarea name="issue"  placeholder="...." required ></textarea>
+                    <textarea name="issue"  placeholder="...." ></textarea>
                     </br>
                     <input type="submit" class=form-submit-button value="submit">
                 </form>

@@ -58,11 +58,10 @@ public class studentsignup extends HttpServlet {
              String sem6 = request.getParameter("sem6");
              String sem7 = request.getParameter("sem7");
              String sem8 = request.getParameter("sem8");
+             String cgpa = request.getParameter("cgpa");
              String pass = request.getParameter("pass");
            
-             out.print(name);
-             out.print(sem1);
-             out.print(branch+" "+batch+" "+twe+" "+ten+" "+sem1+" "+gender+" "+sem2+" "+sem3+" "+pass+" "+phoneno+" "+sem4+" "+sem5+" "+sem6+" "+sem7+" "+sem8);
+          
              String rollno="";
               String ea="";
              
@@ -78,7 +77,7 @@ public class studentsignup extends HttpServlet {
              }
             
          if(!roll.equals(rollno)) {
-            String x="insert into studentsignup values(null,'"+name+"','"+roll+"','"+email+"','"+degree+"','"+phoneno+"','"+gender+"','"+branch+"','"+batch+"','"+ten+"','"+twe+"','"+sem1+"','"+sem2+"','"+sem3+"','"+sem4+"','"+sem5+"','"+sem6+"','"+sem7+"','"+sem8+"','"+pass+"','"+"unplaced"+"')";
+            String x="insert into studentsignup values(null,'"+name+"','"+roll+"','"+email+"','"+degree+"','"+phoneno+"','"+gender+"','"+branch+"','"+batch+"','"+ten+"','"+twe+"','"+sem1+"','"+sem2+"','"+sem3+"','"+sem4+"','"+sem5+"','"+sem6+"','"+sem7+"','"+sem8+"','"+cgpa+"','"+pass+"','"+"unplaced"+"')";
              stmt.executeUpdate(x);  
              request.setAttribute("roll", roll);
              request.getRequestDispatcher("image_studentt.jsp").forward(request, response);

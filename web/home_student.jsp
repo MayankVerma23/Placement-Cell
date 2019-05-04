@@ -132,7 +132,7 @@
                          </li>
                    
                 
-   <li><a href="student_inbox.jsp"><i class="fas fa-envelope"></i>Message</a></li>
+   <li><a href="your_inbox_student.jsp"><i class="fas fa-envelope"></i>Message</a></li>
    <li><button id="b1" onclick="changepassword()">Change Password</button></li>
                           
                      

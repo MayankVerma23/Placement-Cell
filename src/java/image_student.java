@@ -41,33 +41,10 @@ public class image_student extends HttpServlet {
         
      
                 
-       
-             String name = request.getParameter("name");
-             String roll = request.getParameter("roll");
-             String email = request.getParameter("email");
-             String degree = request.getParameter("degree");           
-             String branch = request.getParameter("branch");
-             String batch = request.getParameter("batch");
-             String phoneno = request.getParameter("phoneno");
-             String gender = request.getParameter("gender");
-             String ten = request.getParameter("ten");
-             String twe = request.getParameter("twe");
-             String sem1 = request.getParameter("sem1");
-             String sem2 = request.getParameter("sem2");
-             String sem3 = request.getParameter("sem3");
-             String sem4 = request.getParameter("sem4");
-             String sem5 = request.getParameter("sem5");
-             String sem6 = request.getParameter("sem6");
-             String sem7 = request.getParameter("sem7");
-             String sem8 = request.getParameter("sem8");
-             String cgpa = request.getParameter("cgpa");
-             String backlog = request.getParameter("backlog");
-             String pass = request.getParameter("pass");
-             String rolno="";
-                
+       String x=request.getParameter("pn1");
       
       String contentType = request.getContentType();
-if ((contentType != null) && (contentType.indexOf("multipart/form-data") >= 0)) {
+       if ((contentType != null) && (contentType.indexOf("multipart/form-data") >= 0)) {
  		DataInputStream in = new DataInputStream(request.getInputStream());
 		//we are taking the length of Content type data
 		int formDataLength = request.getContentLength();
@@ -103,25 +80,21 @@ if ((contentType != null) && (contentType.indexOf("multipart/form-data") >= 0)) 
             {
              Class.forName("com.mysql.jdbc.Driver");
             Connection con=(Connection)DriverManager.getConnection("jdbc:mysql://localhost/placementcell","root","");
-           Statement st=(Statement) con.createStatement();
-
-   String query="insert into studentsignup values(null,'"+name+"','"+roll+"','"+email+"','"+degree+"','"+branch+"','"+batch+"','"+phoneno+"','"+gender+"','"+ten+"','"+twe+"','"+sem1+"','"+sem2+"','"+sem3+"','"+sem4+"','"+sem5+"','"+sem6+"','"+sem7+"','"+sem8+"','"+cgpa+"','"+backlog+"','"+pass+"','"+"unplaced"+"','"+saveFile+"')";
-          
-st.execute(query);
+            Statement st=(Statement) con.createStatement();
+            String query="insert into student_image values(null,'"+x+"','"+saveFile+"')";
+            st.execute(query);
                         }
             catch(Exception ex)
             {
                out.println(ex);
             }
-     saveFile="F:/netbeams/Placement Cell/web/student_images/"+saveFile;
+            saveFile="F:/netbeams/Placement Cell/web/student_images/"+saveFile;
 
 		FileOutputStream fileOut = new FileOutputStream(saveFile);
 		fileOut.write(dataBytes, startPos, (endPos - startPos));
 		fileOut.flush();
 		fileOut.close();
-             
-                response.sendRedirect("login_student.jsp");
-                
+                out.print("<script>window.close();</script>");
 }
     
         }

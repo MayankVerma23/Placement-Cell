@@ -4,6 +4,8 @@
     Author     : HP
 --%>
 
+<%@page import="java.text.SimpleDateFormat"%>
+<%@page import="java.util.Calendar"%>
 <%@page import="java.sql.ResultSet"%>
 <%@page import="java.sql.Statement"%>
 <%@page import="java.sql.DriverManager"%>
@@ -60,6 +62,11 @@
                    <th>JOB PROFILE</th>
                    <th>PACKAGE</th>
                    <th>JOB LOCATION</th>
+                    <th>REQUIRED BATCH</th>
+                     <th>REQUIRED BATCH</th>
+                      <th>JOB LOCATION</th>
+                       <th>JOB LOCATION</th>
+                        <th>LAST DATE TO APPLY</th>
                 </tr>
                 
                 <%    
@@ -68,13 +75,18 @@
                 String fetchQuery = "select * from companyrequirements ";
                 Statement fetchStatement = conn.createStatement();
                 ResultSet rs = fetchStatement.executeQuery(fetchQuery);
+                
                 while(rs.next()){
                 %> 
 
                 <tr>                
                     <td><%=rs.getString("companyname")%></td>
-                    <td><%=rs.getString("requiredcourse")%></td>
-                    <td><%=rs.getString("requiredbranch")%></td>
+                    <td><%=rs.getString("requiredcourse1")%></td>
+                    <td><%=rs.getString("requiredcourse2")%></td>
+                    <td><%=rs.getString("requiredcourse3")%></td>                     
+                    <td><%=rs.getString("requiredbranch1")%></td>
+                    <td><%=rs.getString("requiredbranch2")%></td>
+                    <td><%=rs.getString("requiredbranch3")%></td>                
                     <td><%=rs.getString("requiredbacklog")%></td>
                     <td><%=rs.getString("requiredpercentage")%></td>
                     <td><%=rs.getString("requiredskill")%></td>
@@ -83,6 +95,12 @@
                     <td><%=rs.getString("job_profile")%></td>
                     <td><%=rs.getString("package")%></td>
                     <td><%=rs.getString("job_location")%></td>
+                    <%
+                        Calendar c1 = Calendar.getInstance();
+                        c1.setTimeInMillis(rs.getDate("date").getTime());
+                        SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");   
+                    %>
+                    <td><%=sdf.format(c1.getTime())%></td>
                 </tr>
                                        
                 <% } %>

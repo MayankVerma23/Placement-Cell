@@ -55,29 +55,33 @@
        <section> 
             <table>
                 <tr>
-                    <th>STUDENT ID</th>
+                   
                     <th>STUDENT NAME</th>
                     <th>STUDENT ROLL NO.</th>
+                    <th>STUDENT EMAIL ID</th>
                     <th>DECLARE RESULT</th>
+                    
                </tr>
                 
                     <%  
                     HttpSession hs=request.getSession();
                     String comp_name=hs.getAttribute("company_name").toString();
-                            
+                           String status1="unplaced";
+                            String status2="waiting";
                     Class.forName("com.mysql.jdbc.Driver");
                     Connection conn=DriverManager.getConnection("jdbc:mysql://Localhost/placementcell","root","");
 
-                    String fetchQuery = "select * from interestedstudents where company_name='"+comp_name+"'";
+                    String fetchQuery = "select * from interestedstudents where company_name='"+comp_name+"' and (status='"+status1+"' or status='"+status2+"')";
                     Statement fetchStatement = conn.createStatement();
                     ResultSet rs = fetchStatement.executeQuery(fetchQuery);
                     while(rs.next()){
                     %> 
 
                     <tr>              
-                        <td><%=rs.getString("id")%></td>
+                      
                         <td><%=rs.getString("student_name")%></td>
                         <td><%=rs.getString("student_rollno")%></td>
+                          <td><%=rs.getString("student_email")%></td>
                         <td><button class="btn btn-danger" onclick="placed(<%=rs.getString("id")%>)">placed</button></td>
                     </tr>
                                        

@@ -51,9 +51,10 @@
             <table>
                 <tr>
                     <th>COMPANY NAME</th>
-                    <th>STUDENT ID</th>
-                    <th>STUDENT NAME</th>
-                    <th>STUDENT ROLL NO.</th>
+                    <th>COMPANY EMAIL ID</th>
+                    <th>YOUR NAME</th>
+                    <th>YOUR ROLL NO.</th>
+                     <th>YOUR EMAIL ID</th>
                     <th>COMPANY RESULT</th>
                    
                </tr>
@@ -73,9 +74,10 @@
 
                 <tr>
                     <td><%=rs.getString("company_name")%></td>                              
-                    <td><%=rs.getString("id")%></td>
+                    <td><%=rs.getString("company_email")%></td>
                     <td><%=rs.getString("student_name")%></td>
                     <td><%=rs.getString("student_rollno")%></td>
+                     <td><%=rs.getString("student_email")%></td>
                     <td><%=rs.getString("status")%></td>
                 </tr>
 

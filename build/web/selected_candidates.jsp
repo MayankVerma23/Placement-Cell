@@ -54,9 +54,10 @@
        <section> 
             <table>
                 <tr>
-                    <th>STUDENT ID</th>
+                    
                     <th>STUDENT NAME</th>
                     <th>STUDENT ROLL NO.</th>
+                    <th>STUDENT  EMAIL ID</th>
                     <th>CHANGE RESULT ?</th>
                </tr>
                 
@@ -75,9 +76,10 @@
                  %> 
 
                 <tr>                               
-                    <td><%=rs.getString("id")%></td>
+                   
                     <td><%=rs.getString("student_name")%></td>
                     <td><%=rs.getString("student_rollno")%></td>
+                     <td><%=rs.getString("student_email")%></td>
                     <td><button class="btn btn-danger" onclick="unplaced(<%=rs.getString("id")%>)">reject</button></td>
                 </tr>
                                        

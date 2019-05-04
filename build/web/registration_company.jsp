@@ -15,16 +15,17 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
-        <link rel="stylesheet" href="loginsignup.css">
+        
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
         <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
         
-         <script>
+        <script>
            
 	function checkpassword()
 	{
 		password=document.getElementById("t1").value;
 		length=document.getElementById("t1").value.length;
+                var a=document.getElementById("num1").value;
 		var flag_number=0;
 		var flag_lowercase=0;
 		var flag_upercase=0;
@@ -43,6 +44,7 @@
 				flag_upercase=flag_upercase+1;
 			}
 		}
+                 
 		if(length<8)
 		{
                     alert("Your password must be at least 8 characters long.");
@@ -63,6 +65,18 @@
                     alert("Your password must contain at least a letter in uper case .");
 	            return false;	
                 }
+                  else if(a.length<10){
+                      alert("Phoneno must be 10 digit");
+                      return false;
+                  }
+                 else if(a.length>10){
+                      alert("Phoneno must be 10 digit");
+                      return false;
+                  }
+                    else if((a.charAt(0)!=9)&&(a.charAt(0)!=8)&&(a.charAt(0)!=7)&&(a.charAt(0)!=6)){
+                      alert("Phone number must start with 9,8,7 and 6");
+                      return false;
+                  }
                
                 else
                 {
@@ -73,40 +87,70 @@
                      return false;}
                    else{
                     alert("pass match");
-                     return true;}
-                
+                     return true;}        
                 }	
 	}
-
-  
-
-</script>
-             
-      
-    </head>
+    </script>
+</head>
     
-    <body >
+<body>
       
-        <div class="container">
-        <div class="btn-group">
-            <a href="signup.jsp"></a>
-            <h1>COMPANY SIGNUP</h1>
-        </div>
-        <div class="box">
-
-            <form action="companysignup" method="post" onsubmit="return checkpassword()">
-                <input class="text" type="text" name="name" placeholder="Company Name" required>  
-                <input class="text" type="email" name="email" placeholder="Company Email" required>
-                <input class="text" type="text" name="phoneno" placeholder="Contact No." required>
-                <input class="text" type="text" name="loc" placeholder="Location" required>
-                <input class="text" type="password" name="pass" placeholder="Password" id="t1" required>
-                <input class="text" type="password" name="confpass" placeholder="confpass" id="t2" required>
-                <button type="submit" class="text" value="SignUp">SIGNUP</button>
+    <div class="container">
+        
+       <section style="background-color:#E9E8E2;padding: 20px;margin-top: 60px;border:2px solid black">
+            <div class="row" >
+                <div class="col-md-12">
+                    <h1>COMPANY SIGNUP</h1>
+                </div>
+            </div>
+           
+        <div class="row">
+            
+            <form action="companysignup" method="post" onsubmit="return checkpassword()" style="color: black;" >
+                
+                <div class="col-md-12">  
+              
+                <div class="form-group">
+                    <label for="name">COMPANY NAME:</label>
+                    <input type="text" name="name" class="form-control" required>
+                </div> 
+              
+                <div class="form-group">
+                    <label for="email">EMAIL:</label>
+                    <input type="email" name="email" class="form-control" required>
+                </div>
+                    
+                <div class="form-group">
+                    <label for="phno">MOBILE NO:</label>
+                    <input type="text" name="phoneno" class="form-control" id="num1" required>
+                </div>
+                    
+                <div class="form-group">
+                    <label for="loc">LOCATION:</label>
+                    <input type="text" name="loc" class="form-control" required>
+                </div>
+                    
+                <div class="form-group">
+                    <label for="pass">PASSWORD:</label>
+                    <input type="password" name="pass" class="form-control" id="t1" required>
+                </div>
+                    
+                <div class="form-group">
+                    <label for="confpass">PASSWORD:</label>
+                    <input type="password" name="confpass" class="form-control" id="t2" required>
+                </div>
+                
+                </div>
+                
+                <div class="row">
+                    <div class="col-md-12" style="text-align: center">
+                        <button  type="submit" class="btn btn-success" value="SignUp" style="width:40%;height:20%">SIGNUP</button>
+                    </div>
+                </div>
                 
             </form>
         </div>
-        </div>
-        
+    </div>
         
     </body>
 </html>

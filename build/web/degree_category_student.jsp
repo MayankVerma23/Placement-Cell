@@ -3,14 +3,14 @@
         color:black;
     }
 </style>
-        <select class="form-control" ID="branch"  name="branch">>
+        <select class="form-control" ID="branch"  name="branch">
          
-            <option selected>BRANCH</option>
+      
         <%
 
                 String degree=request.getParameter("degree");
 
-         if(degree.equals("Btech")) {        
+         if(degree.equals("BTech")) {        
            %>
             
               <option>CSE</option>
@@ -20,29 +20,24 @@
           
            <%
              }
-            else if(degree.equals("MBA")){
+            else if(degree.equals("BCA")){
           %>  
        
-              <option>MBA</option>       
+              <option>BCA</option>       
           
                <%
      
                  }
                 else if(degree.equals("MCA")){
                 %> 
-       
-        
               <option>MCA</option>
              
                <%
      
                  }
-            else if(degree.equals("BCA")){
-               %>  
-           <option>BCA></option>
-                 <%
+         
      
-   }
+  
           %>  
      </select> 
         

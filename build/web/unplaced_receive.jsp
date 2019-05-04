@@ -4,6 +4,10 @@
     Author     : HP
 --%>
 
+<%@page import="java.sql.ResultSet"%>
+<%@page import="java.sql.Statement"%>
+<%@page import="java.sql.DriverManager"%>
+<%@page import="java.sql.Connection"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -13,22 +17,44 @@
     </head>
     <body>
        <!--Database connectivity-->
-        <%@include file = "database_connection.jsp"%>  
+      
         
         <%!
-                String idd = "";
+                String idd = "",  stu_roll ;
                 String status = "unplaced";
             %>
             
-            <%
+      <%
                     idd = request.getParameter("studentid");
             %>
             
             <%  //Create the preparedstatement(s)
+                
+                
+                
+                Class.forName("com.mysql.jdbc.Driver");
+                Connection conn=(Connection)DriverManager.getConnection("jdbc:mysql://localhost/placementcell","root","");
+         
                 Statement fetchStatement = conn.createStatement();
+                  String x = "select * from interestedstudents where id='"+idd+"' ";
+                   ResultSet rs = fetchStatement.executeQuery(x);
+                    while(rs.next()){
+                 
+
+                            
+                      
+                        
+                       stu_roll =rs.getString("student_rollno");
+                        
+                       
+                  
+                                       
+                    } 
                 String y = "update interestedstudents set status='"+status+"' where id='"+idd+"'";
                 fetchStatement.executeUpdate(y);
-                response.sendRedirect("selected_candidates.jsp");
-            %>
+                 String z = "update studentsignup set studentstatus='"+status+"' where studentrollno='"+stu_roll+"'";
+                 fetchStatement.executeUpdate(z);
+               response.sendRedirect("selected_candidates.jsp");
+            %>       
     </body>
 </html>

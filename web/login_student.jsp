@@ -11,7 +11,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title id="title">Login</title>
+        
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
@@ -38,21 +38,18 @@
        
             <%
             HttpSession hs=request.getSession();
-            hs.setAttribute("log","student");
-              
+            hs.setAttribute("log","student");  
             %>  
+            
               <%!
               String rolno="",pass="";
               String imgroll="000";
               %>
-        <%
-            
-           rolno =request.getParameter("roll");
-           pass =request.getParameter("pass");
-       
-      
-
-         try {
+              <%
+              rolno =request.getParameter("roll");
+              pass =request.getParameter("pass");
+ 
+    try {
                
             Class.forName("com.mysql.jdbc.Driver");
             Connection con=DriverManager.getConnection("jdbc:mysql://Localhost/placementcell","root","");
@@ -70,15 +67,14 @@
                   request.getRequestDispatcher("login").forward(request, response);
                   response.sendRedirect("login");
              }
-               else{
-                 request.setAttribute("roll", rolno);
-                  request.getRequestDispatcher("image_studentt.jsp").forward(request, response);
+           else{
+                 hs.setAttribute("roll",rolno);
                  out.print("<script>window.open('image_studentt.jsp','popUpWindow','height=500,width=600,left=650,top=250,resizable=yes,scrollbars=yes,toolbar=yes,menubar=no,location=no,directories=no, status=yes');</script>");
-                   }
-              }
+               }
+        }
    
         catch(Exception e)
         {
-            out.print(e);
+           // out.print(e);
         } 
  %>

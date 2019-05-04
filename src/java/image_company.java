@@ -86,7 +86,7 @@ st.execute(query);
             {
                out.println(ex);
             }
-  saveFile="C:/Users/hp/Documents/NetBeansProjects/Placement Cell/web/company_images/"+saveFile;
+  saveFile="F:/netbeams/Placement Cell/web/company_images/"+saveFile;
 
 		FileOutputStream fileOut = new FileOutputStream(saveFile);
 		fileOut.write(dataBytes, startPos, (endPos - startPos));

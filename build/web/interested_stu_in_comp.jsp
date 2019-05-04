@@ -47,9 +47,10 @@
        <section> 
             <table>
                 <tr>
-                    <th>STUDENT ID</th>
+                   
                     <th>STUDENT NAME</th>
-                    <th>STUDENT ROLL NO.</th>   
+                    <th>STUDENT ROLL NO.</th> 
+                     <th>STUDENT EMAIL ID</th>
                </tr>
                 
                     <%  
@@ -66,9 +67,10 @@
                     %> 
 
                 <tr>                 
-                    <td><%=rs.getString("id")%></td>
+                    
                     <td><%=rs.getString("student_name")%></td>
                     <td><%=rs.getString("student_rollno")%></td>
+                    <td><%=rs.getString("student_email")%></td>
                 </tr>
                                        
                 <% } %>

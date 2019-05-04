@@ -12,8 +12,7 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
-     <!--  <link rel="stylesheet" href="student.css">
-        --><script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
         <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
       
        <style>
@@ -97,6 +96,18 @@
 		var flag_lowercase=0;
 		var flag_upercase=0;
                 var a=document.getElementById("t3").value;
+                var b=document.getElementById("s1").value;
+                var c=document.getElementById("s2").value;
+                var d=document.getElementById("s3").value;
+                var e=document.getElementById("s4").value;
+                var f=document.getElementById("s5").value;
+                var g=document.getElementById("s6").value;
+                var h=document.getElementById("s7").value;
+                var i=document.getElementById("s8").value;
+                var j=document.getElementById("c9").value;
+               
+                                                                 
+                               
 		for(i=0;i<length;i++)
 		 {
 			if(password.charAt(i)>=0&&password.charAt(i)<=9)
@@ -149,7 +160,44 @@
                       alert("Phone number must start with 9,8,7 and 6");
                       return false;
                   }
-    
+                   else if(b>10){
+                      alert("sem one cgpa not greater than 10");
+                      return false;
+                  }
+                   else if(c>10){
+                      alert("sem2 cgpa not greater than 10");
+                      return false;
+                  }
+                   else if(d>10){
+                      alert("sem3 cgpa not greater than 10");
+                      return false;
+                  }
+                   else if(e>10){
+                      alert("sem4 cgpa not greater than 10");
+                      return false;
+                  }
+                   else if(f>10){
+                      alert("sem5 cgpa not greater than 10");
+                      return false;
+                  }
+                   else if(g>10){
+                      alert("sem6 cgpa not greater than 10");
+                      return false;
+                  }
+                   else if(h>10){
+                      alert("sem7 cgpa not greater than 10");
+                      return false;
+                  }
+                   else if(i>10){
+                      alert("sem8 cgpa not greater than 10");
+                      return false;
+                  }
+                   else if(j>10){
+                      alert("overall cgpa not greater than 10");
+                      return false;
+                  }
+                 
+                 
                
                 else
                 {
@@ -211,12 +259,12 @@
             </div>
             
         <div class="row">    
-        <form action="studentsignup" method="post" onsubmit="return checkpassword()" autocomplete="on" style="color: black;" >
+        <form action="studentsignup" method="post" onsubmit="return checkpassword()" autocomplete="on" style="color: black;">
             <div class="col-md-6">  
               
                 <div class="form-group">
                     <label for="name">NAME:</label>
-                    <input type="text" name="name" class="form-control" id="drop" required>
+                    <input type="text" name="name" class="form-control"  required>
                 </div>
                 
                 
@@ -229,17 +277,15 @@
                 
                 <div class="form-group">
                     <label for="email">EMAIL:</label>
-                    <input type="text" name="email" class="form-control" id="drop" required >
+                    <input type="text" name="email" class="form-control"  required >
                 </div>
                 
                 <div class="form-group">
-                <label for="Select Degree">DEGREE :</label>
+                <label for="SelectDegree">DEGREE :</label>
                 <select class="form-control" id="degree" name="degree" onchange="sublist()" required>
-                  <option value="">DEGREE</option>
-                    <option value="Btech">B.tech</option>
+                    <option value="BTech">BTech</option>
                     <option value="MCA">MCA</option>
-                    <option value="BCA">BCA</option>
-                    <option value="MBA">MBA</option>
+                    <option value="BCA">BCA</option> 
                 </select>
                 </div>
 
@@ -286,14 +332,14 @@
                     <div class="col-md-3">
                         <div class="form-group">
                             <label for="sem1">1st SEM CGPA:</label>
-                            <input type="text" name="sem1" class="form-control" id="drop" required >
+                            <input type="text" name="sem1" class="form-control" id="s1" required >
                         </div>
                     </div>
 
                     <div class="col-md-3">
                         <div class="form-group">
                             <label for="sem2">2nd SEM CGPA:</label>
-                            <input type="text" name="sem2" class="form-control" id="drop" required >
+                            <input type="text" name="sem2" class="form-control" id="s2" required >
                         </div>
                     </div>
                 </div>
@@ -302,14 +348,14 @@
                     <div class="col-md-3">
                         <div class="form-group">
                             <label for="sem3">3rd SEM CGPA:</label>
-                            <input type="text" name="sem3" class="form-control" id="drop" required >
+                            <input type="text" name="sem3" class="form-control" id="s3" required >
                         </div>
                     </div>
 
                     <div class="col-md-3">
                         <div class="form-group">
                             <label for="sem4">4th SEM CGPA:</label>
-                            <input type="text" name="sem4" class="form-control" id="drop" required >
+                            <input type="text" name="sem4" class="form-control" id="s4" required >
                         </div>
                     </div>
                 </div>
@@ -318,14 +364,14 @@
                     <div class="col-md-3">
                         <div class="form-group">
                             <label for="sem5">5th SEM CGPA:</label>
-                            <input type="text" name="sem5" class="form-control" id="drop" required >
+                            <input type="text" name="sem5" class="form-control" id="s5" required >
                         </div>
                     </div>
 
                     <div class="col-md-3">
                         <div class="form-group">
                             <label for="sem6">6th SEM CGPA:</label>
-                            <input type="text" name="sem6" class="form-control" id="drop" required >
+                            <input type="text" name="sem6" class="form-control" id="s6" required >
                         </div>
                     </div>
                 </div>
@@ -334,21 +380,21 @@
                     <div class="col-md-3">
                         <div class="form-group">
                             <label for="sme7">7th SEM CGPA:</label>
-                            <input type="text" name="sem7" class="form-control" id="drop" required >
+                            <input type="text" name="sem7" class="form-control" id="s7" required >
                         </div>
                     </div>
 
                     <div class="col-md-3">
                         <div class="form-group">
                             <label for="sem8">8th SEM CGPA:</label>
-                            <input type="text" name="sem8" class="form-control" id="drop" required >
+                            <input type="text" name="sem8" class="form-control" id="s8" required >
                         </div>
                     </div>
                 </div>
                 
                 <div class="form-group">
                     <label for="cgpa">OVERALL CGPA:</label>
-                    <input type="text" name="cgpa" class="form-control" id="drop" required >
+                    <input type="text" name="cgpa" class="form-control" id="c9" required >
                 </div>
                 
                  <div class="form-group">

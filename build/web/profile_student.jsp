@@ -58,7 +58,7 @@
               stugender=rs.getString("studentgender");
               stu_batch=rs.getString("batch");
               stu_ten=rs.getString("ten");
-              stu_twe=rs.getString("tew");
+              stu_twe=rs.getString("twe");
               stu_sem1=rs.getString("sem1");
               stu_sem2=rs.getString("sem2");
               stu_sem3=rs.getString("sem3");

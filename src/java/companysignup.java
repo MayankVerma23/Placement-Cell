@@ -61,13 +61,13 @@ public class companysignup extends HttpServlet {
              if(!email.equals(em)) {
              String x="insert into companysignup values(null,'"+name+"','"+email+"','"+phoneno+"','"+loc+"','"+pass+"','"+status+"')";
              stmt.executeUpdate(x);           
-             request.setAttribute("email", email);
-             request.getRequestDispatcher("image_company.jsp").forward(request, response);
-             response.sendRedirect("image_company.jsp");
+          //   request.setAttribute("email", email);
+             //request.getRequestDispatcher("login.jsp").forward(request, response);
+             response.sendRedirect("login.jsp");
          }
               else{
               out.print("<script> window.alert('Email Already Use Please Select Another Email') </script>");
-               out.print("<script> window.location.href='registration_company.jsp' </script>");
+              out.print("<script> window.location.href='registration_company.jsp' </script>");
                  
                   }
          }

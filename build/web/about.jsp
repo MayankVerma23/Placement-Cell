@@ -26,7 +26,7 @@
     
             <h2 style="text-align: center;margin-bottom: 55px;"> ABOUT US</h2>
             
-            <img src="expert.png" alt="person" style="float:left;margin-right:30px;" height="400px">
+         
             
             <p id="aboutinfo">This Web Site is created by highly professional py highly professional people. So eople. So Kindly don't try to Change Anything.
                     I Repeat - This Web Site is created bKindly don't try to Change Anything.

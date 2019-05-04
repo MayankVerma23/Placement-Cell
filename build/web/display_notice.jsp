@@ -13,8 +13,9 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>JSP Page</title>
     </head>
+    
     <body>
-        <%! int id ;%>
+        <%! int id = 0;%>
         <% String subject,date,message;%>
                  <%@include file = "database_connection.jsp"%>
                  <br><br><br>
@@ -37,7 +38,7 @@
                          <div class="msgbox">
                 <div class="container-center" >
                     <div class="notices">
-                <h5 class="userr"><%=date%></span></h5>
+                <h5 class="userr"><%=date%></h5>
                 <h2 class="notice_sub"><%=subject%></h2>
                 <br><br>
                 <p class="notice_sub"><%=message%></p>
@@ -46,6 +47,7 @@
                      
                  </div>
                   </div>
+                         </div>
                         
                         <% 
                     }
@@ -56,11 +58,7 @@
                 }
         %>
         <br><br>
-        <br><br>
-        <br><br>
-        <br><br>
-        <br><br>
-        <br><br>
+        
         
         
     </body>

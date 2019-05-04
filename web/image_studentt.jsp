@@ -26,10 +26,15 @@
     
     </head>
     <body>
+           <% HttpSession hs=request.getSession();%>
+      
+           
+   
       
        <form name="f1" enctype="multipart/form-data"  method="post">
            <%!String roll="";%>
-            <%String roll = (String)request.getAttribute("roll"); %> 
+           
+            <%String roll=(String)hs.getAttribute("roll"); %> 
                 <!-- <label></label>-->
             <input type="text" value="<%=roll%>"  name="t1">
             <p>Image<input type="file" name="i" required><br></p>

@@ -4,6 +4,9 @@
     Author     : HP
 --%>
 
+<%@page import="java.sql.Date"%>
+<%@page import="java.text.SimpleDateFormat"%>
+<%@page import="java.util.Calendar"%>
 <%@page import="java.sql.ResultSet"%>
 <%@page import="java.sql.Statement"%>
 <%@page import="java.sql.DriverManager"%>
@@ -19,7 +22,13 @@
         <%! String com_name="" , com_name1="";%>
        <%
            
-          
+            String dateString = request.getParameter("date");
+	        SimpleDateFormat s=new SimpleDateFormat("yyyy-MM-dd");
+                Calendar c1 = Calendar.getInstance();
+                
+                c1.setTimeInMillis(s.parse(dateString).getTime());
+                
+            Date sqdate = new Date(c1.getTimeInMillis());
             String batch1 = request.getParameter("batch");
             String course1 = request.getParameter("course1");
             String course2 = request.getParameter("course2");
@@ -35,12 +44,12 @@
          String job_profile= request.getParameter("job");
          String pack= request.getParameter("package");
          String location= request.getParameter("job_location");
-         
+
 
                
                    try{
         HttpSession hs=request.getSession();
-       String comp_email=hs.getAttribute("company_email").toString();
+        String comp_email=hs.getAttribute("company_email").toString();
                   
              Class.forName("com.mysql.jdbc.Driver");
          Connection conn=(Connection)DriverManager.getConnection("jdbc:mysql://localhost/placementcell","root","");
@@ -52,21 +61,21 @@
          }
    
          
-           String z="select * from companyrequirements ";
-            ResultSet rs1 = stmt.executeQuery(z);
+         String z="select * from companyrequirements ";
+         ResultSet rs1 = stmt.executeQuery(z);
          while(rs1.next()){
          com_name1=rs1.getString("companyname");
          }
         if(!com_name.equals(com_name1))
         {
-      String x="insert into companyrequirements values(null,'"+com_name+"','"+course1+"','"+course2+"','"+course3+"','"+br1+"','"+br2+"','"+br3+"','"+br4+"','"+backlog1+"','"+percentage1+"','"+skill1+"','"+procedure1+"','"+batch1+"','"+job_profile+"','"+pack+"','"+location+"')";
-      stmt.executeUpdate(x);
+        String x="insert into companyrequirements values(null,'"+com_name+"','"+course1+"','"+course2+"','"+course3+"','"+br1+"','"+br2+"','"+br3+"','"+br4+"','"+backlog1+"','"+percentage1+"','"+skill1+"','"+procedure1+"','"+batch1+"','"+job_profile+"','"+pack+"','"+location+"','"+sqdate+"')";
+        stmt.executeUpdate(x);
           
-             out.print("<script> alert('done') </script>");
+             out.print("<script> alert('done') </script>"+"<br>");
              
         }
         else{
-        out.print("<script> alert('you already send the requirements') </script>");
+        out.print("<script> alert('you already send the requirements') </script>"+"<br>");
           }
             response.sendRedirect("home_company.jsp");
  
@@ -74,7 +83,7 @@
          
          catch(Exception ex)
          {
-           out.print(ex);
+           out.print(ex.getMessage()+"<br>");
          }
        %>
     </body>

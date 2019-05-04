@@ -67,6 +67,7 @@
                     <th>JOB PROFILE</th>
                     <th>PACKAGE</th>
                     <th>JOB LOCATION</th>
+                      <th>DATE</th>
                     <th>CHOOSE COMPANY</th>
                 </tr>
                 
@@ -140,6 +141,7 @@
                 <td><%=rs3.getString("job_profile")%></td>
                 <td><%=rs3.getString("package")%></td>
                 <td><%=rs3.getString("job_location")%></td>
+                 <td><%=rs3.getString("date")%></td>
                 <td><button class="btn btn-danger" onclick="apply(<%=rs3.getString("id")%>)">APPLY</button></td>
             </tr>
             <%} } %>

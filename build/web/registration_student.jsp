@@ -216,7 +216,7 @@
   
 
 </script>
-<script>
+<!--<script>
       function validrollno()
              {
             h1=document.getElementById("roll").value;
@@ -242,7 +242,7 @@
                 
             }
         }
-    </script>
+    </script>-->
 
         
     </head>
@@ -270,7 +270,7 @@
                 
                 <div class="form-group">
                     <label for="roll">ROLL NO:</label>
-                    <input type="text" name="roll" class="form-control" id="roll" onkeyup="validrollno()" required >
+                    <input type="text" name="roll" class="form-control" id="roll" <%--onkeyup="validrollno()"--%> required >
                 </div>
                 
                 <div id="na"></div>

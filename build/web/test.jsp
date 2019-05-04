@@ -119,7 +119,7 @@
         <section class="first">
           <div class="container" style="padding: 0px">
                 <p>WELCOME TO<br>PLACEMENT<br>CELL</p>
-                <a href="login.jsp"><button class="buttonlogin" name="login" style="margin-left: 1%; margin-right:7%;margin-top: 8%">LOGIN</button></a>
+                <a href="login_page.jsp"><button class="buttonlogin" name="login" style="margin-left: 1%; margin-right:7%;margin-top: 8%">LOGIN</button></a>
                 <a href="signup.jsp"><button class="buttonlogin" name="signup" >SIGN UP</button></a>
           </div>
         </section>

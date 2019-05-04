@@ -17,7 +17,7 @@
         <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
         <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
-      <meta http-equiv="refresh" content="10">
+      <meta http-equiv="refresh" content="5">
         <script>
             function changeprofile1(){
                     var r = confirm("R U SURE!! U WANT CHANGES IN PROFILE");     
@@ -38,7 +38,7 @@
         
         <%@include file = "pic.jsp"%>
           <%!String stu_roll1="",sturoll="",stuname="",stuemail="",studegree="",stuphno="",stugender="",stupass="",
-           stu_batch,stu_ten,stu_twe,stu_sem1,stu_sem2,stu_sem3,stu_sem4,stu_sem5,stu_sem6,stu_sem7,stu_sem8,stu_cgpa,stu_branch       ;%>
+           stu_batch,stu_ten,stu_twe,stu_sem1,stu_sem2,stu_sem3,stu_sem4,stu_sem5,stu_sem6,stu_sem7,stu_sem8,stu_cgpa,stu_branch,backlog ;%>
           
        <%   
             //   HttpSession hs=request.getSession();
@@ -68,9 +68,8 @@
               stu_sem7=rs.getString("sem7");
               stu_sem8=rs.getString("sem8");
               stu_cgpa=rs.getString("cgpa");
-              
               stu_branch=rs.getString("branch");
-              
+              backlog=rs.getString("backlog");
            }
        %>
              
@@ -235,6 +234,13 @@
 <td></td>
 
 <td><%=stu_batch%></td>
+</tr>
+<tr>
+<td>BACKLOG</td>
+
+<td></td>
+
+<td><%=backlog%></td>
 </tr>
 
 

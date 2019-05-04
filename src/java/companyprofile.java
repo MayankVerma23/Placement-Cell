@@ -36,8 +36,7 @@ public class companyprofile extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
-          String a=request.getParameter("t1");
-           String b=request.getParameter("t2"); 
+          String a=request.getParameter("t1");          
            String c=request.getParameter("t3");
            String d=request.getParameter("t4"); 
            
@@ -48,7 +47,7 @@ public class companyprofile extends HttpServlet {
           Class.forName("com.mysql.jdbc.Driver");
           Connection conn=(Connection) DriverManager.getConnection("jdbc:mysql://localhost/placementcell","root","");
           Statement stm=conn.createStatement();
-          String str="update companysignup set companyname='"+a+"', companyemail='"+b+"', companyphno='"+c+"',companylocation='"+d+"' where companyemail='"+f+"'";
+          String str="update companysignup set companyname='"+a+"',companyphno='"+c+"',companylocation='"+d+"' where companyemail='"+f+"'";
           stm.executeUpdate(str);
           //response.sendRedirect("home_student.jsp");
          out.print("<script>window.close()</script>");

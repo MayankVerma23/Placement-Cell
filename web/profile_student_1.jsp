@@ -22,7 +22,7 @@
           </head>
     
     <body>
-          <%!String stu_roll1="",sturoll="",stuname="",stuemail="",studegree="",stuphno="",stugender="",stupass="";%>
+          <%!String stu_roll1="",sturoll="",stuname="",stuemail="",studegree="",stuphno="",stugender="",stupass="",stubranch="",stubatch="",stutwe="",stuten="",stusem1="",stusem2="",stusem3="",stusem4="",stusem5="",stusem6="",stusem7="",stusem8="",stucgpa="",stubacklog="";%>
           
        <%   
            try{
@@ -40,10 +40,25 @@
            {      
               sturoll=rs.getString("studentrollno");
               stuname=rs.getString("studentname");
-              stuemail=rs.getString("studentemail");
-              stuphno=rs.getString("studentphno");
+              stuemail=rs.getString("studentemail");             
               studegree=rs.getString("studentdegree");
+              studegree=rs.getString("studentdegree");
+              stubranch=rs.getString("branch");
+              stubatch=rs.getString("batch");
+              stuphno=rs.getString("studentphno");
               stugender=rs.getString("studentgender");
+              stutwe=rs.getString("twe");
+              stuten=rs.getString("ten");
+              stusem1=rs.getString("sem1");
+              stusem2=rs.getString("sem2");
+              stusem3=rs.getString("sem3");
+              stusem4=rs.getString("sem4");
+              stusem5=rs.getString("sem5");
+              stusem6=rs.getString("sem6");
+              stusem7=rs.getString("sem7");
+              stusem8=rs.getString("sem8");
+              stucgpa=rs.getString("cgpa");
+              stubacklog=rs.getString("backlog");
            }
            
            }
@@ -58,18 +73,19 @@
                     <tr>
 			<th style="text-align:center"><u><b><h2>UPDATE CHANGES FORM</h2></u></b><th>
                     </tr>
-		
+		     <tr>
+			<td></td><td></td>
+			<td>ROLL NO:</td>
+                        <td>   <label><%=sturoll%></label></td>
+                        
+                    </tr>
                     <tr>
 			<td></td><td></td>
 			<td>Enter Name:</td>
-			<td><input type="text" value=<%=stuname%> name="t1"> </td>
+                        <td><input type="text" value=<%=stuname%> name="t1"> </td>
                     </tr>
 		
-                    <tr>
-			<td></td><td></td>
-			<td>Enter ROLL NO:</td>
-                        <td><input type="text" value=<%=sturoll%> name="t2" readonly=""></td>
-                    </tr>
+                   
 		
                     <tr>
 			<td></td><td></td>

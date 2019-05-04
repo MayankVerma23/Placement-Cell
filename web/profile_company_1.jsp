@@ -16,7 +16,7 @@
     </head>
     
     <body>
-        <%@include file = "database_connection.jsp"%>  
+       
 
         
         <%!String com_name="",com_email="",com_phno="",com_location="",com_Password="",com_status="",com_email1="";%>
@@ -26,8 +26,8 @@
 
                com_email=hs.getAttribute("company_email").toString();
                Class.forName("com.mysql.jdbc.Driver");
-               conn = DriverManager.getConnection("jdbc:mysql://localhost/placementcell", "root", "");
-               Statement stmt=conn.createStatement();
+              Connection conn = DriverManager.getConnection("jdbc:mysql://localhost/placementcell", "root", "");
+                Statement stmt=conn.createStatement();
                String x="select * from companysignup where companyemail='"+com_email+"'";
                ResultSet rs=stmt.executeQuery(x);
                while(rs.next())
@@ -49,16 +49,17 @@
 			<td></td><td></td>
 			<th style="text-align:center"><u><b><h2>UPDATE CHANGES FORM<h2></u></b><th>
 		</tr>
+                <tr>
+			<td></td><td></td>
+			<td>EMAIL:</td>
+                        <td>  <label><%=com_email1%> </label></td>			
+		</tr>
 		<tr>
 			<td></td><td></td>
 			<td>Enter Name:</td>
 			<td><input type="text" value=<%=com_name%> name="t1"> </td>
 		</tr>
-		<tr>
-			<td></td><td></td>
-			<td>EMAIL:</td>
-			<td><input type="text" value=<%=com_email1%> name="t2"></td>
-		</tr>
+		
 		<tr>
 			<td></td><td></td>
 			<td>PHONE NO.:</td>

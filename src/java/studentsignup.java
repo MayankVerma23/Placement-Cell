@@ -77,11 +77,11 @@ public class studentsignup extends HttpServlet {
               stmt.executeUpdate(x);           
            // request.setAttribute("roll", roll);
              //request.getRequestDispatcher("image_studentt.jsp").forward(request, response);
-             response.sendRedirect("login.jsp");  
+             response.sendRedirect("login_page.jsp");  
              }
               else{
               out.print("<script> window.alert('RollNo Already Use Please Select Another RollNo') </script>");
-              out.print("<script> window.location.href='registration_student.jsp' </script>");
+              out.print("<script> window.location.href='login_page.jsp' </script>");
                   
                   }
          }

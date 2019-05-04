@@ -184,7 +184,7 @@ body
        </div>
         
         <%!
-              String oldpass="",newpass="",confirmpass="",stupass="",rollno="";
+              String oldpass=" ",newpass="",confirmpass="",stupass="",rollno=" ";
        
         %>
         <%
@@ -194,7 +194,7 @@ body
           
        //  HttpSession hs=request.getSession();
          rollno= hs.getAttribute("stu_roll").toString();
-     
+  
      
          try{
          Class.forName("com.mysql.jdbc.Driver");
@@ -218,10 +218,14 @@ body
             else{
             out.print("<script>alert('new password & confirm password must match')</script>");
                 }
-          }
-          else {
+            }
+            else {
             out.print("<script>alert('enter correct password')</script>");
                 }
+        }
+         catch(NullPointerException e)
+        {
+            out.print(" ");        
         }
         catch(Exception e)
         {

@@ -258,6 +258,11 @@ body
             out.print("<script>alert('enter correct password')</script>");
                 }
         }
+         catch(NullPointerException e)
+        {
+            out.print(" ");
+        
+        }
         catch(Exception e)
         {
                 out.print(e);

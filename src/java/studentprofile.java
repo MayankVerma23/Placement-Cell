@@ -37,7 +37,7 @@ public class studentprofile extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
             String a=request.getParameter("t1");
-            String b=request.getParameter("t2"); 
+           
             String c=request.getParameter("t3");
             String d=request.getParameter("t4"); 
             String e=request.getParameter("t5");
@@ -49,7 +49,7 @@ public class studentprofile extends HttpServlet {
                 Class.forName("com.mysql.jdbc.Driver");
                 Connection conn=(Connection) DriverManager.getConnection("jdbc:mysql://localhost/placementcell","root","");
                 Statement stm=conn.createStatement();
-                String str="update studentsignup set studentname='"+a+"', studentrollno='"+b+"', studentemail='"+c+"',studentdegree='"+d+"',studentphno='"+e+"',studentgender='"+g+"' where studentrollno='"+f+"'";
+                String str="update studentsignup set studentname='"+a+"', studentemail='"+c+"',studentdegree='"+d+"',studentphno='"+e+"',studentgender='"+g+"' where studentrollno='"+f+"'";
                 stm.executeUpdate(str);
                  out.print("<script>window.close()</script>");           
             }

@@ -17,6 +17,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  *
@@ -39,7 +40,7 @@ public class image_company extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
-           
+         
              String x=request.getParameter("pn1");  
        String contentType = request.getContentType();
        if ((contentType != null) && (contentType.indexOf("multipart/form-data") >= 0)) {
@@ -91,10 +92,8 @@ st.execute(query);
 		FileOutputStream fileOut = new FileOutputStream(saveFile);
 		fileOut.write(dataBytes, startPos, (endPos - startPos));
 		fileOut.flush();
-		fileOut.close();
-             
-                response.sendRedirect("login_company.jsp");
-                
+		fileOut.close();                    
+                out.print("<script>window.close();</script>");
 }
       
         }

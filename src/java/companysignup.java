@@ -63,11 +63,11 @@ public class companysignup extends HttpServlet {
              stmt.executeUpdate(x);           
           //   request.setAttribute("email", email);
              //request.getRequestDispatcher("login.jsp").forward(request, response);
-             response.sendRedirect("login.jsp");
+             response.sendRedirect("login_page.jsp");
          }
               else{
               out.print("<script> window.alert('Email Already Use Please Select Another Email') </script>");
-              out.print("<script> window.location.href='registration_company.jsp' </script>");
+              out.print("<script> window.location.href='login_page.jsp' </script>");
                  
                   }
          }

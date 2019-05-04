@@ -26,10 +26,11 @@
     
     </head>
     <body>
+        <% HttpSession hs=request.getSession();%>
       
        <form name="f1" enctype="multipart/form-data"  method="post">
            <%!String email="";%>
-            <%String email = (String)request.getAttribute("email"); %>
+            <%String email = (String)hs.getAttribute("email"); %>
            
             <input type="text" value="<%=email%>"  name="t1">
            <p>Image<input type="file" name="i" required><br></p>

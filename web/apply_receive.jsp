@@ -4,6 +4,9 @@
     Author     : HP
 --%>
 
+<%@page import="java.sql.Date"%>
+<%@page import="java.text.SimpleDateFormat"%>
+<%@page import="java.util.Calendar"%>
 <%@page import="java.sql.ResultSet"%>
 <%@page import="java.sql.Statement"%>
 <%@page import="java.sql.DriverManager"%>
@@ -20,7 +23,7 @@
       <%!
           String status1="waiting";
             String companyid1= "", company_per,stu_backlog,req_backlog, stu_roll1="";
-            String desirecompany1 = "",stu_rollno="",stu_name="",stu_per, comp_email, stu_email;
+            String desirecompany1 = "",stu_rollno="",stu_name="",stu_per, comp_email, stu_email,date;
             int company_per1 , stu_per1 ,stu_backlog1,req_backlog1;
        %>
        <%
@@ -42,9 +45,19 @@
             desirecompany1=rs.getString("companyname");
             company_per=rs.getString("requiredpercentage");
             req_backlog=rs.getString("requiredbacklog");
-           
+            date=rs.getString("date");
           }
          
+            String dateString = request.getParameter("date");
+	        SimpleDateFormat s=new SimpleDateFormat("yyyy-MM-dd");
+                Calendar c1 = Calendar.getInstance();
+                
+                c1.setTimeInMillis(s.parse(dateString).getTime());
+                
+            Date sqdate = new Date(c1.getTimeInMillis());
+            System.out.print(c1);
+             System.out.print("helloo");
+                    
         /* out.println(desirecompany1);
          out.println(company_per);
          out.println(req_backlog);
@@ -93,7 +106,10 @@
            req_backlog1=Integer.parseInt(req_backlog);
           stu_backlog1=Integer.parseInt(stu_backlog);
          // out.print(stu_roll1);
-          
+          Calendar current = Calendar.getInstance();
+          if(current.after(c1)) {
+                             
+                        
           if(!stu_roll1.equals(stu_rollno))
           {
           
@@ -127,6 +143,10 @@
           out.print("<script>alert('you already apply in this company');</script>");
             out.print("<script>window.location.href='apply_job.jsp'</script>");
           }
+                        }
+                        else{
+                          out.print("<script>alert('date expire to apply');</script>");
+                        }
         // HttpSession hs=request.getSession();
          //desirecompany1= hs.getAttribute("desirecompany").toString();
         //out.print(desirecompany1);

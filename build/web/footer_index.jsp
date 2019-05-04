@@ -194,6 +194,7 @@
               <li><i class="ion-ios-arrow-right"></i> <a href="#">Apply Off Campus</a></li>
               <li><i class="ion-ios-arrow-right"></i> <a href="#">Our Recruiters</a></li>
               <li><i class="ion-ios-arrow-right"></i> <a href="#">Contact Us</a></li>
+              <li><i class="ion-ios-arrow-right"></i> <a href="our_team1.jsp">Our Team</a></li>
             </ul>
           </div>
 

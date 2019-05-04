@@ -16,16 +16,22 @@
         <title>JSP Page</title>
     </head>
     <body>
+        
          <%!String roll =""; %>
-         <%!String pn="",im="",rolno="";%>
+         <%!String pn="",im="",rolno="00",email="00",ef="";%>
      
        
          <%
             HttpSession hs=request.getSession();
-            rolno=hs.getAttribute("stu_roll").toString();%>
+               
+                ef=hs.getAttribute("log").toString();
+            
+        
+            if(ef.equals("student"))
+            {%>
           <%
          try{
-           
+             rolno=hs.getAttribute("stu_roll").toString();
          Class.forName("com.mysql.jdbc.Driver");
          Connection conn=(Connection)DriverManager.getConnection("jdbc:mysql://localhost/placementcell","root","");
          Statement st=conn.createStatement();
@@ -53,7 +59,51 @@
                 {
                 out.println(ex);
                 }
+}
+else if(ef.equals("company")){
             %>
         
+           
+         <%!String pn1="00",imm="00";%>
+     
+       
+         <%
+         
+            email=hs.getAttribute("company_email").toString();
+         try{
+           
+         Class.forName("com.mysql.jdbc.Driver");
+         Connection conn=(Connection)DriverManager.getConnection("jdbc:mysql://localhost/placementcell","root","");
+         Statement st=conn.createStatement();
+         String x1="Select * from company_image where email='"+email+"'";
+         ResultSet rs=st.executeQuery(x1);
+         while(rs.next())
+         {
+           pn1=rs.getString("email");
+           imm=rs.getString("file_name");
+         }
+         if(email.equals(pn1)){
+             %>
+             
+           <!--  <h1><%=imm%></h1>-->
+             <img src="company_images/<%=imm%>"  height="200" width="180" align="right">
+             <!--<object data="image/ height="500" width="1300">-->
+          
+           
+        <%
+         
+            }
+         
+            }
+            catch(Exception ex)
+                {
+                out.println(ex);
+                }
+            %>
+            
+            
+            
+            
+            <%}%>
     </body>
 </html>

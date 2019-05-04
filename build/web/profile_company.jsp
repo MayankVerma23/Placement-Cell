@@ -28,24 +28,62 @@
                         window.open('profile_company_1.jsp','popUpWindow','height=500,width=600,left=650,top=250,resizable=yes,scrollbars=yes,toolbar=yes,menubar=no,location=no,directories=no, status=yes');
                     }
             }
+               function uploadimag()
+               {
+              var r = confirm("R U SURE!! U WANT CHANGES IN PROFILE");
+                    if (r == true) {
+                        window.open('image_company.jsp','popUpWindow','height=500,width=600,left=650,top=250,resizable=yes,scrollbars=yes,toolbar=yes,menubar=no,location=no,directories=no, status=yes');
+                    }
+                }
         </script>
         
     </head>
     
     <body>
-         
+         <%@include file = "header_company.jsp"%>
+    <%
+          HttpSession hss=request.getSession();
+        String company_email=hss.getAttribute("company_email").toString();
+      String imgemail="";
+                    try
+                    {
+                        Class.forName("com.mysql.jdbc.Driver");
+                        Connection con = DriverManager.getConnection("jdbc:mysql://localhost/placementcell","root","");
+                        Statement stmt=con.createStatement();
+                        
+                        String y="select * from company_image where email='"+company_email+"'";
+                        ResultSet rs1=stmt.executeQuery(y);
+                        while(rs1.next())
+                      {
+                         imgemail=rs1.getString("email");
+                      }
+                    if(!company_email.equals(imgemail)) 
+             { %>
 
         <!--Start of Navbar Section-->
-        <%@include file = "header_company.jsp"%>
+       
+        <h4>  Please upload image </h4>
+        <input type="button" value="uploadimage" onclick="uploadimag()">
+      <%}
+        else{
+             
+               }
+          }
+                    catch(Exception ex)
+                    {
+                        out.print(ex);
+                    }   
+      %>
+        
         <!--End of Navbar Section-->
         
          <%--<%@include file = "logocomp.jsp"%>--%>
-            
+               <%@include file = "pic.jsp"%>
             <%!String com_name="",com_email="",com_phno="",com_location="",com_Password="",com_status="",com_email1="";%>
           
             <%   
-               HttpSession hs=request.getSession();
-               com_email=hs.getAttribute("company_email").toString();
+             HttpSession hs1=request.getSession();
+               com_email=hs1.getAttribute("company_email").toString();
                Class.forName("com.mysql.jdbc.Driver");
                Connection conn = DriverManager.getConnection("jdbc:mysql://localhost/placementcell", "root", "");
                Statement stmt=conn.createStatement();
@@ -67,7 +105,7 @@
             %>
             
             <div style="text-align:right;">
-             <img src="pimages.jpg">
+           
             </div>
             
             <br>

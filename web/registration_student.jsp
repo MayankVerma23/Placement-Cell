@@ -283,6 +283,7 @@
                 <div class="form-group">
                 <label for="SelectDegree">DEGREE :</label>
                 <select class="form-control" id="degree" name="degree" onchange="sublist()" required>
+                      <option>SELECT DEGREE</option>
                     <option value="BTech">BTech</option>
                     <option value="MCA">MCA</option>
                     <option value="BCA">BCA</option> 
@@ -413,7 +414,7 @@
                 </div>
                 
             </div>
-        </div> <br/><br/>   
+        </div> <br><br>   
             <div class="row">
                 <div class="col-md-12" style="text-align: center">
                     <button  type="submit" class="btn btn-success" value="SignUp" style="width:40%;height:20%">SIGNUP</button>

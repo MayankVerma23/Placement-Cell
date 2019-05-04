@@ -56,8 +56,9 @@
                     window.open('changepassword_tpo.jsp','popUpWindow','height=500,width=600,left=650,top=250,resizable=no,scrollbars=no,toolbar=no,menubar=no,location=no,directories=no, status=yes');
                 }
                  function addnotice(){  
-                    window.open('notice.jsp','popUpWindow','height=350,width=690,left=650,top=250,resizable=no,scrollbars=no,toolbar=no,menubar=no,location=no,directories=no, status=yes');
+                    window.open('notice1.jsp','popUpWindow','height=450,width=750,left=650,top=250,resizable=no,scrollbars=no,toolbar=no,menubar=no,location=no,directories=no, status=yes');
                 }
+               
         </script>
     </head>
     
@@ -104,7 +105,6 @@
                        
                         <li><a href="participation_tpo.jsp">INTERESTED STUDENTS IN COMPANY</a></li>
                         <li><a href="tpo_placed_student.jsp">PLACED STUDENTS</a></li>
-                         <li><a href="index1.jsp">ONLINE PAPER</a></li>
                         <li><a href="tpo_unplaced_student.jsp">UNPLACED STUDENTS</a></li>
                       </ul>
                     </li>
@@ -115,9 +115,19 @@
                   
                  
                     <li><a href="offcampus_student.jsp">OFFCAMPUS STUDENT</a></li>
-                    <li><a href="new_notice_tpo.jsp">ADD NEW NOTICE</a></li> 
-                    <li><a onclick="addnotice()">NOTICE</a></li>
-                    <li><a href="paper_upload_tpo.jsp">UPLOAD PAPAER</a></li> 
+                 
+                    <li class="dropdown">
+                      <a class="dropdown-toggle" data-toggle="dropdown" href="#">NOTICE SECTION<span class="caret"></span></a>
+                      <ul class="dropdown-menu">
+                        <li><a onclick="addnotice()">STUDENT NOTICE</a></li>
+                         <li><a href="remove_notice.jsp">REMOVE STUDENT NOTICE</a></li>
+                      </ul>
+                    </li>
+                    
+                    
+                   
+                   
+                    <li><a href="paper_upload_tpo.jsp">UPLOAD PAPER</a></li> 
                     <li><a onclick="changepassword()">CHANGE PASSWORD</a></li>
                   </ul>
                   <ul class="nav navbar-nav navbar-right">

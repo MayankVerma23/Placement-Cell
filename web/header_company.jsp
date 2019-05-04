@@ -22,12 +22,22 @@
            .dropdown-menu li{
                color:white;
            }
+           a{
+               color:white;
+           }
+           a:hover{
+               color:black;
+           }
            
         </style>
         
         <script>
                 function changepassword(){  
                     window.open('changepassword_company.jsp','popUpWindow','height=500,width=600,left=650,top=250,resizable=no,scrollbars=no,toolbar=no,menubar=no,location=no,directories=no, status=yes');
+                }
+                
+                function status(){  
+                    window.open('company_response.jsp','popUpWindow','height=500,width=450,left=650,top=250,resizable=no,scrollbars=no,toolbar=no,menubar=no,location=no,directories=no, status=yes');
                 }
         </script>
                         <%
@@ -88,7 +98,7 @@
                       </ul>
                     </li>
                     
-                    <li><a href="company_response.jsp">STATUS</a></li>
+                    <li><a onclick="status()" >STATUS</a></li>
                     <li class="active"><a href="contactf_company.jsp">SUPPORT</a></li>
                     <li class="active"><a href="company_inbox.jsp">INBOX<%if(ct>0){%> <span class="badge badge-light"><%=ct%><%}%></span></a></li>
                     
@@ -99,7 +109,7 @@
                     <li><a href="logout"><span class="glyphicon glyphicon-log-out"></span> LOGOUT</a></li>
                   </ul>
                 </div>
-              </div>
+                </div>
             </nav>
         </section>
     </body>

@@ -11,7 +11,7 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link rel="icon" href="icon.png" type="image/png" sizes="16x16">
-        <title>Home Page</title>      
+        <title>Home Page</title>     
     </head>
 
 <body>

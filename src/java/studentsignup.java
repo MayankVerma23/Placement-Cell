@@ -37,61 +37,54 @@ public class studentsignup extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        try (PrintWriter out = response.getWriter()) { 
-            
-           String name = request.getParameter("name");
-             String roll = request.getParameter("roll");
-             String email = request.getParameter("email");
-             String degree = request.getParameter("degree");           
-             String branch = request.getParameter("branch");
-             String batch = request.getParameter("batch");
-              String phoneno = request.getParameter("phoneno");
-                String gender = request.getParameter("gender");
-             String ten = request.getParameter("ten");
-             String twe = request.getParameter("twe");
-             String sem1 = request.getParameter("sem1");
-             String sem2 = request.getParameter("sem2");
-             String sem3 = request.getParameter("sem3");
-             String sem4 = request.getParameter("sem4");
-             String sem5 = request.getParameter("sem5");
-             String sem6 = request.getParameter("sem6");
-             String sem7 = request.getParameter("sem7");
-             String sem8 = request.getParameter("sem8");
-             String cgpa = request.getParameter("cgpa");
-              String backlog = request.getParameter("backlog");
-             String pass = request.getParameter("pass");
-               String rolno="";
-            
-                   
-             Class.forName("com.mysql.jdbc.Driver");
-             Connection con=DriverManager.getConnection("jdbc:mysql://Localhost/placementcell","root","");
-             Statement stmt=con.createStatement();
-             String y="select * from studentsignup where studentrollno='"+roll+"'";
-             ResultSet rs=stmt.executeQuery(y);
-             while(rs.next())
-             {
-                 rolno=rs.getString("studentrollno");
-             }
-             if(!roll.equals(rolno)) {
-            String x="insert into studentsignup values(null,'"+name+"','"+roll+"','"+email+"','"+degree+"','"+branch+"','"+batch+"','"+phoneno+"','"+gender+"','"+ten+"','"+twe+"','"+sem1+"','"+sem2+"','"+sem3+"','"+sem4+"','"+sem5+"','"+sem6+"','"+sem7+"','"+sem8+"','"+cgpa+"','"+backlog+"','"+pass+"','"+"unplaced"+"')";
-              stmt.executeUpdate(x);           
+        try (PrintWriter out = response.getWriter()) {
+
+            String name = request.getParameter("name");
+            String roll = request.getParameter("roll");
+            String email = request.getParameter("email");
+            String degree = request.getParameter("degree");
+            String branch = request.getParameter("branch");
+            String batch = request.getParameter("batch");
+            String phoneno = request.getParameter("phoneno");
+            String gender = request.getParameter("gender");
+            String ten = request.getParameter("ten");
+            String twe = request.getParameter("twe");
+            String sem1 = request.getParameter("sem1");
+            String sem2 = request.getParameter("sem2");
+            String sem3 = request.getParameter("sem3");
+            String sem4 = request.getParameter("sem4");
+            String sem5 = request.getParameter("sem5");
+            String sem6 = request.getParameter("sem6");
+            String sem7 = request.getParameter("sem7");
+            String sem8 = request.getParameter("sem8");
+            String cgpa = request.getParameter("cgpa");
+            String backlog = request.getParameter("backlog");
+            String pass = request.getParameter("pass");
+            String rolno = "";
+
+            Class.forName("com.mysql.jdbc.Driver");
+            Connection con = DriverManager.getConnection("jdbc:mysql://Localhost/placementcell", "root", "");
+            Statement stmt = con.createStatement();
+            String y = "select * from studentsignup where studentrollno='" + roll + "'";
+            ResultSet rs = stmt.executeQuery(y);
+            while (rs.next()) {
+                rolno = rs.getString("studentrollno");
+            }
+            if (!roll.equals(rolno)) {
+                String x = "insert into studentsignup values(null,'" + name + "','" + roll + "','" + email + "','" + degree + "','" + phoneno + "','" + gender + "','" + branch + "','" + batch + "','" + ten + "','" + twe + "','" + sem1 + "','" + sem2 + "','" + sem3 + "','" + sem4 + "','" + sem5 + "','" + sem6 + "','" + sem7 + "','" + sem8 + "','" + cgpa + "','" + backlog + "','" + pass + "','" + "unplaced" + "')";
+                stmt.executeUpdate(x);
            // request.setAttribute("roll", roll);
-             //request.getRequestDispatcher("image_studentt.jsp").forward(request, response);
-             response.sendRedirect("login_page.jsp");  
-             }
-              else{
-              out.print("<script> window.alert('RollNo Already Use Please Select Another RollNo') </script>");
-              out.print("<script> window.location.href='login_page.jsp' </script>");
-                  
-                  }
-         }
-         
-         catch(Exception ex)
-         {
-           out.print(ex);
-         }
-               
-  
+                //request.getRequestDispatcher("image_studentt.jsp").forward(request, response);
+                response.sendRedirect("login_page.jsp");
+            } else {
+                out.print("<script> window.alert('RollNo Already Use Please Select Another RollNo') </script>");
+                out.print("<script> window.location.href='login_page.jsp' </script>");
+
+            }
+        } catch (Exception ex) {
+            out.print(ex);
+        }
+
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

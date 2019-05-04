@@ -100,7 +100,7 @@
                         <li><a href="student_result.jsp">COMPANIES RESULT</a></li>
                       </ul>
                     </li>
-                     <li><a href="apply_job.jsp">APPLY FOR JOB</a></li>
+                     <li><a href="apply_job1.jsp">APPLY FOR JOB</a></li>
                     <li><a href="profile_student.jsp">PROFILE</a></li>
                     <li><a href="contactf_stud.jsp">CONTACT FORM</a></li>
                     <li><a href="view_upload_paper_student.jsp">PREVIOUS YEAR PAPERS</a></li>

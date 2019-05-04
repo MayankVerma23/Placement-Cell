@@ -209,10 +209,10 @@ $(document).ready(function(){
 
 </head>
 <body>
-</head>
 
 
-<body>
+
+
 
     <div class="container-fluid" >
 

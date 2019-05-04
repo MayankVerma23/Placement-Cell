@@ -25,15 +25,52 @@
                     window.open('profile_student_1.jsp','popUpWindow','height=500,width=600,left=650,top=250,resizable=yes,scrollbars=yes,toolbar=yes,menubar=no,location=no,directories=no, status=yes');
                     }
               }
+              
+               function uploadimag()  {
+              var r = confirm("R U SURE!! U WANT CHANGES IN PROFILE");
+                    if (r == true) {
+                        window.open('image_studentt.jsp','popUpWindow','height=500,width=600,left=650,top=250,resizable=yes,scrollbars=yes,toolbar=yes,menubar=no,location=no,directories=no, status=yes');
+                    }
+                }
         </script>
         
     </head>
     
-    <body>
+    <body>  <%@include file = "header_student.jsp"%>
+            <% 
+               HttpSession hs1=request.getSession();
+                 String rollno=hs1.getAttribute("stu_roll").toString();
+               String imgroll="000";
+                    try
+                    {
+                        Class.forName("com.mysql.jdbc.Driver");
+                        Connection con = DriverManager.getConnection("jdbc:mysql://localhost/placementcell","root","");
+                        Statement stm=con.createStatement();
+                        String y="select * from student_image where rollno='"+rollno+"'";
+                        ResultSet rs1=stm.executeQuery(y);
+                         while(rs1.next())
+                      {
+                         imgroll=rs1.getString("rollno");
+                      }
+                    if(!rollno.equals(imgroll)) 
+             {                
+               %> 
+       
+               <div>
+             <h4>  Please upload image </h4>
+            <input type="button" value="uploadimage" onclick="uploadimag()">
+               </div>
+          <%
         
-        <!--Start of Navbar Section-->
-        <%@include file = "header_student.jsp"%>
-        <!--End of Navbar Section-->
+          }
+           else{
+                             }
+               }
+           catch(Exception ex)
+                    {
+                        System.out.println(ex.getCause() + " " + ex.getMessage());
+                    }
+        %>
         
         
         <%@include file = "pic.jsp"%>
@@ -41,7 +78,7 @@
            stu_batch,stu_ten,stu_twe,stu_sem1,stu_sem2,stu_sem3,stu_sem4,stu_sem5,stu_sem6,stu_sem7,stu_sem8,stu_cgpa,stu_branch,backlog ;%>
           
        <%   
-            //   HttpSession hs=request.getSession();
+                // HttpSession hs=request.getSession();
                stu_roll1=hs.getAttribute("stu_roll").toString();
                Class.forName("com.mysql.jdbc.Driver");
                Connection conn = DriverManager.getConnection("jdbc:mysql://localhost/placementcell", "root", "");

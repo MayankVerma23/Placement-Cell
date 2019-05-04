@@ -47,47 +47,33 @@ public class login extends HttpServlet {
              HttpSession hs=request.getSession();
              e=request.getParameter("LoginAs");
              hs.setAttribute("log",e);
-             System.out.println(e);
+          
   
             switch (e) {
                 case "student":
                     String rollno=request.getParameter("email");
                     String studentpass=request.getParameter("password");
-                    String stu_roll="";                  
-                    String imgroll="000";
                     try
                     {
                         Class.forName("com.mysql.jdbc.Driver");
                         Connection con = DriverManager.getConnection("jdbc:mysql://localhost/placementcell","root","");
                         Statement stmt=con.createStatement();
-                        String y="select * from student_image where rollno='"+rollno+"'";
-                        ResultSet rs=stmt.executeQuery(y);
-                         while(rs.next())
-                      {
-                         imgroll=rs.getString("rollno");
-                      }
-                    if(rollno.equals(imgroll)) 
-             {                
-                     String x="select * from studentsignup where studentrollno='"+rollno+"' and studentpassword='"+studentpass+"';";
-                        ResultSet rs1=stmt.executeQuery(x);
-                        if(rs1.next())
+                        
+                        String x="select * from studentsignup where studentrollno='"+rollno+"' and studentpassword='"+studentpass+"';";
+                        ResultSet rs=stmt.executeQuery(x);
+                        
+                        String stu_roll="";
+                        
+                        if(rs.next())
                         {
-                            stu_roll=rs1.getString("studentrollno");
+                            stu_roll=rs.getString("studentrollno");
                             hs.setAttribute("stu_roll",stu_roll);
                             response.sendRedirect("home_student.jsp");
                         }
                         else
                         {
                             response.sendRedirect("login_page.jsp");
-                        }
-                    
-             }
-           else{
-                 hs.setAttribute("roll",rollno);
-                 out.print("<script>window.open('image_studentt.jsp','popUpWindow','height=500,width=600,left=650,top=250,resizable=yes,scrollbars=yes,toolbar=yes,menubar=no,location=no,directories=no, status=yes');</script>");
-               }
-                        
-                        
+                         }
                     }
                     catch(Exception ex)
                     {
@@ -95,8 +81,6 @@ public class login extends HttpServlet {
                     }
                     break;
                     
-             
-                
                 case "tpo":
                     String tponame=request.getParameter("email");
                     String tpopass=request.getParameter("password");
@@ -140,42 +124,26 @@ public class login extends HttpServlet {
                     String company_email=request.getParameter("email");
                     String pass=request.getParameter("password");
                     String companyname="",companemail="",companyphno="",companylocation="",companypass="",companystatus="";
-                                  
-                    String imgemail="";
                     try
                     {
                         Class.forName("com.mysql.jdbc.Driver");
                         Connection con = DriverManager.getConnection("jdbc:mysql://localhost/placementcell","root","");
                         Statement stmt=con.createStatement();
                         
-                        String y="select * from company_image where email='"+company_email+"'";
-                        ResultSet rs=stmt.executeQuery(y);
-                        while(rs.next())
-                      {
-                         imgemail=rs.getString("email");
-                      }
-                    if(company_email.equals(imgemail)) 
-             { 
                         String x="select * from companysignup where companyemail='"+company_email+"'and companyPassword='"+pass+"'";
-                        ResultSet rs1=stmt.executeQuery(x);
-                        if(rs1.next())
+                        ResultSet rs=stmt.executeQuery(x);
+                        if(rs.next())
                         {
-                            companemail=rs1.getString("companyemail");
+                            companemail=rs.getString("companyemail");
                             hs.setAttribute("company_email",companemail);
                             response.sendRedirect("home_company.jsp");
                         }
                         else
-                        {                           
+                        {
+                           
                             response.sendRedirect("login_page.jsp");
                         }
-                        
-             }
-           else{
-                 hs.setAttribute("email",company_email);      
-                 out.print("<script>window.open('image_company.jsp','popUpWindow','height=500,width=600,left=650,top=250,resizable=yes,scrollbars=yes,toolbar=yes,menubar=no,location=no,directories=no, status=yes');</script>");
-               }
-          
-      }
+                    }
                     catch(Exception ex)
                     {
                         out.print(ex);

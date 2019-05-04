@@ -17,16 +17,28 @@
     <body>
          
         <%
-         String name1=request.getParameter("name");
-         String collname=request.getParameter("coll");
-         String coll_roll1=request.getParameter("coll_roll");
-         String email=request.getParameter("email");
-         String coursename =request.getParameter("course");
-         String branchname =request.getParameter("branch");
-         String backlog1 =request.getParameter("backlog");
-         String passyear1 =request.getParameter("passyear");
-         String percent1 =request.getParameter("12");
-         String percent2 =request.getParameter("degree_per");
+         String name = request.getParameter("name");
+          String collage = request.getParameter("collage");
+            String roll = request.getParameter("roll");
+            String email = request.getParameter("email");
+            String degree = request.getParameter("degree");
+            String branch = request.getParameter("branch");
+            String batch = request.getParameter("batch");
+            String phoneno = request.getParameter("phoneno");
+            String gender = request.getParameter("gender");
+            String ten = request.getParameter("ten");
+            String twe = request.getParameter("twe");
+            String sem1 = request.getParameter("sem1");
+            String sem2 = request.getParameter("sem2");
+            String sem3 = request.getParameter("sem3");
+            String sem4 = request.getParameter("sem4");
+            String sem5 = request.getParameter("sem5");
+            String sem6 = request.getParameter("sem6");
+            String sem7 = request.getParameter("sem7");
+            String sem8 = request.getParameter("sem8");
+            String cgpa = request.getParameter("cgpa");
+            String backlog = request.getParameter("backlog");
+            
          
                  
          try{
@@ -34,9 +46,9 @@
          Connection con=DriverManager.getConnection("jdbc:mysql://Localhost/placementcell","root","");
          Statement stmt=con.createStatement();
           
-              String y="insert into offcampus_table values(null,'"+name1+"','"+collname+"','"+coll_roll1+"','"+email+"','"+coursename+"','"+branchname+"','"+backlog1+"','"+passyear1+"','"+percent1+"','"+percent2+"')";
+              String y="insert into offcampus_table values(null,'"+name+"','"+collage+"','"+roll+"','"+email+"','"+degree+"','"+branch+"','"+batch+"','"+phoneno+"','"+gender+"','"+ten+"','"+twe+"','"+sem1+"','"+sem2+"','"+sem3+"','"+sem4+"','"+sem5+"','"+sem6+"','"+sem7+"','"+sem8+"','"+cgpa+"','"+backlog+"')";
                 stmt.executeUpdate(y);
-                response.sendRedirect("https://template0706.000webhostapp.com/placementCell/offcampus_student_mail.php?email="+email+"&&name="+name1+"");
+                response.sendRedirect("https://template0706.000webhostapp.com/placementCell/offcampus_student_mail.php?email="+email+"&&name="+name+"");
             
             
         }

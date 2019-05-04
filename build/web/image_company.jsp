@@ -30,7 +30,7 @@
       
        <form name="f1" enctype="multipart/form-data"  method="post">
            <%!String email="";%>
-            <%String email = (String)hs.getAttribute("email"); %>
+            <%String email = (String)hs.getAttribute("company_email"); %>
            
             <input type="text" value="<%=email%>"  name="t1">
            <p>Image<input type="file" name="i" required><br></p>

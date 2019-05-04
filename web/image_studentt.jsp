@@ -34,8 +34,9 @@
        <form name="f1" enctype="multipart/form-data"  method="post">
            <%!String roll="";%>
            
-            <%String roll=(String)hs.getAttribute("roll"); %> 
-               
+            <% 
+                String roll=(String)hs.getAttribute("stu_roll"); %> 
+                <!-- <label></label>-->
             <input type="text" value="<%=roll%>"  name="t1">
             <p>Image<input type="file" name="i" required><br></p>
            <p><input type="submit" onclick="demo()"></p>

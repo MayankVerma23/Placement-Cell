@@ -108,9 +108,9 @@ $(document).ready(function(){
 </section>
         
         
+        <!--FOOTER-->
         <section>
-            
-            <%@include file="footer.jsp" %>
+                <%@include file = "footer_index.jsp"%>
         </section>
     </body>
 </html>

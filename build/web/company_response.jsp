@@ -101,16 +101,16 @@
                 }
                 
                 option {
-    background: rgba(0,0,0,.8);;
-    color: white;
-}
+                    background: rgba(0,0,0,.8);;
+                    color: white;
+                }
                 .b1{
                     text-align:center;
                     width:100%;
                      height:30px;
                      font-size:16px;
                      background: transparent;
-    color: white;
+                    color: white;
                      }
                      #s1{
                          color:#fff;
@@ -118,9 +118,7 @@
                          margin-left:3px;
                      }
                      .check{
-                         padding:0px;
-                       
-                         
+                         padding:0px;    
                      }
         </style>
         
@@ -211,10 +209,6 @@
     
     <body>
 
-
-        <!--Start of Navbar Section-->
-        
-        <!--End of Navbar Section-->
         
         <%!String com_email="", com_status="",status_values="";%>
         <%

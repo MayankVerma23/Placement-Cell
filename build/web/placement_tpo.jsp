@@ -4,6 +4,8 @@
     Author     : hp
 --%>
 
+<%@page import="java.util.GregorianCalendar"%>
+<%@page import="java.util.Calendar"%>
 <%@page import="java.sql.ResultSet"%>
 <%@page import="java.sql.Statement"%>
 <%@page import="java.sql.DriverManager"%>
@@ -62,10 +64,13 @@
                     
                 }
                 </script>
+               
     </head>
 
     
     <body>
+        
+        
     <%@include file = "database_connection.jsp"%>  
         
         <!--Start of Navbar Section-->
@@ -111,6 +116,7 @@
                             }
 
                             %>
+                           <%  i=0;%>
             </table>
         </section>  
     </body>

@@ -24,61 +24,12 @@
                 width : 100%;
             }
             
-            td
-            {
-                
-                padding : 20px;
-                width : 100px;
-                height : 50px;
+            .p{
+                font-size: 130%;
             }
-                
-            th
-            {
-                background-color: #4CAF50;
-                color: white;
-                text-align: left;
-            }
-           .navbar{
-            background-color: #4379C0;
-            border-color: #4353C0;
-           
-            }
-            .nav_links{
-                color:white;
-            }
-            .nav_links:hover{
-                color: black;
-            }  
-            section{
-                margin-top: 10px;
-              
-              
-            }
-            
-            .hover tr:hover{
-                background-color:#F2D0D1;
-            }
-            
-           th {
-                 padding-top: 12px;
-                 padding-bottom: 12px;
-                 padding-left: 15px;
-                 text-align: left;
-                 background-color: #4CAF50;
-                 color: white;
-             }
-            
-            tr{
-                font-size:150%;
-              
-            }
-            td{
-                font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
-                font-size:90%;
-                           }
              .msg{
                  align-items: center;
-                 border: 2px solid #2F4F4F;;
+                 border: 2px solid #2F4F4F;;    
                  background-color: #ddd;
                  color:#333333;
                      border-radius:5px;
@@ -102,6 +53,7 @@
                     opacity: 0.9;
                     filter: alpha(opacity=50); 
                    margin-bottom:10px;
+                   
                 }  
                 .adminr{
                 text-align: right;
@@ -158,40 +110,50 @@
                 .issueres{
                     text-align: center;
                 }
+                .para{
+                    font-size:150%;
+                }
         </style>
     
     
     </head>
-    <body>
+    <body>             
         <%@include file = "database_connection.jsp"%>
+        <%
+            HttpSession hs = request.getSession();
+            roll_no=hs.getAttribute("stu_roll").toString();
+        
+             try{ 
+           
+         Class.forName("com.mysql.jdbc.Driver");
+         Connection con1=(Connection)DriverManager.getConnection("jdbc:mysql://localhost/placementcell","root","");
+         Statement st=con1.createStatement();
+          String x3="Update queries set seen='1' where ID='"+id+"'";
+               st.executeUpdate(x3);
+         String x2="Select * from studentsignup where studentrollno='"+roll_no+"'";
+                  
+         ResultSet rs=st.executeQuery(x2);
+         while(rs.next())
+         {
+             name=rs.getString("studentname");
+             email=rs.getString("studentemail");
+         }
+
+             }   
+            catch(Exception ex){out.print(ex);}
+        
+           %> 
+        
+         <%@include file = "header_student.jsp"%>
         <div class="container">
-        <section>
-            <div class="row">
-                <h1 style="float:left;padding-left:20px;">Placement<br>Cell</h1>
-                <a href="#"><h4 style="float:right;padding-right:20px;">Logout</h4></a>
-            </div>
-        </section>    
+    
 
-        <section> 
-            <%@include file = "sliding_text.jsp"%>
-        </section> 
+     
 
-        <section> 
-            <nav class="navbar">
-                    <ul class="nav navbar-nav">
-                        <li><a href="profile_student.jsp" class="nav_links">Complete Info</a></li>
-                        <li><a href="placement_student.jsp" class="nav_links">Placement Info</a></li>
-                        <li><a href="changepassword_student.jsp" class="nav_links">Change Password</a></li>
-                        <li><a href="contactf_stud.jsp" class="nav_links"><i class="fas fa-cog"></i>Support</a></li>
-                        <li><a href="your_inbox_student.jsp" class="nav_links"><i class="fas fa-envelope"></i>Your Queries</a></li>
-
-                     </ul>
-            </nav>
-        </section>
         <%! String name="";
             String email="";
             String subject=""; 
-            String id="";
+            int id;
             String design="";
             String message="";
             String author="";
@@ -201,29 +163,10 @@
         %>
        
            
-        <section>
-                <%
-            HttpSession hs = request.getSession();
-            roll_no=hs.getAttribute("stu_roll").toString();
-        
-             try{ 
-           
-         Class.forName("com.mysql.jdbc.Driver");
-         Connection con1=(Connection)DriverManager.getConnection("jdbc:mysql://localhost/placementcell","root","");
-         Statement st=con1.createStatement();
-         String x2="Select * from studentsignup where studentrollno='"+roll_no+"'";
-         ResultSet rs=st.executeQuery(x2);
-         while(rs.next())
-         {
-             name=rs.getString("studentname");
-             email=rs.getString("studentemail");
-         }
-             }   
-            catch(Exception ex){out.print(ex);}
-        
-           %> 
+<section>
+
      <%
-          id=request.getParameter("id");
+          id=Integer.parseInt(request.getParameter("id"));
      
           
           
@@ -232,18 +175,24 @@
          Class.forName("com.mysql.jdbc.Driver");
          Connection con=(Connection)DriverManager.getConnection("jdbc:mysql://localhost/placementcell","root","");
          Statement st=con.createStatement();
-         String x1="Select * from queries where id='"+id+"'";
+         String x1="Select * from qmessages where id='"+id+"'";
+         String x2="Select * from queries where id='"+id+"'";
+         ResultSet rs=st.executeQuery(x2);
+         while(rs.next())
+         {
+              statuskey=rs.getInt("Status");
+         }
         int i=0;
-         ResultSet rs=st.executeQuery(x1);
+         rs=st.executeQuery(x1);
          while(rs.next())
          {
              
-             message=rs.getString("Message");
-             subject=rs.getString("Subject");
-             author=rs.getString("Name");
-             design=rs.getString("Designation");
-             time=rs.getString("TimeofReply");
-             statuskey=rs.getInt("Status");
+             message=rs.getString("message");
+             subject=rs.getString("subject");
+             author=rs.getString("name");
+             design=rs.getString("designation");
+             time=rs.getString("time");
+            
                           while(i==0)
              {
                  %>
@@ -262,7 +211,7 @@
                 <h3 class="userr"><i class="fas fa-user-graduate"></i>  <%=author%></h3>
                
                   <div class="reply">
-                  <p><%=message%></p> 
+                  <p class="para"><%=message%></p> 
                   <br>
                    <span class="time-right"><%=time%></span>
                   </div>
@@ -282,7 +231,7 @@
                 <h3 class="adminr"><i class="fas fa-user-cog"></i>  <%=author%></h3>
                 
                   <div class="msg">
-                  <p><%=message%></p> 
+                  <p class="para"><%=message%></p> 
                   <br>
                   <span class="time-right"><%=time%></span>
                   </div>
@@ -295,6 +244,7 @@
                 }        
 
                 }
+               
                  HttpSession tickets=request.getSession();
                 tickets.setAttribute("t_id", id);
                 tickets.setAttribute("s_id",author);
@@ -302,14 +252,19 @@
                 tickets.setAttribute("t_sub",subject);
                 %>
                 <br><br>
-                <%if(statuskey!=2){%>
+                <%if(statuskey!=2 ){%>
                 <form action="ticket_reply_student.jsp">
                     
                     <textarea name="rback"  placeholder="was your issue resolved?" required></textarea>
                     </br>
                     <input type="submit" class=form-submit-button value="submit">
                 </form>  
-                <%}%>
+                <%}else{        
+                    %> <br><br>
+            <h4 class="issueres"><i class="fas fa-cogs"></i> Still have any issues?<a href="contactf_stud.jsp">Contact Us Again</a></h4>
+<%
+                    }
+                %>
 
 
                      <%
@@ -318,13 +273,11 @@
  
              catch(Exception ex)
              {
-                 
+                 out.print(ex);
              }
          
             %>
-            <br><br>
-            <h4 class="issueres"><i class="fas fa-cogs"></i> Still have any issues?<a href="contactf_stud.jsp">Contact Us Again</a></h4>
-                <br><br>
+                           <br><br>
                 <br><br>
                 <br><br>
                 <br><br>

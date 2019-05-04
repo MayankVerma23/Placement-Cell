@@ -24,6 +24,7 @@
                 margin:0;
                 padding:0;
                 font-family:sans-serif;
+             
                 background-size:cover;
             }
             .box
@@ -99,6 +100,7 @@
                 border-radius:5px;
                 }
         </style>
+        <META HTTP-EQUIV="Refresh" CONTENT="10">
     </head>
     
     <body>

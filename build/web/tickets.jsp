@@ -1,4 +1,4 @@
-
+    
 
 <%@page import="java.sql.*" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -34,18 +34,7 @@
                 color: white;
                 text-align: left;
             }
-           .navbar{
-            background-color: #4379C0;
-            border-color: #4353C0;
-           
-            }
-            .nav_links{
-                color:white;
-            }
-            .nav_links:hover{
-                color: black;
-            }  
-            section{
+                      section{
                 margin-top: 10px;
               
                 
@@ -151,39 +140,27 @@
                 .line1{
                     border-color: #A9A9A9;
                 }
+                .para{
+                    font-size:150%;
+                }                
         </style>
     
     </head>
     <body>
         <%@include file = "database_connection.jsp"%>
+                <!--Start of Navbar Section-->
+            <%@include file = "header_tpo.jsp"%>
+        <!--End of Navbar Section-->  
         <div class="container">
-        <section>
-            <div class="row">
-                <h1 style="float:left;padding-left:20px;">Placement<br>Cell</h1>
-                <a href="#"><h4 style="float:right;padding-right:20px;">Logout</h4></a>
-            </div>
-        </section>    
+ 
 
-        <section> 
-            <%@include file = "sliding_text.jsp"%>
-        </section> 
+ 
 
-        <section> 
-            <nav class="navbar">
-                    <ul class="nav navbar-nav">
-                      <li><a href="profile.jsp" class="nav_links">Complete Info</a></li>
-                        <li><a href="placement_tpo.jsp" class="nav_links">New Company Request</a></li>
-                        <li><a href="approved_table.jsp" class="nav_links">Approved Compnies</a></li>
-                        <li><a href="declined_table.jsp" class="nav_links">Declined Compnies</a></li>
-                        <li><a href="Your_Queries.jsp" class="nav_links"><i class="fas fa-envelope"></i>  Messages</a></li>
-                        
-                     </ul>
-            </nav>
-        </section>
+
         <%! String name="";
             String email="";
             String subject=""; 
-            String id="";
+            int id;
             String design="";
             String message="";
             String author="";
@@ -191,12 +168,12 @@
             int statuskey;
         %>
        
-        <section>     
+                <section>     
         
         <%
      
      
-          id=request.getParameter("id");
+          id=Integer.parseInt(request.getParameter("id"));
          
           
              try{ 
@@ -204,18 +181,24 @@
          Class.forName("com.mysql.jdbc.Driver");
          Connection con=(Connection)DriverManager.getConnection("jdbc:mysql://localhost/placementcell","root","");
          Statement st=con.createStatement();
-         String x1="Select * from queries where id='"+id+"'";
+         String x1="Select * from qmessages where id='"+id+"'";
+         String x2="Select * from queries where id='"+id+"'";
+         ResultSet rs=st.executeQuery(x2);
+         while(rs.next())
+         {  
+              
+              statuskey=rs.getInt("Status");
+         }
         int i=0;
-         ResultSet rs=st.executeQuery(x1);
+         rs=st.executeQuery(x1);
          while(rs.next())
          {
              
-             message=rs.getString("Message");
-             subject=rs.getString("Subject");
-             author=rs.getString("Name");
-             design=rs.getString("Designation");
-             time=rs.getString("TimeofReply");
-             statuskey=rs.getInt("Status");
+             message=rs.getString("message");
+             subject=rs.getString("subject");
+             author=rs.getString("name");
+             design=rs.getString("designation");
+             time=rs.getString("time");
              
              while(i==0)
              {
@@ -235,7 +218,7 @@ if(design.equals("tpo"))
                 <h3 class="userr"><i class="fas fa-user-cog"></i>  <%=author%></h3>
                
                   <div class="reply">
-                  <p><%=message%></p> 
+                  <p class="para"><%=message%></p> 
                   <br>
                    <span class="time-right"><%=time%></span>
                   </div>
@@ -253,7 +236,7 @@ if(design.equals("tpo"))
                 <h3 class="adminr"><%=author%></h3>
                 
                   <div class="msg">
-                  <p><%=message%></p> 
+                  <p class="para"><%=message%></p> 
                   <br>
                   <span class="time-right"><%=time%></span>
                   </div>
@@ -302,7 +285,7 @@ if(design.equals("tpo"))
  
              catch(Exception ex)
              {
-                 
+                 out.print(ex);
              }
          
             %>

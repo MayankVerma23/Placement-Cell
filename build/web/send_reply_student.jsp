@@ -25,20 +25,13 @@
        
     </head>
     <body>
-                 <%!String sub,issue,id;int idd;%>
+                 <%!String sub,issue; int id;%>
                  <%
                  sub=request.getParameter("subject");
                  issue=request.getParameter("issue");
                  %>
                  
-                 <%
-                     Random rand=new Random();
-                    idd=rand.nextInt(1000); 
-                    id=Integer.toString(idd);    
-                 
-                 %>
-                 
-                 <%
+                <%
                  Date d;
                  String Str,Str1;
                  Calendar c=Calendar.getInstance();
@@ -78,14 +71,22 @@
               
                 try{Connection con=(Connection)DriverManager.getConnection("jdbc:mysql://localhost/placementcell","root","");
          Statement st=con.createStatement();
-         String y="insert into queries values('"+id+"','"+name+"','"+email+"','student','"+sub+"','"+issue+"','"+Str+" at "+Str1+"','"+phno+"',0)";
+         String y="insert into queries values(null,'"+name+"','"+email+"','student','"+sub+"','"+issue+"','"+Str+" at "+Str1+"','"+phno+"',0,1)";
          st.executeUpdate(y);
-         out.print(id);
-         response.sendRedirect("home_student.jsp");
+         String x="Select * from queries where Email='"+email+"' having Subject='"+sub+"' ";
+        ResultSet rs=st.executeQuery(x);
+        while(rs.next())
+            
+        {
+            id=rs.getInt("ID");
+        }
+        String z="Insert into qmessages values('"+id+"','"+name+"','"+sub+"','"+issue+"','student','"+Str+" at "+Str1+"')";
+        st.executeUpdate(z);
+         response.sendRedirect("your_inbox_student.jsp");
                 }
                 catch(Exception ex)
                 {
-                    
+                    out.println(ex);
                 }
        %>
     </body>

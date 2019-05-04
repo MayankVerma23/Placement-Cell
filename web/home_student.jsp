@@ -19,11 +19,11 @@
 
     
  <body>
-        <%@include file = "database_connection.jsp"%>  
+        
         
         <!--Start of Navbar Section-->
         <%@include file = "header_student.jsp"%>
         <!--End of Navbar Section-->
-        
+        <%@include file = "display_notice_student.jsp"%>
     </body>
 </html>

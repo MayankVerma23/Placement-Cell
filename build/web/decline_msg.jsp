@@ -19,7 +19,7 @@
                
         %>
         <%
-                idd = request.getParameter("companyid");
+                idd = request.getParameter("id");
                 
         %>
         <% 

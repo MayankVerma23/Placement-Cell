@@ -62,8 +62,8 @@ public class companysignup extends HttpServlet {
              String x="insert into companysignup values(null,'"+name+"','"+email+"','"+phoneno+"','"+loc+"','"+pass+"','"+status+"')";
              stmt.executeUpdate(x);           
              request.setAttribute("email", email);
-            // request.getRequestDispatcher("image_company.jsp").forward(request, response);
-             response.sendRedirect("index.jsp");
+             request.getRequestDispatcher("image_company.jsp").forward(request, response);
+             response.sendRedirect("image_company.jsp");
          }
               else{
               out.print("<script> window.alert('Email Already Use Please Select Another Email') </script>");

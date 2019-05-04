@@ -97,7 +97,7 @@
                 <input class="text" type="text" name="phoneno" placeholder="Contact No." required>
                 <input class="text" type="text" name="loc" placeholder="Location" required>
                 <input class="text" type="password" name="pass" placeholder="Password" id="t1" required>
-                <input class="text" type="password" name="confpass" placeholder="confpass" id="t2" required>
+                <input class="text" type="password" name="confpass" placeholder="confpass" id="t2" required>     
                 <button type="submit" class="text" value="SignUp">SIGNUP</button>
                 
             </form>

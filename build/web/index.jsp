@@ -10,10 +10,14 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link rel="icon" href="icon.png" type="image/png" sizes="16x16">
-        <title>Home Page</title>      
+        <title>Home Page</title>  
+        <script>
+            setInterval("index.jsp",1000); 
+        </script>
 </head>
 
 <body >
+   
 
         <!-- NAVBAR & BACKGROUND IMAGE-->
         <section>

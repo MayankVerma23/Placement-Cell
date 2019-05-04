@@ -66,13 +66,13 @@
             <%@include file = "header_tpo.jsp"%>
         <!--End of Navbar Section-->
         
-        <%! String name="";
+         <%! String name="";
             String email="";
             String subject=""; 
-            String id="";
+            int id;
             String design="";
         %>
-        <section> 
+       <section> 
             <table class="hover">
                 <tr>
                     <th>Name</th> 
@@ -82,55 +82,54 @@
                 </tr>
         
         
-        <%  
+       <%  
           try{
-            String stud="student";
-            Class.forName("com.mysql.jdbc.Driver");
-            Connection con=(Connection)DriverManager.getConnection("jdbc:mysql://localhost/placementcell","root","");
-            Statement st=con.createStatement();
-            String x1="Select * from queries where status='0'";
+           String stud="student";
+         Class.forName("com.mysql.jdbc.Driver");
+         Connection con=(Connection)DriverManager.getConnection("jdbc:mysql://localhost/placementcell","root","");
+         Statement st=con.createStatement();
+         String x1="Select * from queries where status='0' or status='1' order by ID desc";
         
-            ResultSet rs=st.executeQuery(x1);
-                while(rs.next())
-                {
-                  id=rs.getString("ID");
-                  name=rs.getString("Name");
-                  email=rs.getString("Email");
-                  subject=rs.getString("Subject");
-                  design=rs.getString("Designation");
-                %>
-                    <tr>            
-                        <td>
-                        <%
-                            if(design.equals("student"))
-                            { 
+         ResultSet rs=st.executeQuery(x1);
+         while(rs.next())
+         {
+           id=rs.getInt("ID");
+           name=rs.getString("Name");
+           email=rs.getString("Email");
+           subject=rs.getString("Subject");
+           design=rs.getString("Designation");
+             %>
+                <tr>            
+                  
+                    <td><%if(design.equals("student"))
+                   {
+                       
+                       %>
+                       <i class="fas fa-user-graduate"></i>
+                       <%
+                            
+                     }else{
                             %>
-                                <i class="fas fa-user-graduate"></i>
-                           <%       
-                            }
-                            else
-                            {
-                            %>
-                                <i class="fas fa-building"></i>
-                            <%
-                            }
-                            %>
-                            <%=name%></td>
-
-                        <td><%=subject%></td>
-                        <td><%=email%></td>
-                        <td> <a href="tickets.jsp?id=<%=id%>"><i class="far fa-comment-dots fa-2x"></i></a></td>
-                    </tr>
+                            <i class="fas fa-building"></i>
+                       <%
+                         }
+                       %><%=name%></td>
+                   
+                   <td><%=subject%></td>
+                   <td><%=email%></td>
+                   <td> <a href="tickets.jsp?id=<%=id%>"><i class="far fa-comment-dots fa-2x"></i></a></td>
+                </tr>
                 <%
-                }
-            
+          
+            }
+         
             }
             catch(Exception ex)
-            {
+                {
                 out.println(ex);
-            }
+                }
             %>
-        
+       
     </body>
 </html>
 

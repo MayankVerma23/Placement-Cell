@@ -50,7 +50,7 @@
                   Class.forName("com.mysql.jdbc.Driver");
          Connection con=(Connection)DriverManager.getConnection("jdbc:mysql://localhost/placementcell","root","");
          Statement stmt=con.createStatement();
-         x="insert into queries values('"+ids+"','"+name+"','"+email+"','company','"+sub+"','"+reply+"','"+Str+" at "+Str1+"','"+phno+"','1')";
+         x="insert into qmessages values('"+ids+"','"+name+"','"+sub+"','"+reply+"','company','"+Str+" at "+Str1+"')";
          
          stmt.executeUpdate(x);
             }

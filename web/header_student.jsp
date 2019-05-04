@@ -4,6 +4,10 @@
     Author     : hp
 --%>
 
+<%@page import="java.sql.DriverManager"%>
+<%@page import="java.sql.Connection"%>
+<%@page import="java.sql.Statement"%>
+<%@page import="java.sql.ResultSet"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -30,7 +34,30 @@
     </head>
     
     <body>
+                <%
+                   int ct=0;  
+             try{ 
+          
+         Class.forName("com.mysql.jdbc.Driver");
+         Connection con=(Connection)DriverManager.getConnection("jdbc:mysql://localhost/placementcell","root","");
+         Statement st=con.createStatement();
+         String x1="Select count(*) from queries where seen='0' and designation ='student'";
         
+         ResultSet rs=st.executeQuery(x1);
+           while(rs.next())
+         {
+         ct=rs.getInt(1);
+         }
+         
+         
+         
+        }
+         catch(Exception ex)
+                 {
+                  out.print(ex);
+                 }
+            
+                 %>
         <section> 
             <div class="row">
                 <div class="col-lg-12">
@@ -43,10 +70,10 @@
 
         <section>
          
-            <nav class="navbar navbar-inverse">
+            <nav class="navbar navbar-inverse ">
               <div class="container-fluid">
                 <div class="navbar-header">
-                  <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                  <button type="button" class="navbar-toggle " data-toggle="collapse" data-target="#myNavbar">
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>                        
@@ -67,9 +94,9 @@
                     </li>
                     <li><a href="profile_student.jsp">PROFILE</a></li>
                     <li><a href="contactf_stud.jsp">CONTACT FORM</a></li>
-                    <li><a href="your_inbox_student.jsp">ADMIN MESSAGE</a></li>
-                     <li><a href="stu_company_paper.jsp">SHOW COMPANY PAPER</a></li>
-                    <li><a onclick="changepassword()">CHANGE PASSWORD</a></li>
+                    <li><a href="view_upload_paper_student.jsp">Previous Year Papers</a></li>
+                    <li><a href="your_inbox_student.jsp">MESSAGES <%if(ct>0){%> <span class="badge badge-light"><%=ct%><%}%></span></a></li>
+                    <li><a onclick="changepassword()">CHANGE PASSWORD</a></li>1
                   </ul>
                   <ul class="nav navbar-nav navbar-right">
                     <li><a href="logout"><span class="glyphicon glyphicon-log-out"></span> LOGOUT</a></li>

@@ -48,7 +48,7 @@
                     
                 }
         </script>
-        
+       <META HTTP-EQUIV="Refresh" CONTENT="10">  
     </head>
     
     <body>

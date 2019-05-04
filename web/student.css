@@ -38,6 +38,7 @@ and open the template in the editor.
 
 
 .text {
+       background-color: red;
     text-decoration: none;
     background: none;
     border: 0;

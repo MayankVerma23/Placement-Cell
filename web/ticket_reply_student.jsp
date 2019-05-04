@@ -15,12 +15,13 @@
         <title>JSP Page</title>
     </head>
     
-        <%!String name="",email="",sub="",reply="",ids="",phno="",roll_no; %>
+        <%!String name="",email="",sub="",reply="",phno="",roll_no;
+        int ids;%>
         
         <%
                 
            HttpSession tickets = request.getSession();
-           ids=tickets.getAttribute("t_id").toString();
+           ids=(Integer)tickets.getAttribute("t_id");
            name=tickets.getAttribute("s_id").toString();
            sub=tickets.getAttribute("t_sub").toString();
          
@@ -65,7 +66,7 @@
                   Class.forName("com.mysql.jdbc.Driver");
          Connection con=(Connection)DriverManager.getConnection("jdbc:mysql://localhost/placementcell","root","");
          Statement stmt=con.createStatement();
-         x="insert into queries values('"+ids+"','"+name+"','"+email+"','student','"+sub+"','"+reply+"','"+Str+" at "+Str1+"','"+phno+"','1')";
+         x="insert into qmessages values('"+ids+"','"+name+"','"+sub+"','"+reply+"','student','"+Str+" at "+Str1+"')";
          
          stmt.executeUpdate(x);
             }
@@ -73,7 +74,7 @@
             {
                 out.print(ex);
             }
-            response.sendRedirect("student_tickets.jsp?id="+ids);
+           response.sendRedirect("student_tickets.jsp?id="+ids);
          %>
     
 </html>

@@ -43,6 +43,12 @@
         
        <script>
         function apply(x){
+            window.location.href = "apply_receive.jsp?companyid="+x;
+        } 
+        </script>
+        
+        <%--   <script>
+        function apply(x){
             window.location.href = "apply_receive.jsp?companyid="+x;}
             window.setInterval('refresh()', 5000); 	// Call a function every 10000 milliseconds (OR 10 seconds).
 
@@ -51,9 +57,8 @@
         window .location.reload();
       
     }
-        </script>
-        
-        
+        </script>--%>
+   <META HTTP-EQUIV="Refresh" CONTENT="10">
     </head>
     
     <body>

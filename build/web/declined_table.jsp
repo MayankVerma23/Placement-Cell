@@ -43,7 +43,8 @@
                         
                         if (r == true) 
                         { 
-                            window.location.href = "approve_company.jsp?companyid="+x;
+                           
+                             window.open('approve_company.jsp?companyid='+x,'popUpWindoww','height=500,width=600,left=650,top=250,resizable=no,scrollbars=yes,toolbar=yes,menubar=no,location=no,directories=no, status=yes');
                         }
                         else 
                         {
@@ -51,6 +52,7 @@
                         } 
                 }
                 </script>
+                <META HTTP-EQUIV="Refresh" CONTENT="10">
     </head>
     <body>
         <%@include file = "database_connection.jsp"%>

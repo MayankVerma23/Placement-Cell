@@ -32,13 +32,8 @@
                  %>
                  
      
-          <%!String name,email,stu_roll,phno,id;int idd;%>
-             <%
-                     Random rand=new Random();
-                    idd=rand.nextInt(1000); 
-                    id=Integer.toString(idd);    
-                 
-                 %>
+          <%!String name,email,stu_roll,phno;int id;%>
+
                    <%
                  Date d;
                  String Str,Str1;
@@ -60,14 +55,22 @@
                phno=hs.getAttribute("company_phno").toString();
                try{ Connection con=(Connection)DriverManager.getConnection("jdbc:mysql://localhost/placementcell","root","");
          Statement st=con.createStatement();
-         String y="insert into queries values('"+id+"','"+name+"','"+email+"','company','"+sub+"','"+issue+"','"+Str+" at "+Str1+"','"+phno+"',0)";
+           String y="insert into queries values(null,'"+name+"','"+email+"','company','"+sub+"','"+issue+"','"+Str+" at "+Str1+"','"+phno+"',0,1)";
          st.executeUpdate(y);
-         response.sendRedirect("home_company.jsp");
-               }
-               catch(Exception ex)
-               {
-                   out.print(ex);
-               }
-       %>
+         String x="Select * from queries where Email='"+email+"' having Subject='"+sub+"' ";
+        ResultSet rs=st.executeQuery(x);
+        while(rs.next())
+            
+        {
+            id=rs.getInt("ID");
+        }
+        String z="Insert into qmessages values('"+id+"','"+name+"','"+sub+"','"+issue+"','company','"+Str+" at "+Str1+"')";
+        st.executeUpdate(z);
+         response.sendRedirect("company_inbox.jsp");
+                }
+                catch(Exception ex)
+                {
+                    out.println(ex);
+                }       %>
     </body>
 </html>

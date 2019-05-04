@@ -34,16 +34,16 @@
 
                
                    try{
-        HttpSession hs=request.getSession();
-       String comp_email=hs.getAttribute("company_email").toString();
+             HttpSession hs=request.getSession();
+             String comp_email=hs.getAttribute("company_email").toString();
                   
              Class.forName("com.mysql.jdbc.Driver");
              Connection con=DriverManager.getConnection("jdbc:mysql://Localhost/placementcell","root","");
              Statement stmt=con.createStatement();
              String y="select * from companysignup where companyemail='"+comp_email+"'";
-            ResultSet rs = stmt.executeQuery(y);
-         while(rs.next()){
-         com_name=rs.getString("companyname");
+             ResultSet rs = stmt.executeQuery(y);
+            while(rs.next()){
+            com_name=rs.getString("companyname");
          }
    
          

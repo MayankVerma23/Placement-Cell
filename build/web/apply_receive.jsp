@@ -19,7 +19,7 @@
        
        <%!
             String companyid1= "";
-            String desirecompany1 = "",stu_rollno="",stu_name="",status="1";
+            String desirecompany1 = "",stu_rollno="",stu_name="";
        %>
        <%
            HttpSession hs=request.getSession();
@@ -44,7 +44,7 @@
             stu_name=r.getString("studentname");
           
           }
-          String z="insert into interestedstudents values(null,'"+desirecompany1+"','"+stu_name+"','"+stu_rollno+"','"+status+"')";
+          String z="insert into interestedstudents values(null,'"+desirecompany1+"','"+stu_name+"','"+stu_rollno+"')";
              stmt.executeUpdate(z);
      
           

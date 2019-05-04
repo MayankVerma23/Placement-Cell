@@ -16,31 +16,7 @@
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
         <title>Messages</title>
         <style>
-            table
-            {
-                width : 100%;
-            }
-            td
-            { 
-                padding : 20px; 
-                width : 100px;
-                height : 50px;
-                font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
-                font-size:90%;
-            }
-                
-            th
-            {
-                background-color: #4CAF50;
-                color: white;
-                text-align: left;
-                padding-top: 12px;
-                padding-bottom: 12px;
-                padding-left: 15px;
-                text-align: left;
-                background-color: #4CAF50;
-                color: white;
-            }
+
             
             .hover tr:hover{
                 background-color:#F2D0D1;
@@ -49,6 +25,92 @@
             tr{
                 font-size:150%; 
             }
+               .topics{
+                    color: #333333;
+                        text-align:left;
+                        padding-left:100px;
+                        text-transform: capitalize;
+                }
+                .line1{
+                    border-color: #A9A9A9;
+                }
+                                    .linkq{
+                        text-align: right;
+                        padding-right:50px;
+                        color:  #333333;
+                        font-size: 130%;
+                    }
+                    .linkq:hover{
+                        opacity: 0.9;
+                    }
+                               .topics{
+                    color: #333333;
+                        text-align:left;
+                        text-transform: capitalize;
+                }
+                .line1{
+                    border-color: #A9A9A9;
+                }
+                            .time-right{
+                color: #696969;
+               text-align: right;
+               padding-right: 50px;
+                            }
+                                        .userr{
+                padding-top:10px;
+                padding-left:50px;
+                text-align: left;
+                font-weight: 600;
+                color: #333333;
+            }
+                            .notices{
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                   
+                    
+                    border: solid #2F4F4F;
+                    background-color: 	#E9967A;
+                     color: #333333;
+                     border-radius:2px;
+                     padding: 10px;
+                       
+                      width :80%;
+                    opacity: 1;
+                    filter: alpha(opacity=50); 
+                   margin-bottom:10px;
+                   
+                }  
+                       .notices:hover{
+                    
+                        opacity: 0.8;
+                        
+                    }
+                                            .notices-uns{
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                   
+                    
+                    border: solid #2F4F4F;
+                    background-color: 	#FF7F50;
+                     color: #333333;
+                     border-radius:2px;
+                     padding: 10px;
+                       
+                      width :80%;
+                    opacity: 1;
+                    filter: alpha(opacity=50); 
+                   margin-bottom:10px;
+                   
+                }  
+             
+                    .notices-uns:hover
+                    {
+                        opacity: 0.8;
+                    }
+                 
+
            
         </style>
     
@@ -57,24 +119,26 @@
         <%@include file = "database_connection.jsp"%>
         
         <!--Start of Navbar Section-->
-            <%@include file = "header_student.jsp"%>
+           <%@include file = "header_student.jsp"%>
         <!--End of Navbar Section-->
         
-        <%! String name="";
-            String email="";
+                <%! String name="";
+            String message="";
             String subject=""; 
-            String id="";
+            int id;
             String design="";
             String roll_no="";
+            String time="";
+            int statuskey;
+            int seen;
         %>
         <section>
             <div class="container">
-            <table class="hover">
-                <tr>
-                    <th>Subject</th>
-                    <th></th>
-                </tr>
-        
+  
+                         <h1 class="topics" ><i class="fas fa-envelope-open-text"></i> Your Queries</h1>
+            <hr class="line1">
+            <a href="contactf_stud.jsp"><h5 class="linkq"><i class="far fa-edit"></i>New Query</h5></a> 
+            <br><br>
         <%
             HttpSession hs = request.getSession();
             roll_no=hs.getAttribute("stu_roll").toString();
@@ -98,37 +162,69 @@
         
            %>
            
-            <%
-            try{ 
+          <%
            
-                Class.forName("com.mysql.jdbc.Driver");
-                Connection con=(Connection)DriverManager.getConnection("jdbc:mysql://localhost/placementcell","root","");
-                Statement st=con.createStatement();
-                String x1="Select * from queries where Name='"+name+"' group by ID having Designation='student'   ";
-
-                ResultSet rs1=st.executeQuery(x1);
-                while(rs1.next()){
-                    id=rs1.getString("ID");
-                    name=rs1.getString("Name");
-                    email=rs1.getString("Email");
-                    subject=rs1.getString("Subject");
-                    design=rs1.getString("Designation");
-                %>
-
-                    <tr>            
-                       <td><%=subject%></td>
-                       <td> <a href="student_tickets.jsp?id=<%=id%>"><i class="far fa-comment-dots fa-2x"></i></a></td>
-                    </tr>
-
-            <%
-                }
+            roll_no=hs.getAttribute("stu_roll").toString();
+        
+             try{ 
+           
+         Class.forName("com.mysql.jdbc.Driver");
+         Connection con1=(Connection)DriverManager.getConnection("jdbc:mysql://localhost/placementcell","root","");
+         Statement st=con1.createStatement();
+                 String x2="Select * from studentsignup where studentrollno='"+roll_no+"'";
+         ResultSet rs=st.executeQuery(x2);
+         while(rs.next())
+         {
+             name=rs.getString("studentname");
          
-            }
-            catch(Exception ex){
-                out.print(ex);
-            }               
-         
-            %>
+         }
+
+        String x1="Select * from queries where Name='"+name+"' having Designation='student'  order by ID Desc ";
+       
+        ResultSet rs1=st.executeQuery(x1);
+          while(rs1.next())
+         {
+             id=rs1.getInt("ID");
+           name=rs1.getString("Name");
+           message=rs1.getString("Message");
+           subject=rs1.getString("Subject");
+           design=rs1.getString("Designation");  
+           statuskey=rs1.getInt("Status");
+          time=rs1.getString("TimeofReply");
+          seen=rs1.getInt("seen");
+          %>
+                           <a href="student_tickets.jsp?id=<%=id%>  ">
+                  <div class="msgbox">
+                <div class="container-center" >
+                    <div    <%if(seen==0){%> class="notices-uns"<%}else{%>class="notices" <%}%>>
+                        <h4 class="userr">      <%if(statuskey==2){%><i class="fas fa-envelope"></i><%}else if(statuskey==1){%><i class="far fa-envelope-open"></i><%}else{%><i class="far fa-envelope"></i><%}%>      <%=subject%><h6 class="time-right"><%=time%></h6></h4> 
+                     
+                 </div>
+                  </div>
+              </div>
+                </a>
+           <%       
+         }
+       }   
+        catch(Exception ex)
+       {
+           out.print(ex);
+       }
+        
+           %>     
+                       <br>
+                <br>
+  
+
+                <br><br>
+                <br><br>
+                <br><br>
+                <br><br>
+                <br><br>
+                <br><br>
+                <br><br>
+                <br><br>
+                <br><br>
         <section>
         </div>
     </body>

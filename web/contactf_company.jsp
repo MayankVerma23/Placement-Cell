@@ -17,17 +17,7 @@
         <title>Home Student</title>
         
         <style>
-            .navbar{
-            background-color: #4379C0;
-            border-color: #4353C0;
-           
-            }
-            .nav_links{
-                color:white;
-            }
-            .nav_links:hover{
-                color: black;
-            }  
+  
             section{
                 margin-top: 10px;
                
@@ -86,40 +76,12 @@
     </head>
     
     <body>
-         <%@include file = "database_connection.jsp"%>  
-    
-    <div class="container">
-        
-        <!--TOP LOGOS--> 
-        <section>
-            <div class="row">
-                <h1 style="float:left;padding-left:20px;">Placement<br>Cell</h1>
-                <a href="#"><h4 style="float:right;padding-right:20px;">Logout</h4></a>
-            </div>
-        </section> 
-        
-        <!--SLIDING TEXT-->    
-        <section> 
-                <%@include file = "sliding_text.jsp"%>
-        </section> 
+        <%@include file = "database_connection.jsp"%>  
 
-        <!--NAVBAR-->
-        <section> 
-            <nav class="navbar">
-                <ul class="nav navbar-nav">
-                       <li><a href="profile_company.jsp" class="nav_links">Complete Info</a></li>
-                        <li><a href="placement_company.jsp" class="nav_links">Placement Info</a></li>
-                        <li><a href="changepassword_company.jsp" class="nav_links">Change Password</a></li>
-                         <li><a href="contactf_company.jsp" class="nav_links"><i class="fas fa-cog"></i>Support</a></li>
-                         <li><a href="company_inbox.jsp" class="nav_links"><i class="fas fa-envelope"></i>inbox</a></li>
-
-                </ul>
-            </nav>
-        </section> 
-
-    </div>
-        
-        <br>
+        <!--Start of Navbar Section-->
+        <%@include file = "header_company.jsp"%>
+        <!--End of Navbar Section-->
+                <br>
          <%!String roll =""; %>
 
        <div class="container"> 

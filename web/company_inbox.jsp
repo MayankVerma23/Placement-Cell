@@ -15,112 +15,128 @@
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
         <title>Messages</title>
-        <style>
-            table
-            {
-                width : 100%;
-            }
-            
-            td
-            {
-                
-                padding : 20px;
-                width : 100px;
-                height : 50px;
-            }
-                
-            th
-            {
-                background-color: #4CAF50;
-                color: white;
-                text-align: left;
-            }
-           .navbar{
-            background-color: #4379C0;
-            border-color: #4353C0;
-           
-            }
-            .nav_links{
-                color:white;
-            }
-            .nav_links:hover{
-                color: black;
-            }  
-            section{
-                margin-top: 10px;
-              
-                 margin-right: 400px;
-                    margin-left:400px;
-            }
+<style>
+
             
             .hover tr:hover{
                 background-color:#F2D0D1;
             }
-            
-           th {
-                 padding-top: 12px;
-                 padding-bottom: 12px;
-                 padding-left: 15px;
-                 text-align: left;
-                 background-color: #4CAF50;
-                 color: white;
-             }
-            
+
             tr{
-                font-size:150%;
-              
+                font-size:150%; 
             }
-            td{
-                font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
-                font-size:90%;
+               .topics{
+                    color: #333333;
+                        text-align:left;
+                        padding-left:100px;
+                        text-transform: capitalize;
+                }
+                .line1{
+                    border-color: #A9A9A9;
+                }
+                                    .linkq{
+                        text-align: right;
+                        padding-right:50px;
+                        color:  #333333;
+                        font-size: 130%;
+                    }
+                    .linkq:hover{
+                        opacity: 0.9;
+                    }
+                               .topics{
+                    color: #333333;
+                        text-align:left;
+                        text-transform: capitalize;
+                }
+                .line1{
+                    border-color: #A9A9A9;
+                }
+                            .time-right{
+                color: #696969;
+               text-align: right;
+               padding-right: 50px;
                             }
+                                        .userr{
+                padding-top:10px;
+                padding-left:50px;
+                text-align: left;
+                font-weight: 600;
+                color: #333333;
+            }
+                            .notices{
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                   
+                    
+                    border: solid #2F4F4F;
+                    background-color: 	#E9967A;
+                     color: #333333;
+                     border-radius:2px;
+                     padding: 10px;
+                       
+                      width :80%;
+                    opacity: 1;
+                    filter: alpha(opacity=50); 
+                   margin-bottom:10px;
+                   
+                }  
+                    .notices:hover{
+                    
+                        opacity: 0.8;
+                        
+                    }
+                                                   .notices-uns{
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                   
+                    
+                    border: solid #2F4F4F;
+                    background-color: 	#FF7F50;
+                     color: #333333;
+                     border-radius:2px;
+                     padding: 10px;
+                       
+                      width :80%;
+                    opacity: 1;
+                    filter: alpha(opacity=50); 
+                   margin-bottom:10px;
+                   
+                }  
+             
+                    .notices-uns:hover
+                    {
+                        opacity: 0.8;
+                    }
+           
         </style>
     
     </head>
     <body>
-        <%@include file = "database_connection.jsp"%>
-        <div class="container"></div>
-        <section>
-            <div class="row">
-                <h1 style="float:left;padding-left:20px;">Placement<br>Cell</h1>
-                <a href="#"><h4 style="float:right;padding-right:20px;">Logout</h4></a>
-            </div>
-        </section>    
+         <%@include file = "database_connection.jsp"%>  
 
-        <section> 
-            <%@include file = "sliding_text.jsp"%>
-        </section> 
+        <!--Start of Navbar Section-->
+        <%@include file = "header_company.jsp"%>
+        <!--End of Navbar Section-->       
 
-        <section> 
-            <nav class="navbar">
-                    <ul class="nav navbar-nav">
-                         <li><a href="profile_company.jsp" class="nav_links">Complete Info</a></li>
-                        <li><a href="placement_company.jsp" class="nav_links">Placement Info</a></li>
-                         <li><a href="changepassword_company.jsp" class="nav_links">Change Password</a></li>
-                          <li><a href="contactf_company.jsp" class="nav_links"><i class="fas fa-cog"></i>Support</a></li>
-                            <li><a href="company_inbox.jsp" class="nav_links"><i class="fas fa-envelope"></i>inbox</a></li>
-            
-                     </ul>
-            </nav>
-        </section>
-        <%! String name="";
-            String email="";
+                <%! String name="";
+            String message="";
             String subject=""; 
-            String id="";
+            int id;
             String design="";
+           
+            String time="";
+            int statuskey;
+            int seen;
         %>
         <section> 
-            <table class="hover">
-                <tr>
-                 
-                    
-                 
-                    
-                    <th>Subject</th>
-                 
-                    <th>       </th>
-                </tr>
-        
+                     <div class="container">
+  
+                         <h1 class="topics" ><i class="fas fa-envelope-open-text"></i> Your Queries</h1>
+            <hr class="line1">
+            <a href="contactf_company.jsp"><h5 class="linkq"><i class="far fa-edit"></i>New Query</h5></a> 
+            <br><br>
         
         <%  
                 HttpSession hs = request.getSession();
@@ -130,36 +146,53 @@
          Class.forName("com.mysql.jdbc.Driver");
          Connection con=(Connection)DriverManager.getConnection("jdbc:mysql://localhost/placementcell","root","");
          Statement st=con.createStatement();
-        String x1="Select * from queries where Name='"+name+"' group by ID having Designation='company'";
+        String x1="Select * from queries where Name='"+name+"' having Designation='company' order by ID desc";
         
-         ResultSet rs=st.executeQuery(x1);
-         while(rs.next())
+         ResultSet rs1=st.executeQuery(x1);
+         while(rs1.next())
          {
-           id=rs.getString("ID");
-           name=rs.getString("Name");
-           email=rs.getString("Email");
-           subject=rs.getString("Subject");
-           design=rs.getString("Designation");
-             %>
-                <tr>            
-                  
-                   
-                   
-                   <td><%=subject%></td>
-                  
-                   <td> <a href="company_ticket.jsp?id=<%=id%>"><i class="far fa-comment-dots fa-2x"></i></a></td>
-                </tr>
-                <%
-          
-            }
-         
-            }
-            catch(Exception ex)
-                {
-                out.println(ex);
-                }
-            %>
-        
+             id=rs1.getInt("ID");
+           name=rs1.getString("Name");
+           message=rs1.getString("Message");
+           subject=rs1.getString("Subject");
+           design=rs1.getString("Designation");  
+           statuskey=rs1.getInt("Status");
+          time=rs1.getString("TimeofReply");
+          seen=rs1.getInt("seen");
+          %>
+                           <a href="company_ticket.jsp?id=<%=id%>">
+                  <div class="msgbox">
+                <div class="container-center" >
+                    <div <%if(seen==0){%> class="notices-uns"<%}else{%>class="notices" <%}%>>
+                        <h4 class="userr">      <%if(statuskey==2){%><i class="fas fa-envelope"></i><%}else if(statuskey==1){%><i class="far fa-envelope-open"></i><%}else{%><i class="far fa-envelope"></i><%}%>      <%=subject%><h6 class="time-right"><%=time%></h6></h4> 
+                     
+                 </div>
+                  </div>
+              </div>
+                </a>
+           <%       
+         }
+       }   
+        catch(Exception ex)
+       {
+           out.print(ex);
+       }
+           %>     
+                       <br>
+                <br>
+  
+
+                <br><br>
+                <br><br>
+                <br><br>
+                <br><br>
+                <br><br>
+                <br><br>
+                <br><br>
+                <br><br>
+                <br><br>
+        </section>
+        </div>        
     </body>
 </html>
 

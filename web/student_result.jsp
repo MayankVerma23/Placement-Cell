@@ -41,7 +41,7 @@
     </head>
     <body>
         
-        <%@include file = "database_connection.jsp"%>
+
         
         <!--Start of Navbar Section-->
         <%@include file = "header_student.jsp"%>
@@ -63,10 +63,10 @@
                 String stu_roll1=hs.getAttribute("stu_roll").toString();
 
                 Class.forName("com.mysql.jdbc.Driver");
-                Connection con=DriverManager.getConnection("jdbc:mysql://Localhost/placementcell","root","");
+                Connection conn=DriverManager.getConnection("jdbc:mysql://Localhost/placementcell","root","");
 
                 String fetchQuery = "select * from interestedstudents where student_rollno='"+stu_roll1+"'";
-                Statement fetchStatement = con.createStatement();
+                Statement fetchStatement = conn.createStatement();
                 ResultSet rs = fetchStatement.executeQuery(fetchQuery);
                 while(rs.next()){
                 %> 

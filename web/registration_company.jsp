@@ -3,7 +3,10 @@
     Created on : 7 Mar, 2019, 7:21:07 PM
     Author     : My Lappy
 --%>
-
+<%@page import="java.sql.ResultSet"%>
+<%@page import="java.sql.Statement"%>
+<%@page import="java.sql.DriverManager"%>
+<%@page import="java.sql.Connection"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -97,7 +100,7 @@
                 <input class="text" type="text" name="phoneno" placeholder="Contact No." required>
                 <input class="text" type="text" name="loc" placeholder="Location" required>
                 <input class="text" type="password" name="pass" placeholder="Password" id="t1" required>
-                <input class="text" type="password" name="confpass" placeholder="confpass" id="t2" required>     
+                <input class="text" type="password" name="confpass" placeholder="confpass" id="t2" required>
                 <button type="submit" class="text" value="SignUp">SIGNUP</button>
                 
             </form>

@@ -17,56 +17,47 @@
          <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
-       
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
 
     <style>
-        h4{
-            overflow:hidden;
-            
-        }
-                   .topics{
-                    color: #333333;
-                        text-align:center;
-                        text-transform: capitalize;
-                }
-                .notices{
-                    display: flex;
-                    flex-direction: column;
-                    justify-content: center;
-                   
-                    
-                   <%-- border: 2px solid #2F4F4F;--%>
-                    background-color: 	#ffffff;
-                     color: #333333;
-                     border-radius:2px;
-                     padding: 10px;
-                        
-                      width :80%;
-                    opacity: 1;
-                    filter: alpha(opacity=50); 
-                   margin-bottom:10px;
-                   
-                }  
-                    .notices:hover{
-                    
-                        background-color:#008080;
-                        
-                    }
-                .msgbox{
-                    
-                    align-items:   center;
-                    width: 100%
-                    
-                }
-                .container-center{
-                                        display: flex;
-                    flex-direction: column;
-                    justify-content: center;
-                    align-items: center;
+            h4{
+                overflow:hidden;
+
+            }
+            .topics{
+            color: #333333;
+            text-align:center;
+            text-transform: capitalize;
+            }
+            .notices{
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                background-color: 	#ffffff;
+                color: #333333;
+                border-radius:2px;
+                padding: 10px;
+                width :80%;
+                opacity: 1;
+                filter: alpha(opacity=50); 
+                margin-bottom:10px;       
+            }  
+            .notices:hover{
+                background-color:#008080;
+            }
+            .msgbox{
+                align-items:   center;
+                width: 100%    
+            }
+            .container-center{
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
                 }     
-                .line1{
-                    border-color: #A9A9A9;
-                }  
+            .line1{
+                border-color: #A9A9A9;
+            }  
                 .col-md-6{
                    background-color: #FFA07A;
                 }
@@ -81,11 +72,10 @@
                 }
     </style>
     
-    <META HTTP-EQUIV="Refresh" CONTENT="10">
+    
     </head>
     <body>
-        <%@include file = "database_connection.jsp"%>  
-        
+       
         
         
         <%! String sub="";
@@ -103,8 +93,8 @@
              try{ 
          
          Class.forName("com.mysql.jdbc.Driver");
-         Connection con=(Connection)DriverManager.getConnection("jdbc:mysql://localhost/placementcell","root","");
-         Statement st=con.createStatement();
+         Connection conn=(Connection)DriverManager.getConnection("jdbc:mysql://localhost/placementcell","root","");
+         Statement st=conn.createStatement();
          String x1="Select * from notices order by sno desc";
         int i=0;
          ResultSet rs=st.executeQuery(x1);
@@ -127,7 +117,7 @@
                   <div class="msgbox">
                       <div class="container-center" >
                              <div class="notices">
-                                <h4 class="userr"><i class="far fa-file-alt"></i> <%=sub%></h4><h6></h6>
+                                <h4 class="userr"><i class="far fa-file-alt"></i></i>  <%=sub%></h4><h6></h6>
                              </div>
                         </div>
                     </div>

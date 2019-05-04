@@ -34,8 +34,8 @@
             
             try{
                 Class.forName("com.mysql.jdbc.Driver");
-                Connection con=DriverManager.getConnection("jdbc:mysql://localhost/placementcell","root","");
-                Statement stmt=con.createStatement();
+                Connection conn=DriverManager.getConnection("jdbc:mysql://localhost/placementcell","root","");
+                Statement stmt=conn.createStatement();
                 if(neew.equals(confirm))
                 {
                     String y="update studentsignup set studentpassword='"+neew+"' where studentid='"+temp+"'";

@@ -4,8 +4,6 @@
     Author     : hp
 --%>
 
-<%@page import="java.util.GregorianCalendar"%>
-<%@page import="java.util.Calendar"%>
 <%@page import="java.sql.ResultSet"%>
 <%@page import="java.sql.Statement"%>
 <%@page import="java.sql.DriverManager"%>
@@ -19,6 +17,7 @@
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+        <meta http-equiv="refresh" content="10">
         <title>Home Tpo</title>
     
             <style>
@@ -64,14 +63,11 @@
                     
                 }
                 </script>
-               
     </head>
 
     
     <body>
-        
-        
-    <%@include file = "database_connection.jsp"%>  
+   
         
         <!--Start of Navbar Section-->
             <%@include file = "header_tpo.jsp"%>
@@ -92,6 +88,8 @@
                 <%! int i=0;
                 String status = "waiting";%>
                         <%    //Create the preparedstatement(s)
+                            Class.forName("com.mysql.jdbc.Driver");
+                            Connection conn=(Connection)DriverManager.getConnection("jdbc:mysql://localhost/placementcell","root","");
                             String fetchQuery = "select * from companysignup where status = '"+status+"'";
                             Statement fetchStatement = conn.createStatement();
                             ResultSet rs = fetchStatement.executeQuery(fetchQuery);
@@ -112,11 +110,10 @@
                                 </tr>
                                 <%i=i+1;%>                                    
                             <%
-
                             }
-
                             %>
-                           <%  i=0;%>
+                            <% i=0;%>
+                            
             </table>
         </section>  
     </body>

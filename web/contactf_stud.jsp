@@ -3,7 +3,10 @@
     Created on : Mar 31, 2019, 2:02:41 PM
     Author     : Divjot
 --%>
-
+<%@page import="java.sql.ResultSet"%>
+<%@page import="java.sql.Statement"%>
+<%@page import="java.sql.DriverManager"%>
+<%@page import="java.sql.Connection"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -59,7 +62,7 @@
     </head>
     
     <body>
-            <%@include file = "database_connection.jsp"%>  
+           
     
             <!--Start of Navbar Section-->
             <%@include file = "header_student.jsp"%>

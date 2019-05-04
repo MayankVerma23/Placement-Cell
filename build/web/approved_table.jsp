@@ -3,7 +3,11 @@
     Created on : 20 Mar, 2019, 4:15:37 PM
     Author     : hp
 --%>
-
+<%@page import="java.sql.ResultSet"%>
+<%@page import="java.sql.Statement"%>
+<%@page import="java.sql.DriverManager"%>
+<%@page import="java.sql.Connection"%>
+<%@page import="java.sql.*" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -13,7 +17,7 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
         <title>Approved Compnies</title>
-        
+        <meta http-equiv="refresh" content="10">
         <style>
             table
             {
@@ -43,17 +47,16 @@
                         
                         if (r == true) 
                         {
-                            window.open('decline_company.jsp?companyid='+x,'popUpWindow','height=500,width=400,left=100,top=100,resizable=yes,scrollbars=yes,toolbar=yes,menubar=no,location=no,directories=no, status=yes');
+                            window.open('decline_company.jsp?companyid='+x,'popUpWindow','height=500,width=600,left=650,top=250,resizable=yes,scrollbars=yes,toolbar=yes,menubar=no,location=no,directories=no, status=yes');
                         }
                     
                 }
         </script>
-       <META HTTP-EQUIV="Refresh" CONTENT="10">  
+        
     </head>
     
     <body>
         <!--Database connectivity-->
-        <%@include file = "database_connection.jsp"%>
         
         <!--Start of Navbar Section-->
             <%@include file = "header_tpo.jsp"%>
@@ -74,6 +77,9 @@
                     <%! int i=0;
                     String status = "accept"; %>
                             <%    //Create the preparedstatement(s)
+                            Class.forName("com.mysql.jdbc.Driver");
+                             Connection conn = DriverManager.getConnection("jdbc:mysql://localhost/placementcell", "root", "");
+        
                                 String fetchQuery = "select * from companysignup where status = '"+status+"'";
                                 Statement fetchStatement = conn.createStatement();
                                 ResultSet rs = fetchStatement.executeQuery(fetchQuery);

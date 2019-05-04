@@ -58,9 +58,10 @@ public class studentsignup extends HttpServlet {
              String sem7 = request.getParameter("sem7");
              String sem8 = request.getParameter("sem8");
              String cgpa = request.getParameter("cgpa");
+              String backlog = request.getParameter("backlog");
              String pass = request.getParameter("pass");
                String rolno="";
-                  
+            
                    
              Class.forName("com.mysql.jdbc.Driver");
              Connection con=DriverManager.getConnection("jdbc:mysql://Localhost/placementcell","root","");
@@ -72,11 +73,11 @@ public class studentsignup extends HttpServlet {
                  rolno=rs.getString("studentrollno");
              }
              if(!roll.equals(rolno)) {
-            String x="insert into studentsignup values(null,'"+name+"','"+roll+"','"+email+"','"+degree+"','"+branch+"','"+batch+"','"+phoneno+"','"+gender+"','"+ten+"','"+twe+"','"+sem1+"','"+sem2+"','"+sem3+"','"+sem4+"','"+sem5+"','"+sem6+"','"+sem7+"','"+sem8+"','"+cgpa+"','"+pass+"','"+"unplaced"+"')";
+            String x="insert into studentsignup values(null,'"+name+"','"+roll+"','"+email+"','"+degree+"','"+branch+"','"+batch+"','"+phoneno+"','"+gender+"','"+ten+"','"+twe+"','"+sem1+"','"+sem2+"','"+sem3+"','"+sem4+"','"+sem5+"','"+sem6+"','"+sem7+"','"+sem8+"','"+cgpa+"','"+backlog+"','"+pass+"','"+"unplaced"+"')";
               stmt.executeUpdate(x);           
-            request.setAttribute("roll", roll);
-             request.getRequestDispatcher("image_studentt.jsp").forward(request, response);
-             response.sendRedirect("image_studentt.jsp");  
+           // request.setAttribute("roll", roll);
+             //request.getRequestDispatcher("image_studentt.jsp").forward(request, response);
+             response.sendRedirect("login.jsp");  
              }
               else{
               out.print("<script> window.alert('RollNo Already Use Please Select Another RollNo') </script>");

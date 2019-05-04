@@ -40,8 +40,7 @@
         </style>
     </head>
     <body>
-        <%@include file = "database_connection.jsp"%>
-         
+       
         
         <!--Start of Navbar Section-->
             <%@include file = "header_tpo.jsp"%>
@@ -64,11 +63,10 @@
                 </tr>
                 
                 <%    
-                Class.forName("com.mysql.jdbc.Driver");
-                Connection con=DriverManager.getConnection("jdbc:mysql://Localhost/placementcell","root","");
-
+               Class.forName("com.mysql.jdbc.Driver");
+                Connection conn=(Connection)DriverManager.getConnection("jdbc:mysql://localhost/placementcell","root","");
                 String fetchQuery = "select * from companyrequirements ";
-                Statement fetchStatement = con.createStatement();
+                Statement fetchStatement = conn.createStatement();
                 ResultSet rs = fetchStatement.executeQuery(fetchQuery);
                 while(rs.next()){
                 %> 

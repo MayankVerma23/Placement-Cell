@@ -196,7 +196,7 @@ body
 </script>
     </head>
     <body>
-        <%@include file = "database_connection.jsp"%>
+
        
        <div class="box">
            <h2>CHANGE PASSWORD</h2>
@@ -232,8 +232,8 @@ body
           
          try{
          Class.forName("com.mysql.jdbc.Driver");
-         Connection con=DriverManager.getConnection("jdbc:mysql://Localhost/placementcell","root","");
-         Statement stmt=con.createStatement();
+         Connection conn=DriverManager.getConnection("jdbc:mysql://Localhost/placementcell","root","");
+         Statement stmt=conn.createStatement();
            String x="select * from tpo_password where username='"+tpo_username+"'";
          ResultSet rs=stmt.executeQuery(x);
           while(rs.next())

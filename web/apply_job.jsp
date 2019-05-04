@@ -46,23 +46,11 @@
             window.location.href = "apply_receive.jsp?companyid="+x;
         } 
         </script>
-        
-        <%--   <script>
-        function apply(x){
-            window.location.href = "apply_receive.jsp?companyid="+x;}
-            window.setInterval('refresh()', 5000); 	// Call a function every 10000 milliseconds (OR 10 seconds).
-
-    // Refresh or reload page.
-        function refresh() {
-        window .location.reload();
-      
-    }
-        </script>--%>
-   <META HTTP-EQUIV="Refresh" CONTENT="10">
     </head>
     
     <body>
-        <%@include file = "database_connection.jsp"%>
+        <%Class.forName("com.mysql.jdbc.Driver");
+            Connection conn = DriverManager.getConnection("jdbc:mysql://localhost/placementcell", "root", "");%>
         
         <!--Start of Navbar Section-->
         <%@include file = "header_student.jsp"%>
@@ -98,7 +86,7 @@
 
             <tr>                  
                 <td><%=rs.getString("companyname")%></td>
-                <td><%=rs.getString("requiredcourse")%></td>
+                <td><%=rs.getString("requiredcourse1")%></td>
                 <td><%=rs.getString("requiredbranch")%></td>
                 <td><%=rs.getString("requiredbacklog")%></td>
                 <td><%=rs.getString("requiredpercentage")%></td>

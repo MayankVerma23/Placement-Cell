@@ -4,7 +4,9 @@
     Author     : Divjot
 --%>
 <a href="Your_Queries.jsp"></a>
-
+<%@page import="java.sql.DriverManager"%>
+<%@page import="java.sql.Statement"%>
+<%@page import="java.sql.Connection"%>
 <%@page import="java.sql.*" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -101,7 +103,9 @@
     
     </head>
     <body>
-        <%@include file = "database_connection.jsp"%>
+        <%
+            Class.forName("com.mysql.jdbc.Driver");
+            Connection conn = DriverManager.getConnection("jdbc:mysql://localhost/placementcell", "root", "");%>
         <div class="container"></div>
         <section>
             <div class="row">

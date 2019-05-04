@@ -3,8 +3,8 @@
         color:black;
     }
 </style>
-
-          <select ID="branch" class="text" name="branch">
+        <select class="form-control" ID="branch"  name="branch">>
+         
             <option selected>BRANCH</option>
         <%
 

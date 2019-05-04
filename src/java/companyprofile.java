@@ -51,7 +51,7 @@ public class companyprofile extends HttpServlet {
           String str="update companysignup set companyname='"+a+"', companyemail='"+b+"', companyphno='"+c+"',companylocation='"+d+"' where companyemail='"+f+"'";
           stm.executeUpdate(str);
           //response.sendRedirect("home_student.jsp");
-         
+         out.print("<script>window.close()</script>");
           
         }
         catch(Exception ex)

@@ -4,8 +4,6 @@
     Author     : Divjot
 --%>
 
-
-
 <%@page import="java.util.Calendar"%>
 <%@page import="java.text.SimpleDateFormat"%>
 <%@page import="java.sql.*" %>
@@ -140,8 +138,7 @@
     
     </head>
     <body>
-               <%@include file = "database_connection.jsp"%>  
-        
+             
         <!--Start of Navbar Section-->
             <%@include file = "header_tpo.jsp"%>
         <!--End of Navbar Section-->
@@ -168,8 +165,8 @@
              try{ 
            
          Class.forName("com.mysql.jdbc.Driver");
-         Connection con=(Connection)DriverManager.getConnection("jdbc:mysql://localhost/placementcell","root","");
-         Statement st=con.createStatement();
+         Connection conn=(Connection)DriverManager.getConnection("jdbc:mysql://localhost/placementcell","root","");
+         Statement st=conn.createStatement();
          String x1="Select * from notices order by sno DESC";
         int i=0;
          ResultSet rs=st.executeQuery(x1);

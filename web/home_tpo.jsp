@@ -19,12 +19,11 @@
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
         <title>Home Tpo</title>
 
-       
+        </script>
     </head>
 
     
  <body>
-        <%@include file = "database_connection.jsp"%>  
         
         <!--Start of Navbar Section-->
             <%@include file = "header_tpo.jsp"%>

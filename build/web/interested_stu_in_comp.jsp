@@ -39,8 +39,7 @@
         </style>
     </head>
     <body>
-        <%@include file = "database_connection.jsp"%>  
-
+        
         <!--Start of Navbar Section-->
         <%@include file = "header_company.jsp"%>
         <!--End of Navbar Section-->
@@ -58,10 +57,10 @@
                     String comp_name=hs.getAttribute("company_name").toString();
 
                     Class.forName("com.mysql.jdbc.Driver");
-                    Connection con=DriverManager.getConnection("jdbc:mysql://Localhost/placementcell","root","");
+                    Connection conn=DriverManager.getConnection("jdbc:mysql://Localhost/placementcell","root","");
 
                     String fetchQuery = "select * from interestedstudents where company_name='"+comp_name+"'";
-                    Statement fetchStatement = con.createStatement();
+                    Statement fetchStatement = conn.createStatement();
                     ResultSet rs = fetchStatement.executeQuery(fetchQuery);
                     while(rs.next()){
                     %> 

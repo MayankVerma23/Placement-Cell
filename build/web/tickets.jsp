@@ -1,5 +1,8 @@
     
-
+<%@page import="java.sql.ResultSet"%>
+<%@page import="java.sql.Statement"%>
+<%@page import="java.sql.DriverManager"%>
+<%@page import="java.sql.Connection"%>
 <%@page import="java.sql.*" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -147,7 +150,6 @@
     
     </head>
     <body>
-        <%@include file = "database_connection.jsp"%>
                 <!--Start of Navbar Section-->
             <%@include file = "header_tpo.jsp"%>
         <!--End of Navbar Section-->  
@@ -179,8 +181,8 @@
              try{ 
            String stud="student";
          Class.forName("com.mysql.jdbc.Driver");
-         Connection con=(Connection)DriverManager.getConnection("jdbc:mysql://localhost/placementcell","root","");
-         Statement st=con.createStatement();
+         Connection conn=(Connection)DriverManager.getConnection("jdbc:mysql://localhost/placementcell","root","");
+         Statement st=conn.createStatement();
          String x1="Select * from qmessages where id='"+id+"'";
          String x2="Select * from queries where id='"+id+"'";
          ResultSet rs=st.executeQuery(x2);

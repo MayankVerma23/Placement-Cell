@@ -34,8 +34,8 @@
                HttpSession hs=request.getSession();
                stu_roll=hs.getAttribute("stu_roll").toString();
                Class.forName("com.mysql.jdbc.Driver");
-               Connection con1 = DriverManager.getConnection("jdbc:mysql://localhost/placementcell", "root", "");
-               Statement stmt=con1.createStatement();
+               Connection conn = DriverManager.getConnection("jdbc:mysql://localhost/placementcell", "root", "");
+               Statement stmt=conn.createStatement();
                String x="select * from studentsignup where studentrollno='"+stu_roll+"'";
                ResultSet rs=stmt.executeQuery(x);
                while(rs.next())

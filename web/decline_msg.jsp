@@ -3,7 +3,10 @@
     Created on : 23 Mar, 2019, 12:50:12 PM
     Author     : hp
 --%>
-
+<%@page import="java.sql.ResultSet"%>
+<%@page import="java.sql.Statement"%>
+<%@page import="java.sql.DriverManager"%>
+<%@page import="java.sql.Connection"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -12,7 +15,7 @@
         <title>JSP Page</title>
     </head>
     <body>
-         <%@include file = "database_connection.jsp"%> 
+        
 
         <%!String idd="";
         String status = "reject";
@@ -22,7 +25,8 @@
                 idd = request.getParameter("id");
                 
         %>
-        <% 
+        <%  Connection conn=(Connection)DriverManager.getConnection("jdbc:mysql://localhost/placementcell","root","");
+            Statement st=conn.createStatement();
             Statement  fetchStatement = conn.createStatement();
             String y = "update companysignup set status='"+status+"' where companyid='"+idd+"'";
             fetchStatement.executeUpdate(y);

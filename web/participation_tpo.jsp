@@ -39,7 +39,7 @@
         </style>
     </head>
     <body>
-        <%@include file = "database_connection.jsp"%>  
+    
         
         <!--Start of Navbar Section-->
             <%@include file = "header_tpo.jsp"%>
@@ -56,10 +56,10 @@
                 
                 <%    
                 Class.forName("com.mysql.jdbc.Driver");
-                Connection con=DriverManager.getConnection("jdbc:mysql://Localhost/placementcell","root","");
+                Connection conn=DriverManager.getConnection("jdbc:mysql://Localhost/placementcell","root","");
 
                 String fetchQuery = "select * from interestedstudents";
-                Statement fetchStatement = con.createStatement();
+                Statement fetchStatement = conn.createStatement();
                 ResultSet rs = fetchStatement.executeQuery(fetchQuery);
                 while(rs.next()){
                 %> 

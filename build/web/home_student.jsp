@@ -19,8 +19,7 @@
 
     
  <body>
-        
-        
+
         <!--Start of Navbar Section-->
         <%@include file = "header_student.jsp"%>
         <!--End of Navbar Section-->

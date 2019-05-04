@@ -3,7 +3,10 @@
     Created on : 27 Mar, 2019, 8:51:23 AM
     Author     : My Lappy
 --%>
-
+<%@page import="java.sql.ResultSet"%>
+<%@page import="java.sql.Statement"%>
+<%@page import="java.sql.DriverManager"%>
+<%@page import="java.sql.Connection"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -26,8 +29,8 @@
       
        <form name="f1" enctype="multipart/form-data"  method="post">
            <%!String roll="";%>
-            <%String roll = (String)request.getAttribute("roll"); %>
-           
+            <%String roll = (String)request.getAttribute("roll"); %> 
+                <!-- <label></label>-->
             <input type="text" value="<%=roll%>"  name="t1">
             <p>Image<input type="file" name="i" required><br></p>
            <p><input type="submit" onclick="demo()"></p>

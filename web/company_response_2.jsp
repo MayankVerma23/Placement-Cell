@@ -20,9 +20,14 @@
        <%
            
           
-           String batch1 = request.getParameter("batch");
-            String course1 = request.getParameter("course");
-            String branch1 = request.getParameter("branch");
+            String batch1 = request.getParameter("batch");
+            String course1 = request.getParameter("course1");
+            String course2 = request.getParameter("course2");
+            String course3 = request.getParameter("course3");
+            String br1 = request.getParameter("branch1");
+            String br2 = request.getParameter("branch2");
+            String br3 = request.getParameter("branch3");
+            String br4 = request.getParameter("branch4");
             String backlog1= request.getParameter("backlog");
             String percentage1= request.getParameter("percentage");
             String skill1= request.getParameter("skill");
@@ -34,16 +39,16 @@
 
                
                    try{
-             HttpSession hs=request.getSession();
-             String comp_email=hs.getAttribute("company_email").toString();
+        HttpSession hs=request.getSession();
+       String comp_email=hs.getAttribute("company_email").toString();
                   
              Class.forName("com.mysql.jdbc.Driver");
-             Connection con=DriverManager.getConnection("jdbc:mysql://Localhost/placementcell","root","");
-             Statement stmt=con.createStatement();
+         Connection conn=(Connection)DriverManager.getConnection("jdbc:mysql://localhost/placementcell","root","");
+             Statement stmt=conn.createStatement();
              String y="select * from companysignup where companyemail='"+comp_email+"'";
-             ResultSet rs = stmt.executeQuery(y);
-            while(rs.next()){
-            com_name=rs.getString("companyname");
+            ResultSet rs = stmt.executeQuery(y);
+         while(rs.next()){
+         com_name=rs.getString("companyname");
          }
    
          
@@ -54,7 +59,7 @@
          }
         if(!com_name.equals(com_name1))
         {
-      String x="insert into companyrequirements values(null,'"+com_name+"','"+course1+"','"+branch1+"','"+backlog1+"','"+percentage1+"','"+skill1+"','"+procedure1+"','"+batch1+"','"+job_profile+"','"+pack+"','"+location+"')";
+      String x="insert into companyrequirements values(null,'"+com_name+"','"+course1+"','"+course2+"','"+course3+"','"+br1+"','"+br2+"','"+br3+"','"+br4+"','"+backlog1+"','"+percentage1+"','"+skill1+"','"+procedure1+"','"+batch1+"','"+job_profile+"','"+pack+"','"+location+"')";
       stmt.executeUpdate(x);
           
              out.print("<script> alert('done') </script>");

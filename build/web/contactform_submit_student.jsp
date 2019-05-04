@@ -27,8 +27,8 @@ String name="",email="",subject="",message="",phone="";
 <%
     try{
     Class.forName("com.mysql.jdbc.Driver");
-         Connection con=(Connection)DriverManager.getConnection("jdbc:mysql://localhost/placementcell","root","");
-        Statement stmt=con.createStatement();
+         Connection conn=(Connection)DriverManager.getConnection("jdbc:mysql://localhost/placementcell","root","");
+        Statement stmt=conn.createStatement();
          String x1="insert into contactformtable values(null,'"+name+"','"+email+"','"+subject+"','"+message+"','"+phone+"',0)";
          
          stmt.executeUpdate(x1);

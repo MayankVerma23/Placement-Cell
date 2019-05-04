@@ -3,7 +3,10 @@
     Created on : Mar 29, 2019, 11:14:34 PM
     Author     : Divjot
 --%>
-
+<%@page import="java.sql.ResultSet"%>
+<%@page import="java.sql.Statement"%>
+<%@page import="java.sql.DriverManager"%>
+<%@page import="java.sql.Connection"%>
 <%@page import="java.sql.*" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -116,7 +119,6 @@
     
     </head>
     <body>
-        <%@include file = "database_connection.jsp"%>
         
         <!--Start of Navbar Section-->
            <%@include file = "header_student.jsp"%>
@@ -146,8 +148,8 @@
             try{ 
            
                 Class.forName("com.mysql.jdbc.Driver");
-                Connection con1=(Connection)DriverManager.getConnection("jdbc:mysql://localhost/placementcell","root","");
-                Statement st=con1.createStatement();
+                Connection conn=(Connection)DriverManager.getConnection("jdbc:mysql://localhost/placementcell","root","");
+                Statement st=conn.createStatement();
                 String x2="Select * from studentsignup where studentrollno='"+roll_no+"'";
                 ResultSet rs=st.executeQuery(x2);
                 while(rs.next())

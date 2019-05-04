@@ -46,6 +46,9 @@
         <section> 
             <table>
                         <%    //Create the preparedstatement(s)
+                            Class.forName("com.mysql.jdbc.Driver");
+                            Connection conn=(Connection)DriverManager.getConnection("jdbc:mysql://localhost/placementcell","root","");
+         
                             String fetchQuery = "select * from companysignup";
                             Statement fetchStatement = conn.createStatement();
                             ResultSet rs = fetchStatement.executeQuery(fetchQuery);

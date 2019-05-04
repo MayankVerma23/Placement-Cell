@@ -114,7 +114,7 @@
     
     </head>
     <body>
-         <%@include file = "database_connection.jsp"%>  
+   
 
         <!--Start of Navbar Section-->
         <%@include file = "header_company.jsp"%>
@@ -144,8 +144,8 @@
           try{
            String stud="student";
          Class.forName("com.mysql.jdbc.Driver");
-         Connection con=(Connection)DriverManager.getConnection("jdbc:mysql://localhost/placementcell","root","");
-         Statement st=con.createStatement();
+         Connection conn=(Connection)DriverManager.getConnection("jdbc:mysql://localhost/placementcell","root","");
+         Statement st=conn.createStatement();
         String x1="Select * from queries where Name='"+name+"' having Designation='company' order by ID desc";
         
          ResultSet rs1=st.executeQuery(x1);

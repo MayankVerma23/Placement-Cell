@@ -8,7 +8,6 @@
 <%@page import="java.sql.DriverManager"%>
 <%@page import="java.sql.Statement"%>
 <%@page import="java.sql.Connection"%>
-<%@page import="java.sql.Connection"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -36,8 +35,8 @@
              try{ 
           
          Class.forName("com.mysql.jdbc.Driver");
-         Connection con=(Connection)DriverManager.getConnection("jdbc:mysql://localhost/placementcell","root","");
-         Statement st=con.createStatement();
+         Connection conn=(Connection)DriverManager.getConnection("jdbc:mysql://localhost/placementcell","root","");
+         Statement st=conn.createStatement();
          String x1="Select count(*) from queries where seen='0' and designation='company'";
         
          ResultSet rs=st.executeQuery(x1);
@@ -65,7 +64,7 @@
         </section>
 
         <section>
-            <nav class="navbar navbar-inverse">
+            <nav class="navbar navbar-dark bg-primary">
               <div class="container-fluid">
                 <div class="navbar-header">
                   <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
@@ -79,6 +78,7 @@
                 <div class="collapse navbar-collapse" id="myNavbar">
                   <ul class="nav navbar-nav">
                     <li class="active"><a href="home_company.jsp">HOME</a></li>
+                    <li><a href="profile_company.jsp">PROFILE</a></li>
                     <li class="dropdown">
                       <a class="dropdown-toggle" data-toggle="dropdown" href="#">STUDENT SECTION<span class="caret"></span></a>
                       <ul class="dropdown-menu">
@@ -87,7 +87,7 @@
                         <li><a href="selected_candidates.jsp">selected candidates</a></li>
                       </ul>
                     </li>
-                    <li><a href="profile_company.jsp">PROFILE</a></li>
+                    
                     <li><a href="company_response.jsp">STATUS</a></li>
                     <li class="active"><a href="contactf_company.jsp">SUPPORT</a></li>
                     <li class="active"><a href="company_inbox.jsp">INBOX<%if(ct>0){%> <span class="badge badge-light"><%=ct%><%}%></span></a></li>

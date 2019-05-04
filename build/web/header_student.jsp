@@ -45,9 +45,9 @@
         
          ResultSet rs=st.executeQuery(x1);
            while(rs.next())
-         {
-         ct=rs.getInt(1);
-         }
+                {
+                ct=rs.getInt(1);
+                }
          
          
          
@@ -65,7 +65,6 @@
                 </div>
             </div>
         </section>
-        
         
 
         <section>

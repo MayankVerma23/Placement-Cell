@@ -12,22 +12,26 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
-        <link rel="stylesheet" href="student.css">
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+     <!--  <link rel="stylesheet" href="student.css">
+        --><script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
         <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
       
-        <style>
+       <style>
+           .col-md-3{
+                width:50%;
+           }  
            
-            #degree{
-               color: black;
+            input[type=radio] {
+                border: 0px;
+                width: 100%;
+                height: 1em;
             }
-         
         </style>
         <script>
           
             
-               function sublist()
-        {
+            function sublist()
+            {
             h1=document.getElementById("degree").value;
             
              var a2;
@@ -50,8 +54,7 @@
                 a2.open("GET","degree_category_student.jsp?degree="+h1, true);
                 a2.send(); 
                 subtext(h1);
-            
-        }
+            }
         
         
         function subtext(degree)
@@ -198,70 +201,183 @@
     
     <body >
       
-        <div class="container">
-        <div class="btn-groupb">
-        <h1>STUDENT SIGNUP</h1>
-        </div>
+        <div class="container" >
+        
+        <section style="background-color:#E9E8E2;padding: 20px;margin-top: 60px;border:2px solid black">
+            <div class="row" >
+                <div class="col-md-12">
+                    <h1 style="text-align: center;color:black">STUDENT SIGNUP</h1>
+                </div>
+            </div>
             
-        <div class="box" >
-        <form action="studentsignup" method="post" onsubmit="return checkpassword()" autocomplete="on">
-                <input class="text" type="text" name="name" placeholder="Name" required="" id="drop">
-                <input class="text" type="text" name="roll" id="roll" placeholder="Roll" onkeyup="validrollno()" required >
-                <div id="na"> 
-                
-                </div>
-                <input class="text" type="text" name="email" placeholder="Email"    required id="drop">   
-                
-               
-     
-                <select id="degree" class="text" name="degree"  onchange="sublist()" required>
-                <option value="">DEGREE</option>
-                <option value="Btech">B.tech</option>
-                <option value="MCA">MCA</option>
-                <option value="BCA">BCA</option>
-                <option value="MBA">MBA</option>
-                </select>
-               
-                  <DIV id="drp2" >
-         
-                 </DIV>   
-     
-                 <div id="drp3" >
-         
-                  </div> 
- 
-                
-                
-                <input class="text" type="text" name="phoneno" placeholder="phoneno"  id="t3" required >
+        <div class="row">    
+        <form action="studentsignup" method="post" onsubmit="return checkpassword()" autocomplete="on" style="color: black;" >
+            <div class="col-md-6">  
               
-                
-                <div class="radio" >
-                <label><input type="radio" name="gender"  value="Male" required>Male</label>
-                </div>
-                <div class="radio" >
-                <label><input type="radio" name="gender" value="Female">Female</label>
+                <div class="form-group">
+                    <label for="name">NAME:</label>
+                    <input type="text" name="name" class="form-control" id="drop" required>
                 </div>
                 
-                 <input class="text" type="text" name="ten" placeholder="10%" required id="drop">
-                 <input class="text" type="text" name="twe" placeholder="12%" required id="drop">
-                 <input class="text" type="text" name="sem1" placeholder="sem1 marks" required id="drop">
-                 <input class="text" type="text" name="sem2" placeholder="sem2 marks" required id="drop">
-                 <input class="text" type="text" name="sem3" placeholder="sem3 marks" required id="drop">
-                 <input class="text" type="text" name="sem4" placeholder="sem4 marks" required id="drop">
-                 <input class="text" type="text" name="sem5" placeholder="sem5 marks" required id="drop">
-                 <input class="text" type="text" name="sem6" placeholder="sem6 marks" required id="drop">
-                 <input class="text" type="text" name="sem7" placeholder="sem7 marks" required id="drop">
-                 <input class="text" type="text" name="sem8" placeholder="sem8 marks" required id="drop">
-                 <input class="text" type="text" name="cgpa" placeholder="Overall CGPA" required id="drop">
-               
-               
-                <input class="text" type="password" name="pass" placeholder="Password"  id="t1" required >
-                <input class="text" type="password" name="confpass" placeholder="Confirm Password"  id="t2" required>
-                <button type="submit" class="text" value="SignUp" >SIGNUP</button>
+                
+                <div class="form-group">
+                    <label for="roll">ROLL NO:</label>
+                    <input type="text" name="roll" class="form-control" id="roll" onkeyup="validrollno()" required >
+                </div>
+                
+                <div id="na"></div>
+                
+                <div class="form-group">
+                    <label for="email">EMAIL:</label>
+                    <input type="text" name="email" class="form-control" id="drop" required >
+                </div>
+                
+                <div class="form-group">
+                <label for="Select Degree">DEGREE :</label>
+                <select class="form-control" id="degree" name="degree" onchange="sublist()" required>
+                  <option value="">DEGREE</option>
+                    <option value="Btech">B.tech</option>
+                    <option value="MCA">MCA</option>
+                    <option value="BCA">BCA</option>
+                    <option value="MBA">MBA</option>
+                </select>
+                </div>
+
+                <div id="na"></div>
+                <div id="drp2" ></div>   
+                <div id="drp3" > </div> 
+                 
+                <div class="form-group">
+                    <label for="phno">PHONE NO:</label>
+                    <input type="text" name="phoneno" class="form-control" id="t3" required >
+                </div>
+                
+                <div class="col-md-3">
+                    <div class="radio">
+                        <label><input type="radio" name="gender" required value="Male"><b>Male</b></label>
+                    </div>
+                </div>
+                
+                <div class="col-md-3">
+                    <div class="radio">
+                        <label><input type="radio" name="gender" required value="Female"><b>Female</b></label>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-md-6">
+                <div class="row">
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <label for="ten">10 Percentage:</label>
+                            <input type="text" name="ten" class="form-control" id="drop" required >
+                        </div>
+                    </div>
+
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <label for="twe">12 Percentage:</label>
+                            <input type="text" name="twe" class="form-control" id="drop" required >
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="row">
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <label for="sem1">1st SEM CGPA:</label>
+                            <input type="text" name="sem1" class="form-control" id="drop" required >
+                        </div>
+                    </div>
+
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <label for="sem2">2nd SEM CGPA:</label>
+                            <input type="text" name="sem2" class="form-control" id="drop" required >
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="row">
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <label for="sem3">3rd SEM CGPA:</label>
+                            <input type="text" name="sem3" class="form-control" id="drop" required >
+                        </div>
+                    </div>
+
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <label for="sem4">4th SEM CGPA:</label>
+                            <input type="text" name="sem4" class="form-control" id="drop" required >
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="row">
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <label for="sem5">5th SEM CGPA:</label>
+                            <input type="text" name="sem5" class="form-control" id="drop" required >
+                        </div>
+                    </div>
+
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <label for="sem6">6th SEM CGPA:</label>
+                            <input type="text" name="sem6" class="form-control" id="drop" required >
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="row">
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <label for="sme7">7th SEM CGPA:</label>
+                            <input type="text" name="sem7" class="form-control" id="drop" required >
+                        </div>
+                    </div>
+
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <label for="sem8">8th SEM CGPA:</label>
+                            <input type="text" name="sem8" class="form-control" id="drop" required >
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="cgpa">OVERALL CGPA:</label>
+                    <input type="text" name="cgpa" class="form-control" id="drop" required >
+                </div>
+                
+                 <div class="form-group">
+                    <label for="backlog">BACKLOG:</label>
+                    <input type="text" name="backlog" class="form-control" id="drop" required >
+                </div>
+                
+                <div class="form-group">
+                    <label for="pass">PASSWORD:</label>
+                    <input type="password" name="pass" class="form-control" id="t1" required >
+                </div>
+                
+                <div class="form-group">
+                    <label for="confpass">CONFIRM PASSWORD:</label>
+                    <input type="password" name="confpass" class="form-control" id="t2" required >
+                </div>
+                
+            </div>
+        </div> <br/><br/>   
+            <div class="row">
+                <div class="col-md-12" style="text-align: center">
+                    <button  type="submit" class="btn btn-success" value="SignUp" style="width:40%;height:20%">SIGNUP</button>
+                </div>
+            </div>
             </form>
             
+        </section>
         </div>
-        </div>
+        
     </body>
 </html>
 

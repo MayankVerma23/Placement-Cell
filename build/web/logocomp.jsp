@@ -27,8 +27,8 @@
          try{
            
          Class.forName("com.mysql.jdbc.Driver");
-         Connection con=(Connection)DriverManager.getConnection("jdbc:mysql://localhost/placementcell","root","");
-         Statement st=con.createStatement();
+         Connection conn=(Connection)DriverManager.getConnection("jdbc:mysql://localhost/placementcell","root","");
+         Statement st=conn.createStatement();
          String x1="Select * from company_image where email='"+email1+"'";
          ResultSet rs=st.executeQuery(x1);
          while(rs.next())

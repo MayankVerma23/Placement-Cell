@@ -4,7 +4,10 @@
     Author     : Divjot
 --%>
 <a href="Your_Queries.jsp"></a>
-
+<%@page import="java.sql.ResultSet"%>
+<%@page import="java.sql.Statement"%>
+<%@page import="java.sql.DriverManager"%>
+<%@page import="java.sql.Connection"%>
 <%@page import="java.sql.*" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -101,7 +104,7 @@
     
     </head>
     <body>
-        <%@include file = "database_connection.jsp"%>
+        
         <div class="container"></div>
         <section>
             <div class="row">
@@ -139,8 +142,8 @@
           try{
            
          Class.forName("com.mysql.jdbc.Driver");
-         Connection con=(Connection)DriverManager.getConnection("jdbc:mysql://localhost/contact","root","");
-         Statement st=con.createStatement();
+         Connection conn=(Connection)DriverManager.getConnection("jdbc:mysql://localhost/contact","root","");
+         Statement st=conn.createStatement();
          String x1="Select * from queries where ID='"+idd+"'";
         
          ResultSet rs=st.executeQuery(x1);

@@ -18,14 +18,14 @@
         <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
         <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
-      
+        <meta http-equiv="refresh" content="10">
         
         <script>
             function changeprofile1()
             {
                     var r = confirm("R U SURE!! U WANT CHANGES IN PROFILE");
                     if (r == true) {
-                        window.open('profile_company_1.jsp','popUpWindow','height=500,width=400,left=100,top=100,resizable=yes,scrollbars=yes,toolbar=yes,menubar=no,location=no,directories=no, status=yes');
+                        window.open('profile_company_1.jsp','popUpWindow','height=500,width=600,left=650,top=250,resizable=yes,scrollbars=yes,toolbar=yes,menubar=no,location=no,directories=no, status=yes');
                     }
             }
         </script>
@@ -33,7 +33,7 @@
     </head>
     
     <body>
-        <%@include file = "database_connection.jsp"%>  
+         
 
         <!--Start of Navbar Section-->
         <%@include file = "header_company.jsp"%>
@@ -47,7 +47,7 @@
                HttpSession hs=request.getSession();
                com_email=hs.getAttribute("company_email").toString();
                Class.forName("com.mysql.jdbc.Driver");
-               conn = DriverManager.getConnection("jdbc:mysql://localhost/placementcell", "root", "");
+               Connection conn = DriverManager.getConnection("jdbc:mysql://localhost/placementcell", "root", "");
                Statement stmt=conn.createStatement();
                String x="select * from companysignup where companyemail='"+com_email+"'";
                ResultSet rs=stmt.executeQuery(x);

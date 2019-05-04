@@ -56,8 +56,8 @@
                 subject=request.getParameter("subject");
                 message=request.getParameter("message");
 
-               Connection con=(Connection)DriverManager.getConnection("jdbc:mysql://localhost/placementcell","root","");
-         Statement st=con.createStatement();
+               Connection conn=(Connection)DriverManager.getConnection("jdbc:mysql://localhost/placementcell","root","");
+         Statement st=conn.createStatement();
          String y="insert into notices values(null,'"+subject+"','"+message+"',CURRENT_DATE)";
          st.executeUpdate(y);
          out.print(id);

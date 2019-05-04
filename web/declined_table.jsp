@@ -3,7 +3,10 @@
     Created on : 20 Mar, 2019, 4:16:27 PM
     Author     : hp
 --%>
-
+<%@page import="java.sql.ResultSet"%>
+<%@page import="java.sql.Statement"%>
+<%@page import="java.sql.DriverManager"%>
+<%@page import="java.sql.Connection"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -12,6 +15,7 @@
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+        <meta http-equiv="refresh" content="10">
         <title>Declined Compnies</title>
         <style>
             table
@@ -43,8 +47,7 @@
                         
                         if (r == true) 
                         { 
-                           
-                             window.open('approve_company.jsp?companyid='+x,'popUpWindoww','height=500,width=600,left=650,top=250,resizable=no,scrollbars=yes,toolbar=yes,menubar=no,location=no,directories=no, status=yes');
+                            window.open('approve_company.jsp?companyid='+x,'popUpWindow','height=500,width=600,left=650,top=250,resizable=yes,scrollbars=yes,toolbar=yes,menubar=no,location=no,directories=no, status=yes');
                         }
                         else 
                         {
@@ -52,10 +55,9 @@
                         } 
                 }
                 </script>
-                <META HTTP-EQUIV="Refresh" CONTENT="10">
     </head>
     <body>
-        <%@include file = "database_connection.jsp"%>
+    
         
         <!--Start of Navbar Section-->
         <%@include file = "header_tpo.jsp"%>
@@ -74,7 +76,9 @@
                 </tr>
                 <%! int i=0;
                 String status = "reject";%>
-                        <%    //Create the preparedstatement(s)
+                        <%    //Create the preparedstatement
+                            Connection conn=(Connection)DriverManager.getConnection("jdbc:mysql://localhost/placementcell","root","");
+                            Statement st=conn.createStatement();
                             String fetchQuery = "select * from companysignup where status = '"+status+"'";
                             Statement fetchStatement = conn.createStatement();
                             ResultSet rs = fetchStatement.executeQuery(fetchQuery);

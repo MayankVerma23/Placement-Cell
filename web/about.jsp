@@ -28,8 +28,8 @@
             
             <img src="expert.png" alt="person" style="float:left;margin-right:30px;" height="400px">
             
-            <p id="aboutinfo">This Web Site is created by highly professional people. So Kindly don't try to Change Anything.
-                    I Repeat - This Web Site is created by highly professional people. So Kindly don't try to Change Anything.
+            <p id="aboutinfo">This Web Site is created by highly professional py highly professional people. So eople. So Kindly don't try to Change Anything.
+                    I Repeat - This Web Site is created bKindly don't try to Change Anything.
                     I Repeat - This Web Site is created by highly professional people. So Kindly don't try to Change Anything
                     I Repeat - This Web Site is created by highly professional people. So Kindly don't try to Change Anything
             </p>

@@ -59,8 +59,8 @@
             String x,y;
             try{
                   Class.forName("com.mysql.jdbc.Driver");
-         Connection con=(Connection)DriverManager.getConnection("jdbc:mysql://localhost/placementcell","root","");
-         Statement stmt=con.createStatement();
+         Connection conn=(Connection)DriverManager.getConnection("jdbc:mysql://localhost/placementcell","root","");
+         Statement stmt=conn.createStatement();
          x="insert into qmessages values('"+ids+"','"+name+"','"+sub+"','"+reply+"','tpo','"+Str+" at "+Str1+"')";
        y="update queries set Status='"+statuskey+"',seen='0' where ID='"+ids+"'";
          stmt.executeUpdate(x);

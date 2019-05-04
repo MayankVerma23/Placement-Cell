@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 
+import static java.awt.SystemColor.window;
 import java.io.IOException;
 import java.io.PrintWriter;
 import static java.lang.System.out;
@@ -44,38 +45,42 @@ public class login extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
              String e="";
-             HttpSession hs=request.getSession();
-             e=(String)hs.getAttribute("log");
+        HttpSession hs=request.getSession();
+        e=(String)hs.getAttribute("log");
            
    
              
          if(e.equals("student")){ 
-         String rollno=request.getParameter("roll");
+         String rollnoo=request.getParameter("roll");
          String studentpass=request.getParameter("pass");
-         String stuname="",sturoll="",stuemail="",studegree="",stuphno="",stugender="",stupass="";
-        try
+         String sturoll="",stupass="";
+      
+         try
        {
+           
         Class.forName("com.mysql.jdbc.Driver");
         Connection con = DriverManager.getConnection("jdbc:mysql://localhost/placementcell","root","");
         Statement stmt=con.createStatement();
-        String x="select * from studentsignup where studentrollno='"+rollno+"' and studentpassword='"+studentpass+"'";
-        ResultSet rs=stmt.executeQuery(x);
-          while(rs.next())
-          {      
-              sturoll=rs.getString("studentrollno");
-              stupass=rs.getString("studentpassword");
-          }
-          if(rollno.equals(sturoll)&&studentpass.equals(stupass))
-          {
-              hs.setAttribute("stu_roll",sturoll);
-              response.sendRedirect("home_student.jsp");
-          }
-          else
-          {
-            out.print("<script>alert('Wrong Id or Password')</script>");
-            response.sendRedirect("login_student.jsp");
-          }
-       }
+        String x="select * from studentsignup where studentrollno='"+rollnoo+"' and studentpassword='"+studentpass+"'";
+        ResultSet  rs=stmt.executeQuery(x);
+             while(rs.next())
+                 {      
+                     sturoll=rs.getString("studentrollno");
+                     stupass=rs.getString("studentpassword");
+                 }
+                 if(rollnoo.equals(sturoll)&&studentpass.equals(stupass))
+                 {
+                     hs.setAttribute("stu_roll",sturoll);
+                     response.sendRedirect("home_student.jsp");
+                 }
+                 else
+                 {
+                   out.print("<script>alert('Wrong Id or Password')</script>");
+                   response.sendRedirect("login_student.jsp");
+                 }
+            }
+         
+       
        catch(Exception ex)
        {
            out.print(ex);

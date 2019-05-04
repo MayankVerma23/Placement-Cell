@@ -53,8 +53,8 @@
                name=hs.getAttribute("company_name").toString();
                email=hs.getAttribute("company_email").toString();
                phno=hs.getAttribute("company_phno").toString();
-               try{ Connection con=(Connection)DriverManager.getConnection("jdbc:mysql://localhost/placementcell","root","");
-         Statement st=con.createStatement();
+               try{ Connection conn=(Connection)DriverManager.getConnection("jdbc:mysql://localhost/placementcell","root","");
+         Statement st=conn.createStatement();
            String y="insert into queries values(null,'"+name+"','"+email+"','company','"+sub+"','"+issue+"','"+Str+" at "+Str1+"','"+phno+"',0,1)";
          st.executeUpdate(y);
          String x="Select * from queries where Email='"+email+"' having Subject='"+sub+"' ";

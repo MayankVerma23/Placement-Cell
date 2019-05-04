@@ -26,8 +26,8 @@
                 email = request.getParameter("email");
 
                 Class.forName("com.mysql.jdbc.Driver");
-                Connection con = DriverManager.getConnection("jdbc:mysql://localhost/placementcell","root","");
-                Statement stmt=con.createStatement();
+                Connection conn = DriverManager.getConnection("jdbc:mysql://localhost/placementcell","root","");
+                Statement stmt=conn.createStatement();
                 String x="select * from companysignup where companyemail='"+email+"'";
                 ResultSet rs=stmt.executeQuery(x);
                 while(rs.next())

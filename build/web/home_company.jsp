@@ -20,8 +20,6 @@
 
     
     <body>
-        <%@include file = "database_connection.jsp"%>  
-
         <!--Start of Navbar Section-->
         <%@include file = "header_company.jsp"%>
         <!--End of Navbar Section-->

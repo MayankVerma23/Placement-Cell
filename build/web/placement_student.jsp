@@ -27,7 +27,6 @@
             </style>
     </head>
     <body>
-         <%@include file = "database_connection.jsp"%>  
         
         <!--Start of Navbar Section-->
         <%@include file = "header_student.jsp"%>
@@ -37,6 +36,9 @@
         <table>
             <%! String status = "accept";%>
                 <%    //Create the preparedstatement(s)
+                    Class.forName("com.mysql.jdbc.Driver");
+                    Connection conn=(Connection)DriverManager.getConnection("jdbc:mysql://localhost/placementcell","root","");
+         
                     String fetchQuery = "select * from companysignup where status= '"+status+"'";
                     Statement fetchStatement = conn.createStatement();
                     ResultSet rs = fetchStatement.executeQuery(fetchQuery);

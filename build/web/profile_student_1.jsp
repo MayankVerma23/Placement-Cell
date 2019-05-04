@@ -13,10 +13,15 @@
 <html>
     <head>
         <title id="title">STUDENT_INFORMATION</title>
-           
+         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+        <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+     
+       
           </head>
     
-    <body >
+    <body>
           <%!String stu_roll1="",sturoll="",stuname="",stuemail="",studegree="",stuphno="",stugender="",stupass="";%>
           
        <%   
@@ -46,11 +51,12 @@
            out.print(e);
            }
        %>
+       
        <form action="studentprofile">
             <div>
                 <table style="margin-top:50px;margin-left:20px">
                     <tr>
-			<th style="text-align:center"><u><b><h2>UPDATE CHANGES FORM<h2></u></b><th>
+			<th style="text-align:center"><u><b><h2>UPDATE CHANGES FORM</h2></u></b><th>
                     </tr>
 		
                     <tr>
@@ -62,7 +68,7 @@
                     <tr>
 			<td></td><td></td>
 			<td>Enter ROLL NO:</td>
-			<td><input type="text" value=<%=sturoll%> name="t2"></td>
+                        <td><input type="text" value=<%=sturoll%> name="t2" readonly=""></td>
                     </tr>
 		
                     <tr>
@@ -94,8 +100,16 @@
                     <tr>
 			<td></td><td></td>
 			<td><input type="submit" value="Submit"></td>
+                       
 			<td></td>
                     </tr>
+                     <tr>
+			<td></td><td></td>
+			
+                     <td><button class="btn btn-danger"><a href="contactf_stud.jsp">send any query to tpo ragarding any changes then click here</a></button></td>
+			<td></td>
+                    </tr>
+                     
                 </table>
             </div>
        </form>

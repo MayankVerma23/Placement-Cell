@@ -4,6 +4,9 @@
     Author     : My Lappy
 --%>
 
+<%@page import="java.sql.DriverManager"%>
+<%@page import="java.sql.Statement"%>
+<%@page import="java.sql.Connection"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -14,7 +17,8 @@
     
     <body>
         <!--Database connectivity-->
-         <%@include file = "database_connection.jsp"%> 
+         <%Class.forName("com.mysql.jdbc.Driver");
+            Connection conn = DriverManager.getConnection("jdbc:mysql://localhost/placementcell", "root", "");%> 
           <%!
                 String idd = "";
                 String status = "accept";

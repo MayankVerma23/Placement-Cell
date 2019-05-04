@@ -3,7 +3,10 @@
     Created on : 14 Mar, 2019, 2:01:07 PM
     Author     : My Lappy
 --%>
-
+<%@page import="java.sql.ResultSet"%>
+<%@page import="java.sql.Statement"%>
+<%@page import="java.sql.DriverManager"%>
+<%@page import="java.sql.Connection"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -249,15 +252,7 @@ body, html {
             </form>
 </div><!-- /.container -->
  <div id="particles-js"></div>     
-        <!--<div class="container">       
-        <form class="box" action="login" > 
-            <h2>LOGIN</h2>
-            <input class="text" type="text" name="email" placeholder="email">
-             <input class="text" type="text" name="pass" placeholder="Password">
-            <button type="submit" class="text" value="LOGIN">LOGIN</button>
-            <a href="forgetpassword_company.jsp">Forget Password</a>
-        </form>
-        </div>-->
+        
         
         
          <%

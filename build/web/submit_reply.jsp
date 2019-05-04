@@ -30,8 +30,8 @@
             String x;
             try{
                   Class.forName("com.mysql.jdbc.Driver");
-         Connection con=(Connection)DriverManager.getConnection("jdbc:mysql://localhost/contact","root","");
-         Statement stmt=con.createStatement();
+         Connection conn=(Connection)DriverManager.getConnection("jdbc:mysql://localhost/contact","root","");
+         Statement stmt=conn.createStatement();
          x="Update queries set Reply='"+Reply+"',Status='"+1+"'  where ID='"+ids+"'";
          
          stmt.executeUpdate(x);

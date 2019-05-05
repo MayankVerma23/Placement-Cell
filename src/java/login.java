@@ -35,125 +35,109 @@ public class login extends HttpServlet {
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
-    
- 
-
-    
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
-             String e="";
-             HttpSession hs=request.getSession();
-             e=request.getParameter("LoginAs");
-             hs.setAttribute("log",e);
-          
-  
+            String e = "";
+            HttpSession hs = request.getSession();
+            e = request.getParameter("LoginAs");
+
             switch (e) {
                 case "student":
-                    String rollno=request.getParameter("email");
-                    String studentpass=request.getParameter("password");
-                    try
-                    {
+                    String rollno = request.getParameter("email");
+                    String studentpass = request.getParameter("password");
+                    try {
                         Class.forName("com.mysql.jdbc.Driver");
-                        Connection con = DriverManager.getConnection("jdbc:mysql://localhost/placementcell","root","");
-                        Statement stmt=con.createStatement();
-                        
-                        String x="select * from studentsignup where studentrollno='"+rollno+"' and studentpassword='"+studentpass+"';";
-                        ResultSet rs=stmt.executeQuery(x);
-                        
-                        String stu_roll="";
-                        
-                        if(rs.next())
-                        {
-                            stu_roll=rs.getString("studentrollno");
-                            hs.setAttribute("stu_roll",stu_roll);
+                        Connection con = DriverManager.getConnection("jdbc:mysql://localhost/placementcell", "root", "");
+                        Statement stmt = con.createStatement();
+
+                        String x = "select * from studentsignup where studentrollno='" + rollno + "' and studentpassword='" + studentpass + "';";
+                        ResultSet rs = stmt.executeQuery(x);
+
+                        String stu_roll = "";
+
+                        if (rs.next()) {
+                            stu_roll = rs.getString("studentrollno");
+                            hs.setAttribute("stu_roll", stu_roll);
+                            hs.setAttribute("LoginAs", e);
                             response.sendRedirect("home_student.jsp");
+                        } else {
+                            out.print("<script>alert('WRONG ROLLNO AND PASSWORD')</script>");
+                            out.print("<script> window.location.href='login_page.jsp' </script>");
                         }
-                        else
-                        {
-                            response.sendRedirect("login_page.jsp");
-                         }
-                    }
-                    catch(Exception ex)
-                    {
+                    } catch (Exception ex) {
                         System.out.println(ex.getCause() + " " + ex.getMessage());
                     }
                     break;
-                    
+
                 case "tpo":
-                    String tponame=request.getParameter("email");
-                    String tpopass=request.getParameter("password");
-                    
-                    String tpo_username="",tpo_password="";
-                    try
-                    {
+                    String tponame = request.getParameter("email");
+                    String tpopass = request.getParameter("password");
+
+                    String tpo_username = "",
+                     tpo_password = "";
+                    try {
                         Class.forName("com.mysql.jdbc.Driver");
-                        Connection con = DriverManager.getConnection("jdbc:mysql://localhost/placementcell","root","");
-                        Statement stmt=con.createStatement();
-                        
-                        String x="select * from tpo_password where username='"+tponame+"'";
-                        ResultSet rs=stmt.executeQuery(x);
-                        
-                        while(rs.next())
-                        {
-                            tpo_username=rs.getString("username");
-                            tpo_password=rs.getString("password");
+                        Connection con = DriverManager.getConnection("jdbc:mysql://localhost/placementcell", "root", "");
+                        Statement stmt = con.createStatement();
+
+                        String x = "select * from tpo_password where username='" + tponame + "'";
+                        ResultSet rs = stmt.executeQuery(x);
+
+                        while (rs.next()) {
+                            tpo_username = rs.getString("username");
+                            tpo_password = rs.getString("password");
                         }
-                        
-                        if(tponame.equals(tpo_username) && tpopass.equals(tpo_password))
-                        {
-                            hs.setAttribute("tpo_name",tponame);
+
+                        if (tponame.equals(tpo_username) && tpopass.equals(tpo_password)) {
+                            hs.setAttribute("tpo_name", tponame);
+                            hs.setAttribute("LoginAs", e);
                             response.sendRedirect("home_tpo.jsp");
+                        } else {
+
+                            out.print("<script>alert('WRONG EMAIL AND PASSWORD')</script>");
+                            out.print("<script> window.location.href='login_page.jsp' </script>");
                         }
-                        
-                        else
-                        {
-                            response.sendRedirect("login_page.jsp");
-                        }
-                        
-                        
-                    }
-                    catch(Exception ex)
-                    {
+
+                    } catch (Exception ex) {
                         out.print(ex);
-                    } 
+                    }
                     break;
-                
-                default:
-                    String company_email=request.getParameter("email");
-                    String pass=request.getParameter("password");
-                    String companyname="",companemail="",companyphno="",companylocation="",companypass="",companystatus="";
-                    try
-                    {
+
+                case "company":
+                    String company_email = request.getParameter("email");
+                    String pass = request.getParameter("password");
+                    String companyname = "",
+                     companemail = "",
+                     companyphno = "",
+                     companylocation = "",
+                     companypass = "",
+                     companystatus = "";
+                    try {
                         Class.forName("com.mysql.jdbc.Driver");
-                        Connection con = DriverManager.getConnection("jdbc:mysql://localhost/placementcell","root","");
-                        Statement stmt=con.createStatement();
-                        
-                        String x="select * from companysignup where companyemail='"+company_email+"'and companyPassword='"+pass+"'";
-                        ResultSet rs=stmt.executeQuery(x);
-                        if(rs.next())
-                        {
-                            companemail=rs.getString("companyemail");
-                             companyname=rs.getString("companyname");
-                            hs.setAttribute("company_email",companemail);
-                             hs.setAttribute("company_name",companyname);
+                        Connection con = DriverManager.getConnection("jdbc:mysql://localhost/placementcell", "root", "");
+                        Statement stmt = con.createStatement();
+                        String x = "select * from companysignup where companyemail='" + company_email + "'and companyPassword='" + pass + "'";
+                        ResultSet rs = stmt.executeQuery(x);
+                        if (rs.next()) {
+                            companemail = rs.getString("companyemail");
+                            hs.setAttribute("company_email", companemail);
+                            hs.setAttribute("LoginAs", e);
                             response.sendRedirect("home_company.jsp");
+                        } else {
+                            out.print("<script>alert('WRONG EMAIL AND PASSWORD')</script>");
+                            out.print("<script> window.location.href='login_page.jsp' </script>");
                         }
-                        else
-                        {
-                           
-                            response.sendRedirect("login_page.jsp");
-                        }
-                    }
-                    catch(Exception ex)
-                    {
+                    } catch (Exception ex) {
                         out.print(ex);
-                    }            
+                    }
                     break;
+                default:
+                    out.print("Wrong Input");
             }
         }
-         
+
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
@@ -193,6 +177,6 @@ public class login extends HttpServlet {
     @Override
     public String getServletInfo() {
         return "Short description";
-    }}// </editor-fold>
-
+    }
+}// </editor-fold>
 

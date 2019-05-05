@@ -15,7 +15,7 @@
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Notice 1</title>
-        
+
         <style>
 
             textarea{
@@ -48,7 +48,7 @@
                 width: 150px;
                 font: bold 15px arial, sans-serif;
             }
-            
+
             input[type=checkbox]{
                 border: 0px;
                 width:100%;
@@ -64,7 +64,7 @@
             <div class="inputBox">
                 <label style="margin:0 auto;">MSG FOR</label><br>
                 <input type="checkbox" name="student" value="student" style="float:left">Student</div>
-                <input type="checkbox" name="company"  value="company">Company</div>  
+            <input type="checkbox" name="company"  value="company">Company</div>  
             </div>
 
             <textarea cols="60" rows="8" name="t1"></textarea><br>

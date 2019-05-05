@@ -12,280 +12,220 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title id="title">STUDENT_INFORMATION</title>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-        <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
-      <meta http-equiv="refresh" content="5">
+        <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css'>
+        <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
+        <script src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js'></script>
+
+        <title>PROFILE STUDENT</title>
+
+        <%@include file = "header_student.jsp"%>
+
         <script>
-            function changeprofile1(){
-                    var r = confirm("R U SURE!! U WANT CHANGES IN PROFILE");     
-                    if (r == true) {
-                    window.open('profile_student_1.jsp','popUpWindow','height=500,width=600,left=650,top=250,resizable=yes,scrollbars=yes,toolbar=yes,menubar=no,location=no,directories=no, status=yes');
-                    }
-              }
-              
-               function uploadimag()  {
-              var r = confirm("R U SURE!! U WANT CHANGES IN PROFILE");
-                    if (r == true) {
-                        window.open('image_studentt.jsp','popUpWindow','height=500,width=600,left=650,top=250,resizable=yes,scrollbars=yes,toolbar=yes,menubar=no,location=no,directories=no, status=yes');
-                    }
+            function changeprofile1() {
+                var r = confirm("R U SURE!! U WANT CHANGES IN PROFILE");
+                if (r == true) {
+                    window.open('profile_student_1.jsp', 'popUpWindow', 'height=600,width=700,left=550,top=240,resizable=yes,scrollbars=yes,toolbar=yes,menubar=no,location=no,directories=no, status=yes');
                 }
+            }
+
+            function uploadimag() {
+                var r = confirm("R U SURE!! U WANT CHANGES IN PROFILE");
+                if (r == true) {
+                    window.open('image_studentt.jsp', 'popUpWindow', 'height=500,width=600,left=650,top=250,resizable=yes,scrollbars=yes,toolbar=yes,menubar=no,location=no,directories=no, status=yes');
+                }
+            }
         </script>
-        
+
+        <style>
+            table{
+                border:2px solid black;
+                margin:10px;
+            }
+
+            .r1{
+                background-color: #E3F2E1;
+            }
+
+            #d4{
+                text-align:center;  
+
+            }
+        </style>
     </head>
-    
-    <body>  <%@include file = "header_student.jsp"%>
-            <% 
-               HttpSession hs1=request.getSession();
-                 String rollno=hs1.getAttribute("stu_roll").toString();
-               String imgroll="000";
-                    try
-                    {
-                        Class.forName("com.mysql.jdbc.Driver");
-                        Connection con = DriverManager.getConnection("jdbc:mysql://localhost/placementcell","root","");
-                        Statement stm=con.createStatement();
-                        String y="select * from student_image where rollno='"+rollno+"'";
-                        ResultSet rs1=stm.executeQuery(y);
-                         while(rs1.next())
-                      {
-                         imgroll=rs1.getString("rollno");
-                      }
-                    if(!rollno.equals(imgroll)) 
-             {                
-               %> 
-       
-               <div>
-             <h4>  Please upload image </h4>
-            <input type="button" value="uploadimage" onclick="uploadimag()">
-               </div>
-          <%
-        
-          }
-           else{
-                             }
-               }
-           catch(Exception ex)
-                    {
-                        System.out.println(ex.getCause() + " " + ex.getMessage());
-                    }
-        %>
-        
-        
+
+    <body>  
         <%@include file = "pic.jsp"%>
-          <%!String stu_roll1="",sturoll="",stuname="",stuemail="",studegree="",stuphno="",stugender="",stupass="",
-           stu_batch,stu_ten,stu_twe,stu_sem1,stu_sem2,stu_sem3,stu_sem4,stu_sem5,stu_sem6,stu_sem7,stu_sem8,stu_cgpa,stu_branch,backlog ;%>
-          
-       <%   
-                // HttpSession hs=request.getSession();
-               stu_roll1=hs.getAttribute("stu_roll").toString();
-               Class.forName("com.mysql.jdbc.Driver");
-               Connection conn = DriverManager.getConnection("jdbc:mysql://localhost/placementcell", "root", "");
-               Statement stmt=conn.createStatement();
-               String x="select * from studentsignup where studentrollno='"+stu_roll1+"'";
-               ResultSet rs=stmt.executeQuery(x);
-               while(rs.next())
-           {      
-              sturoll=rs.getString("studentrollno");
-              stuname=rs.getString("studentname");
-              stuemail=rs.getString("studentemail");
-              stuphno=rs.getString("studentphno");
-              studegree=rs.getString("studentdegree");
-              stugender=rs.getString("studentgender");
-              stu_batch=rs.getString("batch");
-              stu_ten=rs.getString("ten");
-              stu_twe=rs.getString("twe");
-              stu_sem1=rs.getString("sem1");
-              stu_sem2=rs.getString("sem2");
-              stu_sem3=rs.getString("sem3");
-              stu_sem4=rs.getString("sem4");
-              stu_sem5=rs.getString("sem5");
-              stu_sem6=rs.getString("sem6");
-              stu_sem7=rs.getString("sem7");
-              stu_sem8=rs.getString("sem8");
-              stu_cgpa=rs.getString("cgpa");
-              stu_branch=rs.getString("branch");
-              backlog=rs.getString("backlog");
-           }
-       %>
-             
-               <%
-                 if(stu_roll1.equals(sturoll)){
-               %>
-       
- 
- 
+        <%
+            HttpSession hs1 = request.getSession();
+            String rollno = hs1.getAttribute("stu_roll").toString();
 
-         <div style="text-align:right;">
-       
-         </div>
-        <br>
-         <form action=" " method="post" >
-             <table class="table table-hover">
-<tr>
-<td>NAME</td>
+            String imgroll = "000";
+            try {
+                Class.forName("com.mysql.jdbc.Driver");
+                Connection con = DriverManager.getConnection("jdbc:mysql://localhost/placementcell", "root", "");
+                Statement stm = con.createStatement();
+                String y = "select * from student_image where rollno='" + rollno + "'";
+                ResultSet rs1 = stm.executeQuery(y);
+                while (rs1.next()) {
+                    imgroll = rs1.getString("rollno");
+                }
+                if (!rollno.equals(imgroll)) {
+        %> 
 
-<td></td>
+        <div>
+            <h4>  Please upload image </h4>
+            <input type="button" value="uploadimage" onclick="uploadimag()">
+        </div>
+        <%
+                } else {
+                }
+            } catch (Exception ex) {
+                out.println(ex.getCause() + " " + ex.getMessage());
+            }
+        %>
 
 
-<td><%=stuname%> </td>
-</tr>
-<tr>
-<td>ROLL NO.</td>
-<td></td>
 
-<td><%=sturoll%></td>
-</tr>
-<tr>
-<td>EMAIL ID</td>
-<td></td>
+        <%!String stuname = "", stuemail = "", studegree = "", stuphno = "", stugender = "", stupass = "",
+                    stu_batch, stu_ten, stu_twe, stu_sem1, stu_sem2, stu_sem3, stu_sem4, stu_sem5, stu_sem6, stu_sem7, stu_sem8, stu_cgpa, stu_branch, backlog;%>
 
-<td><%=stuemail%></td>
-</tr>
+        <%
+            Class.forName("com.mysql.jdbc.Driver");
+            Connection conn = DriverManager.getConnection("jdbc:mysql://localhost/placementcell", "root", "");
+            Statement stmt = conn.createStatement();
+            String x = "select * from studentsignup where studentrollno='" + rollno + "'";
+            ResultSet rs = stmt.executeQuery(x);
+            while (rs.next()) {
+                stuname = rs.getString("studentname");
+                stuemail = rs.getString("studentemail");
+                stuphno = rs.getString("studentphno");
+                studegree = rs.getString("studentdegree");
+                stugender = rs.getString("studentgender");
+                stu_batch = rs.getString("batch");
+                stu_ten = rs.getString("ten");
+                stu_twe = rs.getString("twe");
+                stu_sem1 = rs.getString("sem1");
+                stu_sem2 = rs.getString("sem2");
+                stu_sem3 = rs.getString("sem3");
+                stu_sem4 = rs.getString("sem4");
+                stu_sem5 = rs.getString("sem5");
+                stu_sem6 = rs.getString("sem6");
+                stu_sem7 = rs.getString("sem7");
+                stu_sem8 = rs.getString("sem8");
+                stu_cgpa = rs.getString("cgpa");
+                stu_branch = rs.getString("branch");
+                backlog = rs.getString("backlog");
+            }
+        %>
 
-<tr>
-<td>DEGREE</td>
+        <table class="table table-hover" style="width:85%">
+            <tr class="r1">
+                <td><strong>NAME</strong></td>
+                <td><%=stuname%></td>
+            </tr>
 
-<td></td>
+            <tr class="r2">
+                <td><b>ROLL NO.</b></td>
+                <td><%=rollno%></td>
+            </tr>
 
-<td><%=studegree%></td>
-</tr>
+            <tr class="r1">
+                <td><b>EMAIL ID</b></td>
+                <td><%=stuemail%></td>
+            </tr>
 
-<tr>
-<td>PHONE NO.</td>
+            <tr class="r2">
+                <td><b>DEGREE</b></td>
+                <td><%=studegree%></td>
+            </tr>
 
-<td></td>
+            <tr class="r1">
+                <td><b>PHONE NO.</b></td>
+                <td><%=stuphno%></td>
+            </tr>
 
-<td><%=stuphno%></td>
-</tr>
+            <tr class="r2">
+                <td><b>GENDER</b></td>
+                <td><%=stugender%></td>
+            </tr>
 
+            <tr class="r1">
+                <td><b>BRANCH</b></td>
+                <td><%=stu_branch%></td>
+            </tr>
 
-<tr>
-<td>GENDER</td>
+            <tr class="r2">
+                <td><b>10th PERCENTAGE</b></td>
+                <td><%=stu_ten%></td>
+            </tr>
 
-<td></td>
-
-<td><%=stugender%></td>
-</tr>
-
-<tr>
-<td>BRANCH</td>
-
-<td></td>
-
-<td><%=stu_branch%></td>
-</tr>
-
-<tr>
-<td>10th PERCENTAGE</td>
-
-<td></td>
-
-<td><%=stu_ten%></td>
-</tr>
-
-<tr>
-<td>12th PERCENTAGE</td>
-
-<td></td>
-
-<td><%=stu_twe%></td>
-</tr>
-
-
-<tr>
-<td> 1st SEM PERCENTAGE</td>
-
-<td></td>
-
-<td><%=stu_sem1%></td>
-</tr>
-
-<tr>
-<td> 2nd SEM PERCENTAGE</td>
-
-<td></td>
-
-<td><%=stu_sem2%></td>
-</tr>
-
-<tr>
-<td> 3rd SEM PERCENTAGE</td>
-
-<td></td>
-
-<td><%=stu_sem3%></td>
-</tr>
-
-<tr>
-<td> 4th SEM PERCENTAGE</td>
-
-<td></td>
-
-<td><%=stu_sem4%></td>
-</tr>
-
-<tr>
-<td> 5th SEM PERCENTAGE</td>
-
-<td></td>
-
-<td><%=stu_sem5%></td>
-</tr>
-
-<tr>
-<td> 6th SEM PERCENTAGE</td>
-
-<td></td>
-
-<td><%=stu_sem6%></td>
-</tr>
-
-<tr>
-<td> 7th SEM PERCENTAGE</td>
-
-<td></td>
-
-<td><%=stu_sem7%></td>
-</tr>
-
-<tr>
-<td> 8th SEM PERCENTAGE</td>
-
-<td></td>
-
-<td><%=stu_sem8%></td>
-</tr>
-
-<tr>
-<td>CURRENT DEGREE PERCENTAGE</td>
-
-<td></td>
-
-<td><%=stu_cgpa%></td>
-</tr>
-<tr>
-<td>PASSOUT YEAR</td>
-
-<td></td>
-
-<td><%=stu_batch%></td>
-</tr>
-<tr>
-<td>BACKLOG</td>
-
-<td></td>
-
-<td><%=backlog%></td>
-</tr>
+            <tr class="r1">
+                <td><b>12th PERCENTAGE</b></td>
+                <td><%=stu_twe%></td>
+            </tr>
 
 
-</table>
-<%}%>
-              
-<input type="button" value="UPDATE PROFILE" onclick="changeprofile1()">
-            </form>
-       
+            <tr class="r2">
+                <td> <b>1st SEM PERCENTAGE</b></td>
+                <td><%=stu_sem1%></td>
+            </tr>
+
+            <tr class="r1">
+                <td> <b>2nd SEM PERCENTAGE</b></td>
+                <td><%=stu_sem2%></td>
+            </tr>
+
+            <tr class="r2">
+                <td> <b>3rd SEM PERCENTAGE</b></td>
+                <td><%=stu_sem3%></td>
+            </tr>
+
+            <tr class="r1">
+                <td> <b>4th SEM PERCENTAGE</b></td>
+                <td><%=stu_sem4%></td>
+            </tr>
+
+            <tr class="r2">
+                <td><b> 5th SEM PERCENTAGE</b></td>
+                <td><%=stu_sem5%></td>
+            </tr>
+
+            <tr class="r1">
+                <td> <b>6th SEM PERCENTAGE</b></td>
+                <td><%=stu_sem6%></td>
+            </tr>
+
+            <tr class="r2">
+                <td> <b>7th SEM PERCENTAGE</b></td>
+                <td><%=stu_sem7%></td>
+            </tr>
+
+            <tr class="r1">
+                <td><b> 8th SEM PERCENTAGE</b></td>
+                <td><%=stu_sem8%></td>
+            </tr>
+
+            <tr class="r2">
+                <td><b>CURRENT DEGREE PERCENTAGE</b></td>
+                <td><%=stu_cgpa%></td>
+            </tr>
+            <tr class="r1">
+                <td><b>PASSOUT YEAR</b></td>
+                <td><%=stu_batch%></td>
+            </tr>
+            <tr class="r2">
+                <td><b>BACKLOG</b></td>
+                <td><%=backlog%></td>
+            </tr>
+            <tr class="r1">
+                <td colspan="3">
+                    <div id="d4">      
+                        <button  class="btn btn-warning"  value="UPDATE PROFILE" onclick="changeprofile1()">Update Profile</button>
+                    </div>
+                </td>
+            </tr>
+        </table>
+
     </body>
 </html>

@@ -71,17 +71,18 @@ public class studentsignup extends HttpServlet {
                 rolno = rs.getString("studentrollno");
             }
             if (!roll.equals(rolno)) {
-                String x = "insert into studentsignup values(null,'" + name + "','" + roll + "','" + email + "','" + degree + "','" + phoneno + "','" + gender + "','" + branch + "','" + batch + "','" + ten + "','" + twe + "','" + sem1 + "','" + sem2 + "','" + sem3 + "','" + sem4 + "','" + sem5 + "','" + sem6 + "','" + sem7 + "','" + sem8 + "','" + cgpa + "','" + backlog + "','" + pass + "','" + "unplaced" + "')";
+                String x = "insert into studentsignup values(null,'" + name + "','" + roll + "','" + email + "','" + degree + "','" + branch + "','" + batch + "','" + phoneno + "','" + gender + "','" + ten + "','" + twe + "','" + sem1 + "','" + sem2 + "','" + sem3 + "','" + sem4 + "','" + sem5 + "','" + sem6 + "','" + sem7 + "','" + sem8 + "','" + cgpa + "','" + backlog + "','" + pass + "','" + "unplaced" + "')";
                 stmt.executeUpdate(x);
            // request.setAttribute("roll", roll);
                 //request.getRequestDispatcher("image_studentt.jsp").forward(request, response);
                 response.sendRedirect("login_page.jsp");
             } else {
                 out.print("<script> window.alert('RollNo Already Use Please Select Another RollNo') </script>");
-                out.print("<script> window.location.href='login_page.jsp' </script>");
+                out.print("<script> window.location.href='signup.jsp' </script>");
 
             }
-        } catch (Exception ex) {
+        } 
+        catch (Exception ex) {
             out.print(ex);
         }
 

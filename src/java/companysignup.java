@@ -38,12 +38,12 @@ public class companysignup extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
          try (PrintWriter out = response.getWriter()) {
           
-            String name = request.getParameter("name");
-            String email = request.getParameter("email");
-            String phoneno = request.getParameter("phoneno");
-            String loc = request.getParameter("loc");
-            String pass = request.getParameter("pass");
-            String confpass = request.getParameter("confpass");
+            String name = request.getParameter("comp_name");
+            String email = request.getParameter("comp_email");
+            String phoneno = request.getParameter("compy_phoneno");
+            String loc = request.getParameter("comp_loc");
+            String pass = request.getParameter("comp_pass");
+            String confpass = request.getParameter("comp_confpass");
             String status = "waiting";
             String em="";
               

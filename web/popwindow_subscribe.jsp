@@ -13,98 +13,96 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>JSP Page</title>
-        
+
         <script>
             $(document).ready(function() {
 
-    var delay = 300; // milliseconds
-    var cookie_expire = 0; // days
+            var delay = 300; // milliseconds
+            var cookie_expire = 0; // days
 
-    var cookie = localStorage.getItem("list-builder");
-    if(cookie == undefined || cookie == null) {
-        cookie = 0;
-    }
+            var cookie = localStorage.getItem("list-builder");
+            if (cookie == undefined || cookie == null) {
+            cookie = 0;
+            }
 
-    if(((new Date()).getTime() - cookie) / (1000 * 60 * 60 * 24) > cookie_expire) {
-        $("#list-builder").delay(delay).fadeIn("fast", () => {
-            $("#popup-box").fadeIn("fast", () => {});
-        });
-
-        $("button[name=subscribe]").click(() => {
-            $.ajax({
-                type: "POST",
-                url: $("#popup-form").attr("action"),
-                data: $("#popup-form").serialize(),
-                success: (data) => {
-                    $("#popup-box-content").html("<p style='text-align: center'>Thank you for subscribing to The Polyglot Developer newsletter!</p>");
-                }
+            if (((new Date()).getTime() - cookie) / (1000 * 60 * 60 * 24) > cookie_expire) {
+            $("#list-builder").delay(delay).fadeIn("fast", () = > {
+            $("#popup-box").fadeIn("fast", () = > {});
             });
-        });
-
-        $("#popup-close").click(() => {
+            $("button[name=subscribe]").click(() = > {
+            $.ajax({
+            type: "POST",
+                    url: $("#popup-form").attr("action"),
+                    data: $("#popup-form").serialize(),
+                    success: (data) = > {
+            $("#popup-box-content").html("<p style='text-align: center'>Thank you for subscribing to The Polyglot Developer newsletter!</p>");
+            }
+            });
+            });
+            $("#popup-close").click(() = > {
             $("#list-builder, #popup-box").hide();
             localStorage.setItem("list-builder", (new Date()).getTime());
-        });
-    }
+            });
+            }
 
-});
-            </script>
-        
-        
-    <style>
-        #list-builder {
-    position: fixed;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    background-color: #333;
-    filter: alpha(opacity=80);
-	opacity: 0.8;
-    display: none;
-}
+            });
+        </script>
 
-#popup-box {
-    position: fixed;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    background-color: #911e26;
-    color: #FFFFFF;
-    width: 90%;
-    max-width: 600px;
-    padding: 30px;
-    border: 10px solid #FFFFFF;
-    display: none;
-}
 
-#popup-close {
-    position: absolute;
-    top: -25px;
-    right: -25px;
-    cursor: pointer;
-    width: 40px;
-}
+        <style>
+            #list-builder {
+                position: fixed;
+                left: 0;
+                top: 0;
+                width: 100%;
+                height: 100%;
+                background-color: #333;
+                filter: alpha(opacity=80);
+                opacity: 0.8;
+                display: none;
+            }
 
-#popup-box h1 {
-    margin: 0;
-}
+            #popup-box {
+                position: fixed;
+                left: 50%;
+                top: 50%;
+                transform: translate(-50%, -50%);
+                background-color: #911e26;
+                color: #FFFFFF;
+                width: 90%;
+                max-width: 600px;
+                padding: 30px;
+                border: 10px solid #FFFFFF;
+                display: none;
+            }
 
-#popup-box form {
-    margin-bottom: 0px;
-}
+            #popup-close {
+                position: absolute;
+                top: -25px;
+                right: -25px;
+                cursor: pointer;
+                width: 40px;
+            }
 
-#popup-box input {
-    padding: 10px;
-    border: 1px solid #333;
-    width: 40%;
-}
+            #popup-box h1 {
+                margin: 0;
+            }
 
-#popup-box button {
-    padding: 10px;
-    border: 1px solid #333;
-}
-    </style>
+            #popup-box form {
+                margin-bottom: 0px;
+            }
+
+            #popup-box input {
+                padding: 10px;
+                border: 1px solid #333;
+                width: 40%;
+            }
+
+            #popup-box button {
+                padding: 10px;
+                border: 1px solid #333;
+            }
+        </style>
     </head>
     <body>
         <div>
@@ -128,6 +126,6 @@
             </div>
         </div>
         <script src="http://code.jquery.com/jquery-3.3.1.min.js"></script>
-        
+
     </body>
 </html>

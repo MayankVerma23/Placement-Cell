@@ -10,41 +10,39 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <%!
-String name="",email="",subject="",message="",phone="";
- 
+    String name = "", email = "", subject = "", message = "", phone = "";
+
 
 %>
 
 
 <%
-  name=request.getParameter("name");
-    email=request.getParameter("email");
-    subject=request.getParameter("subject");
-   message=request.getParameter("message");
-   phone=request.getParameter("phone");
+    name = request.getParameter("name");
+    email = request.getParameter("email");
+    subject = request.getParameter("subject");
+    message = request.getParameter("message");
+    phone = request.getParameter("phone");
 %>
 
 <%
-    try{
-    Class.forName("com.mysql.jdbc.Driver");
-         Connection conn=(Connection)DriverManager.getConnection("jdbc:mysql://localhost/placementcell","root","");
-        Statement stmt=conn.createStatement();
-         String x1="insert into contactformtable values(null,'"+name+"','"+email+"','"+subject+"','"+message+"','"+phone+"',0)";
-         
-         stmt.executeUpdate(x1);
-         response.sendRedirect("home_student.jsp");
-    }
-    catch(Exception ex)
-    {
+    try {
+        Class.forName("com.mysql.jdbc.Driver");
+        Connection conn = (Connection) DriverManager.getConnection("jdbc:mysql://localhost/placementcell", "root", "");
+        Statement stmt = conn.createStatement();
+        String x1 = "insert into contactformtable values(null,'" + name + "','" + email + "','" + subject + "','" + message + "','" + phone + "',0)";
+
+        stmt.executeUpdate(x1);
+        response.sendRedirect("home_student.jsp");
+    } catch (Exception ex) {
         out.print(ex);
     }
-    %>
+%>
 
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>JSP Page</title>
     </head>
-        <h1>sucess<h1>
-    </body>
-</html>
+    <h1>sucess<h1>
+            </body>
+            </html>

@@ -9,21 +9,21 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        
+
     </head>
     <body>
         <%! String otp = "";
-        String idd = "";
+            String idd = "";
         %>
         <%
             otp = request.getParameter("otp");
             idd = request.getParameter("id");
         %>
         <%
-            HttpSession hs=request.getSession();
-            hs.setAttribute("otpstored",otp);
-            hs.setAttribute("stuid",idd);
-            %>
-            <% response.sendRedirect("otpverify_student.jsp");%>
+            HttpSession hs = request.getSession();
+            hs.setAttribute("otpstored", otp);
+            hs.setAttribute("stuid", idd);
+        %>
+        <% response.sendRedirect("otpverify_student.jsp");%>
     </body>
 </html>

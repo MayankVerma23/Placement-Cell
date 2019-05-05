@@ -143,7 +143,8 @@
                     var b = (document.getElementById("t2").value);
                     if (a !== b) {
                         alert("pass not match");
-                        return false;} else {
+                        return false;
+                    } else {
                         alert("pass  match");
                         return true;
                     }

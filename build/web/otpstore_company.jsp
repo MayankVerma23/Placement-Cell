@@ -12,21 +12,21 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <title>OTP STORE</title>
     </head>
     <body>
         <%! String otp = "";
-        String idd = "";
+            String idd = "";
         %>
         <%
             otp = request.getParameter("otp");
             idd = request.getParameter("id");
         %>
         <%
-            HttpSession hs=request.getSession();
-            hs.setAttribute("otpstored",otp);
-            hs.setAttribute("compid",idd);
-            %>
-            <% response.sendRedirect("otpverify_company.jsp");%>
+            HttpSession hs = request.getSession();
+            hs.setAttribute("otpstored", otp);
+            hs.setAttribute("compid", idd);
+        %>
+        <% response.sendRedirect("otpverify_company.jsp");%>
     </body>
 </html>

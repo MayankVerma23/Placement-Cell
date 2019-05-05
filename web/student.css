@@ -9,7 +9,7 @@ and open the template in the editor.
 */
 
 
-    body {
+body {
     margin:0px;
     padding:0px;
     font-family: sans-serif;
@@ -38,7 +38,7 @@ and open the template in the editor.
 
 
 .text {
-       background-color: red;
+    background-color: red;
     text-decoration: none;
     background: none;
     border: 0;
@@ -65,8 +65,8 @@ and open the template in the editor.
     padding-top: 0;
     background: #191919;
     text-align: center;
-    
-    
+
+
 }
 
 .btn {

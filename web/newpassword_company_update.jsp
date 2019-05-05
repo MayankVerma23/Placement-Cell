@@ -12,39 +12,41 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
-    <%! String temp="";%>
-       <%
-             HttpSession hs = request.getSession();
-             temp = (String)hs.getAttribute("compid");
+        <title>NEWPASSWORD COMPANY</title>
+        <%! String temp = "";%>
+        <%
+            HttpSession hs = request.getSession();
+            temp = (String) hs.getAttribute("compid");
         %>
-         
+
     </head>
     <body>
         <%! String neew = "";
             String confirm = "";
         %>
-        
+
         <%
             neew = request.getParameter("new_pass");
             confirm = request.getParameter("confirm_pass");
         %>
-        
+
         <%
-            try{
+            try {
                 Class.forName("com.mysql.jdbc.Driver");
-                Connection conn=DriverManager.getConnection("jdbc:mysql://localhost/placementcell","root","");
-                Statement stmt=conn.createStatement();
-                if(neew.equals(confirm))
-                {
-                    String y="update companysignup set companypassword='"+neew+"' where companyid='"+temp+"'";
+                Connection conn = DriverManager.getConnection("jdbc:mysql://localhost/placementcell", "root", "");
+                Statement stmt = conn.createStatement();
+                if (neew.equals(confirm)) {
+                    String y = "update companysignup set companypassword='" + neew + "' where companyid='" + temp + "'";
                     stmt.executeUpdate(y);
-                  
+
                 }
-                response.sendRedirect("login.jsp");
-            }
-            catch(Exception e)
-            {
+                hs.setAttribute("compid", null);
+                hs.removeAttribute("compid");
+                hs.setAttribute("otpstored", null);
+                hs.removeAttribute("otpstored");
+                hs.invalidate();
+                response.sendRedirect("login_page.jsp");
+            } catch (Exception e) {
                 out.print(e);
             }
         %>

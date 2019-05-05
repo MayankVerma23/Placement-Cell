@@ -13,12 +13,13 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
-
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+        <title>CHANGEPASSWORD_STUDENT</title>
         <style>
             body
             {
-
                 margin:0;
                 padding:0;
                 font-family:sans-serif;
@@ -158,6 +159,7 @@
         </script>
     </head>
     <body>
+        <%@include file = "header_student.jsp"%>
         <div class="box">
             <h2>CHANGE PASSWORD</h2>
             <form action="changepassword_student.jsp" method="post" onsubmit="return checkpassword()" autocomplete="on">
@@ -186,7 +188,7 @@
             newpass = request.getParameter("new_pass");
             confirmpass = request.getParameter("confirm_pass");
 
-             HttpSession hs=request.getSession();
+            HttpSession hs = request.getSession();
             rollno = hs.getAttribute("stu_roll").toString();
 
             try {
@@ -217,17 +219,7 @@
                 out.print(e);
             }
 
-
         %>
-
-
-
-
-
-
-
-
-
 
     </body>
 </html>

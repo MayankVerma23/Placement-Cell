@@ -15,6 +15,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  *
@@ -36,41 +37,79 @@ public class forgetpassword extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
-           try{
-                String email = request.getParameter("email");
-                String stuid = "";
-                int count=0;
-                
-                Class.forName("com.mysql.jdbc.Driver");
-                Connection con = DriverManager.getConnection("jdbc:mysql://localhost/placementcell","root","");
-                Statement stmt=con.createStatement();
-                String x="select * from studentsignup where studentemail='"+email+"'";
-                ResultSet rs=stmt.executeQuery(x);
-                while(rs.next())
-                {      
-                    count++;
-                    stuid=rs.getString("studentid");
-                    
+
+            String forget = "";
+            HttpSession hs = request.getSession();
+            forget = (String) hs.getAttribute("forget");
+
+            if (forget.equals("bcha")) {
+                try {
+                    String email = request.getParameter("email");
+                    String stuid = "";
+                    int count = 0;
+
+                    Class.forName("com.mysql.jdbc.Driver");
+                    Connection con = DriverManager.getConnection("jdbc:mysql://localhost/placementcell", "root", "");
+                    Statement stmt = con.createStatement();
+                    String x = "select * from studentsignup where studentemail='" + email + "'";
+                    ResultSet rs = stmt.executeQuery(x);
+                    while (rs.next()) {
+                        count++;
+                        stuid = rs.getString("studentid");
+
+                    }
+
+                    if (count > 0) {
+                        hs.setAttribute("forget", null);
+                        hs.removeAttribute("forget");
+                        hs.invalidate();
+                        response.sendRedirect("https://template0706.000webhostapp.com/placementCell/forgetPassProcess_student.php?email=" + email + "&&id=" + stuid + "");
+                    } else {
+                        out.print("<script>alert('email not exists')</script>");
+                        out.print("<script> window.location.href='forgetpassword_student.jsp' </script>");
+                    }
+                    count = 0;
+
+                } catch (Exception ex) {
+                    out.print(ex);
                 }
 
-                if(count>0){
-                    response.sendRedirect("https://template0706.000webhostapp.com/placementCell/forgetPassProcess.php?email="+email+"&&id="+stuid+"");
+            } else if (forget.equals("bchi")) {
+                try {
+                    String email = request.getParameter("email");
+                    String compid = "";
+                    int count = 0;
+
+                    Class.forName("com.mysql.jdbc.Driver");
+                    Connection conn = DriverManager.getConnection("jdbc:mysql://localhost/placementcell", "root", "");
+                    Statement stmt = conn.createStatement();
+                    String x = "select * from companysignup where companyemail='" + email + "'";
+                    ResultSet rs = stmt.executeQuery(x);
+                    while (rs.next()) {
+                        count++;
+                        compid = rs.getString("companyid");
+
+                    }
+
+                    if (count > 0) {
+                        hs.setAttribute("forget", null);
+                        hs.removeAttribute("forget");
+                        hs.invalidate();
+                        response.sendRedirect("https://template0706.000webhostapp.com/placementCell/forgetPassProcess_company.php?email=" + email + "&&id=" + compid + "");
+                    } else {
+                        out.print("<script>alert('email not exists')</script>");
+                        out.print("<script> window.location.href='forgetpassword_company.jsp' </script>");
+                    }
+                    count = 0;
+
+                } catch (Exception ex) {
+                    out.print(ex);
                 }
-                
-                else{
-                    out.print("<script>alert('email not exists')</script>");
-                   response.sendRedirect("forgetpassword_student.jsp");
-               }
-                count=0;
-                
-           }
-           
-            
-            catch(Exception ex)
-            {
-                out.print(ex);
+
             }
-    }}
+
+        }
+    }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**

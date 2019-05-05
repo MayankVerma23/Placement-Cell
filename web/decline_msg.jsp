@@ -12,36 +12,36 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <title>DECLINED MESSAGE</title>
     </head>
     <body>
-        
 
-        <%!String idd="";
-        String status = "reject";
-               
+
+        <%!String idd = "";
+            String status = "reject";
+
         %>
         <%
-                idd = request.getParameter("id");
-                
+            idd = request.getParameter("id");
+
         %>
-        <%  Connection conn=(Connection)DriverManager.getConnection("jdbc:mysql://localhost/placementcell","root","");
-            Statement st=conn.createStatement();
-            Statement  fetchStatement = conn.createStatement();
-            String y = "update companysignup set status='"+status+"' where companyid='"+idd+"'";
+        <%  Connection conn = (Connection) DriverManager.getConnection("jdbc:mysql://localhost/placementcell", "root", "");
+            Statement st = conn.createStatement();
+            Statement fetchStatement = conn.createStatement();
+            String y = "update companysignup set status='" + status + "' where companyid='" + idd + "'";
             fetchStatement.executeUpdate(y);
         %>
-        
-        
+
+
         <%
-                String msg = request.getParameter("myText");
-                String idd = request.getParameter("id");
-          
-                fetchStatement = conn.createStatement();
-                String z = "insert into message value(null,'"+msg+"','"+idd+"')";
-                fetchStatement.executeUpdate(z);
-                out.print("<script>window.close();</script>");
+            String msg = request.getParameter("myText");
+            String idd = request.getParameter("id");
+
+            fetchStatement = conn.createStatement();
+            String z = "insert into message value(null,'" + msg + "','" + idd + "')";
+            fetchStatement.executeUpdate(z);
+            out.print("<script>window.close();</script>");
         %>
-       
+
     </body>
 </html>

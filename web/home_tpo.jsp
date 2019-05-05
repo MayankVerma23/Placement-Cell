@@ -17,16 +17,20 @@
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
-        <title>Home Tpo</title>
+        <title>HOME TPO</title>
 
-        </script>
-    </head>
+    </script>
+</head>
 
-    
- <body>
-        
-        <!--Start of Navbar Section-->
-            <%@include file = "header_tpo.jsp"%>
-        <!--End of Navbar Section-->
- </body>
+
+<body>
+
+    <!--Start of Navbar Section-->
+    <%@include file = "header_tpo.jsp"%>
+    <!--End of Navbar Section-->
+
+    <!--Start of Footer Section-->
+    <%@include file = "footer-tpo.jsp"%>
+    <!--End of Footer Section--> 
+</body>
 </html>

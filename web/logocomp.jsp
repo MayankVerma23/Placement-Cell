@@ -13,47 +13,44 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <title>IMAGE COMPANY</title>
     </head>
     <body>
-       
-         <%!String pn="",im="",email1="";%>
-     
-       
-         <%
-            HttpSession hs=request.getSession();
-            email1=hs.getAttribute("company_email").toString();%>
-          <%
-         try{
-           
-         Class.forName("com.mysql.jdbc.Driver");
-         Connection conn=(Connection)DriverManager.getConnection("jdbc:mysql://localhost/placementcell","root","");
-         Statement st=conn.createStatement();
-         String x1="Select * from company_image where email='"+email1+"'";
-         ResultSet rs=st.executeQuery(x1);
-         while(rs.next())
-         {
-           pn=rs.getString("email");
-           im=rs.getString("file_name");
-         }
-         if(email1.equals(pn)){
-             %>
-             
-           <!--  <h1><%=im%></h1>-->
-             <img src="company_images/<%=im%>"  height="200" width="180" align="right">
-             <!--<object data="image/ height="500" width="1300">-->
-          
-           
+
+        <%!String pn = "", im = "", email1 = "";%>
+
+
         <%
-         
-            }
-         
-            }
-            catch(Exception ex)
-                {
-                out.println(ex);
+             HttpSession hs = request.getSession();
+             email1 = hs.getAttribute("company_email").toString();%>
+        <%
+            try {
+
+                Class.forName("com.mysql.jdbc.Driver");
+                Connection conn = (Connection) DriverManager.getConnection("jdbc:mysql://localhost/placementcell", "root", "");
+                Statement st = conn.createStatement();
+                String x1 = "Select * from company_image where email='" + email1 + "'";
+                ResultSet rs = st.executeQuery(x1);
+                while (rs.next()) {
+                    pn = rs.getString("email");
+                    im = rs.getString("file_name");
                 }
-            %>
-        
+                if (email1.equals(pn)) {
+        %>
+
+<!--  <h1><%=im%></h1>-->
+        <img src="company_images/<%=im%>"  height="200" width="180" align="right">
+        <!--<object data="image/ height="500" width="1300">-->
+
+
+        <%
+
+                }
+
+            } catch (Exception ex) {
+                out.println(ex);
+            }
+        %>
+
     </body>
 </html>

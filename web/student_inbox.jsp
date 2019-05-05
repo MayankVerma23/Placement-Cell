@@ -23,25 +23,25 @@
             {
                 width : 100%;
             }
-            
+
             td
             {
-                
+
                 padding : 20px;
                 width : 100px;
                 height : 50px;
             }
-                
+
             th
             {
                 background-color: #4CAF50;
                 color: white;
                 text-align: left;
             }
-           .navbar{
-            background-color: #4379C0;
-            border-color: #4353C0;
-           
+            .navbar{
+                background-color: #4379C0;
+                border-color: #4353C0;
+
             }
             .nav_links{
                 color:white;
@@ -51,37 +51,37 @@
             }  
             section{
                 margin-top: 10px;
-              
-                 margin-right: 400px;
-                    margin-left:400px;
+
+                margin-right: 400px;
+                margin-left:400px;
             }
-            
+
             .hover tr:hover{
                 background-color:#F2D0D1;
             }
-            
-           th {
-                 padding-top: 12px;
-                 padding-bottom: 12px;
-                 padding-left: 15px;
-                 text-align: left;
-                 background-color: #4CAF50;
-                 color: white;
-             }
-            
+
+            th {
+                padding-top: 12px;
+                padding-bottom: 12px;
+                padding-left: 15px;
+                text-align: left;
+                background-color: #4CAF50;
+                color: white;
+            }
+
             tr{
                 font-size:150%;
-              
+
             }
             td{
                 font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
                 font-size:90%;
-                            }
+            }
         </style>
-    
+
     </head>
     <body>
-   
+
         <div class="container"></div>
         <section>
             <div class="row">
@@ -96,71 +96,68 @@
 
         <section> 
             <nav class="navbar">
-                    <ul class="nav navbar-nav">
-                        <li><a href="profile_student.jsp" class="nav_links">Complete Info</a></li>
-                        <li><a href="placement_student.jsp" class="nav_links">Upcoming Compnies</a></li>
-                        <li><a href="contactf_stud.jsp" class="nav_links"><i class="fas fa-cog"></i>Contact Form</a></li>
-                        <li><a href="apply_job.jsp" class="nav_links">Apply Job</a></li>
-                        <li><a href="student_inbox.jsp" class="nav_links"><i class="fas fa-envelope"></i>Message</a></li>
-                        <li><a href="changepassword_student.jsp" class="nav_links">Change Password</a></li>
-                     </ul>
+                <ul class="nav navbar-nav">
+                    <li><a href="profile_student.jsp" class="nav_links">Complete Info</a></li>
+                    <li><a href="placement_student.jsp" class="nav_links">Upcoming Compnies</a></li>
+                    <li><a href="contactf_stud.jsp" class="nav_links"><i class="fas fa-cog"></i>Contact Form</a></li>
+                    <li><a href="apply_job.jsp" class="nav_links">Apply Job</a></li>
+                    <li><a href="student_inbox.jsp" class="nav_links"><i class="fas fa-envelope"></i>Message</a></li>
+                    <li><a href="changepassword_student.jsp" class="nav_links">Change Password</a></li>
+                </ul>
             </nav>
         </section>
-        <%! String name="";
-            String email="";
-            String subject=""; 
-            String id="";
-            String design="";
+        <%! String name = "";
+            String email = "";
+            String subject = "";
+            String id = "";
+            String design = "";
         %>
         <section> 
             <table class="hover">
                 <tr>
-                 
-                    
-                 
-                    
+
+
+
+
                     <th>Subject</th>
-                 
+
                     <th>       </th>
                 </tr>
-        
-        
-        <%  
-          try{
-           String stud="student";
-         Class.forName("com.mysql.jdbc.Driver");
-         Connection conn=(Connection)DriverManager.getConnection("jdbc:mysql://localhost/placementcell","root","");
-         Statement st=conn.createStatement();
-         String x1="Select * from queries where status='1'";
-        
-         ResultSet rs=st.executeQuery(x1);
-         while(rs.next())
-         {
-           id=rs.getString("ID");
-           name=rs.getString("Name");
-           email=rs.getString("Email");
-           subject=rs.getString("Subject");
-           design=rs.getString("Designation");
-             %>
+
+
+                <%
+                    try {
+                        String stud = "student";
+                        Class.forName("com.mysql.jdbc.Driver");
+                        Connection conn = (Connection) DriverManager.getConnection("jdbc:mysql://localhost/placementcell", "root", "");
+                        Statement st = conn.createStatement();
+                        String x1 = "Select * from queries where status='1'";
+
+                        ResultSet rs = st.executeQuery(x1);
+                        while (rs.next()) {
+                            id = rs.getString("ID");
+                            name = rs.getString("Name");
+                            email = rs.getString("Email");
+                            subject = rs.getString("Subject");
+                            design = rs.getString("Designation");
+                %>
                 <tr>            
-                  
-                   
-                   
-                   <td><%=subject%></td>
-                  
-                   <td> <a href="showreply_stud.jsp?id=<%=id%>"><i class="far fa-comment-dots fa-2x"></i></a></td>
+
+
+
+                    <td><%=subject%></td>
+
+                    <td> <a href="showreply_stud.jsp?id=<%=id%>"><i class="far fa-comment-dots fa-2x"></i></a></td>
                 </tr>
                 <%
-          
-            }
-         
-            }
-            catch(Exception ex)
-                {
-                out.println(ex);
-                }
-            %>
-        
-    </body>
-</html>
+
+                        }
+
+                    } catch (Exception ex) {
+                        out.println(ex);
+                    }
+                %>
+
+                </body>
+                </html>
 

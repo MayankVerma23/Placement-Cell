@@ -16,18 +16,18 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <title>COMPANY RESPONSE</title>
     </head>
     <body>
-        <%! String com_name="" , com_name1="";%>
-       <%
-           
+        <%! String com_name = "", com_name1 = "";%>
+        <%
+
             String dateString = request.getParameter("date");
-	        SimpleDateFormat s=new SimpleDateFormat("yyyy-MM-dd");
-                Calendar c1 = Calendar.getInstance();
-                
-                c1.setTimeInMillis(s.parse(dateString).getTime());
-                
+            SimpleDateFormat s = new SimpleDateFormat("yyyy-MM-dd");
+            Calendar c1 = Calendar.getInstance();
+
+            c1.setTimeInMillis(s.parse(dateString).getTime());
+
             Date sqdate = new Date(c1.getTimeInMillis());
             String batch1 = request.getParameter("batch");
             String course1 = request.getParameter("course1");
@@ -37,54 +37,46 @@
             String br2 = request.getParameter("branch2");
             String br3 = request.getParameter("branch3");
             String br4 = request.getParameter("branch4");
-            String backlog1= request.getParameter("backlog");
-            String percentage1= request.getParameter("percentage");
-            String skill1= request.getParameter("skill");
-         String procedure1= request.getParameter("procedure");
-         String job_profile= request.getParameter("job");
-         String pack= request.getParameter("package");
-         String location= request.getParameter("job_location");
+            String backlog1 = request.getParameter("backlog");
+            String percentage1 = request.getParameter("percentage");
+            String skill1 = request.getParameter("skill");
+            String procedure1 = request.getParameter("procedure");
+            String job_profile = request.getParameter("job");
+            String pack = request.getParameter("package");
+            String location = request.getParameter("job_location");
 
+            try {
+                HttpSession hs = request.getSession();
+                String comp_email = hs.getAttribute("company_email").toString();
 
-               
-                   try{
-        HttpSession hs=request.getSession();
-        String comp_email=hs.getAttribute("company_email").toString();
-                  
-             Class.forName("com.mysql.jdbc.Driver");
-         Connection conn=(Connection)DriverManager.getConnection("jdbc:mysql://localhost/placementcell","root","");
-             Statement stmt=conn.createStatement();
-             String y="select * from companysignup where companyemail='"+comp_email+"'";
-            ResultSet rs = stmt.executeQuery(y);
-         while(rs.next()){
-         com_name=rs.getString("companyname");
-         }
-   
-         
-         String z="select * from companyrequirements ";
-         ResultSet rs1 = stmt.executeQuery(z);
-         while(rs1.next()){
-         com_name1=rs1.getString("companyname");
-         }
-        if(!com_name.equals(com_name1))
-        {
-        String x="insert into companyrequirements values(null,'"+com_name+"','"+course1+"','"+course2+"','"+course3+"','"+br1+"','"+br2+"','"+br3+"','"+br4+"','"+backlog1+"','"+percentage1+"','"+skill1+"','"+procedure1+"','"+batch1+"','"+job_profile+"','"+pack+"','"+location+"','"+sqdate+"')";
-        stmt.executeUpdate(x);
-          
-             out.print("<script> alert('done') </script>"+"<br>");
-             
-        }
-        else{
-        out.print("<script> alert('you already send the requirements') </script>"+"<br>");
-          }
-            response.sendRedirect("home_company.jsp");
- 
-         }
-         
-         catch(Exception ex)
-         {
-           out.print(ex.getMessage()+"<br>");
-         }
-       %>
+                Class.forName("com.mysql.jdbc.Driver");
+                Connection conn = (Connection) DriverManager.getConnection("jdbc:mysql://localhost/placementcell", "root", "");
+                Statement stmt = conn.createStatement();
+                String y = "select * from companysignup where companyemail='" + comp_email + "'";
+                ResultSet rs = stmt.executeQuery(y);
+                while (rs.next()) {
+                    com_name = rs.getString("companyname");
+                }
+
+                String z = "select * from companyrequirements ";
+                ResultSet rs1 = stmt.executeQuery(z);
+                while (rs1.next()) {
+                    com_name1 = rs1.getString("companyname");
+                }
+                if (!com_name.equals(com_name1)) {
+                    String x = "insert into companyrequirements values(null,'" + com_name + "','" + course1 + "','" + course2 + "','" + course3 + "','" + br1 + "','" + br2 + "','" + br3 + "','" + br4 + "','" + backlog1 + "','" + percentage1 + "','" + skill1 + "','" + procedure1 + "','" + batch1 + "','" + job_profile + "','" + pack + "','" + location + "','" + sqdate + "')";
+                    stmt.executeUpdate(x);
+
+                    out.print("<script> alert('done') </script>" + "<br>");
+
+                } else {
+                    out.print("<script> alert('you already send the requirements') </script>" + "<br>");
+                }
+                response.sendRedirect("home_company.jsp");
+
+            } catch (Exception ex) {
+                out.print(ex.getMessage() + "<br>");
+            }
+        %>
     </body>
 </html>

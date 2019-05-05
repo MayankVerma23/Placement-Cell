@@ -12,40 +12,41 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
-         <%! String temp="";%>
-       <%
-             HttpSession hs = request.getSession();
-             temp = (String)hs.getAttribute("stuid");
+        <title>PASSWORD UPDATE</title>
+        <%! String temp = "";%>
+        <%
+            HttpSession hs = request.getSession();
+            temp = (String) hs.getAttribute("stuid");
         %>
-         
+
     </head>
     <body>
         <%! String neew = "";
             String confirm = "";
         %>
-        
+
         <%
             neew = request.getParameter("new_pass");
             confirm = request.getParameter("confirm_pass");
         %>
-        
+
         <%
-            
-            try{
+            try {
                 Class.forName("com.mysql.jdbc.Driver");
-                Connection conn=DriverManager.getConnection("jdbc:mysql://localhost/placementcell","root","");
-                Statement stmt=conn.createStatement();
-                if(neew.equals(confirm))
-                {
-                    String y="update studentsignup set studentpassword='"+neew+"' where studentid='"+temp+"'";
+                Connection conn = DriverManager.getConnection("jdbc:mysql://localhost/placementcell", "root", "");
+                Statement stmt = conn.createStatement();
+                if (neew.equals(confirm)) {
+                    String y = "update studentsignup set studentpassword='" + neew + "' where studentid='" + temp + "'";
                     stmt.executeUpdate(y);
-                    
+
                 }
-                response.sendRedirect("login.jsp");
-            }
-            catch(Exception e)
-            {
+                hs.setAttribute("stuid", null);
+                hs.removeAttribute("stuid");
+                hs.setAttribute("otpstored", null);
+                hs.removeAttribute("otpstored");
+                hs.invalidate();
+                response.sendRedirect("login_page.jsp");
+            } catch (Exception e) {
                 out.print(e);
             }
         %>

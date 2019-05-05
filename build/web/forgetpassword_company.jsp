@@ -13,7 +13,7 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
-        <title>JSP Page</title>
+        <title>FORGETPASSWORD COMPANY</title>
         <style>
             div {
                 border-radius: 5px;
@@ -28,16 +28,20 @@
     </head>
     <body background="background_images/bg1.png">
         <div>
-        
-        <form action="sendingOTP_company.jsp" method="post">
-            
-            <label><h1>Forget Password</h1></label><br>
-            <label style="margin-top:8%;margin-right:20px">Enter Email</label>
-            <input type="text" placeholder="Enter Your E-Mail" name="email"style="width:100%">
-            <button class="btn btn-success" style="width:100%;height:40px;margin-top:14%" name="btn-save">Submit</button>
-        
-        </form>
-        
+
+            <form action="forgetpassword" method="post" autocomplete="off">
+
+                <label><h1>Forget Password</h1></label><br>
+                <label style="margin-top:8%;margin-right:20px">Enter Email</label>
+                <input type="text" placeholder="Enter Your E-Mail" name="email"style="width:100%">
+                <button class="btn btn-success" style="width:100%;height:40px;margin-top:14%" name="btn-save">Submit</button>
+
+                <%
+                    HttpSession hs = request.getSession();
+                    hs.setAttribute("forget", "bchi");
+                %>
+            </form>
+
         </div>
-</body>
+    </body>
 </html>

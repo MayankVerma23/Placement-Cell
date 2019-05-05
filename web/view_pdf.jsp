@@ -9,11 +9,12 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <title>VIEW PDF</title>
     </head>
     <body>
         <%!String pdf = "";%>
-        <%pdf = request.getParameter("pdf");%>
+        <% pdf = request.getParameter("pdf");%>
         <object data="old_paper/<%=pdf%>" height="809" width="1800"></object>
+
     </body>
 </html>

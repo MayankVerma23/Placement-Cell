@@ -10,87 +10,87 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
- <title id="title"></title>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">  
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-        <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+    <title id="title">RECRUITER</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">  
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>about</title>
-   
-     <script>    
-$(document).ready(function(){
-  $("#div1").mouseenter(function(){
-    $("#pic").slideDown(2000);
-  });
-});
+
+        <script>
+            $(document).ready(function () {
+                $("#div1").mouseenter(function () {
+                    $("#pic").slideDown(2000);
+                });
+            });
 
 
-$(document).ready(function(){
-  $("#div2").mouseenter(function(){
-    $("#pic2").slideDown(2000);
-  });
-});
-</script>
-<style> 
-#first, #pic,#div1,#div2,#pic2{
-  padding: 5px;
-  text-align: center;
-  background-color: #e5eecc;
-  border: solid 1px #c3c3c3;
-}
-#second {
- 
-  display: none;
-}
-#pic{
- 
-  display: none;
-}
-#pic2{
- 
-  display: none;
-}
- .text{    
+            $(document).ready(function () {
+                $("#div2").mouseenter(function () {
+                    $("#pic2").slideDown(2000);
+                });
+            });
+        </script>
+        <style> 
+            #first, #pic,#div1,#div2,#pic2{
+                padding: 5px;
+                text-align: center;
+                background-color: #e5eecc;
+                border: solid 1px #c3c3c3;
+            }
+            #second {
+
+                display: none;
+            }
+            #pic{
+
+                display: none;
+            }
+            #pic2{
+
+                display: none;
+            }
+            .text{    
                 font-family: "Times New Roman", Times, serif;
                 font-size: 24px;
-       }
-            
-            </style>
-        
+            }
+
+        </style>
+
     </head>
     <body>
         <section>
-            
-      
-<nav class="navbar navbar-inverse" style="margin-bottom:0px;">
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>                        
-      </button>
-        <span class="active"> <a class="navbar-brand " href="#">PLACEMENT PORTAL</a></span>>
-    </div>
-    <div class="collapse navbar-collapse navbar-right" id="myNavbar">
-      <ul class="nav navbar-nav">
-        <li class="active"><a href="#">Home</a></li>
-        
-        <li><a href="aboutus.jsp">ABOUT</a></li>
-        <li><a href="#">CONTACT US</a></li>
-      </ul>
-      
-    </div>
-  </div>
-</nav>  
+
+
+            <nav class="navbar navbar-inverse" style="margin-bottom:0px;">
+                <div class="container-fluid">
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>                        
+                        </button>
+                        <span class="active"> <a class="navbar-brand " href="#">PLACEMENT PORTAL</a></span>>
+                    </div>
+                    <div class="collapse navbar-collapse navbar-right" id="myNavbar">
+                        <ul class="nav navbar-nav">
+                            <li class="active"><a href="#">Home</a></li>
+
+                            <li><a href="aboutus.jsp">ABOUT</a></li>
+                            <li><a href="#">CONTACT US</a></li>
+                        </ul>
+
+                    </div>
+                </div>
+            </nav>  
         </section>
-        
-        
+
+
         <section>
-<pre>
+            <pre>
 <div id="first">
 <p class="text"><b><u>Department of Training & Placement:</u><b></p>
             <p class="text">   our Placement Office  is well-equipped with the latest technologies and world-class state-of-the-art Infrastructure for pre-placement 
@@ -108,9 +108,6 @@ $(document).ready(function(){
 </section>
         
         
-        <!--FOOTER-->
-        <section>
-                <%@include file = "footer_index.jsp"%>
-        </section>
+       
     </body>
 </html>

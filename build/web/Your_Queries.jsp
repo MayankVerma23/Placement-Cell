@@ -23,58 +23,58 @@
             {
                 width : 100%;
             }
-            
+
             td
             {
                 padding : 20px;
                 width : 100px;
                 height : 50px;
             }
-                
+
             th
             {
                 background-color: #4CAF50;
                 color: white;
                 text-align: left;
             }
-            
+
             .hover tr:hover{
                 background-color:#F2D0D1;
             }
-            
-           th {
-                 padding-top: 12px;
-                 padding-bottom: 12px;
-                 padding-left: 15px;
-                 text-align: left;
-                 background-color: #4CAF50;
-                 color: white;
-             }
-            
+
+            th {
+                padding-top: 12px;
+                padding-bottom: 12px;
+                padding-left: 15px;
+                text-align: left;
+                background-color: #4CAF50;
+                color: white;
+            }
+
             tr{
                 font-size:150%;
-              
+
             }
             td{
                 font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
                 font-size:90%;
-                            }
+            }
         </style>
-    
+
     </head>
     <body>
-       
+
         <!--Start of Navbar Section-->
-            <%@include file = "header_tpo.jsp"%>
+        <%@include file = "header_tpo.jsp"%>
         <!--End of Navbar Section-->
-        
-         <%! String name="";
-            String email="";
-            String subject=""; 
+
+        <%! String name = "";
+            String email = "";
+            String subject = "";
             int id;
-            String design="";
+            String design = "";
         %>
-       <section> 
+        <section> 
             <table class="hover">
                 <tr>
                     <th>Name</th> 
@@ -82,56 +82,50 @@
                     <th>Email</th>
                     <th></th>
                 </tr>
-        
-        
-       <%  
-          try{
-           String stud="student";
-         Class.forName("com.mysql.jdbc.Driver");
-         Connection conn=(Connection)DriverManager.getConnection("jdbc:mysql://localhost/placementcell","root","");
-         Statement st=conn.createStatement();
-         String x1="Select * from queries where status='0' or status='1' order by ID desc";
-        
-         ResultSet rs=st.executeQuery(x1);
-         while(rs.next())
-         {
-           id=rs.getInt("ID");
-           name=rs.getString("Name");
-           email=rs.getString("Email");
-           subject=rs.getString("Subject");
-           design=rs.getString("Designation");
-             %>
+
+
+                <%
+                    try {
+                        String stud = "student";
+                        Class.forName("com.mysql.jdbc.Driver");
+                        Connection conn = (Connection) DriverManager.getConnection("jdbc:mysql://localhost/placementcell", "root", "");
+                        Statement st = conn.createStatement();
+                        String x1 = "Select * from queries where status='0' or status='1' order by ID desc";
+
+                        ResultSet rs = st.executeQuery(x1);
+                        while (rs.next()) {
+                            id = rs.getInt("ID");
+                            name = rs.getString("Name");
+                            email = rs.getString("Email");
+                            subject = rs.getString("Subject");
+                            design = rs.getString("Designation");
+                %>
                 <tr>            
-                  
-                    <td><%if(design.equals("student"))
-                   {
-                       
-                       %>
-                       <i class="fas fa-user-graduate"></i>
-                       <%
-                            
-                     }else{
-                            %>
-                            <i class="fas fa-building"></i>
-                       <%
-                         }
-                       %><%=name%></td>
-                   
-                   <td><%=subject%></td>
-                   <td><%=email%></td>
-                   <td> <a href="tickets.jsp?id=<%=id%>"><i class="far fa-comment-dots fa-2x"></i></a></td>
+
+                    <td><%if (design.equals("student")) {
+
+                        %>
+                        <i class="fas fa-user-graduate"></i>
+                        <%                       } else {
+                        %>
+                        <i class="fas fa-building"></i>
+                        <%
+                            }
+                        %><%=name%></td>
+
+                    <td><%=subject%></td>
+                    <td><%=email%></td>
+                    <td> <a href="tickets.jsp?id=<%=id%>"><i class="far fa-comment-dots fa-2x"></i></a></td>
                 </tr>
                 <%
-          
-            }
-         
-            }
-            catch(Exception ex)
-                {
-                out.println(ex);
-                }
-            %>
-       
-    </body>
-</html>
+
+                        }
+
+                    } catch (Exception ex) {
+                        out.println(ex);
+                    }
+                %>
+
+                </body>
+                </html>
 

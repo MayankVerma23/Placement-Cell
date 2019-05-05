@@ -11,37 +11,37 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>TODO supply a title</title>
+        <title>IMAGE STUDENT</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <script>
+        <script>
             function demo()
             {
-                a1=document.f1.t1.value;
-            
-               
-                 document.f1.action="image_student?pn1="+a1;  
+                a1 = document.f1.t1.value;
+
+
+                document.f1.action = "image_student?pn1=" + a1;
             }
-      </script>
-    
+        </script>
+
     </head>
     <body>
-           <% HttpSession hs=request.getSession();%>
-      
-           
-   
-      
-       <form name="f1" enctype="multipart/form-data"  method="post">
-           <%!String roll="";%>
-           
-            <% 
-                String roll=(String)hs.getAttribute("stu_roll"); %> 
-                <!-- <label></label>-->
+        <% HttpSession hs = request.getSession();%>
+
+
+
+
+        <form name="f1" enctype="multipart/form-data"  method="post">
+            <%!String roll = "";%>
+
+            <%
+                String roll = (String) hs.getAttribute("stu_roll");%> 
+            <!-- <label></label>-->
             <input type="text" value="<%=roll%>"  name="t1">
             <p>Image<input type="file" name="i" required><br></p>
-           <p><input type="submit" onclick="demo()"></p>
-       
+            <p><input type="submit" onclick="demo()"></p>
+
         </form>
     </body>
-      
+
 </html>

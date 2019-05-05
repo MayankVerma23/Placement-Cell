@@ -12,61 +12,54 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <title>REPLY_COMPANY</title>
     </head>
-    
-        <%!String name="",email="",sub="",reply="",ids="",phno=""; %>
-        
-        <%
-                
-           HttpSession ticketc = request.getSession();
-           ids=ticketc.getAttribute("ct_id").toString();
-           //name=ticket.getAttribute("c_id").toString();
-           sub=ticketc.getAttribute("ct_sub").toString();
-           reply=request.getParameter("rback");
-          
-           HttpSession hs = request.getSession();
-           
-          
-        %>
-                 <%
-                 Date d;
-                 String Str,Str1;
-                 Calendar c=Calendar.getInstance();
-                    d=c.getTime();
-                    SimpleDateFormat sdf=new SimpleDateFormat("E dd MMMM yyyy ");
-                    Str=sdf.format(d);
-                    sdf=new SimpleDateFormat("hh:mm:ss");
-                    Str1=sdf.format(d);
-                    
-                  
-                    
-                 %>        
-        <%
-            String x;
-            try{
-                  Class.forName("com.mysql.jdbc.Driver");
-         Connection conn=(Connection)DriverManager.getConnection("jdbc:mysql://localhost/placementcell","root","");
-         Statement stmt=conn.createStatement();
-         
-         
-         
-          email=hs.getAttribute("company_email").toString();
-        String w = "select * from companysignup where companyemail='" +email+ "'";
+
+    <%!String name = "", email = "", sub = "", reply = "", ids = "", phno = "";%>
+
+    <%
+
+        HttpSession ticketc = request.getSession();
+        ids = ticketc.getAttribute("ct_id").toString();
+        //name=ticket.getAttribute("c_id").toString();
+        sub = ticketc.getAttribute("ct_sub").toString();
+        reply = request.getParameter("rback");
+
+        HttpSession hs = request.getSession();
+
+
+    %>
+    <%                     Date d;
+        String Str, Str1;
+        Calendar c = Calendar.getInstance();
+        d = c.getTime();
+        SimpleDateFormat sdf = new SimpleDateFormat("E dd MMMM yyyy ");
+        Str = sdf.format(d);
+        sdf = new SimpleDateFormat("hh:mm:ss");
+        Str1 = sdf.format(d);
+
+
+    %>        
+    <%            String x;
+        try {
+            Class.forName("com.mysql.jdbc.Driver");
+            Connection conn = (Connection) DriverManager.getConnection("jdbc:mysql://localhost/placementcell", "root", "");
+            Statement stmt = conn.createStatement();
+
+            email = hs.getAttribute("company_email").toString();
+            String w = "select * from companysignup where companyemail='" + email + "'";
             ResultSet rs3 = stmt.executeQuery(w);
             while (rs3.next()) {
                 name = rs3.getString("companyname");
-            
+
             }
-         x="insert into qmessages values('"+ids+"','"+name+"','"+sub+"','"+reply+"','company','"+Str+" at "+Str1+"')";
-         
-         stmt.executeUpdate(x);
-            }
-            catch(Exception ex)
-            {
-                out.print(ex);
-            }
-            response.sendRedirect("company_ticket.jsp?id="+ids);
-         %>
-    
+            x = "insert into qmessages values('" + ids + "','" + name + "','" + sub + "','" + reply + "','company','" + Str + " at " + Str1 + "')";
+
+            stmt.executeUpdate(x);
+        } catch (Exception ex) {
+            out.print(ex);
+        }
+        response.sendRedirect("company_ticket.jsp?id=" + ids);
+    %>
+
 </html>

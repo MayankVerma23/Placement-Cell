@@ -16,14 +16,14 @@
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
-        <title>Approved Compnies</title>
+        <title>APPROVED COMPANIES</title>
         <meta http-equiv="refresh" content="10">
         <style>
             table
             {
                 width : 100%;
             }
-            
+
             td
             {
                 border : 2px solid black;
@@ -31,80 +31,79 @@
                 width : 200px;
                 height : 100px;
             }
-                
+
             th
             {
                 border : 2px solid black;
                 text-align: center;
             }
-           
+
         </style>
-        
+
         <script>
             function Decline(x)
+            {
+                var r = confirm("R U SURE!! U WANT TO DECLINE");
+
+                if (r == true)
                 {
-                    var r = confirm("R U SURE!! U WANT TO DECLINE");
-                        
-                        if (r == true) 
-                        {
-                            window.open('decline_company.jsp?companyid='+x,'popUpWindow','height=500,width=600,left=650,top=250,resizable=yes,scrollbars=yes,toolbar=yes,menubar=no,location=no,directories=no, status=yes');
-                        }
-                    
+                    window.open('decline_company.jsp?companyid=' + x, 'popUpWindow', 'height=400,width=600,left=450,top=50,resizable=yes,scrollbars=yes,toolbar=yes,menubar=no,location=no,directories=no, status=yes');
                 }
+
+            }
         </script>
-        
+
     </head>
-    
+
     <body>
         <!--Database connectivity-->
-        
+
         <!--Start of Navbar Section-->
-            <%@include file = "header_tpo.jsp"%>
+        <%@include file = "header_tpo.jsp"%>
         <!--End of Navbar Section-->
-        
-            <!--Start of Display data-->
-            <section> 
-                <table>
-                    <tr>
-                        <th>Sno</th>
-                        <th>ID</th>
-                        <th>NAME</th>
-                        <th>EMAIL</th>
-                        <th>PHONE NO</th>
-                        <th>LOCATION</th>
-                        <th>DECLINED</th>
-                    </tr>
-                    <%! int i=0;
-                    String status = "accept"; %>
-                            <%    //Create the preparedstatement(s)
-                            Class.forName("com.mysql.jdbc.Driver");
-                             Connection conn = DriverManager.getConnection("jdbc:mysql://localhost/placementcell", "root", "");
-        
-                                String fetchQuery = "select * from companysignup where status = '"+status+"'";
-                                Statement fetchStatement = conn.createStatement();
-                                ResultSet rs = fetchStatement.executeQuery(fetchQuery);
 
+        <!--Start of Display data-->
+        <section> 
+            <table>
+                <tr>
+                    <th>Sno</th>
+                    <th>ID</th>
+                    <th>NAME</th>
+                    <th>EMAIL</th>
+                    <th>PHONE NO</th>
+                    <th>LOCATION</th>
+                    <th>DECLINED</th>
+                </tr>
+                <%! int i = 0;
+                        String status = "accept";%>
+                <%    //Create the preparedstatement(s)
+                    Class.forName("com.mysql.jdbc.Driver");
+                    Connection conn = DriverManager.getConnection("jdbc:mysql://localhost/placementcell", "root", "");
 
-                                while(rs.next()){
-                                  %> 
+                    String fetchQuery = "select * from companysignup where status = '" + status + "'";
+                    Statement fetchStatement = conn.createStatement();
+                    ResultSet rs = fetchStatement.executeQuery(fetchQuery);
 
-                                    <tr>
-                                        <td><%=i%></td>
-                                        <td><%=rs.getString("companyid")%></td>
-                                        <td><%=rs.getString("companyname")%></td>
-                                        <td><%=rs.getString("companyemail")%></td>
-                                        <td><%=rs.getString("companyphno")%></td>
-                                        <td><%=rs.getString("companylocation")%></td>
-                                        <td><button class="btn btn-danger" onclick="Decline(<%=rs.getString("companyid")%>)">DECLINE</button></td>
-                                    </tr>
-                                    <%i=i+1;%>                                    
-                                <%
+                    while (rs.next()) {
+                %> 
 
-                                }
+                <tr>
+                    <td><%=i%></td>
+                    <td><%=rs.getString("companyid")%></td>
+                    <td><%=rs.getString("companyname")%></td>
+                    <td><%=rs.getString("companyemail")%></td>
+                    <td><%=rs.getString("companyphno")%></td>
+                    <td><%=rs.getString("companylocation")%></td>
+                    <td><button class="btn btn-danger" onclick="Decline(<%=rs.getString("companyid")%>)">DECLINE</button></td>
+                </tr>
+                <%i = i + 1;%>                                    
+                <%
 
-                                %>
-                </table>
-            </section> 
-            <!--End of Display data-->
+                    }
+
+                %>
+            </table>
+        </section> 
+        <!--End of Display data-->
     </body>
 </html>

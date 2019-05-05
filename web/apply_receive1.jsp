@@ -1,8 +1,4 @@
-<%-- 
-    Document   : apply_receive1
-    Created on : 22 Apr, 2019, 11:32:18 PM
-    Author     : HP
---%>
+
 
 <%@page import="java.util.Calendar"%>
 <%@page import="java.sql.ResultSet"%>
@@ -14,7 +10,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <title>APPLY RECIVE ONE</title>
     </head>
     <body>      
         <%!
@@ -25,12 +21,12 @@
         %>
         <%
 
-                HttpSession hs = request.getSession();
-                stu_rollno = hs.getAttribute("stu_roll").toString();
-                companyid1 = request.getParameter("companyid");
-                Calendar c1 = Calendar.getInstance();
-                //  out.print( stu_rollno+"  "+companyid1);
-
+            HttpSession hs = request.getSession();
+            stu_rollno = hs.getAttribute("stu_roll").toString();
+            companyid1 = request.getParameter("companyid");
+            Calendar c1 = Calendar.getInstance();
+            //  out.print( stu_rollno+"  "+companyid1);
+            try {
                 Class.forName("com.mysql.jdbc.Driver");
                 Connection con = DriverManager.getConnection("jdbc:mysql://Localhost/placementcell", "root", "");
                 Statement stmt = con.createStatement();
@@ -116,12 +112,14 @@
                 out.print("<script>alert('APPLY DATE EXPIRE');</script>");
 
                 out.print("<script>window.close();</script>");
-            }
-            // HttpSession hs=request.getSession();
+            } // HttpSession hs=request.getSession();
             //desirecompany1= hs.getAttribute("desirecompany").toString();
             //out.print(desirecompany1);
             // response.sendRedirect("home_student.jsp");
-%>
+            catch (Exception ex) {
+                out.print(ex);
+            }
+        %>
 
 
 

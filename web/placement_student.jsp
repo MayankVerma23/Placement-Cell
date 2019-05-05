@@ -12,7 +12,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
         <title>HOME STUDENT</title>
@@ -23,44 +23,47 @@
                 width : 200px;
                 height : 100px;
             }
-            
-            </style>
+
+        </style>
     </head>
     <body>
-        
+
         <!--Start of Navbar Section-->
         <%@include file = "header_student.jsp"%>
         <!--End of Navbar Section-->  
 
         <section>
-        <table>
-            <%! String status = "accept";%>
+            <table>
+                <%! String status = "accept";%>
                 <%    //Create the preparedstatement(s)
-                    Class.forName("com.mysql.jdbc.Driver");
-                    Connection conn=(Connection)DriverManager.getConnection("jdbc:mysql://localhost/placementcell","root","");
-         
-                    String fetchQuery = "select * from companysignup where status= '"+status+"'";
-                    Statement fetchStatement = conn.createStatement();
-                    ResultSet rs = fetchStatement.executeQuery(fetchQuery);
-                
-                     while(rs.next()){
-                      %> 
-                    
-                        <tr>
-                            <td><%=rs.getString("companyid")%></td>
-                            <td><%=rs.getString("companyname")%></td>
-                            <td><%=rs.getString("companyemail")%></td>
-                            <td><%=rs.getString("companyphno")%></td>
-                            <td><%=rs.getString("companylocation")%></td>
-                        </tr>
-                    <%
-                    
+                    try {
+                        Class.forName("com.mysql.jdbc.Driver");
+                        Connection conn = (Connection) DriverManager.getConnection("jdbc:mysql://localhost/placementcell", "root", "");
+
+                        String fetchQuery = "select * from companysignup where status= '" + status + "'";
+                        Statement fetchStatement = conn.createStatement();
+                        ResultSet rs = fetchStatement.executeQuery(fetchQuery);
+
+                        while (rs.next()) {
+                %> 
+
+                <tr>
+                    <td><%=rs.getString("companyid")%></td>
+                    <td><%=rs.getString("companyname")%></td>
+                    <td><%=rs.getString("companyemail")%></td>
+                    <td><%=rs.getString("companyphno")%></td>
+                    <td><%=rs.getString("companylocation")%></td>
+                </tr>
+                <%
+
+                        }
+                    } catch (Exception ex) {
+                        out.print(ex);
                     }
-                 
-                    %>
-        </table>
+                %>
+            </table>
         </section>
-        </div>
+
     </body>
 </html>
 

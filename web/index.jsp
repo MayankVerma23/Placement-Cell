@@ -14,14 +14,14 @@
         <meta charset="UTF-8">
         <title>Index</title>
         <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css'>
-        <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
-        <script src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js'></script>
+
+        <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
         <style>
             .img-responsive{
                 width:100%;
                 max-width:100%;
-                max-height: 630px;
+                max-height: 660px;
             }
 
             .affix {
@@ -43,24 +43,31 @@
                 transition:all 0.5s ease;  
             }
 
-            .affix-top .nav>li>a {
-                color: #000;
-            }
-
             .affix-top .navbar-collapse {
                 border-color:transparent;
                 box-shadow:initial;
             }
             .affix
             {
-                background-color: black !important;
+                color: black !important;
                 height: 65px;
                 padding-right: 5px;
-
             }
 
             .navbar{
                 border: 1px solid transparent !important;
+                background-color: white !important;
+                padding: 0px 10px 0px 0px !important;
+                width:100%;
+            }
+            
+            #nav-options{
+                color:black;
+                font-size: 25px; 
+            }
+            
+            #nav-options:hover{
+                color: red !important; 
             }
 
             .progress-container {
@@ -69,22 +76,18 @@
             }
 
             .progress-bar {
-                height: 5px;
+                height: 2px;
                 background: #4caf50;
                 width: 0%;
             }
 
             .carousel-inner{
-                max-height: 630px;
+                max-height: 660px;
             }
 
             .carousel-caption {
                 font-size: -webkit-xxx-large;
                 top:45%;
-            }
-
-            #first-card{
-                text-align: center;
             }
 
             .row{
@@ -103,48 +106,58 @@
                 text-align: center;
                 font-size: -webkit-xxx-large;
                 font-family: serif;
+                color: white;
             }
 
+            #first-section-box{
+                border: 1px solid black;
+                border-radius: 20px;
+                min-height: 150px;
+                padding: 20px;
+                box-shadow: 0 12px 8px 0 rgba(0, 0, 0, 0.6), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+            }
 
+            #first-section-heading{
+                color:orange;
+            }
+
+            #first-section-text{
+                color:black;
+                font-style: bold;
+            }
+
+            #fifth-section-box
+            {
+                background-color: white;
+                width:300px;
+                height:200px;
+                margin:0 auto;
+                border: 0px 0px 0px 2px solid purple;
+            }
         </style>
 
-        <script>
-            // When the user scrolls the page, execute myFunction 
-            window.onscroll = function () {
-                myFunction()
-            };
-
-            function myFunction() {
-                var winScroll = document.body.scrollTop || document.documentElement.scrollTop;
-                var height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-                var scrolled = (winScroll / height) * 100;
-                document.getElementById("myBar").style.width = scrolled + "%";
-            }
-        </script>
     </head>
 
     <body>
         <section>
             <!--Start of navbar -->       
-            <div class="navbar navbar-default navbar-fixed-top" data-offset-top="400" data-spy="affix">
+            <div class="navbar navbar-fixed-top" data-offset-top="400" data-spy="affix">
 
                 <div class="navbar-header">
-                    <a class="navbar-brand" href="index.jsp" style="color:white;font-size: 25px">PLACEMENT CELL</a>
+                    <a class="navbar-brand" href="index.jsp" id="nav-options">PLACEMENT CELL</a>
 
                     <a class="navbar-toggle" data-target=".navbar-collapse" data-toggle="collapse">
                         <i class="fa fa-bars"></i>
                     </a>
                 </div>
 
-
                 <div class="navbar-collapse collapse">
                     <ul class="nav navbar-right navbar-nav">
-                        <li><a href="aboutus.jsp" style="color:white;font-size: 25px" >About Us</a></li>
-                        <li><a href="offcampus.jsp" style="color:white;font-size: 25px">Off Campus</a></li>
-                        <li><a href="our_recruiter.jsp" style="color:white;font-size: 25px">Our Recruiter</a></li>
+                        <li><a href="aboutus.jsp" id="nav-options">About Us</a></li>
+                        <li><a href="offcampus.jsp" id="nav-options">Off Campus</a></li>
+                        <li><a href="our_recruiter.jsp" id="nav-options">Our Recruiter</a></li>
                         <li><a href="login_page.jsp" style="padding-top:8px;"><button class="btn btn-primary" style="width: 80px;" >Login</button></a></li>
                         <li><a href="signup.jsp" style="padding-top:8px;"><button class="btn btn-warning" style="width: 80px;">Signup</button></a></li>
-
                     </ul>
                 </div>		
 
@@ -169,20 +182,23 @@
                 </ol>
 
                 <!-- Wrapper for slides -->
-                <div class="carousel-inner" role="listbox">
+                <div class="carousel-inner" role="listbox" style="min-height:100vh">
                     <div class="item active">
-                        <img src="background_images/1.jpg" alt="..." class="img-responsive" max-height="630px">
+                        <img src="background_images/bck3.jpg" alt="..." class="img-responsive" style="min-height:100vh">
                         <div class="carousel-caption">
+                            <div data-aos="fade-down" data-aos-duration="3000">
                             <h1>BE GOOD WITH YOUR MONEY<br> SO YOU CAN BE CREATIVE WITH YOUR TIME</h1>
-                            <button class="btn btn-warning">SIGN UP FREE</button>
+                            <a href="signup.jsp" style="color:white"><button class="btn btn-warning">SIGN UP FREE</button></a>
+                            </div>
                         </div>
                     </div>
                     <div class="item">
-                        <img src="background_images/2.jpg" alt="..." class="img-responsive">
+                        <img src="background_images/bck4.jpg" alt="..." class="img-responsive" style="min-height:100vh">
                         <div class="carousel-caption">
+                            <div data-aos="fade-down" data-aos-duration="3000">
                             <h1>BE GOOD WITH YOUR MONEY<br> SO YOU CAN BE CREATIVE WITH YOUR TIME</h1>
-                            <button class="btn btn-warning">SIGN UP FREE</button>
-
+                            <a href="signup.jsp" style="color:white"><button class="btn btn-warning">SIGN UP FREE</button></a>
+                            </div>
                         </div>
                     </div>
 
@@ -200,63 +216,228 @@
             </div>
         </section>
 
-        <section style="background-color:#F0F0F0;min-height: 400px;">
-            <p class="index-section-heading">HEADING</p>
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-4" id="first-card">
-                        <h1><b>PLACEMENT CELL</b></h1>
-                        <h3>Some Text here</h3>
-                    </div>
-                    <div class="col-md-4" id="first-card">
-                        <h1><b>PLACEMENT CELL</b></h1>
-                        <h3>Some Text here</h3>
-                    </div>
-                    <div class="col-md-4" id="first-card">
-                        <h1><b>PLACEMENT CELL</b></h1>
-                        <h3>Some Text here</h3>
+
+        
+         <section style="width: 80%;margin:0 auto;height: auto !important;padding-top:80px !important;padding-bottom: 80px !important;">
+            <div class="row" >
+                <div class="col-md-6">
+                    <h2><div data-aos="fade-right" data-aos-duration="3000">ABOUT</div><span style="color:red;"> <div data-aos="fade-left" data-aos-duration="3000">OUR PLACMENT CELL</div></span></h2>
+                    <div data-aos="fade-up" data-aos-delay="500" data-aos-duration="3000"><h3>Pune based Recruitment Consultants, providing suitable and timely manpower in multiple disciplines and at middle and senior levels.<br/></h3></div>
+                    <div data-aos="fade-up" data-aos-delay="700" data-aos-duration="3000"><h3>We always aim at enriching the work-life of individuals, taking innovative steps to reducing the attrition rate for our clients and going beyond the scope of our work to ensure that our candidates give a long and fruitful innings to their employers. The only placement agency in Pune with offices pan India and over seas in Dubai and US. We specialise in middle and senior level placements and head hunting assignments.</h3></div>
+                    <div data-aos="fade-up" data-aos-delay="900" data-aos-duration="3000"><h3>Shortlisting, screening and providing jobs to candidates has been our forte for the past 2 decades.<br> As a Executive search consultant we ensure that we provide appropriate manpower to all our clients within the specified time frames.</h3></div>
+                    <div data-aos="fade-up" data-aos-delay="900" data-aos-duration="3000"><button class="btn btn-primary"> Read MORE</button></div>
+                </div>
+                <div class="col-md-6">
+                    <div data-aos="zoom-in" data-aos-duration="3000">
+                    <img src="background_images/child.jpg" alt="child-img" width="100%">
                     </div>
                 </div>
             </div>
         </section>
+        
+        
+        
+        <section style="height: auto;">
+            <div class="parralax" style="    background-image: url(background_images/image1.jpg);min-height:400px;background-attachment: fixed;background-position: center;background-repeat: no-repeat;background-size: cover;">
+                <div style="background-color:#00000042;">
+                <div class="container" style="padding-bottom: 100px;padding-top:100px;">
+                    <div data-aos="zoom-in" data-aos-duration="3000"><h1 style="text-align: center;margin-bottom: 20px;"><b><span style="color:white;">OUR</span><span style="color:#62ff15;">SERVICES</span></b></h1></div>
+                    <div class="row" style="margin-top:50px;">
+                        <div class="col-md-4">
+                            <div data-aos="zoom-in" data-aos-duration="3000">
+                                <div id="fifth-section-box">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div data-aos="zoom-in" data-aos-duration="3000">
+                                <div id="fifth-section-box">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div data-aos="zoom-in" data-aos-duration="3000">
+                                <div id="fifth-section-box">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row" style="margin-top:50px;">
+                        <div class="col-md-4">
+                            <div data-aos="zoom-in" data-aos-duration="3000">
+                                <div id="fifth-section-box">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div data-aos="zoom-in" data-aos-duration="3000">
+                                <div id="fifth-section-box">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div data-aos="zoom-in" data-aos-duration="3000">
+                                <div id="fifth-section-box">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                </div>
+            </div>
+        </section>
+        
+        
+        <section style="background-color:#F0F0F0;">
+
+            <div class="row" style="padding-bottom: 100px;padding-top:100px;">
+                <div class="col-md-1"></div>
+                <div class="col-md-2">
+                    <div data-aos="fade-up" data-aos-duration="3000">
+                        <div id="first-section-box" style="background-color: white;">
+                            <p id="first-section-heading">Learn While you Earn</p>
+                            <p id="first-section-text">Weekend Classes for working Professionals</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <div data-aos="fade-up" data-aos-delay="500" data-aos-duration="3000">
+                        <div id="first-section-box" style="background-color: blanchedalmond;">
+                            <p id="first-section-heading">Learn from Industry Experts</p>
+                            <p id="first-section-text">Comprising over 95CXOs, VPx, Bussiness Heads</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <div data-aos="fade-up" data-aos-delay="1000" data-aos-duration="3000">
+                        <div id="first-section-box" style="background-color: gainsboro;">
+                            <p id="first-section-heading">Internships for Freshers</p>
+                            <p id="first-section-text">Start earning while you are learning</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <div data-aos="fade-up" data-aos-delay="1500" data-aos-duration="3000">
+                        <div id="first-section-box" style="background-color: springgreen;">
+                            <p id="first-section-heading">100% Placement Assistance</p>
+                            <p id="first-section-text">Get a Job before you Complete our Course</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <div data-aos="fade-up" data-aos-delay="2000" data-aos-duration="3000">
+                        <div id="first-section-box" style="background-color: skyblue;">
+                            <p id="first-section-heading">International Certificate</p>
+                            <p id="first-section-text">Industry Recognised Certificate</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-1"></div>
+                <!--<div class="col-md-2"><p>Easy Finance</p><p>EMI & LOAN option Available</p></div>-->
+            </div>
+
+        </section>
+        <!--END of first section-->
+
+
+
+        <!-- Second section-->
 
         <section style="background-color:white;min-height: 400px;">
-            <p class="index-section-heading">HEADING</p>
-            <div class="row">
 
+            <div class="row" style="padding-bottom: 100px;padding-top:100px;">
                 <div class="col-md-6">
-                    <img src="background_images/tablet.png" alt="tablet-image"> 
+                    <div data-aos="fade-right" data-aos-duration="3000">
+                        <img src="background_images/interview.jpg" alt="interview-image"  width="100%"  style="height: auto;padding: 10%;">
+                    </div>
                 </div>
-                <div class="col-md-6"style="text-align:center">
-                    <h1><b>PLACEMENT CELL</b></h1>
-                    <h3>Some Text here</h3>
+
+                <div class="col-md-6" style="padding:5%;">
+                    <h3><b>Placement Record</b></h3>
+                    <div data-aos="fade-left" data-aos-duration="3000">
+                        <h3>230+ Companies Visited in 2019</h3>
+                        <h3>More Than 800 Student Placed</h3> 
+                        <h3>13 Lac Highest Package</h3>
+                        <h3>Average Package is 5.5 Lac</h3>
+                        <h3><a href="#">View More</a></h3>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+        <!--END of Second section-->
+
+        <section style="min-height:400px;width:100%;">
+            <div class="parralax" style="    background-image: url(background_images/1.jpg);min-height:400px;background-attachment: fixed;background-position: center;background-repeat: no-repeat;background-size: cover;">
+                <div class="container" style="padding-bottom: 100px;padding-top:100px;">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <h2 style="text-align:center"><b><span style="color:white">Latest News</span><span style="color:red"> & Updates</span></b></h2>
+                            <div class="box" style="background-color: #000000a8;height:300px;">
+                            <marquee direction="up" height="300" onmouseover="this.stop();" onmouseout="this.start();">
+                                <p style="color:white;">news1</p>
+                                <p style="color:white">news1</p>
+                                <p style="color:white">news1</p>
+                                <p style="color:white">news1</p>
+                                <p style="color:white">news1</p>
+                                <p style="color:white">news1</p>
+                            </marquee>
+                        </div>
+                        </div>
+                        <div class="col-md-6">
+                            <h2 style="text-align:center"><b><span style="color:red">Featured</span><span style="color:white"> Jobs</span></b></h2>
+                            <div class="box" style="background-color: #000000a8;height:300px;">
+
+                                <marquee direction="up" height="300" onmouseover="this.stop();" onmouseout="this.start();">
+                                    <p style="color:white">Featured Job 1</p>
+                                    <p style="color:white">Featured Job 1</p>
+                                    <p style="color:white">Featured Job 1</p>
+                                    <p style="color:white">Featured Job 1</p>
+                                    <p style="color:white">Featured Job 1</p>
+                                    <p style="color:white">Featured Job 1</p>
+                                </marquee>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
 
 
-        <section style="background-color:#F0F0F0;min-height: 400px;">
-            <div class="container">
-                <p class="index-section-heading">HEADING</p>
-                <div class="row">
-                    <div class="col-md-6">
-                        <h1><b>PLACEMENT CELL</b></h1>
-                        <h3>Some Text here</h3>
-                    </div>
-                    <div class="col-md-6 my-scroll" style="padding: 0px;height: auto;background-image: url(background_images/template.jpg);background-size: 36% 76%;background-repeat-x: no-repeat;background-repeat-y: repeat;background-position-x: center">
-                        <img src="background_images/phn.png" style="width:100%;">
-                    </div>
-                </div>
-        </section>
-
-        <section style="background-color:#6A979A;min-height: 400px;padding-bottom: 100px;"> 
+        <!--Fourth section-->
+        <section style="background-color:#021827;"> 
             <%@include file = "index_viewcards.jsp"%>
         </section>
+        <!--END of Fourth Section-->
 
+        <!--footer Section-->
         <section>
             <%@include file = "index_footer.jsp"%>
         </section>
+        <!--END of Footer Section-->
     </body>
+
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
+    <script src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js'></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+    <script>
+                                    AOS.init();
+    </script>
+
+    <script>
+        // When the user scrolls the page, execute myFunction 
+        window.onscroll = function() {
+            myFunction()
+        };
+
+        function myFunction() {
+            var winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            var height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            var scrolled = (winScroll / height) * 100;
+            document.getElementById("myBar").style.width = scrolled + "%";
+        }
+    </script>
 
 </html>
 

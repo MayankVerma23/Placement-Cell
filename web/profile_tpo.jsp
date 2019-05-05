@@ -69,6 +69,7 @@
 
 
         </table>
+            <%@include file = "footer-tpo.jsp"%>
     </body>
 
 </html>

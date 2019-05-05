@@ -214,7 +214,7 @@
                 <input type="submit" name="" value="Submit">
             </form>
         </div>
-    </section>
+  
 
     <%!
         String oldpass = "", newpass = "", confirmpass = "", tpopass = "";
@@ -260,4 +260,5 @@
 
     %>
 </body>
+<%@include file = "footer-tpo.jsp"%> 
 </html>

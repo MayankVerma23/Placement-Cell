@@ -140,25 +140,25 @@
             <div class="content">
                 <div class="h"> <h4  style="margin-top: 50px;">About Us</h4></div>
 
-                <p>
+                <div class="text-success">
+                    <blockquote>    The Placement Cell plays a crucial role in locating job opportunities for Under Graduates and Post Graduates passing out from the college by keeping in touch with reputed firms and industrial establishments. The Placement Cell operates round the year to facilitate contacts between companies and graduates. The number of students placed through the campus interviews is continuously rising. On invitation, many reputed industries visit the institute to conduct interviews.<br><br>
 
+                        We have been successful in maintaining our high placement statistics over the years and the fact that our students bear the recession blues with record breaking placements itself is a testimony to our quality. Our ingenious alumnae have set new standards in the corporate world through their estimable contributions and it is my firm conviction that we will continue that legacy in the years to come.<br><br>
 
-                    What is Lorem Ipsum?
-                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
-
+                        The Placement Cell organizes career guidance programmes for all the students starting from first year. The cell arranges training programmes like Mock Interviews, Group Discussions, Communication Skills Workshop etc and it also organizes Public Sector Exam Training for students who are interested to join Government Sectors. It also invites HR Managers from different industries to conduct training programmes for final year students.<br>
                     <br>
-                    Where does it come from?
-                    Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin lite<br><br>rature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil) by Cicero, written <br>in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32.
-                </p>    
+                    The objective of the college Placement Cell is to help students identify their career goals and provide an edge into the present day competitive job market. We are keen to organize a Campus Placement Drive at our institute for the Final Year students.</blockquote>
+                </div>
+                
                 <h4 style="margin-top: 50px;">Our Objectives</h4>
-                <p >
-                    <u><b>Objectives of this department are as follows:</b></u>
+                <p> <u><b>Objectives of this department are as follows:</b></u></p>
+                <p class="text-success">                 
+                    
+                    1. Developing the students to meet the Industries recruitment process
                     <br>
-                    1. Interacting & developing rapport with all external/internal constituents of client at all levels
+                    2. To motivate students to develop Technical knowledge and soft skills in terms of career planning, goal setting
                     <br>
-                    2. Assisting students to develop their academic and career interests.
-                    <br>
-                    3. Empower students with life long career decision making skills.
+                    3. To motivate students aspire for higher studies and guiding them to take competitive exams such as CAT, GATE, TOEFL, GRE, IES,UPSC,TNPSC etc
                     <br>
                     4. Providing resources and activities to facilitate the career planning process.
                     <br>    
@@ -169,6 +169,8 @@
                     7. Co-ordinating summer training/internship programme.
                     <br>
                     8. Bridging gap between Industry and Academia.
+                    <br>
+                    9. Aiming to Place the maximum number of students through campus & off-campus interviews conducted by the top companies
                     <br>
                 </p>
                 <h4 style="margin-top: 50px;" >Placement Data</h4>
@@ -227,9 +229,7 @@
                 </table>
                 <br>              
                 <br> 
-                <p style="opacity:1;"><b> * </b>= Data Bound to Change</p>
-                <p style="margin-top:40px;">Admin: Placement Co-ordinator</p>
-
+             
             </div>
         </div>
         <div class="box3" >

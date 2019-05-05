@@ -57,6 +57,7 @@
         </style>
     </head>
     <body>
+         <%@include file = "header_tpo.jsp"%>
         <form action="notice2.jsp" method="post">
             <h2 class="topics" ><i class="far fa-clipboard"></i> Your Notices</h2>
             <hr class="line1">
@@ -64,11 +65,15 @@
             <div class="inputBox">
                 <label style="margin:0 auto;">MSG FOR</label><br>
                 <input type="checkbox" name="student" value="student" style="float:left">Student</div>
-            <input type="checkbox" name="company"  value="company">Company</div>  
-            </div>
+                <input type="checkbox" name="company"  value="company">Company<br>
+                      <input type="checkbox" name="both"  value="comman">Comman<br>
+            
 
             <textarea cols="60" rows="8" name="t1"></textarea><br>
             <input type="submit" class=form-submit-button value="Post Notice">
         </form>
+     
     </body>
+    &nbsp;
+      <%@include file = "footer-tpo.jsp"%> 
 </html>

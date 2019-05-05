@@ -46,7 +46,7 @@
 
 </head>
 <body>
-
+ <%@include file = "header_tpo.jsp"%>
     <section> 
         <table>
             <tr>
@@ -78,6 +78,7 @@
 
             <% }%>
         </table>
-    </section> 
+    </section> <br>
+           <%@include file = "footer-tpo.jsp"%> 
 </body>
 </html>

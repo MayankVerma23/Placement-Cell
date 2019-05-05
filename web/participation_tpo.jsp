@@ -75,8 +75,8 @@
 
             <% }%>
         </table>
-    </section> 
+    </section> <br>
 
-
+   <%@include file = "footer-tpo.jsp"%> 
 </body>
 </html>

@@ -23,14 +23,8 @@
                 color:black;
             }
         </style>
-
-
-
-
     </head>
-
     <body>
-
         <section> 
             <div class="row">
                 <div class="col-lg-12">
@@ -38,8 +32,6 @@
                 </div>
             </div>
         </section>
-
-
         <section>
             <nav class="navbar navbar-dark bg-primary ">
                 <div class="container-fluid">
@@ -63,7 +55,6 @@
                                  </ul>
                              </li>-->
                             <li><a href="placement_student.jsp" id="navbar-links">UPCOMING COMPANIES</a></li>
-                            <li><a href="apply_job.jsp" id="navbar-links">APPLY FOR JOB</a></li>
                             <li><a href="student_result.jsp" id="navbar-links">COMPANIES RESULT</a></li>
                             <li><a href="apply_job1.jsp" id="navbar-links">APPLY FOR JOB</a></li>
                             <li><a href="profile_student.jsp" id="navbar-links">PROFILE</a></li>
@@ -80,6 +71,5 @@
                 </div>
             </nav>
         </section>
-
     </body>
 </html>

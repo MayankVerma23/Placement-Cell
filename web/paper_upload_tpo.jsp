@@ -91,7 +91,7 @@
 
     </head>
     <body>
-
+        <%@include file = "header_tpo.jsp"%>
         <form name="f1" enctype="multipart/form-data" method="post">   
             <div class="form-group text-center">
                 <div class="input-group" style="margin:auto;">
@@ -106,7 +106,9 @@
                 <input type="submit" value="Submit" class="btn btn-primary" onclick="demo()">
             </div>
         </form>
+         
     </body>
-
+  
 </html>
 
+<%@include file = "footer-tpo.jsp"%> 

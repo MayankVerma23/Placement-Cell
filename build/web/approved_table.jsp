@@ -105,5 +105,6 @@
             </table>
         </section> 
         <!--End of Display data-->
+           <%@include file = "footer-tpo.jsp"%> 
     </body>
 </html>

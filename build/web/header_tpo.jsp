@@ -28,13 +28,7 @@
             }
         </style>
 
-        <script>
 
-            function addnotice() {
-                window.open('notice1.jsp', 'popUpWindow', 'height=450,width=750,left=650,top=250,resizable=no,scrollbars=no,toolbar=no,menubar=no,location=no,directories=no, status=yes');
-            }
-
-        </script>
     </head>
 
     <body>
@@ -94,7 +88,7 @@
                                    <li><a href="remove_notice.jsp">REMOVE STUDENT NOTICE</a></li>
                                 </ul>
                               </li>-->
-                            <li><a onclick="addnotice()" id="navbar-links">STUDENT NOTICE</a></li>
+                            <li><a href="notice1.jsp" id="navbar-links">STUDENT NOTICE</a></li>
                             <li><a href="remove_notice.jsp" id="navbar-links">REMOVE STUDENT NOTICE</a></li>
                             <li><a href="participation_tpo.jsp" id="navbar-links">INTERESTED STUDENTS IN COMPANY</a></li>
                             <li><a href="tpo_placed_student.jsp" id="navbar-links">PLACED STUDENTS</a></li>

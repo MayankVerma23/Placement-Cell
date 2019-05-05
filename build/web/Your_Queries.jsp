@@ -102,17 +102,16 @@
                 %>
                 <tr>            
 
-                    <td><%if (design.equals("student")) {
-
-                        %>
+                    <td><%if (design.equals("student"))
+                    {                        %>
                         <i class="fas fa-user-graduate"></i>
-                        <%                       } else {
+                        <%                } else {
                         %>
                         <i class="fas fa-building"></i>
                         <%
                             }
-                        %><%=name%></td>
-
+                        %>
+                    <%=name%></td>
                     <td><%=subject%></td>
                     <td><%=email%></td>
                     <td> <a href="tickets.jsp?id=<%=id%>"><i class="far fa-comment-dots fa-2x"></i></a></td>
@@ -121,11 +120,15 @@
 
                         }
 
-                    } catch (Exception ex) {
+}
+
+catch (Exception ex) {
                         out.println(ex);
                     }
                 %>
-
+            </table>
+        </section><br>
+            <%@include file = "footer-tpo.jsp"%>
                 </body>
                 </html>
 

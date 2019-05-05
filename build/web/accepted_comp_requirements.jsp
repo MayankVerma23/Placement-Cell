@@ -40,6 +40,7 @@
         </script>
     </head>
     <body>
+        <%@include file = "header_company.jsp"%>
         <div class="container" >
 
             <section style="background-color:#E9E8E2;padding: 20px;margin-top: 60px;border:2px solid black">
@@ -137,19 +138,23 @@
                                 </div>
 
 
-                                <INPUT TYPE="radio" name="radios" VALUE="Incampus" CHECKED><span id="s1" style="margin-right:10px;">Incapmus</span>
-                                <INPUT TYPE="radio" name="radios" VALUE="Incompus & offcampus"><span id="s1">offcampus</span><br>
-
-
+                                <INPUT TYPE="radio" name="campus" VALUE="Incampus" ><span id="s1" style="margin-right:10px;">Incapmus</span>
+                                <INPUT TYPE="radio" name="campus" VALUE="offcampus"><span id="s1">offcampus</span><br>
+                                <INPUT TYPE="radio" name="campus" VALUE="offcampusandincampus"><span id="s1">BOTH</span><br>
+ <button  type="submit" class="btn btn-success" value="SEND" style="width:40%;height:5%">SEND</button>
+               
 
                             </div>
                     </form>
-</div>
                 </div>
-            </section>
         </div>
-
-    </body>
+    </section>
+</div>
+        <br><br><br>       
+<section>
+    <%@include file = "footer-company.jsp"%>
+</section>
+</body>
 
 
 </html>

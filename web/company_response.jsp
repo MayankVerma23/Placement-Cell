@@ -106,7 +106,7 @@
 
     <body>
 
-
+        <%@include file = "header_company.jsp"%>
         <%!String comp_email = "";%>
         <%!String comp_id = "", comp_status = "", comp_message = "", comp_date = "";%>
         <%
@@ -148,5 +148,8 @@
         <a href="accepted_comp_requirements.jsp">ADD REQUIREMENTS</a>
 
         <%}%>
+        <section>
+            <%@include file = "footer-company.jsp"%>
+        </section>
     </body>
 </html>

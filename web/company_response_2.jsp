@@ -44,6 +44,7 @@
             String job_profile = request.getParameter("job");
             String pack = request.getParameter("package");
             String location = request.getParameter("job_location");
+              String inoffcampus = request.getParameter("campus");
 
             try {
                 HttpSession hs = request.getSession();
@@ -64,7 +65,7 @@
                     com_name1 = rs1.getString("companyname");
                 }
                 if (!com_name.equals(com_name1)) {
-                    String x = "insert into companyrequirements values(null,'" + com_name + "','" + course1 + "','" + course2 + "','" + course3 + "','" + br1 + "','" + br2 + "','" + br3 + "','" + br4 + "','" + backlog1 + "','" + percentage1 + "','" + skill1 + "','" + procedure1 + "','" + batch1 + "','" + job_profile + "','" + pack + "','" + location + "','" + sqdate + "')";
+                    String x = "insert into companyrequirements values(null,'" + com_name + "','" + course1 + "','" + course2 + "','" + course3 + "','" + br1 + "','" + br2 + "','" + br3 + "','" + br4 + "','" + backlog1 + "','" + percentage1 + "','" + skill1 + "','" + procedure1 + "','" + batch1 + "','" + job_profile + "','" + pack + "','" + location + "','" + sqdate + "','" + inoffcampus + "')";
                     stmt.executeUpdate(x);
 
                     out.print("<script> alert('done') </script>" + "<br>");

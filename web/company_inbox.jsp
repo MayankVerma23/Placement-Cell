@@ -196,8 +196,12 @@
                 <br><br>
                 <br><br>
                 <br><br>
-                </section>
-            </div>        
+            </div>
+        </section>
+
+        <section>
+            <%@include file = "footer-company.jsp"%>
+        </section>
     </body>
 </html>
 

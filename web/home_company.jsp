@@ -105,7 +105,9 @@
         </section>
 
         <!--Start of Footer Section-->
+        <section>
         <%@include file = "footer-company.jsp"%>
+        </section>
         <!--End of Footer Section--> 
 
 

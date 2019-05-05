@@ -93,5 +93,8 @@
             %>
         </table>
     </section> 
+    <section>
+        <%@include file = "footer-company.jsp"%>
+    </section>
 </body>
 </html>

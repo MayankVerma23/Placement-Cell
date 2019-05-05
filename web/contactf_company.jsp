@@ -111,7 +111,9 @@
             </secton>   
         </div>
 
-
+        <section>
+            <%@include file = "footer-company.jsp"%>
+        </section>
     </body>
 </html>
 

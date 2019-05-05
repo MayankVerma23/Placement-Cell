@@ -26,10 +26,8 @@
 
     </head>
     <body>
+        
         <% HttpSession hs = request.getSession();%>
-
-
-
 
         <form name="f1" enctype="multipart/form-data"  method="post">
             <%!String roll = "";%>

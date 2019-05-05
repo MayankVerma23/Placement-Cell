@@ -12,6 +12,7 @@
         <title>VIEW PDF</title>
     </head>
     <body>
+        <%@include file = "header_student.jsp"%>
         <%!String pdf = "";%>
         <% pdf = request.getParameter("pdf");%>
         <object data="old_paper/<%=pdf%>" height="809" width="1800"></object>

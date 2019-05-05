@@ -221,5 +221,10 @@
                 <br><br>
                 <section>
             </div>
+                </section>
+            <br>
+            <section>
+                <%@include file = "footer-student.jsp"%>
+            </section>
     </body>
 </html>

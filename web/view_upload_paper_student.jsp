@@ -55,7 +55,10 @@
                 out.println(ex);
             }
         %>
-
+        <br>
+          <section>
+            <%@include file = "footer-student.jsp"%>
+        </section>
     </body>
 </html>
 

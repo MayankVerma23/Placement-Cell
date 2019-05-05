@@ -226,6 +226,8 @@
                 </td>
             </tr>
         </table>
-
+        <section>
+            <%@include file = "footer-student.jsp"%>
+        </section>
     </body>
 </html>

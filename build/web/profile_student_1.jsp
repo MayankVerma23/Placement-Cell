@@ -32,6 +32,7 @@
     </head>
 
     <body>
+      
         <%!String stu_roll1 = "", sturoll = "", stuname = "", stuemail = "", studegree = "", stuphno = "", stugender = "", stupass = "", stubranch = "", stubatch = "", stutwe = "", stuten = "", stusem1 = "", stusem2 = "", stusem3 = "", stusem4 = "", stusem5 = "", stusem6 = "", stusem7 = "", stusem8 = "", stucgpa = "", stubacklog = "";%>
 
         <%

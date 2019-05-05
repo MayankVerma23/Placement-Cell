@@ -63,7 +63,9 @@
                 %>
             </table>
         </section>
-
+        <section>
+            <%@include file = "footer-student.jsp"%>
+        </section>
     </body>
 </html>
 

@@ -82,7 +82,10 @@
                 </form>
 
             </secton>   
-        </div>
+        </div><br>
+        <section>
+            <%@include file = "footer-student.jsp"%>
+        </section>
     </body>
 </html>
 

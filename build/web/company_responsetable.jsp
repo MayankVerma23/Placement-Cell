@@ -20,30 +20,46 @@
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
 
         <style>
-            table
-            {
-                width : 50%;
-                margin-left:25%;
-                margin-top:5%;
+
+            .topics{
+                color: #333333;
+                text-align:left;
+                padding-left:100px;
+                text-transform: capitalize;
+
 
             }
 
-            td
-            {
-                border : 2px solid black;
-                padding : 20px;
-                width : 100px;
-                height : 40px;
-                text-align: center;
-            }
+            .topics1{
+                color: #333333;
+                text-align:right;
 
-            th
-            {
-                text-align: center;
-                height : 60px;
-                border : 2px solid black;
+
 
             }
+            .line1{
+                border-color: #A9A9A9;
+            }
+            .linkq{
+                text-align: right;
+                padding-right:50px;
+                color:  #333333;
+                font-size: 130%;
+            }
+            .linkq:hover{
+                opacity: 0.9;
+            }
+
+            .line1{
+                border-color: #A9A9A9;
+            }
+
+            #container{
+                margin-left:10%;
+                margin-right:10%;
+
+            }
+
 
         </style>
 
@@ -63,14 +79,9 @@
         <!--Start of Navbar Section-->
         <%@include file = "header_tpo.jsp"%>
         <!--End of Navbar Section-->
+        <div id="container">
+            <section> 
 
-        <section> 
-            <table>
-                <tr>
-                    <th>COMPANY NAME</th>
-                    <th>VIEW REQUIREMENTS</th>
-
-                </tr>
 
                 <%
                     Class.forName("com.mysql.jdbc.Driver");
@@ -82,14 +93,16 @@
                     while (rs.next()) {
                 %> 
 
-                <tr>                
-                    <td><%=rs.getString("companyname")%></td>
-                    <td><button class="btn btn-danger" onclick="profile(<%=rs.getString("id")%>)">view</button></td>
-                </tr>
+
+                <h3 class="topics" ><i class="fas fa-envelope-open-text"></i> <%=rs.getString("companyname")%></h3>
+                <a class="topics1"  onclick="profile(<%=rs.getString("id")%>)"><h5 class="linkq"><i class="far fa-edit"></i>VIEW PROFILE</h5></a>
+                <hr class="line1">
 
                 <% }%>
-            </table>
-        </section> <br>
-           <%@include file = "footer-tpo.jsp"%> 
+            </section> 
+        </div>
+        <section>
+            <%@include file = "footer-tpo.jsp"%> 
+        </section>
     </body>
 </html>

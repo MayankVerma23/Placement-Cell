@@ -32,7 +32,7 @@
             function uploadimag() {
                 var r = confirm("R U SURE!! U WANT CHANGES IN PROFILE");
                 if (r == true) {
-                    window.open('image_studentt.jsp', 'popUpWindow', 'height=500,width=600,left=650,top=250,resizable=yes,scrollbars=yes,toolbar=yes,menubar=no,location=no,directories=no, status=yes');
+                    window.open('image_studentt.jsp', 'popUpWindow', 'height=400,width=600,left=450,top=150,resizable=yes,scrollbars=yes,toolbar=yes,menubar=no,location=no,directories=no, status=yes');
                 }
             }
         </script>

@@ -133,7 +133,7 @@
                 <%}
                     }%>
             </table>        
-        </section><br> 
+        </section><br> <br>
         <section>
             <%@include file = "footer-student.jsp"%>
         </section>

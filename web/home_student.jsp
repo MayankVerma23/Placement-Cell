@@ -19,13 +19,12 @@
             .box
             {
                 float:right;
-               
+
                 margin: 10px;
                 height:600px;
-                width:400px;
-              
+                width:400px;              
                 box-sizing:border-box;
-                           border-radius:10px;
+                border-radius:10px;
                 border: 1px solid black;
             }
 
@@ -61,7 +60,7 @@
     <body>
 
         <!--Start of Navbar Section-->
-        <%@include file = "header_student.jsp"%>
+        <%@include file ="header_student.jsp"%>
         <!--End of Navbar Section-->
 
         <%! String stu_roll1 = "", stuname = "";%>

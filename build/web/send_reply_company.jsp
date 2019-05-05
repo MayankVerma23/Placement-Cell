@@ -21,7 +21,7 @@
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
-        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+        
        
     </head>
     <body>
@@ -50,19 +50,26 @@
          <%   
                 
                HttpSession hs=request.getSession();
-               name=hs.getAttribute("company_name").toString();
+              
                email=hs.getAttribute("company_email").toString();
-               phno=hs.getAttribute("company_phno").toString();
+           
+             
                try{ Connection conn=(Connection)DriverManager.getConnection("jdbc:mysql://localhost/placementcell","root","");
          Statement st=conn.createStatement();
+          String w = "select * from companysignup where companyemail='" +email+ "'";
+            ResultSet rs = st.executeQuery(w);
+            while (rs.next()) {
+                name = rs.getString("companyname");
+                phno = rs.getString("companyphno");
+            }
            String y="insert into queries values(null,'"+name+"','"+email+"','company','"+sub+"','"+issue+"','"+Str+" at "+Str1+"','"+phno+"',0,1)";
          st.executeUpdate(y);
          String x="Select * from queries where Email='"+email+"' having Subject='"+sub+"' ";
-        ResultSet rs=st.executeQuery(x);
-        while(rs.next())
+        ResultSet rs1=st.executeQuery(x);
+        while(rs1.next())
             
         {
-            id=rs.getInt("ID");
+            id=rs1.getInt("id");
         }
         String z="Insert into qmessages values('"+id+"','"+name+"','"+sub+"','"+issue+"','company','"+Str+" at "+Str1+"')";
         st.executeUpdate(z);
@@ -71,6 +78,6 @@
                 catch(Exception ex)
                 {
                     out.println(ex);
-                }       %>
+                }     %>
     </body>
 </html>

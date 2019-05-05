@@ -46,9 +46,18 @@
         
        <script>
         function profile(x){
-          //  alert(x);
+         //  alert(x);
             //window.location.href = "apply_job2.jsp?companyid="+x;
              window.open('apply_job2.jsp?companyid='+x,'popUpWindow','height=450,width=700,left=330,top=195,resizable=no,scrollbars=no,toolbar=no,menubar=no,location=no,directories=no, status=yes');
+                
+        }
+        
+        </script>
+        <script>
+           function pdf(y){
+           alert("hjgu");
+            //window.location.href = "apply_job2.jsp?companyid="+x;
+            // window.open('apply_job2.jsp?companyid='+x,'popUpWindow','height=450,width=700,left=330,top=195,resizable=no,scrollbars=no,toolbar=no,menubar=no,location=no,directories=no, status=yes');
                 
         } 
         </script>
@@ -66,11 +75,9 @@
     <section> 
        <table>
                 <tr>
-                    <th>COMPANY NAME</th>
-                    
+                    <th>COMPANY NAME</th>                    
                     <th>VIEW REQUIREMENTS</th>
-              
-                
+                    <th>VIEW PDF</th>               
                 </tr>
                 
                 <%! String desire_company="",req_c1,req_c2,req_c3,req_b1,req_b2,req_b3,req_b4,
@@ -83,10 +90,7 @@
                 Statement fetchStatement = con.createStatement();
                 ResultSet rs = fetchStatement.executeQuery(fetchQuery);
                
-                while(rs.next()){
-                
-
-                             
+                while(rs.next()){                                         
               
                 req_c1 =rs.getString("requiredcourse1");
                 req_c2 =rs.getString("requiredcourse2");
@@ -104,8 +108,7 @@
                 String fetchQuery1 ="select * from studentsignup where studentrollno='"+roll_no+"'";
                 Statement fetchStatement1 = con.createStatement();
                 ResultSet rs1 = fetchStatement1.executeQuery(fetchQuery1);
-                while(rs1.next()){
-                
+                while(rs1.next()){              
 
                              
                 stu_batch=rs1.getString("batch");
@@ -123,12 +126,10 @@
 
             <tr>                  
                 <td><%=rs2.getString("companyname")%></td>
-             
-                
-             
                 <td><button class="btn btn-danger" onclick="profile(<%=rs2.getString("id")%>)">view profile</button></td>
-            </tr>
-                                       
+        
+                <td><button class="btn btn-danger" onclick="pdf(<%=rs2.getString("companyname")%>);">view pdf</button></td>
+            </tr>                        
             <% } }
              else {
                 String fetchQuery3 = "select * from companyrequirements where (requiredbranch1='"+stu_branch+"' or requiredbranch2='"+stu_branch+"' or requiredbranch3='"+stu_branch+"' or requiredbranch4='"+stu_branch+"') and requiredbatch='"+stu_batch+"'";
@@ -141,9 +142,12 @@
                 <td><%=rs3.getString("companyname")%></td>
               
                 <td><button class="btn btn-danger" onclick="profile(<%=rs3.getString("id")%>)">view profile</button></td>
+         
+                <td><button class="btn btn-danger" onclick="pdf(<%=rs3.getString("companyname")%>);">view pdf</button></td>
             </tr>
             
             <%} } %>
+            
         </table>        
     </section> 
            

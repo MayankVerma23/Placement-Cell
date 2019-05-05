@@ -135,7 +135,9 @@ public class login extends HttpServlet {
                         if(rs.next())
                         {
                             companemail=rs.getString("companyemail");
+                             companyname=rs.getString("companyname");
                             hs.setAttribute("company_email",companemail);
+                             hs.setAttribute("company_name",companyname);
                             response.sendRedirect("home_company.jsp");
                         }
                         else

@@ -12,9 +12,8 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <%!String pdf="";%>
-        <% pdf=request.getParameter("pdf"); %>
+        <%!String pdf = "";%>
+        <%pdf = request.getParameter("pdf");%>
         <object data="old_paper/<%=pdf%>" height="809" width="1800"></object>
-          
     </body>
 </html>

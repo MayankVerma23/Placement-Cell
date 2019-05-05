@@ -26,9 +26,7 @@
            reply=request.getParameter("rback");
           
            HttpSession hs = request.getSession();
-            name=hs.getAttribute("company_name").toString();
-            email=hs.getAttribute("company_email").toString();
-            phno=hs.getAttribute("company_phno").toString();
+           
           
         %>
                  <%
@@ -50,6 +48,16 @@
                   Class.forName("com.mysql.jdbc.Driver");
          Connection conn=(Connection)DriverManager.getConnection("jdbc:mysql://localhost/placementcell","root","");
          Statement stmt=conn.createStatement();
+         
+         
+         
+          email=hs.getAttribute("company_email").toString();
+        String w = "select * from companysignup where companyemail='" +email+ "'";
+            ResultSet rs3 = stmt.executeQuery(w);
+            while (rs3.next()) {
+                name = rs3.getString("companyname");
+            
+            }
          x="insert into qmessages values('"+ids+"','"+name+"','"+sub+"','"+reply+"','company','"+Str+" at "+Str1+"')";
          
          stmt.executeUpdate(x);

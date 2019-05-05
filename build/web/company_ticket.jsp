@@ -142,6 +142,9 @@
               <%
                   
                            try{
+                               Class.forName("com.mysql.jdbc.Driver");
+         Connection conn=(Connection)DriverManager.getConnection("jdbc:mysql://localhost/placementcell","root","");
+         
                                Statement stmt=conn.createStatement();
                                String x3="Update queries set seen='1' where ID='"+id+"'";
                               stmt.executeUpdate(x3);
@@ -172,8 +175,7 @@
         
         <%
             HttpSession hs = request.getSession();
-            name=hs.getAttribute("company_name").toString();
-            email=hs.getAttribute("company_email").toString();
+       
            %> 
       <%
           id=request.getParameter("id");
@@ -181,11 +183,22 @@
           
           
              try{ 
-           String stud="student";
-         Class.forName("com.mysql.jdbc.Driver");
+                             String stud="student";
+                  Class.forName("com.mysql.jdbc.Driver");
          Connection conn=(Connection)DriverManager.getConnection("jdbc:mysql://localhost/placementcell","root","");
-         Statement st=conn.createStatement();
-          
+                     
+        Statement st=conn.createStatement();
+          email=hs.getAttribute("company_email").toString();
+           
+             
+        
+      
+          String w = "select * from companysignup where companyemail='" +email+ "'";
+            ResultSet rs3 = st.executeQuery(w);
+            while (rs3.next()) {
+                name = rs3.getString("companyname");
+            
+            }
        String x1="Select * from qmessages where id='"+id+"'";
          String x2="Select * from queries where id='"+id+"'";
          ResultSet rs=st.executeQuery(x2);

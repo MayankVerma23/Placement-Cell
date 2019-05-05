@@ -126,7 +126,7 @@
             int id;
             String design="";
            
-            String time="";
+            String time="",email="";
             int statuskey;
             int seen;
         %>
@@ -139,13 +139,25 @@
             <br><br>
         
         <%  
-                HttpSession hs = request.getSession();
-            name=hs.getAttribute("company_name").toString();
+            HttpSession hs = request.getSession();
+            
+            
           try{
            String stud="student";
          Class.forName("com.mysql.jdbc.Driver");
          Connection conn=(Connection)DriverManager.getConnection("jdbc:mysql://localhost/placementcell","root","");
          Statement st=conn.createStatement();
+         email=hs.getAttribute("company_email").toString();
+           
+             
+        
+      
+          String w = "select * from companysignup where companyemail='" +email+ "'";
+            ResultSet rs = st.executeQuery(w);
+            while (rs.next()) {
+                name = rs.getString("companyname");
+            
+            }
         String x1="Select * from queries where Name='"+name+"' having Designation='company' order by ID desc";
         
          ResultSet rs1=st.executeQuery(x1);

@@ -18,17 +18,10 @@
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
         <title>HEADER COMPANY</title>
         <style>
-            .dropdown-menu{
-                background-color:black;
-
+            #navbar-links{
+                color: white;
             }
-            .dropdown-menu li{
-                color:white;
-            }
-            a{
-                color:white;
-            }
-            a:hover{
+            #navbar-links:hover{
                 color:black;
             }
 
@@ -78,29 +71,25 @@
                     </div>
                     <div class="collapse navbar-collapse" id="myNavbar">
                         <ul class="nav navbar-nav">
-                            <li class="active"><a href="home_company.jsp">HOME</a></li>
-                            <li><a href="profile_company.jsp">PROFILE</a></li>
-                            <!--  <li class="dropdown">
-                                <a class="dropdown-toggle" data-toggle="dropdown" href="#">STUDENT SECTION<span class="caret"></span></a>
+                            <li class="active"><a href="home_company.jsp" id="navbar-links">HOME</a></li>
+                            <li><a href="profile_company.jsp" id="navbar-links">PROFILE</a></li>
+                            <li class="dropdown">
+                                <a class="dropdown-toggle" data-toggle="dropdown"  id="navbar-links" href="#">STUDENT SECTION<span class="caret"></span></a>
                                 <ul class="dropdown-menu">
-                                  <li><a href="interested_stu_in_comp.jsp">Participated Candidates</a></li>
-                                  <li><a href="company_decl_res.jsp">declare result</a></li>
-                                  <li><a href="selected_candidates.jsp">selected candidates</a></li>
+                                    <li><a href="interested_stu_in_comp.jsp">Participated Candidates</a></li>
+                                    <li><a href="company_decl_res.jsp">declare result</a></li>
+                                    <li><a href="selected_candidates.jsp">selected candidates</a></li>
                                 </ul>
-                              </li>-->
-                            <li><a href="interested_stu_in_comp.jsp">Participated Candidates</a></li>
-                            <li><a href="company_decl_res.jsp">declare result</a></li>
-                            <li><a href="selected_candidates.jsp">selected candidates</a></li>
-                            <li><a href="company_response.jsp" >STATUS</a></li>
-
-                            <li class="active"><a href="contactf_company.jsp">SUPPORT</a></li>
-                            <li class="active"><a href="company_inbox.jsp">INBOX<%if (ct > 0) {%> <span class="badge badge-light"><%=ct%><%}%></span></a></li>
+                            </li>
+                            <li><a href="company_response.jsp" id="navbar-links">STATUS</a></li>
+                            <li class="active"><a href="contactf_company.jsp" id="navbar-links">SUPPORT</a></li>
+                            <li class="active"><a href="company_inbox.jsp" id="navbar-links">INBOX</a></li>
 
 
-                            <li><a href="changepassword_company.jsp">CHANGE PASSWORD</a></li>
+                            <li><a href="changepassword_company.jsp" id="navbar-links">CHANGE PASSWORD</a></li>
                         </ul>
                         <ul class="nav navbar-nav navbar-right">
-                            <li><a href="logout"><span class="glyphicon glyphicon-log-out"></span> LOGOUT</a></li>
+                            <li><a href="logout" id="navbar-links"><span class="glyphicon glyphicon-log-out"></span> LOGOUT</a></li>
                         </ul>
                     </div>
                 </div>

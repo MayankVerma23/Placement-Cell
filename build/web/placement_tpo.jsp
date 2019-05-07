@@ -114,8 +114,6 @@
 
             </table>
         </section> <br>
-        <section>
                    <%@include file = "footer-tpo.jsp"%> 
-        </section>
     </body>
 </html>

@@ -11,7 +11,7 @@
 <html lang="en" >
 
     <head>
-        <meta charset="UTF-8">
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Index</title>
         <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css'>
 
@@ -60,12 +60,12 @@
                 padding: 0px 10px 0px 0px !important;
                 width:100%;
             }
-            
+
             #nav-options{
                 color:black;
                 font-size: 25px; 
             }
-            
+
             #nav-options:hover{
                 color: red !important; 
             }
@@ -187,8 +187,8 @@
                         <img src="background_images/bck3.jpg" alt="..." class="img-responsive" style="min-height:100vh">
                         <div class="carousel-caption">
                             <div data-aos="fade-down" data-aos-duration="3000">
-                            <h1>BE GOOD WITH YOUR MONEY<br> SO YOU CAN BE CREATIVE WITH YOUR TIME</h1>
-                            <a href="signup.jsp" style="color:white"><button class="btn btn-warning">SIGN UP FREE</button></a>
+                                <h1>BE GOOD WITH YOUR MONEY<br> SO YOU CAN BE CREATIVE WITH YOUR TIME</h1>
+                                <a href="signup.jsp" style="color:white"><button class="btn btn-warning">SIGN UP FREE</button></a>
                             </div>
                         </div>
                     </div>
@@ -196,8 +196,8 @@
                         <img src="background_images/bck4.jpg" alt="..." class="img-responsive" style="min-height:100vh">
                         <div class="carousel-caption">
                             <div data-aos="fade-down" data-aos-duration="3000">
-                            <h1>BE GOOD WITH YOUR MONEY<br> SO YOU CAN BE CREATIVE WITH YOUR TIME</h1>
-                            <a href="signup.jsp" style="color:white"><button class="btn btn-warning">SIGN UP FREE</button></a>
+                                <h1>BE GOOD WITH YOUR MONEY<br> SO YOU CAN BE CREATIVE WITH YOUR TIME</h1>
+                                <a href="signup.jsp" style="color:white"><button class="btn btn-warning">SIGN UP FREE</button></a>
                             </div>
                         </div>
                     </div>
@@ -217,8 +217,8 @@
         </section>
 
 
-        
-         <section style="width: 80%;margin:0 auto;height: auto !important;padding-top:80px !important;padding-bottom: 80px !important;">
+
+        <section style="width: 80%;margin:0 auto;height: auto !important;padding-top:80px !important;padding-bottom: 80px !important;">
             <div class="row" >
                 <div class="col-md-6">
                     <h2><div data-aos="fade-right" data-aos-duration="3000">ABOUT</div><span style="color:red;"> <div data-aos="fade-left" data-aos-duration="3000">OUR PLACMENT CELL</div></span></h2>
@@ -229,65 +229,65 @@
                 </div>
                 <div class="col-md-6">
                     <div data-aos="zoom-in" data-aos-duration="3000">
-                    <img src="background_images/child.jpg" alt="child-img" width="100%">
+                        <img src="background_images/child.jpg" alt="child-img" width="100%">
                     </div>
                 </div>
             </div>
         </section>
-        
-        
-        
+
+
+
         <section style="height: auto;">
             <div class="parralax" style="    background-image: url(background_images/image1.jpg);min-height:400px;background-attachment: fixed;background-position: center;background-repeat: no-repeat;background-size: cover;">
                 <div style="background-color:#00000042;">
-                <div class="container" style="padding-bottom: 100px;padding-top:100px;">
-                    <div data-aos="zoom-in" data-aos-duration="3000"><h1 style="text-align: center;margin-bottom: 20px;"><b><span style="color:white;">OUR</span><span style="color:#62ff15;">SERVICES</span></b></h1></div>
-                    <div class="row" style="margin-top:50px;">
-                        <div class="col-md-4">
-                            <div data-aos="zoom-in" data-aos-duration="3000">
-                                <div id="fifth-section-box">
+                    <div class="container" style="padding-bottom: 100px;padding-top:100px;">
+                        <div data-aos="zoom-in" data-aos-duration="3000"><h1 style="text-align: center;margin-bottom: 20px;"><b><span style="color:white;">OUR</span><span style="color:#62ff15;">SERVICES</span></b></h1></div>
+                        <div class="row" style="margin-top:50px;">
+                            <div class="col-md-4">
+                                <div data-aos="zoom-in" data-aos-duration="3000">
+                                    <div id="fifth-section-box">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div data-aos="zoom-in" data-aos-duration="3000">
+                                    <div id="fifth-section-box">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div data-aos="zoom-in" data-aos-duration="3000">
+                                    <div id="fifth-section-box">
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-md-4">
-                            <div data-aos="zoom-in" data-aos-duration="3000">
-                                <div id="fifth-section-box">
+                        <div class="row" style="margin-top:50px;">
+                            <div class="col-md-4">
+                                <div data-aos="zoom-in" data-aos-duration="3000">
+                                    <div id="fifth-section-box">
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="col-md-4">
-                            <div data-aos="zoom-in" data-aos-duration="3000">
-                                <div id="fifth-section-box">
+                            <div class="col-md-4">
+                                <div data-aos="zoom-in" data-aos-duration="3000">
+                                    <div id="fifth-section-box">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div data-aos="zoom-in" data-aos-duration="3000">
+                                    <div id="fifth-section-box">
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="row" style="margin-top:50px;">
-                        <div class="col-md-4">
-                            <div data-aos="zoom-in" data-aos-duration="3000">
-                                <div id="fifth-section-box">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-4">
-                            <div data-aos="zoom-in" data-aos-duration="3000">
-                                <div id="fifth-section-box">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-4">
-                            <div data-aos="zoom-in" data-aos-duration="3000">
-                                <div id="fifth-section-box">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
                 </div>
             </div>
         </section>
-        
-        
+
+
         <section style="background-color:#F0F0F0;">
 
             <div class="row" style="padding-bottom: 100px;padding-top:100px;">
@@ -367,34 +367,38 @@
         </section>
         <!--END of Second section-->
 
-        <section style="min-height:400px;width:100%;">
-            <div class="parralax" style="    background-image: url(background_images/1.jpg);min-height:400px;background-attachment: fixed;background-position: center;background-repeat: no-repeat;background-size: cover;">
-                <div class="container" style="padding-bottom: 100px;padding-top:100px;">
-                    <div class="row">
-                        <div class="col-md-6">
+        <section style="min-height:400px;">
+            <div class="parralax" style=" background-image: url(background_images/bck5.jpg);min-height:400px;background-attachment: fixed;background-position: center;background-repeat: no-repeat;background-size: cover;">
+                <div style="background-color: #ffffff75;">
+                    <div class="row" style="padding-bottom: 100px;padding-top:100px;width:80%;margin:0 auto;">
+                        <div class="col-md-4">
                             <h2 style="text-align:center"><b><span style="color:white">Latest News</span><span style="color:red"> & Updates</span></b></h2>
                             <div class="box" style="background-color: #000000a8;height:300px;">
-                            <marquee direction="up" height="300" onmouseover="this.stop();" onmouseout="this.start();">
-                                <p style="color:white;">news1</p>
-                                <p style="color:white">news1</p>
-                                <p style="color:white">news1</p>
-                                <p style="color:white">news1</p>
-                                <p style="color:white">news1</p>
-                                <p style="color:white">news1</p>
-                            </marquee>
+                                <marquee direction="up" height="300" onmouseover="this.stop();" onmouseout="this.start();">
+                                    <p style="color:white;">news1</p>
+                                    <p style="color:white;">news1</p>
+                                    <p style="color:white;">news1</p>
+                                    <p style="color:white;">news1</p>
+                                    <p style="color:white;">news1</p>
+                                    <p style="color:white;">news1</p>
+                                </marquee>
+                            </div>
                         </div>
+                        <div class="col-md-4"style="padding-top:3%;">
+                            <img src="background_images/sign11.png" alt="sign-board" width="100%" min-height="100px">
+                            <img src="background_images/sign.png" alt="sign-board" width="100%" min-height="100px">
                         </div>
-                        <div class="col-md-6">
+                        <div class="col-md-4">
                             <h2 style="text-align:center"><b><span style="color:red">Featured</span><span style="color:white"> Jobs</span></b></h2>
                             <div class="box" style="background-color: #000000a8;height:300px;">
 
                                 <marquee direction="up" height="300" onmouseover="this.stop();" onmouseout="this.start();">
-                                    <p style="color:white">Featured Job 1</p>
-                                    <p style="color:white">Featured Job 1</p>
-                                    <p style="color:white">Featured Job 1</p>
-                                    <p style="color:white">Featured Job 1</p>
-                                    <p style="color:white">Featured Job 1</p>
-                                    <p style="color:white">Featured Job 1</p>
+                                    <p style="color:white;">Featured Job 1</p>
+                                    <p style="color:white;">Featured Job 1</p>
+                                    <p style="color:white;">Featured Job 1</p>
+                                    <p style="color:white;">Featured Job 1</p>
+                                    <p style="color:white;">Featured Job 1</p>
+                                    <p style="color:white;">Featured Job 1</p>
                                 </marquee>
                             </div>
                         </div>

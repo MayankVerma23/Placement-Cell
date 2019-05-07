@@ -26,6 +26,7 @@
             #navbar-links:hover{
                 color:black;
             }
+
         </style>
 
 
@@ -57,46 +58,37 @@
                         <ul class="nav navbar-nav">
                             <li class="active"><a href="home_tpo.jsp" id="navbar-links">HOME</a></li>
                             <li><a href="profile_tpo.jsp" id="navbar-links">PROFILE</a></li>
-                            <!--  <li class="dropdown">
+                            <li class="dropdown">
                                 <a class="dropdown-toggle" data-toggle="dropdown" href="#" id="navbar-links">COMPANIES INFORMATION<span class="caret"></span></a>
                                 <ul class="dropdown-menu">
-                                  <li><a href="placement_tpo.jsp" >NEW COMPANY REQUEST</a></li>
-                                  <li><a href="approved_table.jsp" >APPROVED COMPANIES</a></li>
-                                  <li><a href="declined_table.jsp" >DECLINED COMPNIES</a></li>
-                                  <li><a href="company_responsetable.jsp" >ACCEPTED COMPANY REQUIREMENTS</a></li>
+                                    <li><a href="placement_tpo.jsp" >NEW COMPANY REQUEST</a></li>
+                                    <li><a href="approved_table.jsp" >APPROVED COMPANIES</a></li>
+                                    <li><a href="declined_table.jsp" >DECLINED COMPNIES</a></li>
+                                    <li><a href="company_responsetable.jsp" >ACCEPTED COMPANY REQUIREMENTS</a></li>
                                 </ul>
-                              </li>-->
+                            </li>
 
-                            <!--  <li class="dropdown">
+                            <li class="dropdown">
                                 <a class="dropdown-toggle" data-toggle="dropdown" href="#" id="navbar-links">STUDENTS INFORMATION<span class="caret"></span></a>
                                 <ul class="dropdown-menu">
-                             
-                                  <li><a href="participation_tpo.jsp" >INTERESTED STUDENTS IN COMPANY</a></li>
-                                  <li><a href="tpo_placed_student.jsp">PLACED STUDENTS</a></li>
-                                  <li><a href="tpo_unplaced_student.jsp">UNPLACED STUDENTS</a></li>
+
+                                    <li><a href="participation_tpo.jsp" >INTERESTED STUDENTS IN COMPANY</a></li>
+                                    <li><a href="tpo_placed_student.jsp">PLACED STUDENTS</a></li>
+                                    <li><a href="tpo_unplaced_student.jsp">UNPLACED STUDENTS</a></li>
                                 </ul>
-                              </li>-->
+                            </li>
 
                             <li><a href="Your_Queries.jsp" id="navbar-links">Messages</a></li>
 
                             <li><a href="offcampus_student.jsp" id="navbar-links">OFFCAMPUS STUDENT</a></li>
 
-                            <!--  <li class="dropdown">
+                            <li class="dropdown">
                                 <a class="dropdown-toggle" data-toggle="dropdown" href="#" id="navbar-links">NOTICE SECTION<span class="caret"></span></a>
                                 <ul class="dropdown-menu">
-                                  <li><a onclick="addnotice()">STUDENT NOTICE</a></li>
-                                   <li><a href="remove_notice.jsp">REMOVE STUDENT NOTICE</a></li>
+                                    <li><a onclick="addnotice()">STUDENT NOTICE</a></li>
+                                    <li><a href="remove_notice.jsp">REMOVE STUDENT NOTICE</a></li>
                                 </ul>
-                              </li>-->
-                            <li><a href="notice1.jsp" id="navbar-links">STUDENT NOTICE</a></li>
-                            <li><a href="remove_notice.jsp" id="navbar-links">REMOVE STUDENT NOTICE</a></li>
-                            <li><a href="participation_tpo.jsp" id="navbar-links">INTERESTED STUDENTS IN COMPANY</a></li>
-                            <li><a href="tpo_placed_student.jsp" id="navbar-links">PLACED STUDENTS</a></li>
-                            <li><a href="tpo_unplaced_student.jsp" id="navbar-links">UNPLACED STUDENTS</a></li>
-                            <li><a href="placement_tpo.jsp" id="navbar-links" >NEW COMPANY REQUEST</a></li>
-                            <li><a href="approved_table.jsp" id="navbar-links" >APPROVED COMPANIES</a></li>
-                            <li><a href="declined_table.jsp" id="navbar-links" >DECLINED COMPNIES</a></li>
-                            <li><a href="company_responsetable.jsp" id="navbar-links" >ACCEPTED COMPANY REQUIREMENTS</a></li> 
+                            </li>
                             <li><a href="paper_upload_tpo.jsp" id="navbar-links">UPLOAD PAPER</a></li> 
                             <li><a href="changepassword_tpo.jsp" id="navbar-links">CHANGE PASSWORD</a></li>
                         </ul>

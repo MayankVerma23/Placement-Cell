@@ -66,7 +66,7 @@
                 <label style="margin:0 auto;">MSG FOR</label><br>
                 <input type="checkbox" name="student" value="student" style="float:left">Student</div>
                 <input type="checkbox" name="company"  value="company">Company<br>
-                      <input type="checkbox" name="both"  value="comman">Comman<br>
+                      <input type="checkbox" name="both"  value="common">Common<br>
             
 
             <textarea cols="60" rows="8" name="t1"></textarea><br>

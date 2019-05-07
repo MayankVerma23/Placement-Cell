@@ -80,7 +80,6 @@
                     ResultSet rs = fetchStatement.executeQuery(fetchQuery);
 
                     while (rs.next()) {
-
                         req_c1 = rs.getString("requiredcourse1");
                         req_c2 = rs.getString("requiredcourse2");
                         req_c3 = rs.getString("requiredcourse3");
@@ -89,7 +88,6 @@
                         req_b3 = rs.getString("requiredbranch3");
                         req_b4 = rs.getString("requiredbranch4");
                         req_batch = rs.getString("requiredbatch");
-
                     }
                     HttpSession hs = request.getSession();
                     roll_no = hs.getAttribute("stu_roll").toString();
@@ -117,7 +115,8 @@
                 </tr>
 
                 <% }
-                } else {
+                }
+                else {
                     String fetchQuery3 = "select * from companyrequirements where (requiredbranch1='" + stu_branch + "' or requiredbranch2='" + stu_branch + "' or requiredbranch3='" + stu_branch + "' or requiredbranch4='" + stu_branch + "') and requiredbatch='" + stu_batch + "'";
                     Statement fetchStatement3 = con.createStatement();
                     ResultSet rs3 = fetchStatement3.executeQuery(fetchQuery3);
@@ -133,7 +132,7 @@
                 <%}
                     }%>
             </table>        
-        </section><br> <br>
+        </section><br><br><br><br><br><br><br><br> 
         <section>
             <%@include file = "footer-student.jsp"%>
         </section>

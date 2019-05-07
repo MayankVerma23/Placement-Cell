@@ -12,8 +12,6 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-        <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
 
         <style>
             .col-md-3{
@@ -33,9 +31,10 @@
 
     </head>
     <body>
-        <div class="container" >
 
-            <section style="background-color:#E9E8E2;padding: 20px;margin-top: 60px;border:2px solid black">
+
+        <section class="container" style="background-color:#ffffff4a;padding:20px !important;border:2px solid black">
+           
                 <div class="row" >
                     <div class="col-md-12">
                         <h1 style="text-align: center;color:black">STUDENT SIGNUP</h1>
@@ -196,76 +195,75 @@
                                 <label for="confpass">CONFIRM PASSWORD:</label>
                                 <input type="password" name="confpass" class="form-control" id="t2" required >
                             </div>
-
                         </div>
-                </div> <br/><br/>   
+                </div> 
+                
                 <div class="row">
                     <div class="col-md-12" style="text-align: center">
                         <button  type="submit" class="btn btn-success" value="SignUp" style="width:40%;height:5%">SIGNUP</button>
                     </div>
                 </div>
+                
                 </form>
-
-            </section>
-        </div>
+          
+        </section>
 
     </body>
-
 
     <script>
 
 
         function sublist()
-        {
+            {
             h1 = document.getElementById("degree").value;
 
             var a2;
-            if (window.XMLHttpRequest) {
-                a2 = new XMLHttpRequest();
-            } else {
-                a2 = new ActiveXObject("Microsoft.XMLHTTP");
+                if (window.XMLHttpRequest) {
+            a2 = new XMLHttpRequest();
+                } else {
+            a2 = new ActiveXObject("Microsoft.XMLHTTP");
             }
 
-            a2.onreadystatechange = function () {
+                a2.onreadystatechange = function() {
                 if (a2.readyState == 4 && a2.status == 200)
-                {
+                    {
 
-                    document.getElementById("drp2").innerHTML = a2.responseText;
+                document.getElementById("drp2").innerHTML = a2.responseText;
 
-                }
+            }
             }
 
             a2.open("GET", "degree_category_student.jsp?degree=" + h1, true);
             a2.send();
-            subtext(h1);
+        subtext(h1);
         }
 
 
         function subtext(degree)
-        {
+            {
             var a3;
-            if (window.XMLHttpRequest) {
-                a3 = new XMLHttpRequest();
-            } else {
-                a3 = new ActiveXObject("Microsoft.XMLHTTP");
+                if (window.XMLHttpRequest) {
+            a3 = new XMLHttpRequest();
+                } else {
+            a3 = new ActiveXObject("Microsoft.XMLHTTP");
             }
 
-            a3.onreadystatechange = function () {
+                a3.onreadystatechange = function() {
                 if (a3.readyState == 4 && a3.status == 200)
-                {
+                    {
 
-                    document.getElementById("drp3").innerHTML = a3.responseText;
+                document.getElementById("drp3").innerHTML = a3.responseText;
 
-                }
+            }
             }
 
             a3.open("GET", "branch_category_student.jsp?degree=" + degree, true);
-            a3.send();
+        a3.send();
 
         }
 
         function checkpasswordd()
-        {
+            {
             password = document.getElementById("t1").value;
             length = document.getElementById("t1").value.length;
             var flag_number = 0;
@@ -286,96 +284,100 @@
             var letters = /^[A-Za-z]+$/;
 
             for (i = 0; i < length; i++)
-            {
-                if (password.charAt(i) >= 0 && password.charAt(i) <= 9)
                 {
-                    flag_number = flag_number + 1;
+                if (password.charAt(i) >= 0 && password.charAt(i) <= 9)
+                    {
+                flag_number = flag_number + 1;
                 }
                 if (password.charAt(i) >= 'a' && password.charAt(i) <= 'z')
-                {
-                    flag_lowercase = flag_lowercase + 1;
+                    {
+                flag_lowercase = flag_lowercase + 1;
                 }
                 if (password.charAt(i) >= 'A' && password.charAt(i) <= 'Z')
-                {
-                    flag_upercase = flag_upercase + 1;
-                }
+                    {
+                flag_upercase = flag_upercase + 1;
+            }
             }
 
-            if (!name.match(/^[A-Za-z]+$/)) {
+                if (!name.match(/^[A-Za-z ]+$/)) {
                 alert("Name fill only with alphabate");
-                return false;
-            } else if (isNaN(roll)) {
+            return false;
+                } else if (isNaN(roll)) {
                 alert("Eneter only numeric value in rollno");
-                return false;
-            } else if (isNaN(a)) {
+            return false;
+                } else if (isNaN(a)) {
                 alert("Eneter only numeric value in Phoneno");
-                return false;
-            } else if (a.length < 10) {
+            return false;
+                } else if (a.length < 10) {
                 alert("Phoneno must be 10 digit");
-                return false;
-            } else if (a.length > 10) {
+            return false;
+                } else if (a.length > 10) {
                 alert("Phoneno must be 10 digit");
-                return false;
-            } else if ((a.charAt(0) != 9) && (a.charAt(0) != 8) && (a.charAt(0) != 7) && (a.charAt(0) != 6)) {
+            return false;
+                } else if ((a.charAt(0) != 9) && (a.charAt(0) != 8) && (a.charAt(0) != 7) && (a.charAt(0) != 6)) {
                 alert("Phone number must start with 9,8,7 and 6");
-                return false;
-            } else if (b > 10) {
+            return false;
+                } else if (b > 10) {
                 alert("sem one cgpa not greater than 10");
-                return false;
-            } else if (c > 10) {
+            return false;
+                } else if (c > 10) {
                 alert("sem2 cgpa not greater than 10");
-                return false;
-            } else if (d > 10) {
+            return false;
+                } else if (d > 10) {
                 alert("sem3 cgpa not greater than 10");
-                return false;
-            } else if (e > 10) {
+            return false;
+                } else if (e > 10) {
                 alert("sem4 cgpa not greater than 10");
-                return false;
-            } else if (f > 10) {
+            return false;
+                } else if (f > 10) {
                 alert("sem5 cgpa not greater than 10");
-                return false;
-            } else if (g > 10) {
+            return false;
+                } else if (g > 10) {
                 alert("sem6 cgpa not greater than 10");
-                return false;
-            } else if (h > 10) {
+            return false;
+                } else if (h > 10) {
                 alert("sem7 cgpa not greater than 10");
-                return false;
-            } else if (sem > 10) {
+            return false;
+                } else if (sem > 10) {
                 alert("sem8 cgpa not greater than 10");
-                return false;
-            } else if (j > 10) {
+            return false;
+                } else if (j > 10) {
                 alert("overall cgpa not greater than 10");
-                return false;
+            return false;
             } else if (length < 8)
-            {
+                {
                 alert("Your password must be at least 8 characters long.");
-                return false;
+            return false;
             } else if (flag_number === 0)
-            {
+                {
                 alert("Your password must contain at least one digit .");
-                return false;
+            return false;
             } else if (flag_lowercase === 0)
-            {
+                {
                 alert("Your password must contain at least a letter in lower case .");
-                return false;
+            return false;
             } else if (flag_upercase === 0)
-            {
+                {
                 alert("Your password must contain at least a letter in uper case .");
-                return false;
+            return false;
             } else
-            {
+                {
                 var a = (document.getElementById("t1").value);
                 var b = (document.getElementById("t2").value);
-                if (a !== b) {
+                    if (a !== b) {
                     alert("pass not match");
-                    return false;
-                } else {
+                return false;
+                    } else {
                     alert("pass  match");
-                    return true;
-                }
-
+                return true;
             }
+
         }
+    }
     </script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+
 </html>
 

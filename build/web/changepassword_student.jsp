@@ -13,19 +13,19 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
-        <title>CHANGEPASSWORD_STUDENT</title>
+        <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css'>
+        <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
+        <script src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js'></script>
+
+        <title>CHANGE PASSWORD STUDENT</title>
+
         <style>
             body
             {
                 margin:0;
                 padding:0;
                 font-family:sans-serif;
-                background:url(background_images/balls3.jpg);
-                background-size:cover;
-            }
+               }
             .box
             {
                 position:absolute;
@@ -159,7 +159,12 @@
         </script>
     </head>
     <body>
+        
+        <section>
         <%@include file = "header_student.jsp"%>
+        </section>
+        
+        <section>
         <div class="box">
             <h2>CHANGE PASSWORD</h2>
             <form action="changepassword_student.jsp" method="post" onsubmit="return checkpassword()" autocomplete="on">
@@ -220,6 +225,7 @@
             }
 
         %>
+        </section>
         <section>
             <%@include file = "footer-student.jsp"%>
         </section>

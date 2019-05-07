@@ -9,17 +9,18 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css'>
 
-        <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css'>
         <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Arimo" />
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+
         <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Francois+One" />
         <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Allerta" />
 
+        <title>FOOTER COMPANY</title>
         <style>
 
-            #footer{
+                #footer{
                 background:#1c1d1f; 
                 padding-top: 50px;
 
@@ -29,19 +30,24 @@
                 margin: 0 auto;
                 margin-bottom: 50px;
                 width:70%;
-
                 color:#ececec;
 
             }  
             .main-1
             {
                 padding-left: 50px;
-                flex: 1;
+                flex: 0.9;
             }
             .main-2
+            {   
+                flex-wrap: wrap;
+                flex: 2.5;
+            }
+            @media (min-width:500px)
             {
-
-                flex: 2;
+                .main-2{
+                    display: flex;
+                }
             }
             .main-3
             {
@@ -117,7 +123,7 @@
 
             .main-2-a{
 
-                flex: 1;
+                flex: 0.7;
             }
             .main-2-b{
 
@@ -140,13 +146,7 @@
 
             }
 
-            @media (min-width:700px)
-            {
-                .main-2{
-                    display: flex;
-                    padding-left: 70px;
-                }
-            }
+
             .below{
 
                 font-family: "Francois One";
@@ -260,7 +260,7 @@
             .belowbelow p,a{
 
                 color: #797979;
-                opacity: 0.8;
+
 
             }
             .belowbelow a:hover{
@@ -346,5 +346,10 @@
                 <p>&copy; Placement Cell &nbsp;&nbsp;  info@placementcell.tu, (785) 504-1209    &nbsp;&nbsp;  <a href="#">Our Team</a><p>
             </div>
         </footer>
+               
     </body>
+    
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
+    <script src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js'></script>
+
 </html>

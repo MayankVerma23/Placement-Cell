@@ -53,6 +53,7 @@
     <!--End of Navbar Section-->
 
     <section> 
+        <form action="placed_receive.jsp" method="POST">
         <table>
             <tr>
 
@@ -71,11 +72,14 @@
                 try {
                     Class.forName("com.mysql.jdbc.Driver");
                     Connection conn = DriverManager.getConnection("jdbc:mysql://Localhost/placementcell", "root", "");
-
                     String fetchQuery = "select * from interestedstudents where company_email='" + comp_email + "' and (status='" + status1 + "' or status='" + status2 + "')";
                     Statement fetchStatement = conn.createStatement();
-                    ResultSet rs = fetchStatement.executeQuery(fetchQuery);
+                    ResultSet rs = fetchStatement.executeQuery(fetchQuery);%>
+              
+                    
+            <%
                     while (rs.next()) {
+                        String myid = rs.getString("id");
             %> 
 
             <tr>              
@@ -83,18 +87,22 @@
                 <td><%=rs.getString("student_name")%></td>
                 <td><%=rs.getString("student_rollno")%></td>
                 <td><%=rs.getString("student_email")%></td>
-                <td><button class="btn btn-danger" onclick="placed(<%=rs.getString("id")%>)">placed</button></td>
-            </tr>
-
+                <td><input type="checkbox" value='<%=myid%>' name="checkbox-group" ></td>
+            </tr> 
+<!--             <button class="btn btn-danger" onclick="placed(<%=rs.getString("id")%>)">placed</button>              
+                   -->
+            <% } %>
             <% }
-                } catch (Exception ex) {
+                catch (Exception ex) 
+                {
                     out.print(ex);
                 }
             %>
+            
         </table>
-    </section> 
-    <section>
-        <%@include file = "footer-company.jsp"%>
+            <input type="submit" class="btn btn-success" value="Submit">
+        </form>
+            
     </section>
 </body>
 </html>

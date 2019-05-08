@@ -11,81 +11,13 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title id="title">COMPANY_REGISTER</title>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
-        <style>
-            .container{
-                padding: 0px !important;
-            }
-        </style>
-        
-    </head>
+        <meta charset="UTF-8">
+        <title>Registration Company</title>
+        <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css'>
+        <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
+        <script src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js'></script>
 
-    <body>
-
-        
-
-            <section class="container" style="background-color:#ffffff4a;padding:20px !important;border:2px solid black">
-                <div class="row" >
-                    <div class="col-md-12">
-                        <h1 style="text-align: center;color:black">COMPANY SIGNUP</h1>
-                    </div>
-                </div>
-
-                <div class="row">
-
-                    <form action="companysignup" method="post" onsubmit="return checkpassword1()" style="color: black;" >
-
-                        <div class="col-md-12">  
-
-                            <div class="form-group">
-                                <label for="comp_name">COMPANY NAME:</label>
-                                <input type="text" name="comp_name" class="form-control" id="comp_name" required>
-                            </div> 
-
-                            <div class="form-group">
-                                <label for="comp_email">EMAIL:</label>
-                                <input type="email" name="comp_email" class="form-control" required>
-                            </div>
-
-                            <div class="form-group">
-                                <label for="compy_phoneno">MOBILE NO:</label>
-                                <input type="text" name="compy_phoneno" class="form-control" id="compy_phoneno" required>
-                            </div>
-
-                            <div class="form-group">
-                                <label for="comp_loc">LOCATION:</label>
-                                <input type="text" name="comp_loc" class="form-control" required>
-                            </div>
-
-                            <div class="form-group">
-                                <label for="comp_pass">PASSWORD:</label>
-                                <input type="password" name="comp_pass" class="form-control" id="comp_pass" required>
-                            </div>
-
-                            <div class="form-group">
-                                <label for="comp_confpass">CONFIRM PASSWORD:</label>
-                                <input type="password" name="comp_confpass" class="form-control" id="comp_confpass" required>
-                            </div>
-
-                        </div>
-
-                        <div class="row">
-                            <div class="col-md-12" style="text-align: center">
-                                <button  type="submit" class="btn btn-success" value="SignUp" style="width:40%;height:5%">SIGNUP</button>
-                            </div>
-                        </div>
-
-                    </form>
-                </div>
-            </section>
-     
-
-    </body>
-
-    <script>
+            <script>
 
             function checkpassword1()
             {
@@ -158,8 +90,64 @@
                 }
             }
         </script>
-    
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+        
+    </head>
 
+    <body>
+
+            <section class="container" style="background-color:#ffffff4a;padding:20px !important;border:2px solid black">
+                <div class="row" >
+                    <div class="col-md-12">
+                        <h1 style="text-align: center;color:black">COMPANY SIGNUP</h1>
+                    </div>
+                </div>
+
+                <div class="row">
+
+                    <form action="companysignup" method="post" onsubmit="return checkpassword1()" style="color: black;" >
+
+                        <div class="col-md-12">  
+
+                            <div class="form-group">
+                                <label for="comp_name">COMPANY NAME:</label>
+                                <input type="text" name="comp_name" class="form-control" id="comp_name" required>
+                            </div> 
+
+                            <div class="form-group">
+                                <label for="comp_email">EMAIL:</label>
+                                <input type="email" name="comp_email" class="form-control" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="compy_phoneno">MOBILE NO:</label>
+                                <input type="text" name="compy_phoneno" class="form-control" id="compy_phoneno" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="comp_loc">LOCATION:</label>
+                                <input type="text" name="comp_loc" class="form-control" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="comp_pass">PASSWORD:</label>
+                                <input type="password" name="comp_pass" class="form-control" id="comp_pass" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="comp_confpass">CONFIRM PASSWORD:</label>
+                                <input type="password" name="comp_confpass" class="form-control" id="comp_confpass" required>
+                            </div>
+
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-12" style="text-align: center">
+                                <button  type="submit" class="btn btn-success" value="SignUp" style="width:40%;height:5%">SIGNUP</button>
+                            </div>
+                        </div>
+
+                    </form>
+                </div>
+            </section>
+    </body>
 </html>

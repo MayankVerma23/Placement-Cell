@@ -84,12 +84,13 @@
                             <li class="dropdown">
                                 <a class="dropdown-toggle" data-toggle="dropdown" href="#" id="navbar-links">NOTICE SECTION<span class="caret"></span></a>
                                 <ul class="dropdown-menu">
-                                    <li><a href="notice1.jsp">STUDENT NOTICE</a></li>
-                                    <li><a href="remove_notice.jsp">REMOVE STUDENT NOTICE</a></li>
+                                    <li><a href="notice1.jsp">ADD NOTICE</a></li>
+                                    <li><a href="remove_notice.jsp">REMOVE NOTICE</a></li>
                                 </ul>
                             </li>
                             <li><a href="paper_upload_tpo.jsp" id="navbar-links">UPLOAD PAPER</a></li> 
-                            <li><a href="mail_new_companies.jsp" id="navbar-links">MAIL NEW COMPANY</a></li> 
+                            <li><a href="mail_new_companies.jsp" id="navbar-links">MAIL NEW COMPANY</a></li>
+                             <li><a href="result_announce.jsp" id="navbar-links">PUBLISH RESULT</a></li>
                             <li><a href="changepassword_tpo.jsp" id="navbar-links">CHANGE PASSWORD</a></li>
                         </ul>
                         <ul class="nav navbar-nav navbar-right" >

@@ -12,10 +12,7 @@
 <!DOCTYPE html>
 <html>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
-
+   
     <style>
         table
         {
@@ -60,7 +57,7 @@
                 <th>STUDENT  EMAIL ID</th>
                 <th>CHANGE RESULT ?</th>
             </tr>
-
+          <!% String student_visible=false;%>
             <%
                 String status = "placed";
                 HttpSession hs = request.getSession();
@@ -69,27 +66,36 @@
                     Class.forName("com.mysql.jdbc.Driver");
                     Connection conn = DriverManager.getConnection("jdbc:mysql://Localhost/placementcell", "root", "");
 
+                    String d = "select * from interestedstudents where company_email='" + comp_email + "' and status='" + status + "'";
+                    Statement fetchStatement1 = conn.createStatement();
+                    ResultSet rs1 = fetchStatement1.executeQuery(d);
+                    
+                    while (rs1.next()) {
+                        String student_visible=rs1.getString("student_visible");
+          
+            }
+                    if(student_visible==true){
                     String fetchQuery = "select * from interestedstudents where company_email='" + comp_email + "' and status='" + status + "'";
                     Statement fetchStatement = conn.createStatement();
                     ResultSet rs = fetchStatement.executeQuery(fetchQuery);
+                    
                     while (rs.next()) {
             %> 
-
-            <tr>                               
-
+            <tr>                             
                 <td><%=rs.getString("student_name")%></td>
                 <td><%=rs.getString("student_rollno")%></td>
                 <td><%=rs.getString("student_email")%></td>
                 <td><button class="btn btn-danger" onclick="unplaced(<%=rs.getString("id")%>)">reject</button></td>
             </tr>
-
-            <% }
-                } catch (Exception ex) {
+            <% }}
+                } 
+                    catch (Exception ex) {
                     out.print(ex);
                 }
             %>
         </table>
     </section> 
+        
     <section>
         <%@include file = "footer-company.jsp"%>
     </section>

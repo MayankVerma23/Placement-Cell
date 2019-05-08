@@ -11,47 +11,93 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
-       <title>SIGNUP PAGE</title>
-       
-       
+        <meta charset="UTF-8">
+        <title>Registration Student</title>
+
+        <style>
+
+            .affix {
+                -webkit-transition:padding 0.2s ease-out;
+                -moz-transition:padding 0.2s ease-out;  
+                -o-transition:padding 0.2s ease-out;         
+                transition:padding 0.2s ease-out;
+            }
+
+            .affix-top {
+                /* navbar style at top */
+                background:transparent !important;
+                border-color:transparent !important;
+                padding: 15px;
+                -webkit-transition:all 0.5s ease;
+                -moz-transition:all 0.5s ease; 
+                -o-transition:all 0.5s ease;         
+                transition:all 0.5s ease;  
+            }
+
+            .affix-top .navbar-collapse {
+                border-color:transparent;
+                box-shadow:initial;
+            }
+            .affix
+            {
+                color: black !important;
+                height: 65px;
+                padding-right: 5px;
+            }
+
+            .navbar{
+                border: 1px solid transparent !important;
+                background-color: white !important;
+                padding: 0px 10px 0px 0px !important;
+                width:100%;
+            }
+
+            #nav-options{
+                color:black;
+                font-size: 25px; 
+            }
+
+            #nav-options:hover{
+                color: red !important; 
+            }
+
+        </style>
+
+
     </head>
 
     <body style="background-image: url('background_images/bck6.jpg');background-attachment: fixed;background-size: cover;">
+
+
         <section>
             <%@include file = "index_navbar.jsp"%>
         </section>
 
         <section style="margin-top:5%;">
-            
-                <div id="exTab1" class="container">	
-                    <ul  class="nav nav-pills">
-                        <li class="active" style="width:50%;text-align:center;">
-                            <a href="#1" data-toggle="tab" >Student</a>
-                        </li>
-                        <li style="width:49%;text-align:center;">
-                            <a href="#2" data-toggle="tab" >Company</a>
-                        </li>
 
-                    </ul>
+            <div id="exTab1" class="container">	
+                <ul  class="nav nav-pills">
+                    <li class="active" style="width:50%;text-align:center;">
+                        <a href="#1" data-toggle="tab" >Student</a>
+                    </li>
+                    <li style="width:49%;text-align:center;">
+                        <a href="#2" data-toggle="tab" >Company</a>
+                    </li>
 
-                    <div class="tab-content clearfix">
-                        <div class="tab-pane active" id="1">
-                            <%@include file = "registration_student.jsp"%>
-                        </div>
-                        <div class="tab-pane" id="2">
-                            <%@include file = "registration_company.jsp"%>
-                        </div>
+                </ul>
 
+                <div class="tab-content clearfix">
+                    <div class="tab-pane active" id="1">
+                        <%@include file = "registration_student.jsp"%>
                     </div>
+                    <div class="tab-pane" id="2">
+                        <%@include file = "registration_company.jsp"%>
+                    </div>
+
                 </div>
-            
+            </div>
+
         </section>
     </body>
-
-    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
-    <script src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js'></script>
 
 </html>

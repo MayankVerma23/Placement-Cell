@@ -9,12 +9,8 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
-        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Notice 1</title>
+        <title>ADD NOTICE</title>
 
         <style>
 
@@ -81,8 +77,8 @@
                 <input type="checkbox" name="student" value="student" style="float:left">Student</div>
                 <input type="checkbox" name="company"  value="company">Company<br>
                 <input type="checkbox" name="both"  value="common">Common<br>
-                <textarea cols="20" rows="8" name="t2" placeholder="SUBJECT" id="subject"></textarea><br>
-               <textarea cols="60" rows="8" name="t1" placeholder="ADD NOTICE"></textarea><br>
+                <textarea cols="20" rows="8" name="t2" placeholder="SUBJECT" id="subject" required></textarea><br>
+               <textarea cols="60" rows="8" name="t1" placeholder="ADD NOTICE" required></textarea><br>
             <input type="submit" class=form-submit-button value="Post Notice">
         </form>
      

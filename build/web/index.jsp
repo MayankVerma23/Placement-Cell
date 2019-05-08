@@ -20,18 +20,7 @@
         <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css'>
 
         <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-        <script>
-            function view(x) {
-                window.open('company_responsetable2.jsp?companyid=' + x, 'popUpWindow', 'height=1000,width=700,left=450,top=100,resizable=no,scrollbars=no,toolbar=no,menubar=no,location=no,directories=no, status=yes');
-            }
-            
-             
-      
-            function message(x) {
-                window.open('notice_message.jsp?id=' + x, 'popUpWindow', 'height=260,width=510,left=650,top=250,resizable=no,scrollbars=no,toolbar=no,menubar=no,location=no,directories=no, status=yes');
-            }
-     
-        </script>
+        
         <style>
             .img-responsive{
                 width:100%;
@@ -172,8 +161,32 @@
                 <div class="navbar-collapse collapse">
                     <ul class="nav navbar-right navbar-nav">
                         <li><a href="aboutus.jsp" id="nav-options">About Us</a></li>
-                        <li><a href="offcampus.jsp" id="nav-options">Off Campus</a></li>
-                        <li><a href="our_recruiter.jsp" id="nav-options">Placement Record</a></li>
+                     
+                        
+                        <li class="dropdown">
+                                <a class="dropdown-toggle" data-toggle="dropdown" href="#"  id="nav-options">offcampus<span class="caret"></span></a>
+                                <ul class="dropdown-menu">
+
+                                    <li><a href="offcampus.jsp" id="nav-options">offcampus signup</a></li>
+                                    <li><a href="offcampus_comp.jsp" id="nav-options">offcampus companies</a></li>
+                                    
+                                </ul>
+                            </li>
+                        
+                        <li class="dropdown">
+                                <a class="dropdown-toggle" data-toggle="dropdown" href="#"  id="nav-options">Placement Section<span class="caret"></span></a>
+                                <ul class="dropdown-menu">
+
+                                    <li><a href="placement_data.jsp" id="nav-options">Placement Record</a></li>
+                                    <li><a href="placement_process.jsp" id="nav-options">Placement Process</a></li>
+                                     <li><a href="our_recruiter.jsp" id="nav-options">Our Recruiters</a></li>
+                                </ul>
+                            </li>
+                        
+                        
+                        
+                        
+                        
                         <li><a href="login_page.jsp" style="padding-top:8px;"><button class="btn btn-primary" style="width: 80px;" >Login</button></a></li>
                         <li><a href="signup.jsp" style="padding-top:8px;"><button class="btn btn-warning" style="width: 80px;">Signup</button></a></li>
                     </ul>
@@ -396,7 +409,7 @@
                     <h3>More Than 800 Student Placed</h3> 
                     <h3>13 Lac Highest Package</h3>
                     <h3>Average Package is 5.5 Lac</h3>
-                    <h3><a href="our_recruiter.jsp">View More</a></h3>
+                    <h3><a href="placement_data.jsp">View More</a></h3>
                 </div>
             </div>
         </div>
@@ -425,7 +438,7 @@
                                 while (rs2.next()) {
                             %> 
                          
-                                <a style="color:white;" onclick="message(<%=rs2.getString("id")%>)"><p class="notices"><b><%=rs2.getString("subject")%></b></p></a>                             
+                                <a style="color:white;" href="news_feed.jsp"><p class="notices"><b><%=rs2.getString("subject")%></b></p></a>                             
                         
                             <% }%>
                               
@@ -445,7 +458,7 @@
                                 <%  ResultSet rs1 = fetchStatement.executeQuery(fetchQuery);
                                     while (rs1.next()) {
                                 %> 
-                                <h1> <a  style="color:white;" onclick="view(<%=rs1.getString("id")%>)"><%=rs1.getString("companyname")%> company is coming </a></h2>
+                                <h1> <a  style="color:white;" href="offcampus_comp.jsp"><%=rs1.getString("companyname")%> company is coming </a></h2>
 
                                     <%}%>
                             </marquee>

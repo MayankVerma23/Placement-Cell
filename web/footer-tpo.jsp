@@ -9,11 +9,9 @@
 <html>
     <head>
      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css'>
-
+        
         <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Arimo" />
-        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
-
+        
         <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Francois+One" />
         <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Allerta" />
 
@@ -359,7 +357,4 @@
         </footer>
     </body>
     
-    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
-    <script src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js'></script>
-
 </html>

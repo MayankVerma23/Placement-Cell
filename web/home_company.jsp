@@ -12,15 +12,12 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
-        <title>HOME COMPANY</title>
+         <title>HOME COMPANY</title>
         <style>
 
             .box
             {
-                
+
                 margin:10px;
                 height:500px;
                 width:450px;
@@ -46,7 +43,7 @@
                 border-color: #A9A9A9;
             }
         </style>
-          <script>
+        <script>
             function message(x) {
                 window.open('notice_message.jsp?id=' + x, 'popUpWindow', 'height=260,width=510,left=650,top=250,resizable=no,scrollbars=no,toolbar=no,menubar=no,location=no,directories=no, status=yes');
             }
@@ -61,8 +58,7 @@
 
 
         <%! String com_email = "", com_name;%>
-        <%
-            Class.forName("com.mysql.jdbc.Driver");
+        <%            Class.forName("com.mysql.jdbc.Driver");
             Connection conn = DriverManager.getConnection("jdbc:mysql://Localhost/placementcell", "root", "");
 
             String fetchQuery = "select * from notice_table  where companymsg='company' or common='common' ";
@@ -87,23 +83,23 @@
                 <h1><B><u>NOTICE BOARD</u></b></h1>
                 <marquee direction="up" height="400" onmouseover="this.stop()" onmouseout="this.start()" scrolldelay="200">
 
-                 
-
-                        <%
-                            ResultSet rs1 = fetchStatement.executeQuery(fetchQuery);
-                            while (rs1.next()) {
-                        %> 
-
-                       
-
-                            <a onclick="message(<%=rs1.getString("id")%>)"><p class="notices"><b><%=rs1.getString("subject")%></b></p></a>                             
-                                                    
-
-                        
 
 
-                        <% }%>
-                 
+                    <%
+                        ResultSet rs1 = fetchStatement.executeQuery(fetchQuery);
+                        while (rs1.next()) {
+                    %> 
+
+
+
+                    <a onclick="message(<%=rs1.getString("id")%>)"><p class="notices"><b><%=rs1.getString("subject")%></b></p></a>                             
+
+
+
+
+
+                    <% }%>
+
 
                 </marquee>
             </div>
@@ -112,7 +108,7 @@
 
         <!--Start of Footer Section-->
         <section>
-        <%@include file = "footer-company.jsp"%>
+            <%@include file = "footer-company.jsp"%>
         </section>
         <!--End of Footer Section--> 
 

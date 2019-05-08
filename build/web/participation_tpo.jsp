@@ -12,7 +12,7 @@
 <!DOCTYPE html>
 <html>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    
+
     <style>
         table
         {
@@ -34,13 +34,19 @@
         }
 
     </style>
+    <script>
+        function student(x) {
+            window.open('compwise_interestedstudent_details.jsp?comp_email=' + x, 'popUpWindow', 'height=500,width=600,left=100,top=100,resizable=yes,scrollbars=yes,toolbar=yes,menubar=no,location=no,directories=no, status=yes');
+        }
+    </script>
 </head>
 <body>
 
-
+    <section>
     <!--Start of Navbar Section-->
     <%@include file = "header_tpo.jsp"%>
     <!--End of Navbar Section-->
+    </section>
 
     <section> 
         <table>
@@ -48,29 +54,26 @@
                 <th>COMPANY NAME </th>
                 <th>COMPANY EMAIL ID</th>
                 <th>VIEW INTERESTED STUDENT </th>
-
             </tr>
-
             <%
                 Class.forName("com.mysql.jdbc.Driver");
                 Connection conn = DriverManager.getConnection("jdbc:mysql://Localhost/placementcell", "root", "");
-
-                String fetchQuery = "select * from interestedstudents";
+                String fetchQuery = "select * from companyrequirements";
                 Statement fetchStatement = conn.createStatement();
                 ResultSet rs = fetchStatement.executeQuery(fetchQuery);
                 while (rs.next()) {
             %> 
-
             <tr>
-                <td><%=rs.getString("company_name")%></td>                              
+                <td><%=rs.getString("companyname")%></td>                              
                 <td><%=rs.getString("company_email")%></td>
+                <td><button class="btn btn-danger" onclick="student('<%=rs.getString("company_email")%>')">view profile</button></td>                
             </tr>
-
             <% }%>
         </table>
     </section> <br>
-
-   <%@include file = "footer-tpo.jsp"%> 
+    <section>
+    <%@include file = "footer-tpo.jsp"%> 
+    </section>
 </body>
 </html>
 <!--
@@ -84,7 +87,7 @@
 
                 </tr>
 
-                <%--
+<%--
 
                
                     String fetchQuery = "select * from offcampus_table";

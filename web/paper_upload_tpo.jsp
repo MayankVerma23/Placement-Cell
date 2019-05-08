@@ -17,67 +17,19 @@
         <style>
             /* NOTE: The styles were added inline because Prefixfree needs access to your styles and they must be inlined if they are on local disk! */
             /* cfoley.net */
-            html,body {
-                height: 100%;
-                overflow: hidden;
-            }
-            body {
 
-                background: #00c6ff;
-                background-size: cover;
-                margin: 0;
-                padding: 0;
-                font-family: Verdana, sans-serif;
-                position: relative;
-            }
 
 
             form {
-                position: absolute;
-                top: 50%;
-                left:40%;
-                margin: -105px 0 0 -150px;
-                padding: 10px 20px;
-                width: 400px;
-                height: 250px;
+                text-align: center;
+                margin: 0 auto;
+                width: 410px;
+                height: 260px;
                 background: #E9E8E2;
                 border-radius: 5px;
                 box-shadow: 0 1px 1px rgba(255, 255, 255, 0.2) inset, 0 0 3px 1px rgba(255, 255, 255, 0.2) inset, 0px 1px 2px 0px rgba(0, 0, 0, 0.7);
                 border: 1px solid rgba(0, 0, 0, 0.8);
 
-            }
-
-
-            .input:focus {
-                outline: none;
-                box-shadow: 0 0 3px 2px rgba(255,255,255,0.4);
-                text-align: center;
-            }
-            .submit {
-                height: 50px;
-                width: 100%;
-                box-shadow: none;
-                background: linear-gradient(top, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.15));
-                border: 1px solid rgba(0, 0, 0, 0.7);
-                box-shadow: 0 1px 1px rgba(255, 255, 255, 0.2) inset, 0 0 3px 1px rgba(255, 255, 255, 0.15) inset, 0 1px 1px rgba(0, 0, 0, 0.2);
-                text-shadow: 1px -1px 1px rgba(0, 0, 0, 0.5);
-                color: #ffffff;
-                letter-spacing: 1px;
-                cursor: pointer;
-            }
-            .submit:hover {
-                background: linear-gradient(top, rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0.15));
-            }
-            .submit:active {
-                background: linear-gradient(top, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.1));
-            }
-            .form-actions {
-                margin: 0;
-                background-color: transparent;
-                text-align: center;
-            }
-            .center { 
-                margin: 0 auto !important; /* I have added the !important attribute just for debugging, you can remove it. */ 
             }
 
         </style>
@@ -91,24 +43,33 @@
 
     </head>
     <body>
-        <%@include file = "header_tpo.jsp"%>
-        <form name="f1" enctype="multipart/form-data" method="post">   
-            <div class="form-group text-center">
-                <div class="input-group" style="margin:auto;">
-                    <input type="text" class="text-center" Placeholder="txt"  name="t1"><br>
+        <section>
+            <%@include file = "header_tpo.jsp"%>
+        </section>
+
+        <section style="min-height: 400px">
+            <form name="f1" enctype="multipart/form-data" method="post" >   
+
+                <h3 style="text-align: center">UPLOAD PAPER</h3>
+                <div class="form-group text-center">
+                    <div class="input-group" style="margin:auto;">
+                        <input type="text" class="text-center" Placeholder="txt"  name="t1"><br>
+                    </div>
                 </div>
-            </div>
-            <h4 style="text-align: center">Paper</h4>
 
-            <input type="file"  name="i" required><br>
+                <input style="margin-left: 30%" type="file"  name="i" required>&nbsp;.
 
-            <div class="form-actions">
-                <input type="submit" value="Submit" class="btn btn-primary" onclick="demo()">
-            </div>
-        </form>
-         
+
+                <div class="form-actions"  style="text-align: center">
+                    <button type="submit" class="btn btn-primary" onclick="demo()" >SUBMIT</button>
+                </div>
+            </form>
+        </section> 
+
+        <section>
+            <%@include file = "footer-tpo.jsp"%> 
+        </section>
     </body>
-  
+
 </html>
 
-<%@include file = "footer-tpo.jsp"%> 

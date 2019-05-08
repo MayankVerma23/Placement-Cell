@@ -20,12 +20,12 @@
 
             .box
             {
-
-                margin: 0 auto;
-                height:600px;
-                width:400px;
+                
+                margin:10px;
+                height:500px;
+                width:450px;
                 padding:40px;
-                background-color:#008B8B;
+                background-color:#fff;
                 box-sizing:border-box;
                 box-shadow: 0 15px 25px rgba(0,0,0,.7);
                 border-radius:10px;
@@ -46,6 +46,11 @@
                 border-color: #A9A9A9;
             }
         </style>
+          <script>
+            function message(x) {
+                window.open('notice_message.jsp?id=' + x, 'popUpWindow', 'height=260,width=510,left=650,top=250,resizable=no,scrollbars=no,toolbar=no,menubar=no,location=no,directories=no, status=yes');
+            }
+        </script>
     </head>
 
     <body>
@@ -60,7 +65,7 @@
             Class.forName("com.mysql.jdbc.Driver");
             Connection conn = DriverManager.getConnection("jdbc:mysql://Localhost/placementcell", "root", "");
 
-            String fetchQuery = "select * from notice_table  where companymsg='company'";
+            String fetchQuery = "select * from notice_table  where companymsg='company' or common='common' ";
             Statement fetchStatement = conn.createStatement();
 
             HttpSession hs = request.getSession();
@@ -80,24 +85,25 @@
         <section>
             <div class="box" >
                 <h1><B><u>NOTICE BOARD</u></b></h1>
-                <marquee direction="up" height="450">
+                <marquee direction="up" height="400" onmouseover="this.stop()" onmouseout="this.start()" scrolldelay="200">
 
-                    <table>
+                 
 
                         <%
                             ResultSet rs1 = fetchStatement.executeQuery(fetchQuery);
                             while (rs1.next()) {
                         %> 
 
-                        <tr>
+                       
 
-                            <td><h4><br><br><br><b><%=rs1.getString("message")%></b></h4></td>                              
+                            <a onclick="message(<%=rs1.getString("id")%>)"><p class="notices"><b><%=rs1.getString("subject")%></b></p></a>                             
+                                                    
 
-                        </tr>
+                        
 
 
                         <% }%>
-                    </table>
+                 
 
                 </marquee>
             </div>

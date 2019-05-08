@@ -89,8 +89,6 @@
                 <td><%=rs.getString("student_email")%></td>
                 <td><input type="checkbox" value='<%=myid%>' name="checkbox-group" ></td>
             </tr> 
-<!--             <button class="btn btn-danger" onclick="placed(<%=rs.getString("id")%>)">placed</button>              
-                   -->
             <% } %>
             <% }
                 catch (Exception ex) 

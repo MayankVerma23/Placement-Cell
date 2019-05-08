@@ -12,10 +12,7 @@
 <!DOCTYPE html>
 <html>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
-
+    
     <style>
         table
         {
@@ -50,9 +47,8 @@
             <tr>
                 <th>COMPANY NAME </th>
                 <th>COMPANY EMAIL ID</th>
-                <th>STUDENT NAME</th>
-                <th>STUDENT ROLL NO.</th> 
-                <th>STUDENT EMAIL ID</th> 
+                <th>VIEW INTERESTED STUDENT </th>
+
             </tr>
 
             <%
@@ -68,9 +64,6 @@
             <tr>
                 <td><%=rs.getString("company_name")%></td>                              
                 <td><%=rs.getString("company_email")%></td>
-                <td><%=rs.getString("student_name")%></td>
-                <td><%=rs.getString("student_rollno")%></td>
-                <td><%=rs.getString("student_email")%></td>
             </tr>
 
             <% }%>
@@ -80,3 +73,33 @@
    <%@include file = "footer-tpo.jsp"%> 
 </body>
 </html>
+<!--
+
+    <section>
+        <div id="div1">
+            <table>
+                <tr>
+                    <th>STUDENT NAME</th>
+                    <th>VIEW PROFILE</th>
+
+                </tr>
+
+                <%--
+
+               
+                    String fetchQuery = "select * from offcampus_table";
+                    Statement fetchStatement = conn.createStatement();
+                    ResultSet rs = fetchStatement.executeQuery(fetchQuery);
+                    while (rs.next()) {
+                %> 
+
+                <tr>
+                    <td><%=rs.getString("name")%></td>
+                    <td><button class="btn btn-danger" onclick="viewprofile(<%=rs.getString("id")%>)">view profile</button></td>
+                </tr>
+
+                <% }--%>
+            </table>
+        </div>
+    </section> 
+-->

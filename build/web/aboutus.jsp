@@ -5,7 +5,7 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
 
-        <title>Parallax</title>
+    
 
         <style>
             body{
@@ -133,13 +133,18 @@
         </style>
     </head>
     <body>
+         <section>
+
+
+             <%@include file = "index_navbar.jsp"%>
+        </section>
         <div class="box1">
-            <h1>Placement Cell</h1>
+            <h1>ABOUT US</h1>
         </div>
         <div class="box2">
             <div class="content">
-                <div class="h"> <h4  style="margin-top: 50px;">About Us</h4></div>
-
+                
+<h1>ABOUT US</h1>
                 <div class="text-success">
                     <blockquote>    The Placement Cell plays a crucial role in locating job opportunities for Under Graduates and Post Graduates passing out from the college by keeping in touch with reputed firms and industrial establishments. The Placement Cell operates round the year to facilitate contacts between companies and graduates. The number of students placed through the campus interviews is continuously rising. On invitation, many reputed industries visit the institute to conduct interviews.<br><br>
 
@@ -173,68 +178,7 @@
                     9. Aiming to Place the maximum number of students through campus & off-campus interviews conducted by the top companies
                     <br>
                 </p>
-                <h4 style="margin-top: 50px;" >Placement Data</h4>
-                <table style="margin-top: 50px;">
-                    <tr>
-                        <th></th>
-                        <th colspan="2" >All Branches(including Off-Campus)</th>
-                        <th >Total</th>
-                    </tr>
-                    <tr style="font-weight:700;">
-                        <td>Academic Year</td>
-                        <td>Companies Visited</td>
-                        <td>Total Offers</td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td>2013-2014</td>
-                        <td>400</td>
-                        <td>1200</td>
-                        <td>1000</td>
-                    </tr>
-                    <tr>
-                        <td>2014-2014</td>
-                        <td>400</td>
-                        <td>1200</td>
-                        <td>1000</td>
-                    </tr>
-                    <tr>
-                        <td>2015-2016</td>
-                        <td>400</td>
-                        <td>1200</td>
-                        <td>1000</td>
-
-                    </tr>
-                    <tr>
-                        <td>2016-2017</td>
-                        <td>400</td>
-                        <td>1200</td>
-                        <td>1000</td>
-
-                    </tr>
-                    <tr>
-                        <td>2017-2018</td>
-                        <td>400</td>
-                        <td>1200</td>
-                        <td>1000</td>
-
-                    </tr>
-                    <tr>
-                        <td>2018-2019*</td>
-                        <td>400</td>
-                        <td>1200</td>
-                        <td>1000</td>
-
-                    </tr>
-                </table>
-                <br>              
-                <br> 
-             
             </div>
         </div>
-        <div class="box3" >
-            <p class>Over 1000! offers<br>300+ companies<br>6.4 Lpa avg package<p>
-        </div>
-
     </body>
 </html>

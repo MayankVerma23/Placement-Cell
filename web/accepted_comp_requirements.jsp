@@ -110,8 +110,7 @@
 
                             <label>STUDENTS ALLOWED</label>
                             <INPUT TYPE="radio" name="campus" VALUE="Incampus" ><span id="s1">Incapmus</span>
-                            <INPUT TYPE="radio" name="campus" VALUE="offcampus"><span id="s1">offcampus</span>
-                            <INPUT TYPE="radio" name="campus" VALUE="offcampusandincampus"><span id="s1">BOTH</span>
+                            <INPUT TYPE="radio" name="campus" VALUE="both"><span id="s1">BOTH</span>
                             
                             <div class="col-md-12" style="text-align: center">
                             <button  type="submit" class="btn btn-success" value="SEND" >SEND</button>

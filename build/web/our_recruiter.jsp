@@ -18,46 +18,138 @@
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>about</title>
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
 
-        <script>
-            $(document).ready(function () {
-                $("#div1").mouseenter(function () {
-                    $("#pic").slideDown(2000);
-                });
-            });
+      
 
+        <style>
+            
+            #s1{
+                margin-top:100px;
+                
+            }
+            body{
+                margin: 0;
+                padding: 0;
+            }
 
-            $(document).ready(function () {
-                $("#div2").mouseenter(function () {
-                    $("#pic2").slideDown(2000);
-                });
-            });
-        </script>
-        <style> 
-            #first, #pic,#div1,#div2,#pic2{
-                padding: 5px;
+            .box1{
+                height: 40vh;
+                width: 100%;
+                background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(background_images/image1.jpg);
+                background-size: cover;
+                background-position: center;
+                display: table;
+                background-attachment: fixed;
+                color:white;
+            }
+            .box2{
+                height: 100vh;
+                width: 100%;
+
+                background-size: cover;
+                background-position: center;
+                display: table;
+                background-attachment: fixed;
+            }
+            .box3{
+                height: 40vh;
+                width: 100%;
+                background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(image1.jpg);
+                background-size: cover;
+                background-position: center;
+                display: table;
+                background-attachment: fixed;
+                color: #fff;
+                display: flex;
+                align-items: center;
+                padding-left: 70px;
+            }
+            @media(min-width:900px)
+            {
+                .box3{
+                    padding-left: 30vw;
+                }
+            }
+            .haa{
+                font-family: sans-serif;
+                font-size: 48px;
+                color: #fff;
+                margin: 0px;
                 text-align: center;
-                background-color: #e5eecc;
-                border: solid 1px #c3c3c3;
-            }
-            #second {
-
-                display: none;
-            }
-            #pic{
-
-                display: none;
-            }
-            #pic2{
-
-                display: none;
-            }
-            .text{    
-                font-family: "Times New Roman", Times, serif;
-                font-size: 24px;
             }
 
+            body, html {
+                height: 100%;
+                margin: 0;
+                font-family: Arimo;
+            }
+
+            .content{
+                max-width: 1100px;
+                display: flex;
+                margin: 0 auto;
+                padding: 0 50px 50px;
+                flex-direction: column;
+
+            }
+
+            .content p{
+                font-size: 18px;
+                opacity: 0.9;
+            }
+            .content h4{
+                color: black;
+                font-size: 25px;
+                font-weight: 700;
+            }
+            table, td, th {
+                border: 1px solid white;
+            }
+
+            table {
+                border-collapse: collapse;
+                width: 100%;
+            }
+
+            th {
+                margin-left: 10px;
+                color:white;
+                background-color: #CD5C5C;
+                height: 50px;
+            }
+
+            .companies {
+
+                background-image:linear-gradient(to bottom, rgba(245, 246, 252, 0.52), rgba(117, 19, 93, 0.73)),url('background_images/cse.png');
+                width: 80%;
+                height: 400px;
+                background-size: cover;
+            }
+            table{
+                font-size: 15px;
+            }
+            table th,td{
+
+                padding:10px;
+            }
+            table td{
+                padding: 10px;
+            }
+            table tr:hover{
+                background-color: #E9967A;
+            }
+            .box1{
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+            .box1 h1{
+                font-size: 60px;
+            }
+            .box3 p{
+                font-size: 40px;
+            }
         </style>
 
     </head>
@@ -65,49 +157,78 @@
         <section>
 
 
-            <nav class="navbar navbar-inverse" style="margin-bottom:0px;">
-                <div class="container-fluid">
-                    <div class="navbar-header">
-                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>                        
-                        </button>
-                        <span class="active"> <a class="navbar-brand " href="#">PLACEMENT PORTAL</a></span>>
-                    </div>
-                    <div class="collapse navbar-collapse navbar-right" id="myNavbar">
-                        <ul class="nav navbar-nav">
-                            <li class="active"><a href="#">Home</a></li>
-
-                            <li><a href="aboutus.jsp">ABOUT</a></li>
-                            <li><a href="#">CONTACT US</a></li>
-                        </ul>
-
-                    </div>
-                </div>
-            </nav>  
+             <%@include file = "index_navbar.jsp"%>
         </section>
-
-
         <section>
-            <pre>
-<div id="first">
-<p class="text"><b><u>Department of Training & Placement:</u><b></p>
-            <p class="text">   our Placement Office  is well-equipped with the latest technologies and world-class state-of-the-art Infrastructure for pre-placement 
-   talks, seminars, workshops, counselling, meetings; group discussions, and personal interviews. The placement department works diligently
-   towards providing students with genuine opportunities to give their career a kick-start. The Placement Office is managed by of a team of
-   committed professionals, some of whom have seen 8 cycles of placement.</p></div>
-
-<div id="div1" class="text"><b><u><h1>Our CSE Recruiters </h1></u></b></div>
-<div>
+         <div class="box1">
+            <h1>PLACEMENT RECORD</h1>
+        </div>
+        </section>
+        
+        <section id="s1">
     
-<div id="pic"><img src="background_images/cse.png" width="1500"></div>
-</div>
-<div id="div2" class="text"><b><u><h1>Our other field Recruiters </h1></u></b></div>
-<div id="pic2"><img src="background_images/other.jpg" width="1500"></div>
+       <b><h1 style="margin-top: 50px;" >Placement Data</h1></b>
+                <table style="margin-top: 50px;">
+                    <tr>
+                        <th></th>
+                        <th colspan="2" >All Branches(including Off-Campus)</th>
+                        <th >Total</th>
+                    </tr>
+                    <tr style="font-weight:700;">
+                        <td>Academic Year</td>
+                        <td>Companies Visited</td>
+                        <td>Total Offers</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>2013-2014</td>
+                        <td>400</td>
+                        <td>1200</td>
+                        <td>1000</td>
+                    </tr>
+                    <tr>
+                        <td>2014-2014</td>
+                        <td>400</td>
+                        <td>1200</td>
+                        <td>1000</td>
+                    </tr>
+                    <tr>
+                        <td>2015-2016</td>
+                        <td>400</td>
+                        <td>1200</td>
+                        <td>1000</td>
+
+                    </tr>
+                    <tr>
+                        <td>2016-2017</td>
+                        <td>400</td>
+                        <td>1200</td>
+                        <td>1000</td>
+
+                    </tr>
+                    <tr>
+                        <td>2017-2018</td>
+                        <td>400</td>
+                        <td>1200</td>
+                        <td>1000</td>
+
+                    </tr>
+                    <tr>
+                        <td>2018-2019*</td>
+                        <td>400</td>
+                        <td>1200</td>
+                        <td>1000</td>
+
+                    </tr>
+                </table>
+                <br>              
+                <br> 
+             
+         
+        <div class="box3" >
+            <p class>Over 1000! offers<br>300+ companies<br>6.4 Lpa avg package<p>
+        </div>
+
 </section>
-        
-        
-       
     </body>
 </html>

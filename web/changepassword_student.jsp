@@ -164,7 +164,7 @@
         <%@include file = "header_student.jsp"%>
         </section>
         
-        <section>
+        <section style="min-height: 500px">
         <div class="box">
             <h2>CHANGE PASSWORD</h2>
             <form action="changepassword_student.jsp" method="post" onsubmit="return checkpassword()" autocomplete="on">

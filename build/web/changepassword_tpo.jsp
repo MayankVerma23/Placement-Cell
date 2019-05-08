@@ -194,8 +194,12 @@
         </script>
     </head>
     <body>
+        <section>
         <%@include file = "header_tpo.jsp"%>
+         </section>
 
+        
+          <section style="min-height: 500px">
         <div class="box">
             <h2>CHANGE PASSWORD</h2>
             <form action="changepassword_tpo.jsp" method="post" onsubmit="return checkpassword()" autocomplete="on">
@@ -259,6 +263,10 @@
 
 
     %>
+     </section>
+     <section>
+       <%@include file = "footer-tpo.jsp"%>   
+     </section>
 </body>
-<%@include file = "footer-tpo.jsp"%> 
+
 </html>

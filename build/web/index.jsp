@@ -1,4 +1,8 @@
 
+<%@page import="java.sql.ResultSet"%>
+<%@page import="java.sql.Statement"%>
+<%@page import="java.sql.DriverManager"%>
+<%@page import="java.sql.Connection"%>
 <%-- 
     Document   : index
     Created on : 26 Apr, 2019, 4:41:27 PM
@@ -16,7 +20,18 @@
         <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css'>
 
         <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-
+        <script>
+            function view(x) {
+                window.open('company_responsetable2.jsp?companyid=' + x, 'popUpWindow', 'height=1000,width=700,left=450,top=100,resizable=no,scrollbars=no,toolbar=no,menubar=no,location=no,directories=no, status=yes');
+            }
+            
+             
+      
+            function message(x) {
+                window.open('notice_message.jsp?id=' + x, 'popUpWindow', 'height=260,width=510,left=650,top=250,resizable=no,scrollbars=no,toolbar=no,menubar=no,location=no,directories=no, status=yes');
+            }
+     
+        </script>
         <style>
             .img-responsive{
                 width:100%;
@@ -133,6 +148,9 @@
                 height:200px;
                 margin:0 auto;
                 border: 0px 0px 0px 2px solid purple;
+                padding:5px;
+                text-align:center;
+                font-size:20px;
             }
         </style>
 
@@ -155,7 +173,7 @@
                     <ul class="nav navbar-right navbar-nav">
                         <li><a href="aboutus.jsp" id="nav-options">About Us</a></li>
                         <li><a href="offcampus.jsp" id="nav-options">Off Campus</a></li>
-                        <li><a href="our_recruiter.jsp" id="nav-options">Our Recruiter</a></li>
+                        <li><a href="our_recruiter.jsp" id="nav-options">Placement Record</a></li>
                         <li><a href="login_page.jsp" style="padding-top:8px;"><button class="btn btn-primary" style="width: 80px;" >Login</button></a></li>
                         <li><a href="signup.jsp" style="padding-top:8px;"><button class="btn btn-warning" style="width: 80px;">Signup</button></a></li>
                     </ul>
@@ -187,7 +205,7 @@
                         <img src="background_images/bck3.jpg" alt="..." class="img-responsive" style="min-height:100vh">
                         <div class="carousel-caption">
                             <div data-aos="fade-down" data-aos-duration="3000">
-                                <h1>BE GOOD WITH YOUR MONEY<br> SO YOU CAN BE CREATIVE WITH YOUR TIME</h1>
+                                <h1><span style="color:#62ff15;">EDUCATION</span> IS THE MOST POWERFUL WEAPON <span style="color:#00FFFF;">WHICH</span> <br>YOU CAN USE TO CHANGE THE <span style="color:#62ff15;">WORLD</span></h1>
                                 <a href="signup.jsp" style="color:white"><button class="btn btn-warning">SIGN UP FREE</button></a>
                             </div>
                         </div>
@@ -196,7 +214,7 @@
                         <img src="background_images/bck4.jpg" alt="..." class="img-responsive" style="min-height:100vh">
                         <div class="carousel-caption">
                             <div data-aos="fade-down" data-aos-duration="3000">
-                                <h1>BE GOOD WITH YOUR MONEY<br> SO YOU CAN BE CREATIVE WITH YOUR TIME</h1>
+                                <h1>IF YOU WANT TO <span style="color:#00FFFF;">ACHIEVE GREATNESS </span><br>STOP ASKING FOR PERMISSION</h1>
                                 <a href="signup.jsp" style="color:white"><button class="btn btn-warning">SIGN UP FREE</button></a>
                             </div>
                         </div>
@@ -221,15 +239,19 @@
         <section style="width: 80%;margin:0 auto;height: auto !important;padding-top:80px !important;padding-bottom: 80px !important;">
             <div class="row" >
                 <div class="col-md-6">
-                    <h2><div data-aos="fade-right" data-aos-duration="3000">ABOUT</div><span style="color:red;"> <div data-aos="fade-left" data-aos-duration="3000">OUR PLACMENT CELL</div></span></h2>
-                    <div data-aos="fade-up" data-aos-delay="500" data-aos-duration="3000"><h3>Pune based Recruitment Consultants, providing suitable and timely manpower in multiple disciplines and at middle and senior levels.<br/></h3></div>
-                    <div data-aos="fade-up" data-aos-delay="700" data-aos-duration="3000"><h3>We always aim at enriching the work-life of individuals, taking innovative steps to reducing the attrition rate for our clients and going beyond the scope of our work to ensure that our candidates give a long and fruitful innings to their employers. The only placement agency in Pune with offices pan India and over seas in Dubai and US. We specialise in middle and senior level placements and head hunting assignments.</h3></div>
-                    <div data-aos="fade-up" data-aos-delay="900" data-aos-duration="3000"><h3>Shortlisting, screening and providing jobs to candidates has been our forte for the past 2 decades.<br> As a Executive search consultant we ensure that we provide appropriate manpower to all our clients within the specified time frames.</h3></div>
-                    <div data-aos="fade-up" data-aos-delay="900" data-aos-duration="3000"><button class="btn btn-primary"> Read MORE</button></div>
+                    <div data-aos="fade-right" data-aos-duration="3000"><h2>ABOUT</h2></div>
+                    <div data-aos="fade-left" data-aos-duration="3000"><h2><span style="color:red;">OUR PLACMENT CELL</span></h2></div>
+                    <div data-aos="fade-up" data-aos-delay="500" data-aos-duration="3000" ><h3>Our Placement Cell  is well-equipped with the latest technologies and world-class state-of-the-art Infrastructure for pre-placement 
+                            talks, seminars, workshops, counselling, meetings; group discussions, and personal interviews. <br/></h3></div>
+                    <div data-aos="fade-up" data-aos-delay="700" data-aos-duration="3000" ><h3>The placement department works diligently
+                            towards providing students with genuine opportunities to give their career a kick-start. The Placement Office is managed by of a team of
+                            committed professionals, some of whom have seen 8 cycles of placement.</h3></div>
+                    <div data-aos="fade-up" data-aos-delay="900" data-aos-duration="3000" ><h3>Shortlisting, screening and providing jobs to candidates has been our forte for the past 2 decades.<br> As a Executive search consultant we ensure that we provide appropriate manpower to all our clients within the specified time frames.</h3></div>
+                    <div data-aos="fade-up" data-aos-delay="900" data-aos-duration="3000"><button class="btn btn-primary"><a href="aboutus.jsp"> Read MORE</a></button></div>
                 </div>
                 <div class="col-md-6">
                     <div data-aos="zoom-in" data-aos-duration="3000">
-                        <img src="background_images/child.jpg" alt="child-img" width="100%">
+                        <img src="background_images/child.jpg" alt="child-img" style="width:100%;">
                     </div>
                 </div>
             </div>
@@ -246,202 +268,229 @@
                             <div class="col-md-4">
                                 <div data-aos="zoom-in" data-aos-duration="3000">
                                     <div id="fifth-section-box">
+                                        <div> <img src="svg_icons/1.svg" height="90" width="70"></div>
+                                        <div>Weekend Classes for working Professionals</div>
                                     </div>
                                 </div>
                             </div>
+                               <div class="col-md-4">
+                            <div data-aos="zoom-in" data-aos-duration="3000">
+                                <div id="fifth-section-box">
+                                    <div > <img src="svg_icons/5.svg" height="90" width="70"></div>
+                                    <div>we provide appropriate manpower to our clients within the specified time</div>
+
+                                </div>
+                            </div>
+                        </div>
+                            
                             <div class="col-md-4">
                                 <div data-aos="zoom-in" data-aos-duration="3000">
                                     <div id="fifth-section-box">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-4">
-                                <div data-aos="zoom-in" data-aos-duration="3000">
-                                    <div id="fifth-section-box">
+                                        <div> <img src="svg_icons/3.svg" height="90" width="70"></div>
+                                        <div>Provide skills in Group discussions & in personal interviews</div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="row" style="margin-top:50px;">
-                            <div class="col-md-4">
-                                <div data-aos="zoom-in" data-aos-duration="3000">
-                                    <div id="fifth-section-box">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-4">
-                                <div data-aos="zoom-in" data-aos-duration="3000">
-                                    <div id="fifth-section-box">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-4">
-                                <div data-aos="zoom-in" data-aos-duration="3000">
-                                    <div id="fifth-section-box">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-
-        <section style="background-color:#F0F0F0;">
-
-            <div class="row" style="padding-bottom: 100px;padding-top:100px;">
-                <div class="col-md-1"></div>
-                <div class="col-md-2">
-                    <div data-aos="fade-up" data-aos-duration="3000">
-                        <div id="first-section-box" style="background-color: white;">
-                            <p id="first-section-heading">Learn While you Earn</p>
-                            <p id="first-section-text">Weekend Classes for working Professionals</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-2">
-                    <div data-aos="fade-up" data-aos-delay="500" data-aos-duration="3000">
-                        <div id="first-section-box" style="background-color: blanchedalmond;">
-                            <p id="first-section-heading">Learn from Industry Experts</p>
-                            <p id="first-section-text">Comprising over 95CXOs, VPx, Bussiness Heads</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-2">
-                    <div data-aos="fade-up" data-aos-delay="1000" data-aos-duration="3000">
-                        <div id="first-section-box" style="background-color: gainsboro;">
-                            <p id="first-section-heading">Internships for Freshers</p>
-                            <p id="first-section-text">Start earning while you are learning</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-2">
-                    <div data-aos="fade-up" data-aos-delay="1500" data-aos-duration="3000">
-                        <div id="first-section-box" style="background-color: springgreen;">
-                            <p id="first-section-heading">100% Placement Assistance</p>
-                            <p id="first-section-text">Get a Job before you Complete our Course</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-2">
-                    <div data-aos="fade-up" data-aos-delay="2000" data-aos-duration="3000">
-                        <div id="first-section-box" style="background-color: skyblue;">
-                            <p id="first-section-heading">International Certificate</p>
-                            <p id="first-section-text">Industry Recognised Certificate</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-1"></div>
-                <!--<div class="col-md-2"><p>Easy Finance</p><p>EMI & LOAN option Available</p></div>-->
-            </div>
-
-        </section>
-        <!--END of first section-->
-
-
-
-        <!-- Second section-->
-
-        <section style="background-color:white;min-height: 400px;">
-
-            <div class="row" style="padding-bottom: 100px;padding-top:100px;">
-                <div class="col-md-6">
-                    <div data-aos="fade-right" data-aos-duration="3000">
-                        <img src="background_images/interview.jpg" alt="interview-image"  width="100%"  style="height: auto;padding: 10%;">
-                    </div>
-                </div>
-
-                <div class="col-md-6" style="padding:5%;">
-                    <h3><b>Placement Record</b></h3>
-                    <div data-aos="fade-left" data-aos-duration="3000">
-                        <h3>230+ Companies Visited in 2019</h3>
-                        <h3>More Than 800 Student Placed</h3> 
-                        <h3>13 Lac Highest Package</h3>
-                        <h3>Average Package is 5.5 Lac</h3>
-                        <h3><a href="#">View More</a></h3>
-                    </div>
-                </div>
-            </div>
-
-        </section>
-        <!--END of Second section-->
-
-        <section style="min-height:400px;">
-            <div class="parralax" style=" background-image: url(background_images/bck5.jpg);min-height:400px;background-attachment: fixed;background-position: center;background-repeat: no-repeat;background-size: cover;">
-                <div style="background-color: #ffffff75;">
-                    <div class="row" style="padding-bottom: 100px;padding-top:100px;width:80%;margin:0 auto;">
+                    
+                    <div class="row" style="margin-top:50px;">
                         <div class="col-md-4">
-                            <h2 style="text-align:center"><b><span style="color:white">Latest News</span><span style="color:red"> & Updates</span></b></h2>
-                            <div class="box" style="background-color: #000000a8;height:300px;">
-                                <marquee direction="up" height="300" onmouseover="this.stop();" onmouseout="this.start();">
-                                    <p style="color:white;">news1</p>
-                                    <p style="color:white;">news1</p>
-                                    <p style="color:white;">news1</p>
-                                    <p style="color:white;">news1</p>
-                                    <p style="color:white;">news1</p>
-                                    <p style="color:white;">news1</p>
-                                </marquee>
+                            <div data-aos="zoom-in" data-aos-duration="3000">
+                                <div id="fifth-section-box">
+                                    <div> <img src="svg_icons/4.svg" height="90" width="70"></div>
+                                    <div>Create Technical awareness through competitions</div>
+                                </div>
                             </div>
-                        </div>
-                        <div class="col-md-4"style="padding-top:3%;">
-                            <img src="background_images/sign11.png" alt="sign-board" width="100%" min-height="100px">
-                            <img src="background_images/sign.png" alt="sign-board" width="100%" min-height="100px">
                         </div>
                         <div class="col-md-4">
-                            <h2 style="text-align:center"><b><span style="color:red">Featured</span><span style="color:white"> Jobs</span></b></h2>
-                            <div class="box" style="background-color: #000000a8;height:300px;">
-
-                                <marquee direction="up" height="300" onmouseover="this.stop();" onmouseout="this.start();">
-                                    <p style="color:white;">Featured Job 1</p>
-                                    <p style="color:white;">Featured Job 1</p>
-                                    <p style="color:white;">Featured Job 1</p>
-                                    <p style="color:white;">Featured Job 1</p>
-                                    <p style="color:white;">Featured Job 1</p>
-                                    <p style="color:white;">Featured Job 1</p>
-                                </marquee>
+                                <div data-aos="zoom-in" data-aos-duration="3000">
+                                    <div id="fifth-section-box">
+                                        <div> <img src="svg_icons/2.svg" height="90" width="70"></div>
+                                        <div>We give the best facilities to our students as well as to companies </div>
+                                    </div>
+                                </div>
+                            </div>
+                        <div class="col-md-4">
+                            <div data-aos="zoom-in" data-aos-duration="3000">
+                                <div id="fifth-section-box">
+                                    <div> <img src="svg_icons/6.svg" height="90" width="70"></div>
+                                    <div>Provide summer and Winter internships</div>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </section>
+            </div>
+    </section>
 
 
-        <!--Fourth section-->
-        <section style="background-color:#021827;"> 
-            <%@include file = "index_viewcards.jsp"%>
-        </section>
-        <!--END of Fourth Section-->
+    <section style="background-color:#F0F0F0;">
 
-        <!--footer Section-->
-        <section>
-            <%@include file = "index_footer.jsp"%>
-        </section>
-        <!--END of Footer Section-->
-    </body>
+        <div class="row" style="padding-bottom: 100px;padding-top:100px;">
+            <div class="col-md-1"></div>
+            <div class="col-md-2">
+                <div data-aos="fade-up" data-aos-duration="3000">
+                    <div id="first-section-box" style="background-color: white;">
+                        <p id="first-section-heading">Learn While you Earn</p>
+                        <p id="first-section-text">Weekend Classes for working Professionals</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2">
+                <div data-aos="fade-up" data-aos-delay="500" data-aos-duration="3000">
+                    <div id="first-section-box" style="background-color: blanchedalmond;">
+                        <p id="first-section-heading">Learn from Industry Experts</p>
+                        <p id="first-section-text">Comprising over 95CXOs, VPx, Bussiness Heads</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2">
+                <div data-aos="fade-up" data-aos-delay="1000" data-aos-duration="3000">
+                    <div id="first-section-box" style="background-color: gainsboro;">
+                        <p id="first-section-heading">Internships for Freshers</p>
+                        <p id="first-section-text">Start earning while you are learning</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2">
+                <div data-aos="fade-up" data-aos-delay="1500" data-aos-duration="3000">
+                    <div id="first-section-box" style="background-color: springgreen;">
+                        <p id="first-section-heading">100% Placement Assistance</p>
+                        <p id="first-section-text">Get a Job before you Complete our Course</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2">
+                <div data-aos="fade-up" data-aos-delay="2000" data-aos-duration="3000">
+                    <div id="first-section-box" style="background-color: skyblue;">
+                        <p id="first-section-heading">International Certificate</p>
+                        <p id="first-section-text">Industry Recognised Certificate</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-1"></div>
+            <!--<div class="col-md-2"><p>Easy Finance</p><p>EMI & LOAN option Available</p></div>-->
+        </div>
 
-    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
-    <script src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js'></script>
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    </section>
+    <!--END of first section-->
 
-    <script>
+
+
+    <!-- Second section-->
+
+    <section style="background-color:white;min-height: 400px;">
+
+        <div class="row" style="padding-bottom: 100px;padding-top:100px;">
+            <div class="col-md-6">
+                <div data-aos="fade-right" data-aos-duration="3000">
+                    <img src="background_images/interview.jpg" alt="interview-image"  style="height: auto;padding: 10%;width:100%;">
+                </div>
+            </div>
+
+            <div class="col-md-6" style="padding:5%;">
+                <h3><b>Placement Record</b></h3>
+                <div data-aos="fade-left" data-aos-duration="3000">
+                    <h3>230+ Companies Visited in 2019</h3>
+                    <h3>More Than 800 Student Placed</h3> 
+                    <h3>13 Lac Highest Package</h3>
+                    <h3>Average Package is 5.5 Lac</h3>
+                    <h3><a href="our_recruiter.jsp">View More</a></h3>
+                </div>
+            </div>
+        </div>
+
+    </section>
+    <!--END of Second section-->
+
+    <section style="min-height:400px;">
+        <div class="parralax" style=" background-image: url(background_images/bck5.jpg);min-height:400px;background-attachment: fixed;background-position: center;background-repeat: no-repeat;background-size: cover;">
+            <div style="background-color: #ffffff75;">
+                <div class="row" style="padding-bottom: 100px;padding-top:100px;width:80%;margin:0 auto;">
+                    <div class="col-md-4">
+                        <h2 style="text-align:center"><b><span style="color:white">Latest News</span><span style="color:red"> & Updates</span></b></h2>
+                        <div class="box" style="background-color: #000000a8;height:300px;">
+                            
+                            <%
+                                Class.forName("com.mysql.jdbc.Driver");
+                                Connection conn = DriverManager.getConnection("jdbc:mysql://Localhost/placementcell", "root", "");
+                                String fetchQuery = "select * from companyrequirements where inoffcampus='both'";
+                                String fetchQuery1 = "select * from notice_table where common='common'";
+                                Statement fetchStatement = conn.createStatement();
+
+                            %>
+                            <marquee direction="up" height="300" onmouseover="this.stop();" onmouseout="this.start();">
+                                 <%  ResultSet rs2 = fetchStatement.executeQuery(fetchQuery1);
+                                while (rs2.next()) {
+                            %> 
+                         
+                                <a style="color:white;" onclick="message(<%=rs2.getString("id")%>)"><p class="notices"><b><%=rs2.getString("subject")%></b></p></a>                             
+                        
+                            <% }%>
+                              
+                            </marquee>
+                        </div>
+                    </div>
+                    <div class="col-md-4" style="padding-top:3%;">
+                        <img src="background_images/sign11.png" alt="sign-board" style="width:100%;min-height:100px">
+                        <img src="background_images/sign.png" alt="sign-board" style="width:100%;min-height:100px">
+                    </div>
+                    <div class="col-md-4">
+                        <h2 style="text-align:center"><b><span style="color:red">Featured</span><span style="color:white"> Jobs</span></b></h2>
+                        <div class="box" style="background-color: #000000a8;height:300px;">
+                            
+
+                            <marquee direction="up" height="300" onmouseover="this.stop();" onmouseout="this.start();">
+                                <%  ResultSet rs1 = fetchStatement.executeQuery(fetchQuery);
+                                    while (rs1.next()) {
+                                %> 
+                                <h1> <a  style="color:white;" onclick="view(<%=rs1.getString("id")%>)"><%=rs1.getString("companyname")%> company is coming </a></h2>
+
+                                    <%}%>
+                            </marquee>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!--Fourth section-->
+    <section style="background-color:#021827;"> 
+        <%@include file = "index_viewcards.jsp"%>
+    </section>
+    <!--END of Fourth Section-->
+
+    <!--footer Section-->
+    <section>
+        <%@include file = "index_footer.jsp"%>
+    </section>
+    <!--END of Footer Section-->
+</body>
+
+<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
+<script src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js'></script>
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+<script>
                                     AOS.init();
-    </script>
+</script>
 
-    <script>
-        // When the user scrolls the page, execute myFunction 
-        window.onscroll = function() {
-            myFunction()
-        };
+<script>
+    // When the user scrolls the page, execute myFunction 
+    window.onscroll = function () {
+        myFunction()
+    };
 
-        function myFunction() {
-            var winScroll = document.body.scrollTop || document.documentElement.scrollTop;
-            var height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-            var scrolled = (winScroll / height) * 100;
-            document.getElementById("myBar").style.width = scrolled + "%";
-        }
-    </script>
+    function myFunction() {
+        var winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+        var height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+        var scrolled = (winScroll / height) * 100;
+        document.getElementById("myBar").style.width = scrolled + "%";
+    }
+</script>
 
 </html>
 

@@ -19,7 +19,7 @@
         <title>COMPANY RESPONSE</title>
     </head>
     <body>
-        <%! String com_name = "", com_name1 = "";%>
+        <%! String com_name = "", com_name1 = "",com_email="";%>
         <%
 
             String dateString = request.getParameter("date");
@@ -57,6 +57,7 @@
                 ResultSet rs = stmt.executeQuery(y);
                 while (rs.next()) {
                     com_name = rs.getString("companyname");
+                    com_email = rs.getString("companyemail");
                 }
 
                 String z = "select * from companyrequirements ";
@@ -65,7 +66,7 @@
                     com_name1 = rs1.getString("companyname");
                 }
                 if (!com_name.equals(com_name1)) {
-                    String x = "insert into companyrequirements values(null,'" + com_name + "','" + course1 + "','" + course2 + "','" + course3 + "','" + br1 + "','" + br2 + "','" + br3 + "','" + br4 + "','" + backlog1 + "','" + percentage1 + "','" + skill1 + "','" + procedure1 + "','" + batch1 + "','" + job_profile + "','" + pack + "','" + location + "','" + sqdate + "','" + inoffcampus + "')";
+                    String x = "insert into companyrequirements values(null,'" + com_name + "','" + com_email + "','" + course1 + "','" + course2 + "','" + course3 + "','" + br1 + "','" + br2 + "','" + br3 + "','" + br4 + "','" + backlog1 + "','" + percentage1 + "','" + skill1 + "','" + procedure1 + "','" + batch1 + "','" + job_profile + "','" + pack + "','" + location + "','" + sqdate + "','" + inoffcampus + "')";
                     stmt.executeUpdate(x);
 
                     out.print("<script> alert('done') </script>" + "<br>");

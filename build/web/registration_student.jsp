@@ -54,9 +54,7 @@
                             <div class="form-group">
                                 <label for="roll">ROLL NO:</label>
                                 <input type="text" name="roll" class="form-control" id="roll" required >
-                            </div>
-
-                            <div id="na"></div>
+                            </div>                           
 
                             <div class="form-group">
                                 <label for="email">EMAIL:</label>

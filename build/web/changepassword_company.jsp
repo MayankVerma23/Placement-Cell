@@ -163,12 +163,16 @@
     </head>
 
     <body>
+        <section>
         <%@include file = "header_company.jsp"%>
         <!--Start of form for changepassword for company-->
+        </section>
+        
+         <section style="min-height: 500px">
         <div class="box">
 
             <h2>CHANGE PASSWORD</h2>
-
+            
             <form action="changepassword_company.jsp" method="post" onsubmit="return checkpassword()" autocomplete="on">
                 <div class="inputBox">
                     <input type="password" name="old_pass" required>
@@ -236,6 +240,8 @@
 
 
         %>
+         </section>
+             
         <section>
             <%@include file = "footer-company.jsp"%>
         </section>

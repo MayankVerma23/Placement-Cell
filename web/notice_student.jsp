@@ -51,15 +51,21 @@
                 text-align:center;
             }
         </style>
+        
+        <script>
+            function message(x) {
+                window.open('notice_message.jsp?id=' + x, 'popUpWindow', 'height=260,width=510,left=650,top=250,resizable=no,scrollbars=no,toolbar=no,menubar=no,location=no,directories=no, status=yes');
+            }
+        </script>
     </head>
 
     <body>
-        <%! String stu_roll1 = "", stuname = "";%>
+     
 
         <%
             Class.forName("com.mysql.jdbc.Driver");
             Connection conn = DriverManager.getConnection("jdbc:mysql://Localhost/placementcell", "root", "");
-            String fetchQuery = "select * from notice_table where studentmsg='student'";
+            String fetchQuery = "select * from notice_table where studentmsg='student' or common='common'";
             Statement fetchStatement = conn.createStatement();
 
         %>
@@ -67,17 +73,17 @@
         <section>    
             <div class="box">
                 <h1 class="update"><b>LATEST UPDATES</b></h1>
-                <marquee direction="up" height="500" onmouseover="this.stop();" onmouseout="this.start();">
+                <marquee direction="up" height="500" onmouseover="this.stop();" onmouseout="this.start();" scrolldelay="200">
                     <section> 
-                        <table>
-                            <%                                ResultSet rs1 = fetchStatement.executeQuery(fetchQuery);
+                       
+                            <%  ResultSet rs1 = fetchStatement.executeQuery(fetchQuery);
                                 while (rs1.next()) {
                             %> 
-                            <tr>
-                                <td><p class="notices"><b><%=rs1.getString("message")%></b></p></td>                              
-                            </tr>
+                         
+                                <a onclick="message(<%=rs1.getString("id")%>)"><p class="notices"><b><%=rs1.getString("subject")%></b></p></a>                             
+                        
                             <% }%>
-                        </table>
+                      
                     </section> 
                 </marquee>
             </div>

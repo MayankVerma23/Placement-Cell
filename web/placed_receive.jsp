@@ -21,30 +21,47 @@
         <%!
             String stu_roll;
             String status = "placed";
+            String comp_email = "";
         %>
 
         <%
             Class.forName("com.mysql.jdbc.Driver");
             Connection conn = (Connection) DriverManager.getConnection("jdbc:mysql://localhost/placementcell", "root", "");
 
-            Statement allUnplaced = conn.createStatement();
-            String updateQuery = "update interestedstudents status='unplaced' where id='" + idd + "' ";
             String[] ids = request.getParameterValues("checkbox-group");
+            
+            Statement fetchStatement = conn.createStatement();
+            String x = "select * from interestedstudents where id='" + ids[0] + "' ";
+            ResultSet rs = fetchStatement.executeQuery(x);
+            if(rs.next()) {
+                comp_email = rs.getString("company_email");
+            }
+            
+            Statement allUnplaced = conn.createStatement();
+            String updateQuery = "update interestedstudents set status='unplaced' where company_email='" + comp_email + "' ";
+
+            allUnplaced.executeUpdate(updateQuery);
+            
             for (String idd : ids) {
 
         
 
           //Create the preparedstatement(s)
-                Statement fetchStatement = conn.createStatement();
-                String x = "select * from interestedstudents where id='" + idd + "' ";
-                ResultSet rs = fetchStatement.executeQuery(x);
-                while (rs.next()) {
+                fetchStatement = conn.createStatement();
+                x = "select * from interestedstudents where id='" + idd + "' ";
+                rs = fetchStatement.executeQuery(x);
+                if(rs.next()) {
                     stu_roll = rs.getString("student_rollno");
                 }
                 String y = "update interestedstudents set status='" + status + "' where id='" + idd + "'";
                 fetchStatement.executeUpdate(y);
 
             }
+            
+            Statement updateStatement = conn.createStatement();
+            updateQuery = "update company_status set status='result_declared' where company_email='"+comp_email+"'";
+            
+            updateStatement.executeUpdate(updateQuery);
             response.sendRedirect("company_decl_res.jsp");
         %>
     </body>

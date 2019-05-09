@@ -4,6 +4,7 @@
     Author     : My Lappy
 --%>
 
+<%@page import="java.sql.ResultSet"%>
 <%@page import="java.sql.DriverManager"%>
 <%@page import="java.sql.Statement"%>
 <%@page import="java.sql.Connection"%>
@@ -39,8 +40,19 @@
             String companyid = request.getParameter("id");
             String date = request.getParameter("date");
             fetchStatement = conn.createStatement();
-            String z = "insert into approved_comp value(null,'" + msg + "','" + companyid + "','" + date + "')";
+            String z = "insert into approved_comp values(null,'" + msg + "','" + companyid + "','" + date + "')";
             fetchStatement.executeUpdate(z);
+            
+            z = "select companyemail from companysignup where companyid='"+idd+"'";
+            ResultSet rs = fetchStatement.executeQuery(z);
+            
+            if(rs.next()) {
+            
+                Statement updateStatement = conn.createStatement();
+                String updateQuery = "insert into company_status(company_email) values('"+rs.getString("companyemail")+"')";
+            
+                updateStatement.executeUpdate(updateQuery);
+            }
             out.print("<script>window.close();</script>");
         %>
     </body>

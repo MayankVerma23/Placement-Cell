@@ -44,20 +44,29 @@ public class PublishPlacedResult extends HttpServlet {
                 String comp_email = request.getParameter("email");
                 HttpSession session = request.getSession();
                 ArrayList<String> list = (ArrayList<String>) session.getAttribute("placedStudents");
+                
                 Class.forName("com.mysql.jdbc.Driver");
                 Connection conn = DriverManager.getConnection("jdbc:mysql://localhost/placementcell", "root", "");
+//                if(list != null)
+//                    System.out.println(list.size());
+//                else 
+//                    System.out.println("list is empty");
                 for (String roll : list) {
+                    System.out.println("student "+ roll + " is placed");
                     Statement stmt = conn.createStatement();
                     String x = "update studentsignup set studentstatus='placed' where studentrollno='" + roll + "'";
                     stmt.executeUpdate(x);
                 }
-                Statement stmt = conn.createStatement();
-                String x = "update interestedstudents set student_visible=True where company_email='" + comp_email + "'";
-                stmt.executeUpdate(x);
+                
+                Statement updateStatement = conn.createStatement();
+                String updateQuery = "update company_status set status='result_published' where company_email='"+comp_email+"'";
+
+                updateStatement.executeUpdate(updateQuery);
+                
             } catch (Exception e) {
                 e.printStackTrace();
             }
-            response.sendRedirect("publish_result.jsp");
+            response.sendRedirect("result_announce.jsp");
         }
     }
 

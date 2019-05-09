@@ -25,7 +25,7 @@
     </style>
       <script>
             function company_result(x) {
-                window.location.href="company_result.jsp?companyemail=" + x;
+                window.location.href="company_result.jsp?email=" + x;
             }
         </script>
 
@@ -48,19 +48,19 @@
             </tr>
             <%
                 HttpSession hs = request.getSession();
-                String stu_roll1 = hs.getAttribute("stu_roll").toString();
+               // String stu_roll1 = hs.getAttribute("stu_roll").toString();
                 Class.forName("com.mysql.jdbc.Driver");
                 Connection conn = DriverManager.getConnection("jdbc:mysql://Localhost/placementcell", "root", "");
-                String fetchQuery = "select * from interestedstudents where student_rollno='" + stu_roll1 + "'";
+                String fetchQuery = "select companyname, cr.company_email as email from companyrequirements as cr, company_status as cs where status='result_published' and  cr.company_email = cs.company_email;";
                 Statement fetchStatement = conn.createStatement();
                 ResultSet rs = fetchStatement.executeQuery(fetchQuery);
                 while (rs.next()) {
             %> 
 
             <tr class="r1">
-                <td><%=rs.getString("company_name")%></td>                              
-                <td><%=rs.getString("company_email")%></td>                                 
-                <td><button class="btn btn-danger" onclick="company_result('<%=rs.getString("company_email")%>')">view profile</button></td>
+                <td><%=rs.getString("companyname")%></td>                              
+                <td><%=rs.getString("email")%></td>                                 
+                <td><button class="btn btn-danger" onclick="company_result('<%=rs.getString("email")%>')">view result</button></td>
          
             </tr>
 

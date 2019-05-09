@@ -30,7 +30,7 @@
             <%!String student_name = "", student_email = "", student_rollno = "";%>
 
             <%
-                String comp_email = request.getParameter("comp_email");
+                String comp_email = request.getParameter("email");
                 try {
                     Class.forName("com.mysql.jdbc.Driver");
                     Connection conn = DriverManager.getConnection("jdbc:mysql://localhost/placementcell", "root", "");
@@ -43,6 +43,7 @@
                 <td><%=rs.getString("student_name")%></td> 
                 <td><%=rs.getString("student_email")%></td> 
                 <td><%=rs.getString("student_rollno")%></td> 
+                <td><%=rs.getString("status")%></td>
             </tr>
 
             <%  }

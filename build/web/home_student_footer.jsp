@@ -211,10 +211,9 @@
 
                                     <p style="font-size:20px;">
                                         Placement Cell<br>
-                                        ABC UNIVERSITY<br>
                                         Patiala<br>
                                         <strong>Phone:</strong>9780578322<br>
-                                        <strong>Email:</strong>gursimarsingh020@gmail.com<br>
+                                        <strong>Email:</strong>Mayankverma@gmail.com<br>
                                     </p>
                                 </div>
                             </div>

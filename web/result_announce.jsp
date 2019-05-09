@@ -17,7 +17,6 @@
         </script>
     </head>
     <body>
-
         <section>
             <!--Start of Navbar Section-->
             <%@include file = "header_tpo.jsp"%>
@@ -26,7 +25,6 @@
 
         <section style="min-height:500px;" class="container">
             <table class="table">
-
                 <tr style="background-color:black;color:white;">
                     <th>COMPANY NAME </th>
                     <th>COMPANY EMAIL ID</th>
@@ -35,27 +33,25 @@
                 <%
                     Class.forName("com.mysql.jdbc.Driver");
                     Connection conn = DriverManager.getConnection("jdbc:mysql://Localhost/placementcell", "root", "");
-                    
-                    
-                    
                     String fetchQuery = "select * from company_status where status='result_declared';";
                     Statement fetchStatement = conn.createStatement();
                     ResultSet rs1 = fetchStatement.executeQuery(fetchQuery);
                     while (rs1.next()) {
-                    
-                    fetchQuery = "select * from companyrequirements where company_email='"+rs1.getString("company_email")+"'";
-                    fetchStatement = conn.createStatement();
-                    ResultSet rs = fetchStatement.executeQuery(fetchQuery);
-                    if (rs.next()) {
+
+                        fetchQuery = "select * from companyrequirements where company_email='" + rs1.getString("company_email") + "'";
+                        fetchStatement = conn.createStatement();
+                        ResultSet rs = fetchStatement.executeQuery(fetchQuery);
+                        if (rs.next()) {
                 %> 
                 <tr class="r1">
                     <td><%=rs.getString("companyname")%></td>                              
                     <td><%=rs.getString("company_email")%></td>
                     <td><button class="btn btn-danger" onclick="student('<%=rs.getString("company_email")%>')">view result</button></td>                
                 </tr>
-                <% }}%>
+                <% }
+                    }%>
             </table>
-        </section> <br>
+        </section> 
         <section>
             <%@include file = "footer-tpo.jsp"%> 
         </section>

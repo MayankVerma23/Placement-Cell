@@ -74,7 +74,7 @@
 
                                     <li><a href="participation_tpo.jsp" >INTERESTED STUDENTS IN COMPANY</a></li>
                                     <li><a href="tpo_placed_student.jsp">PLACED STUDENTS</a></li>
-                                    <li><a href="tpo_unplaced_student.jsp">UNPLACED STUDENTS</a></li>
+                                  
                                 </ul>
                             </li>
 

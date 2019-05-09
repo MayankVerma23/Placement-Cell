@@ -51,11 +51,11 @@
     </head>
 
     <body>
-
+        <section>
         <!--Start of Navbar Section-->
         <%@include file = "header_company.jsp"%>
         <!--End of Navbar Section-->
-
+    </section>
 
         <%! String com_email = "", com_name;%>
         <%            Class.forName("com.mysql.jdbc.Driver");

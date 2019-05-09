@@ -76,9 +76,9 @@
                             <li class="dropdown">
                                 <a class="dropdown-toggle" data-toggle="dropdown"  id="navbar-links" href="#">STUDENT SECTION<span class="caret"></span></a>
                                 <ul class="dropdown-menu">
-                                    <li><a href="interested_stu_in_comp.jsp">Participated Candidates</a></li>
-                                    <li><a href="company_decl_res.jsp">declare result</a></li>
-                                    <li><a href="selected_candidates.jsp">selected candidates</a></li>
+                                    <li><a href="interested_stu_in_comp.jsp">PARTICIPATED CANDIDATES</a></li>
+                                    <li><a href="company_decl_res.jsp">DECLARE RESULT</a></li>
+                                    <li><a href="selected_candidates.jsp">SELECTED CANDIDATES</a></li>
                                 </ul>
                             </li>
                             <li><a href="company_response.jsp" id="navbar-links">STATUS</a></li>

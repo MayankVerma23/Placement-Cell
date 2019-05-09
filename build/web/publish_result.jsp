@@ -16,10 +16,6 @@
         <title>STUDENT_INFORMATION</title>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
-        <link rel="stylesheet" href="loginsignup.css">
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-        <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
 
 
     </head>
@@ -30,9 +26,14 @@
             <%@include file = "header_tpo.jsp"%>
             <!--End of Navbar Section-->
         </section>
-        <section>
-            <table>
+        <section style="min-height:500px;" class="container">
+            <table class="table" >
+                <tr style="background-color:black;color:white;">
+                    <th>STUDENT NAME</th>
+                    <th>STUDENT EMAIL ID</th>
+                    <th>STUDENT ROLLNO</th>
 
+                </tr>
                 <%!String student_name = "", student_email = "", student_rollno = "";%>
 
                 <%
@@ -47,7 +48,7 @@
                         while (rs.next()) {
                             stuList.add(rs.getString("student_rollno"));
                 %>
-                <tr>
+                <tr class="r1">
                     <td><%=rs.getString("student_name")%></td> 
                     <td><%=rs.getString("student_email")%></td> 
                     <td><%=rs.getString("student_rollno")%></td> 

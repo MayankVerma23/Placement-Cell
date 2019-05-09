@@ -90,7 +90,7 @@
                             if (stu_per1 >= company_per1)
                             {
 
-                                String z = "insert into interestedstudents values(null,'" + desirecompany1 + "','" + comp_email + "','" + stu_name + "','" + stu_rollno + "','" + stu_email + "','" + status1 + "',null)";
+                                String z = "insert into interestedstudents values(null,'" + desirecompany1 + "','" + comp_email + "','" + stu_name + "','" + stu_rollno + "','" + stu_email + "','" + status1 + "')";
                                 stmt.executeUpdate(z);
                                 out.print("<script>alert('done');</script>");
                                 out.print("<script>window.location.href='apply_job1.jsp';</script>");

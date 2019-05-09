@@ -42,7 +42,6 @@
         <table class="table" >
 
             <tr style="background-color:black;color:white;">
-
                 <th>COMPANY NAME </th>
                 <th>COMPANY EMAIL ID</th>
                 <th>VIEW INTERESTED STUDENT </th>

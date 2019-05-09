@@ -33,10 +33,11 @@
 <body>
 
 
-
+    <section>
     <!--Start of Navbar Section-->
     <%@include file = "header_student.jsp"%>
     <!--End of Navbar Section-->
+    </section>
 
     <section style="min-height:500px;" class="container">
          <table class="table" >
@@ -66,7 +67,7 @@
 
             <% }%>
         </table>
-    </section> <br>
+    </section> 
     <section>
         <%@include file = "footer-student.jsp"%>
     </section>

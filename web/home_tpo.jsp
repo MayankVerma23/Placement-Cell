@@ -21,13 +21,15 @@
 
 
 <body>
-
+    <section>
     <!--Start of Navbar Section-->
     <%@include file = "header_tpo.jsp"%>
     <!--End of Navbar Section-->
-
+    </section>
+    <section>
     <!--Start of Footer Section-->
     <%@include file = "footer-tpo.jsp"%>
     <!--End of Footer Section--> 
+    </section>
 </body>
 </html>

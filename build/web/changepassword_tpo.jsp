@@ -18,10 +18,7 @@
             
             .box
             {
-                position:absolute;
-                top:50%;
-                left:50%;
-                transform:translate(-50%,-50%);
+                margin: 0 auto;
                 width:400px;
                 padding:40px;
                 background:rgba(0,0,0,.8);
@@ -55,8 +52,7 @@
                 background:transparent;
             }
             .box .inputBox label
-            {
-
+            {   
                 position:absolute;
                 top:0;
                 left:0;
@@ -87,39 +83,6 @@
                 padding:10px 20px;
                 cursor:pointer;
                 border-radius:5px;
-            }
-            table
-            {
-                width : 100%;
-            }
-
-            td
-            {
-                border : 2px solid black;
-                padding : 20px;
-                width : 200px;
-                height : 100px;
-            }
-
-            th
-            {
-                border : 2px solid black;
-                text-align: center;
-            }
-
-            .navbar
-            {
-                background-color: #4379C0;
-                border-color: #4353C0;
-            }
-            .nav_links{
-                color:white;
-            }
-            .nav_links:hover{
-                color: black;
-            }  
-            section{
-                margin-top: 10px;
             }
         </style>
 

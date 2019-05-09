@@ -64,9 +64,8 @@
 
         <script>
             function profile(x) {
-                //  alert(x);
-                //window.location.href = "apply_job2.jsp?companyid="+x;
-                window.open('company_responsetable2.jsp?companyid=' + x, 'popUpWindow', 'height=1000,width=700,left=450,top=100,resizable=no,scrollbars=no,toolbar=no,menubar=no,location=no,directories=no, status=yes');
+              
+                window.location.href="company_responsetable2.jsp?companyid=" + x;
 
             }
         </script>
@@ -74,10 +73,11 @@
     </head>
     <body>
 
-
+        <section>
         <!--Start of Navbar Section-->
         <%@include file = "header_tpo.jsp"%>
         <!--End of Navbar Section-->
+        </section>
         <div id="container">
             <section> 
 

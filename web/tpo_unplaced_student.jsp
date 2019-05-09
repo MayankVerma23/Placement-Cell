@@ -17,23 +17,12 @@
 
            
         <style>
-            table
-            {
-                width : 50%;
-            }
+             table{
+                border: 2px solid black;
+               }
             
-            td
-            {
-                border : 2px solid black;
-                padding : 10px;
-                width : 100px;
-                height : 50px;
-            }
-                
-            th
-            {
-                border : 2px solid black;
-                text-align: center;
+            .r1:hover{
+                background-color: #add8e682;
             }
             
         </style>
@@ -44,9 +33,10 @@
             <%@include file = "header_tpo.jsp"%>
         <!--End of Navbar Section-->
         
-       <section> 
-            <table>
-                <tr>
+           <section style="min-height:500px;" class="container">
+            <table class="table" >
+
+                <tr style="background-color:black;color:white;">
                     <th>COMPANY NAME</th>
                     <th>COMPANY EMAIL ID</th>
                     <th>STUDENT NAME</th>
@@ -67,7 +57,7 @@
                     while(rs.next()){
                     %> 
 
-                    <tr>
+                    <tr class="r1">
                        <td><%=rs.getString("company_name")%></td>                              
                        <td><%=rs.getString("company_email")%></td>
                        <td><%=rs.getString("student_name")%></td>

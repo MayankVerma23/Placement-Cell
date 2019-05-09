@@ -1,0 +1,27 @@
+SMAP
+your_005finbox_005fstudent_jsp.java
+JSP
+*S JSP
+*F
++ 0 your_inbox_student.jsp
+your_inbox_student.jsp
++ 1 header_student.jsp
+header_student.jsp
+*L
+5,120:64
+5#1,83:184
+124#0,4:266
+127,10:15
+136,9:270
+145,21:280
+165,3:301
+169,29:306
+197:335
+198:336,3
+199,2:339
+201:341,7
+202:348,13
+203,6:361
+209,8:368
+216,18:376
+*E

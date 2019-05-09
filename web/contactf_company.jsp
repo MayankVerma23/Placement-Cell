@@ -13,11 +13,8 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
-        <title>HOME STUDENT</title>
+        <title>CONTACT FORM STUDENT</title>
 
         <style>
 
@@ -80,40 +77,43 @@
 
     <body>
 
-
+        <section>
         <!--Start of Navbar Section-->
         <%@include file = "header_company.jsp"%>
         <!--End of Navbar Section-->
-        <br>
+        </section>
+        
+        
         <%!String roll = "";%>
 
-        <div class="container"> 
-            <secton>
-                <i class="fas fa-cogs fa-5x" style="color:84868D" ></i>
-                <%--<h1>Contact us</h1>--%>
-                <br><br>
-                <form action="send_reply_company.jsp">
-                    <h4>
-                        <label>Subject</label></h4>
-                    <input type="text" name="subject" class="subject" placeholder="subject...">
-                    <br>
-                    <br>
-                    <h4>
-                        <label>Please Describe your Issue</label>
-                    </h4>
-                    <br>
 
-                    <textarea name="issue"  placeholder="...." ></textarea>
-                    </br>
-                    <input type="submit" class=form-submit-button value="submit">
-                </form>
+    <section>
+        <div class="container">
+            <i class="fas fa-cogs fa-5x" style="color:84868D" ></i>
+            <%--<h1>Contact us</h1>--%>
+            <br><br>
+            <form action="send_reply_company.jsp">
+                <h4>
+                    <label>Subject</label></h4>
+                <input type="text" name="subject" class="subject" placeholder="subject...">
+                <br>
+                <br>
+                <h4>
+                    <label>Please Describe your Issue</label>
+                </h4>
+                <br>
 
-            </secton>   
+                <textarea name="issue"  placeholder="...." ></textarea>
+                </br>
+                <input type="submit" class=form-submit-button value="submit">
+            </form>
         </div>
+    </section>   
 
-        <section>
-            <%@include file = "footer-company.jsp"%>
-        </section>
-    </body>
+
+    <section>
+        <%@include file = "footer-company.jsp"%>
+    </section>
+</body>
 </html>
 

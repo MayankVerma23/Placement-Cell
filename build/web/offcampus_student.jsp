@@ -14,29 +14,13 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
     <style>
-        table
-        {
-            width : 50%;
-        }
-        td
-        {
-            border : 2px solid black;
-            padding : 10px;
-            width : 100px;
-            height : 50px;
-        }    
-        th
-        {
-            border : 2px solid black;
-            text-align: center;
-        }
-        #div1{
-            text-align:center;
-            width:500px;
-            margin-left:40%;
-            margin-top:80px;
-
-        }
+     table{
+                border: 2px solid black;
+               }
+            
+            .r1:hover{
+                background-color: #add8e682;
+            }
     </style>
 
     <script>
@@ -54,10 +38,12 @@
         <%@include file = "header_tpo.jsp"%>
         <!--End of Navbar Section-->
     </section>
-    <section>
+      <section style="min-height:500px;" class="container">
         <div id="div1">
-            <table>
-                <tr>
+           
+            <table class="table" >
+
+                <tr style="background-color:black;color:white;">
                     <th>STUDENT NAME</th>
                     <th>VIEW PROFILE</th>
 
@@ -74,7 +60,7 @@
                     while (rs.next()) {
                 %> 
 
-                <tr>
+                <tr class="r1">
                     <td><%=rs.getString("name")%></td>
                     <td><button class="btn btn-danger" onclick="viewprofile(<%=rs.getString("id")%>)">view profile</button></td>
                 </tr>

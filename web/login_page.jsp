@@ -244,9 +244,11 @@
                         <div class="info">
                             <h4>Support</h4>
                             <p style="font-size:15px;">
-                                Placement Cell <br>
+                                Mr Someone <br>
+                                College Name<br>
                                 Patiala<br>
-                                <strong>Email:</strong> PlacementCell@gmail.com<br>
+                                <strong>Phone:</strong> +1 5589 55488 55<br>
+                                <strong>Email:</strong> admin@mail.com<br>
                             </p>
                         </div>
                     </div>

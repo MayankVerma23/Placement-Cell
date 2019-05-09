@@ -15,6 +15,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
 
         <style>
 
@@ -23,16 +24,11 @@
                 text-align:left;
                 padding-left:100px;
                 text-transform: capitalize;
-
-
             }
 
             .topics1{
                 color: #333333;
                 text-align:right;
-
-
-
             }
             .line1{
                 border-color: #A9A9A9;
@@ -45,11 +41,7 @@
             }
             .linkq:hover{
                 opacity: 0.9;
-            }
-
-            .line1{
-                border-color: #A9A9A9;
-            }
+            }          
 
             #container{
                 margin-left:10%;

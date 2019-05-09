@@ -12,10 +12,12 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title id="title">COMPANY_INFORMATION</title>
+        <title >COMPANY_INFORMATION</title>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-      
+
+        <%@include file = "header_company.jsp"%>
+
         <script>
             function changeprofile1()
             {
@@ -36,7 +38,6 @@
             table{
                 border:2px solid black;
                 margin:10px;
-                width:65%;
             }
 
             .r1{
@@ -44,110 +45,103 @@
             }
 
             #d4{
-                margin-left:30%; 
+                text-align:center;  
 
             }
         </style>
     </head>
 
     <body>
-        <%@include file = "header_company.jsp"%>
-        <%
-            HttpSession hss = request.getSession();
-            String company_email = hss.getAttribute("company_email").toString();
-            String imgemail = "";
-            try {
-                Class.forName("com.mysql.jdbc.Driver");
-                Connection con = DriverManager.getConnection("jdbc:mysql://localhost/placementcell", "root", "");
-                Statement stmt = con.createStatement();
-
-                String y = "select * from company_image where email='" + company_email + "'";
-                ResultSet rs1 = stmt.executeQuery(y);
-                while (rs1.next()) {
-                    imgemail = rs1.getString("email");
-                }
-                if (!company_email.equals(imgemail)) { %>
-
-        <!--Start of Navbar Section-->
-
-        <h4>Please upload image </h4>
-        <input type="button" value="uploadimage" onclick="uploadimag()">
-        <%} else {
-
-                }
-            } catch (Exception ex) {
-                out.print(ex);
-            }
-        %>
-
-        <!--End of Navbar Section-->
-
-        <%--<%@include file = "logocomp.jsp"%>--%>
         <%@include file = "pic.jsp"%>
-        <%!String com_name = "", com_email = "", com_phno = "", com_location = "", com_Password = "", com_status = "", com_email1 = "";%>
+        
+        <section>
+            <%
+                HttpSession hss = request.getSession();
+                String company_email = hss.getAttribute("company_email").toString();
+                String imgemail = "";
+                try {
+                    Class.forName("com.mysql.jdbc.Driver");
+                    Connection con = DriverManager.getConnection("jdbc:mysql://localhost/placementcell", "root", "");
+                    Statement stmt = con.createStatement();
 
-        <%
-            HttpSession hs1 = request.getSession();
-            com_email = hs1.getAttribute("company_email").toString();
-            Class.forName("com.mysql.jdbc.Driver");
-            Connection conn = DriverManager.getConnection("jdbc:mysql://localhost/placementcell", "root", "");
-            Statement stmt = conn.createStatement();
-            String x = "select * from companysignup where companyemail='" + com_email + "'";
-            ResultSet rs = stmt.executeQuery(x);
-            while (rs.next()) {
-                com_name = rs.getString("companyname");
-                com_email1 = rs.getString("companyemail");
-                com_phno = rs.getString("companyphno");
-                com_location = rs.getString("companylocation");
-                com_status = rs.getString("status");
-            }
-        %>
+                    String y = "select * from company_image where email='" + company_email + "'";
+                    ResultSet rs1 = stmt.executeQuery(y);
+                    while (rs1.next()) {
+                        imgemail = rs1.getString("email");
+                    }
+                    if (!company_email.equals(imgemail)) { %>
 
-        <table class="table table-hover" style="width:85%">
+            <!--Start of Navbar Section-->
 
-            <tr class="r1">
-                <td><b>NAME</b></td>
+             <div style="margin:10px;">
+                <h4>Please upload image</h4><button class="btn btn-danger" type="button" onclick="uploadimag()">UPLOAD IMAGE</button>
+            </div>
+             <%} else {
 
-                <td><%=com_name%></td>
-            </tr>
-            <tr>
-                <td><b>EMAIL ID<b></td>
+                    }
+                } catch (Exception ex) {
+                    out.print(ex);
+                }
+            %>
 
-                            <td><%=com_email%></td>
-                            </tr>
+            <!--End of Navbar Section-->
 
-                            <tr class="r1">
-                                <td><b>PHONE NO.</b></td>
+            <%!String com_name = "", com_email = "", com_phno = "", com_location = "", com_Password = "", com_status = "", com_email1 = "";%>
 
-                                <td><%=com_phno%></td>
-                            </tr>
+            <%
+                HttpSession hs1 = request.getSession();
+                com_email = hs1.getAttribute("company_email").toString();
+                Class.forName("com.mysql.jdbc.Driver");
+                Connection conn = DriverManager.getConnection("jdbc:mysql://localhost/placementcell", "root", "");
+                Statement stmt = conn.createStatement();
+                String x = "select * from companysignup where companyemail='" + com_email + "'";
+                ResultSet rs = stmt.executeQuery(x);
+                while (rs.next()) {
+                    com_name = rs.getString("companyname");
+                    com_email1 = rs.getString("companyemail");
+                    com_phno = rs.getString("companyphno");
+                    com_location = rs.getString("companylocation");
+                    com_status = rs.getString("status");
+                }
+            %>
 
-                            <tr>
-                                <td><b>LOCATION</b></td>
+            <table class="table table-hover" style="width:85%">
 
-                                <td><%=com_location%></td>
-                            </tr>
+                    <tr class="r1">
+                        <td><b>NAME</b></td>
+                        <td><%=com_name%></td>
+                    </tr>
 
+                    <tr>
+                        <td><b>EMAIL ID<b></td>
+                        <td><%=com_email%></td>
+                    </tr>
 
-                            <tr class="r1">
-                                <td><b>STATUS</b></td>
+                    <tr class="r1">
+                        <td><b>PHONE NO.</b></td>
+                        <td><%=com_phno%></td>
+                    </tr>
 
-                                <td><%=com_status%></td>
-                            </tr>
+                    <tr>
+                        <td><b>LOCATION</b></td>
+                        <td><%=com_location%></td>
+                    </tr>
 
-                            <tr>
-                                <td colspan="3">
-                                    <div id="d4">      
-                                        <button  class="btn btn-warning"  value="UPDATE PROFILE" onclick="changeprofile1()">Update Profile</button>
-                                    </div>
-                                </td>
-                            </tr>
+                    <tr class="r1">
+                        <td><b>STATUS</b></td>
+                        <td><%=com_status%></td>
+                    </tr>
 
-                            </table>
+                    <tr>
+                        <td colspan="2">                                          
+                        <button  class="btn btn-warning"  value="UPDATE PROFILE" onclick="changeprofile1()">Update Profile</button>
+                        </td>
+                    </tr>
+            </table>
 
-                            <section>
-                                <%@include file = "footer-company.jsp"%>
-                            </section>   
+            <section>
+                <%@include file = "footer-company.jsp"%>
+            </section>   
 
-                            </body>
-                            </html>
+</body>
+</html>

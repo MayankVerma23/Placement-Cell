@@ -12,28 +12,36 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
         <title>HOME STUDENT</title>
         <style>
-            td{
-                border : 2px solid black;
-                padding : 20px;
-                width : 200px;
-                height : 100px;
+            table{
+                border: 2px solid black;
+               }
+            
+            .r1:hover{
+                background-color: #add8e682;
             }
-
         </style>
     </head>
     <body>
 
+        <section>
         <!--Start of Navbar Section-->
         <%@include file = "header_student.jsp"%>
         <!--End of Navbar Section-->  
+        </section>
 
-        <section>
-            <table>
+        <section style="min-height:500px;" class="container">
+            <table class="table" >
+
+                <tr style="background-color:black;color:white;">
+                    <th>COMPANY ID</th>
+                    <th>COMPANY NAME</th>
+                    <th>EMAIL</th>
+                    <th>PHONE NO</th>
+                    <th>LOCATION</th>
+                </tr>
+
                 <%! String status = "accept";%>
                 <%    //Create the preparedstatement(s)
                     try {
@@ -45,9 +53,11 @@
                         ResultSet rs = fetchStatement.executeQuery(fetchQuery);
 
                         while (rs.next()) {
+                            
                 %> 
 
-                <tr>
+                
+                <tr class="r1">
                     <td><%=rs.getString("companyid")%></td>
                     <td><%=rs.getString("companyname")%></td>
                     <td><%=rs.getString("companyemail")%></td>

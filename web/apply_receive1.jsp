@@ -47,7 +47,6 @@
                 String w = "select * from companysignup where companyname='" + desirecompany1 + "'";
                 ResultSet rs3 = stmt.executeQuery(w);
                 while (rs3.next()) {
-
                     comp_email = rs3.getString("companyemail");
                 }
                 //out.println(comp_email);
@@ -82,36 +81,38 @@
                 Calendar current = Calendar.getInstance();
                 if (current.before(c1)) {
 
-                    if (!stu_roll1.equals(stu_rollno)) {
+                    if (!stu_roll1.equals(stu_rollno)) 
+                    {
 
-                        if (stu_backlog1 <= req_backlog1) {
+                        if (stu_backlog1 <= req_backlog1) 
+                        {
 
-                            if (stu_per1 >= company_per1) {
+                            if (stu_per1 >= company_per1)
+                            {
 
                                 String z = "insert into interestedstudents values(null,'" + desirecompany1 + "','" + comp_email + "','" + stu_name + "','" + stu_rollno + "','" + stu_email + "','" + status1 + "')";
                                 stmt.executeUpdate(z);
                                 out.print("<script>alert('done');</script>");
-
-                                out.print("<script>window.close();</script>");
+                                out.print("<script>window.location.href='apply_job1.jsp';</script>");
                             } else {
 
                                 out.print("<script>alert('your percentage is less than company requirements');</script>");
-                                out.print("<script>window.close();</script>");
+                                out.print("<script>window.location.href='apply_job1.jsp';</script>");
                             }
 
                         } else {
                             out.print("<script>alert('you have more backlog. better luck next time');</script>");
-                            out.print("<script>window.close();</script>");
+                            out.print("<script>window.location.href='apply_job1.jsp';</script>");
                         }
                     } else {
 
                         out.print("<script>alert('you already apply in this company');</script>");
-                        out.print("<script>window.close();</script>");
+                        out.print("<script>window.location.href='apply_job1.jsp';</script>");
                     }
+                } else {
+                    out.print("<script>alert('APPLY DATE EXPIRE');</script>");
+                    out.print("<script>window.location.href='apply_job1.jsp';</script>");
                 }
-                out.print("<script>alert('APPLY DATE EXPIRE');</script>");
-
-                out.print("<script>window.close();</script>");
             } // HttpSession hs=request.getSession();
             //desirecompany1= hs.getAttribute("desirecompany").toString();
             //out.print(desirecompany1);

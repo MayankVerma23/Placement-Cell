@@ -16,23 +16,13 @@
          <title>APPROVED COMPANIES</title>
         <meta http-equiv="refresh" content="10">
         <style>
-            table
-            {
-                width : 100%;
-            }
-
-            td
-            {
-                border : 2px solid black;
-                padding : 20px;
-                width : 200px;
-                height : 100px;
-            }
-
-            th
-            {
-                border : 2px solid black;
-                text-align: center;
+           
+          table{
+                border: 2px solid black;
+               }
+            
+            .r1:hover{
+                background-color: #add8e682;
             }
 
         </style>
@@ -60,9 +50,10 @@
         <!--End of Navbar Section-->
 
         <!--Start of Display data-->
-        <section> 
-            <table>
-                <tr>
+         <section style="min-height:500px;" class="container">
+            <table class="table" >
+
+                <tr style="background-color:black;color:white;">
                     <th>Sno</th>
                     <th>ID</th>
                     <th>NAME</th>
@@ -84,7 +75,7 @@
                     while (rs.next()) {
                 %> 
 
-                <tr>
+                <tr class="r1">
                     <td><%=i%></td>
                     <td><%=rs.getString("companyid")%></td>
                     <td><%=rs.getString("companyname")%></td>

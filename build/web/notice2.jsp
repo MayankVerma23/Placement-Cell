@@ -20,6 +20,7 @@
         <title>Notice 2</title>
     </head>
     <body>
+        <%! String designation1="",designation2="",designation3; %>
         <%
            
             String subject = request.getParameter("t2");

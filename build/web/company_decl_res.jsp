@@ -14,24 +14,13 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     
     <style>
-        table
-        {
-            width : 50%;
-        }
-
-        td
-        {
-            border : 2px solid black;
-            padding : 10px;
-            width : 100px;
-            height : 50px;
-        }
-
-        th
-        {
-            border : 2px solid black;
-            text-align: center;
-        }
+       table{
+                border: 2px solid black;
+               }
+            
+            .r1:hover{
+                background-color: #add8e682;
+            }
 
     </style>
 
@@ -49,10 +38,12 @@
     <%@include file = "header_company.jsp"%>
     <!--End of Navbar Section-->
 
-    <section> 
+    <section style="min-height:500px;" class="container">
         <form action="placed_receive.jsp" method="POST">
-        <table>
-            <tr>
+        
+            <table class="table" >
+
+                <tr style="background-color:black;color:white;">
 
                 <th>STUDENT NAME</th>
                 <th>STUDENT ROLL NO.</th>
@@ -64,12 +55,11 @@
             <%
                 HttpSession hs = request.getSession();
                 String comp_email = hs.getAttribute("company_email").toString();
-                String status1 = "unplaced";
-                String status2 = "waiting";
+                String status = "waiting";
                 try {
                     Class.forName("com.mysql.jdbc.Driver");
                     Connection conn = DriverManager.getConnection("jdbc:mysql://Localhost/placementcell", "root", "");
-                    String fetchQuery = "select * from interestedstudents where company_email='" + comp_email + "' and (status='" + status1 + "' or status='" + status2 + "')";
+                    String fetchQuery = "select * from interestedstudents where company_email='" + comp_email + "' and (status='" + status + "')";
                     Statement fetchStatement = conn.createStatement();
                     ResultSet rs = fetchStatement.executeQuery(fetchQuery);%>
               
@@ -79,7 +69,7 @@
                         String myid = rs.getString("id");
             %> 
 
-            <tr>              
+            <tr class="r1">              
 
                 <td><%=rs.getString("student_name")%></td>
                 <td><%=rs.getString("student_rollno")%></td>

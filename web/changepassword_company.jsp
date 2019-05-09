@@ -16,21 +16,9 @@
         <title>CHANGEPASSWORD COMPANY</title>
 
         <style>
-            body
-            {
-
-                margin:0;
-                padding:0;
-                font-family:sans-serif;
-                background:url(balls3.jpg);
-                background-size:cover;
-            }
             .box
             {
-                position:absolute;
-                top:50%;
-                left:50%;
-                transform:translate(-50%,-50%);
+                margin: 0 auto;
                 width:400px;
                 padding:40px;
                 background:rgba(0,0,0,.8);
@@ -64,8 +52,7 @@
                 background:transparent;
             }
             .box .inputBox label
-            {
-
+            {   
                 position:absolute;
                 top:0;
                 left:0;

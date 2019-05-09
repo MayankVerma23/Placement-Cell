@@ -39,14 +39,14 @@ public class PublishPlacedResult extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
-            
+
             try {
                 String comp_email = request.getParameter("email");
                 HttpSession session = request.getSession();
-                ArrayList<String> list = (ArrayList<String>)session.getAttribute("placedStudents");
+                ArrayList<String> list = (ArrayList<String>) session.getAttribute("placedStudents");
                 Class.forName("com.mysql.jdbc.Driver");
                 Connection conn = DriverManager.getConnection("jdbc:mysql://localhost/placementcell", "root", "");
-                for(String roll : list) {
+                for (String roll : list) {
                     Statement stmt = conn.createStatement();
                     String x = "update studentsignup set studentstatus='placed' where studentrollno='" + roll + "'";
                     stmt.executeUpdate(x);
@@ -54,7 +54,7 @@ public class PublishPlacedResult extends HttpServlet {
                 Statement stmt = conn.createStatement();
                 String x = "update interestedstudents set student_visible=True where company_email='" + comp_email + "'";
                 stmt.executeUpdate(x);
-            } catch(Exception e) {
+            } catch (Exception e) {
                 e.printStackTrace();
             }
             response.sendRedirect("publish_result.jsp");

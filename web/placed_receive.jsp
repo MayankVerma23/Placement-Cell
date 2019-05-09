@@ -25,29 +25,27 @@
 
         <%
             Class.forName("com.mysql.jdbc.Driver");
-             Connection conn = (Connection) DriverManager.getConnection("jdbc:mysql://localhost/placementcell", "root", "");
-              String[] ids = request.getParameterValues("checkbox-group"); 
-              for(String idd : ids) {
-                 
-        %>
+            Connection conn = (Connection) DriverManager.getConnection("jdbc:mysql://localhost/placementcell", "root", "");
 
-        <%  //Create the preparedstatement(s)
+            Statement allUnplaced = conn.createStatement();
+            String updateQuery = "update interestedstudents status='unplaced' where id='" + idd + "' ";
+            String[] ids = request.getParameterValues("checkbox-group");
+            for (String idd : ids) {
 
-                
+        
+
+          //Create the preparedstatement(s)
                 Statement fetchStatement = conn.createStatement();
                 String x = "select * from interestedstudents where id='" + idd + "' ";
                 ResultSet rs = fetchStatement.executeQuery(x);
                 while (rs.next()) {
-
                     stu_roll = rs.getString("student_rollno");
-
                 }
                 String y = "update interestedstudents set status='" + status + "' where id='" + idd + "'";
                 fetchStatement.executeUpdate(y);
-              //  String z = "update studentsignup set studentstatus='" + status + "' where studentrollno='" + stu_roll + "'";
-             //   fetchStatement.executeUpdate(z);
+
             }
-             response.sendRedirect("company_decl_res.jsp");
+            response.sendRedirect("company_decl_res.jsp");
         %>
     </body>
 </html>

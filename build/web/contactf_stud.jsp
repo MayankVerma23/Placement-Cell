@@ -12,9 +12,6 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css'>
-        <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
-        <script src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js'></script>
 
         <title>CONTACT FORM STUDENT</title>
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
@@ -62,12 +59,16 @@
     </head>
 
     <body>
+        
+        <section>
         <%@include file = "header_student.jsp"%>
+        </section>
 
         <%!String roll = "";%>
 
-        <div class="container"> 
-            <secton>
+        <section>
+            <div class="container"> 
+
                 <i class="fas fa-cogs fa-5x" style="color:84868D" ></i><br><br>
                 <form action="send_reply_student.jsp">
                     <h4>
@@ -80,9 +81,9 @@
                     <br>
                     <input type="submit" class=form-submit-button value="submit">
                 </form>
+            </div>
+        </section>   
 
-            </secton>   
-        </div><br>
         <section>
             <%@include file = "footer-student.jsp"%>
         </section>

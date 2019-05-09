@@ -14,24 +14,13 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   
     <style>
-        table
-        {
-            width : 50%;
-        }
-
-        td
-        {
-            border : 2px solid black;
-            padding : 10px;
-            width : 100px;
-            height : 50px;
-        }
-
-        th
-        {
-            border : 2px solid black;
-            text-align: center;
-        }
+      table{
+                border: 2px solid black;
+               }
+            
+            .r1:hover{
+                background-color: #add8e682;
+            }
 
     </style>
 
@@ -44,12 +33,16 @@
 </head>
 <body>
  <%@include file = "header_tpo.jsp"%>
-    <section> 
-        <table>
-            <tr>
+     <section style="min-height:500px;" class="container">
+            <table class="table" >
+
+                <tr style="background-color:black;color:white;">
 
                 <th>id</th>
-                <th>NOTICE</th>
+                <th>SUBJECT</th>
+                <th>MESSAGE</th>
+                <th>POSTED ON</th>
+            
                 <th>DELETE MESSAGE</th>
 
 
@@ -65,10 +58,13 @@
                 while (rs.next()) {
             %> 
 
-            <tr>              
+            <tr class="r1">              
 
                 <td><%=rs.getString("id")%></td>
-                <td><%=rs.getString("message")%></td>
+                 <td><%=rs.getString("subject")%></td>
+                  <td><%=rs.getString("message")%></td>
+                   <td><%=rs.getString("date")%></td>
+                
 
                 <td><button class="btn btn-danger" onclick="delete1(<%=rs.getString("id")%>)">DELETE</button></td>
             </tr>

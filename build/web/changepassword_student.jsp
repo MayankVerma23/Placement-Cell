@@ -16,18 +16,10 @@
         <title>CHANGEPASSWORD STUDENT</title>
 
         <style>
-            body
-            {
-                margin:0;
-                padding:0;
-                font-family:sans-serif;
-               }
+         
             .box
             {
-                position:absolute;
-                top:50%;
-                left:50%;
-                transform:translate(-50%,-50%);
+                margin: 0 auto;
                 width:400px;
                 padding:40px;
                 background:rgba(0,0,0,.8);
@@ -157,7 +149,7 @@
     <body>
         
         <section>
-        <%@include file = "header_student.jsp"%>
+            <%@include file = "header_student.jsp"%>
         </section>
         
         <section style="min-height: 500px">

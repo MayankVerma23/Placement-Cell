@@ -53,7 +53,11 @@
 
     <body>
 
-
+        <section>
+            <!--Start of Navbar Section-->
+            <%@include file = "header_tpo.jsp"%>
+            <!--End of Navbar Section-->
+        </section>
 
         <%!String companyid1 = "";%>
 
@@ -251,12 +255,8 @@
             </tr>
         </table>
 
-
-
-
-
-
-
         <% }%>
-
+        <section>
+            <%@include file = "footer-tpo.jsp"%> 
+        </section>
     </body>

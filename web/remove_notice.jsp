@@ -32,7 +32,9 @@
 
 </head>
 <body>
+    <section>
  <%@include file = "header_tpo.jsp"%>
+    </section>
      <section style="min-height:500px;" class="container">
             <table class="table" >
 
@@ -63,7 +65,7 @@
                 <td><%=rs.getString("id")%></td>
                  <td><%=rs.getString("subject")%></td>
                   <td><%=rs.getString("message")%></td>
-                   <td><%=rs.getString("date")%></td>
+                  <td><%=rs.getString("date")%></td>
                 
 
                 <td><button class="btn btn-danger" onclick="delete1(<%=rs.getString("id")%>)">DELETE</button></td>
@@ -71,7 +73,9 @@
 
             <% }%>
         </table>
-    </section> <br>
+    </section> 
+        <section>
            <%@include file = "footer-tpo.jsp"%> 
+        </section>
 </body>
 </html>

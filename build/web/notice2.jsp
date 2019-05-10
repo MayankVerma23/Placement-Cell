@@ -26,13 +26,11 @@
             String subject = request.getParameter("t2");
             String notice1 = request.getParameter("t1");
             String designation1 = request.getParameter("student");
-            String designation2 = request.getParameter("company");
-            
+            String designation2 = request.getParameter("company");            
             String designation3 = request.getParameter("both");
-          Date d=new Date();
-          SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");  
-    String strDate = formatter.format(d);  
-    
+            Date d=new Date();
+            SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");  
+            String strDate = formatter.format(d);    
        
            try {
                 Class.forName("com.mysql.jdbc.Driver");

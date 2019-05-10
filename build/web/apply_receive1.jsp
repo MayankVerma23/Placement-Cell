@@ -25,7 +25,7 @@
             stu_rollno = hs.getAttribute("stu_roll").toString();
             companyid1 = request.getParameter("companyid");
             Calendar c1 = Calendar.getInstance();
-            //  out.print( stu_rollno+"  "+companyid1);
+           
             try {
                 Class.forName("com.mysql.jdbc.Driver");
                 Connection con = DriverManager.getConnection("jdbc:mysql://Localhost/placementcell", "root", "");

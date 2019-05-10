@@ -26,7 +26,7 @@
                 resize: none;
                 margin-left:3%;
             }
-            
+
             #subject{
                 width: 650px;
                 height: 70px;
@@ -37,9 +37,9 @@
                 background-color: #f8f8f8;
                 font-size: 16px;
                 resize: none;
-                
+
             }
-            
+
             .topics{
                 color: #333333;
                 text-align:center;
@@ -67,22 +67,30 @@
         </style>
     </head>
     <body>
-         <%@include file = "header_tpo.jsp"%>
-        <form action="notice2.jsp" method="post">
-            <h2 class="topics" ><i class="far fa-clipboard"></i> Your Notices</h2>
-            <hr class="line1">
+        <section>
+            <%@include file = "header_tpo.jsp"%>
+        </section>
+        <section>
 
-            <div class="inputBox">
-                <label style="margin:0 auto;">MSG FOR</label><br>
-                <input type="checkbox" name="student" value="student" style="float:left">Student</div>
+
+            <form action="notice2.jsp" method="post">
+                <h2 class="topics" ><i class="far fa-clipboard"></i> Your Notices</h2>
+                <hr class="line1">
+
+                <div class="inputBox">
+                    <label style="margin:0 auto;">MSG FOR</label><br>
+                    <input type="checkbox" name="student" value="student" style="float:left">Student</div>
                 <input type="checkbox" name="company"  value="company">Company<br>
                 <input type="checkbox" name="both"  value="common">Common<br>
                 <textarea cols="20" rows="8" name="t2" placeholder="SUBJECT" id="subject" required></textarea><br>
-               <textarea cols="60" rows="8" name="t1" placeholder="ADD NOTICE" required></textarea><br>
-            <input type="submit" class=form-submit-button value="Post Notice">
-        </form>
-     
+                <textarea cols="60" rows="8" name="t1" placeholder="ADD NOTICE" required></textarea><br>
+                <input type="submit" class=form-submit-button value="Post Notice">
+            </form>
+
+
+        </section>
+        <section>
+            <%@include file = "footer-tpo.jsp"%> 
+        </section>
     </body>
-    &nbsp;
-      <%@include file = "footer-tpo.jsp"%> 
 </html>

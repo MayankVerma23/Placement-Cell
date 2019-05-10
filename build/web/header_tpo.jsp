@@ -89,7 +89,7 @@
                                 </ul>
                             </li>
                             <li><a href="paper_upload_tpo.jsp" id="navbar-links">UPLOAD PAPER</a></li> 
-                            <li><a href="mail_new_companies.jsp" id="navbar-links">MAIL NEW COMPANY</a></li>
+                            <li><a href="#" id="navbar-links">MAIL NEW COMPANY</a></li>
                              <li><a href="result_announce.jsp" id="navbar-links">PUBLISH RESULT</a></li>
                             <li><a href="changepassword_tpo.jsp" id="navbar-links">CHANGE PASSWORD</a></li>
                         </ul>

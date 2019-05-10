@@ -48,6 +48,7 @@
 
         %>
     </head>
+
     <body>
         <section> 
             <div class="row">
@@ -83,7 +84,7 @@
                             </li>
                             <li><a href="company_response.jsp" id="navbar-links">STATUS</a></li>
                             <li class="active"><a href="contactf_company.jsp" id="navbar-links">SUPPORT</a></li>
-                            <li class="active"><a href="company_inbox.jsp" id="navbar-links">INBOX</a></li>
+                            <li><a href="your_inbox_company.jsp"  id="navbar-links">INBOX <%if (ct > 0) {%> <span class="badge badge-light"><%=ct%><%}%></span></a></li>
 
 
                             <li><a href="changepassword_company.jsp" id="navbar-links">CHANGE PASSWORD</a></li>

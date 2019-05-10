@@ -168,7 +168,9 @@
                     <div class="msgbox">
                         <div class="container-center" >
                             <div <%if (seen == 0) {%> class="notices-uns"<%} else {%>class="notices" <%}%>>
-                                <h4 class="userr">      <%if (statuskey == 2) {%><i class="fas fa-envelope"></i><%} else if (statuskey == 1) {%><i class="far fa-envelope-open"></i><%} else {%><i class="far fa-envelope"></i><%}%>      <%=subject%><h6 class="time-right"><%=time%></h6></h4> 
+                                <h4 class="userr"><%if (statuskey == 2) {%><i class="fas fa-envelope "  style="font-size: xx-large;"></i><%} else if (statuskey == 1) {%><i class="far fa-envelope-open" style="font-size: xx-large;"></i><%} else {%><i class="far fa-envelope" style="font-size: xx-large;"></i><%}%>&nbsp;&nbsp;<%=subject%>
+                                    <h6 class="time-right"><%=time%></h6>
+                                </h4> 
 
                             </div>
                         </div>

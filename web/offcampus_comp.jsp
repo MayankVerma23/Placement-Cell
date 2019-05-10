@@ -22,13 +22,14 @@
             .topics{
                 color: #333333;
                 text-align:left;
-                padding-left:100px;
+                padding-left:50px;
                 text-transform: capitalize;
             }
 
             .topics1{
                 color: #333333;
                 text-align:right;
+
             }
             .line1{
                 border-color: #A9A9A9;
@@ -41,15 +42,15 @@
             }
             .linkq:hover{
                 opacity: 0.9;
-            }          
-
-            #container{
-                margin-left:10%;
-                margin-right:10%;
-                margin-top:10%;   
             }
 
-
+            #container-design{
+                background-color: wheat;
+                padding:30px 60px 30px 60px;;
+                
+                border: 2px solid black;
+                
+            }
         </style>
 
         <script>
@@ -70,9 +71,10 @@
             <!--End of Navbar Section-->
         </section>
 
-        <section> 
+        <section  style="margin-top: 80px;margin-bottom:20px;min-height:400px;"> 
 
-            <div id="container">
+            <div class="container" id="container-design">
+                <h1 style="text-align: center;margin-bottom:30px;"> OFFCAMPUS PLACEMENT DRIVES</h1>
                 <%
                     Class.forName("com.mysql.jdbc.Driver");
                     Connection conn = (Connection) DriverManager.getConnection("jdbc:mysql://localhost/placementcell", "root", "");

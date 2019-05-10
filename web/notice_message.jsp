@@ -14,31 +14,44 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>MESSAGE</title>
+
+        <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css'>
+        <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
+        <script src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js'></script>
+
         <style>
+
+            body{
+                background-color: wheat;
+            }
             textarea{
                 width: 450px;
                 height: 200px;
-              
+
                 box-sizing: border-box;
                 border: 2px solid #2F4F4F;
                 border-radius: 10px;
                 background-color: #f8f8f8;
                 font-size: 16px;
                 resize: none;
-             margin:0px auto;   
+                margin:0px auto;   
             }
-            #d4{
-                text-align:center;  
-                
-                
-                  
+            .box{
+                border:2px solid black;
+                text-align:center; 
+                background-color:white;
+                width:100%;
+                height:100vh;
+               
             }
-            </style>
-            <script>
-                function CLOSE(){
-                    window.close();
-                }
-                </script>
+
+        </style>
+
+        <script>
+            function CLOSE() {
+                window.close();
+            }
+        </script>
     </head>
     <body>
         <%!String id1 = "";%>
@@ -54,11 +67,13 @@
 
 
         %>
-
-                  <textarea  name="t1"><%=rs.getString("message")%></textarea><br>
-<%}%>              
-                     <div id="d4">  
-                   <button  class="btn btn-warning"  onclick="CLOSE()">CLOSE</button>
-                     </div>
+        <div class="box"> 
+            <label style="font-size:30px;">NOTICE</label><hr style="border:2px dotted black">
+            <label style="font-size:20px;">POSTED ON :-      <%=rs.getString("date")%></label><br><br>
+            <label style="font-size:20px;">SUBJECT :-    <%=rs.getString("subject")%></label><br><br>
+            <label style="font-size:20px;">MESSAGE :-   <%=rs.getString("message")%></label><br><br>
+            <%}%>              
+            <button class="btn btn-warning"  onclick="CLOSE()">CLOSE</button>
+        </div>
     </body>
 </html>

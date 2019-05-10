@@ -237,10 +237,11 @@
 
 </head>
 
-<body>
+<body class="parralax" style="background-image: url(background_images/image1.jpg);background-color:#00000042;background-attachment: fixed;background-position: center;background-repeat: no-repeat;background-size: cover;">
+ 
 
     <div class="wrapper">
-        <h1>OUR TPO TEAM</h1>
+        <h1>OUR TEAM</h1>
         <div class="cols">
 
             <div class="col" ontouchstart="this.classList.toggle('hover');">
@@ -269,26 +270,26 @@
                     </div>
                     <div class="back">
                         <div class="inner">
-                            <p>Mayank verma (student of punjabi university)</p>
+                            <p>Mayank verma (Student of Punjabi University)</p>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="col" ontouchstart="this.classList.toggle('hover');">
-                <div class="container">
-                    <div class="front" style="background-image: url(https://unsplash.it/502/502/)">
-                        <div class="inner">
-                            <p>DIVJOT SINGH</p>
-                            <span>TEAM MEMBER</span>
-                        </div>
-                    </div>
-                    <div class="back">
-                        <div class="inner">
-                            <p>Divjot singh (student of Thapar college)</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            <!--            <div class="col" ontouchstart="this.classList.toggle('hover');">
+                            <div class="container">
+                                <div class="front" style="background-image: url(https://unsplash.it/502/502/)">
+                                    <div class="inner">
+                                        <p>DIVJOT SINGH</p>
+                                        <span>TEAM MEMBER</span>
+                                    </div>
+                                </div>
+                                <div class="back">
+                                    <div class="inner">
+                                        <p>Divjot singh (student of Thapar college)</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>-->
             <div class="col" ontouchstart="this.classList.toggle('hover');">
                 <div class="container">
                     <div class="front" style="background-image: url(https://unsplash.it/503/503/)">

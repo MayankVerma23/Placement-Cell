@@ -225,5 +225,8 @@ guidelines, which are framed to facilitate the students to get maximum benefits.
                                     
             </div>
         </div>
+        <section>
+            <%@include file = "footer-tpo.jsp"%> 
+        </section>
     </body>
 </html>

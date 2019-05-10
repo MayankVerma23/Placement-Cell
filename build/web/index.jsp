@@ -273,7 +273,7 @@
 
 
         <section style="height: auto;">
-            <div class="parralax" style="    background-image: url(background_images/image1.jpg);min-height:400px;background-attachment: fixed;background-position: center;background-repeat: no-repeat;background-size: cover;">
+            <div class="parralax" style="background-image: url(background_images/image1.jpg);min-height:400px;background-attachment: fixed;background-position: center;background-repeat: no-repeat;background-size: cover;">
                 <div style="background-color:#00000042;">
                     <div class="container" style="padding-bottom: 100px;padding-top:100px;">
                         <div data-aos="zoom-in" data-aos-duration="3000"><h1 style="text-align: center;margin-bottom: 20px;"><b><span style="color:white;">OUR</span><span style="color:#62ff15;">SERVICES</span></b></h1></div>

@@ -327,6 +327,8 @@
 
 
     </script>
-
+<section>
+            <%@include file = "footer-tpo.jsp"%> 
+        </section>
 
 </html>

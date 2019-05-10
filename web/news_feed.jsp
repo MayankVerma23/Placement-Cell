@@ -53,6 +53,17 @@
                 margin-top:10%;
               
             }
+            
+            
+                   #container-design{
+                background-color: wheat;
+                padding:30px 60px 30px 60px;;
+                
+                border: 2px solid black;
+                
+                
+            }
+        
         
         </style>
     </head>
@@ -60,22 +71,28 @@
          <%@include file = "index_navbar.jsp"%>
         
                  
-         <section id="section1" class="container"> 
+         <section  style="margin-top: 80px;margin-bottom:20px;min-height:400px;"> 
+              <div class="container" id="container-design">
+                   <h1 style="text-align: center;margin-bottom:30px;">LATEST NEWS & INFORMATIONS</h1>
            <%
                     Class.forName("com.mysql.jdbc.Driver");
                     Connection conn = (Connection) DriverManager.getConnection("jdbc:mysql://localhost/placementcell", "root", "");
-                    String fetchQuery = "select * from notice_table where common='common' ";
+                    String fetchQuery = "select * from notice_table where common='common' order by id Desc ";
                     Statement fetchStatement = conn.createStatement();
                     ResultSet rs = fetchStatement.executeQuery(fetchQuery);
                     while (rs.next()) {
                 %> 
-
+                   
                 <div style="font-size:20px;">Posted On   <%=rs.getString("date")%></div><br>
-                <textarea  name="t2" id="subject" style="font-size:22px;" readonly="">Subject is :-  <%=rs.getString("subject")%></textarea><br>
-               <textarea  name="t1" style="font-size:20px;" readonly><%=rs.getString("message")%></textarea><br><br><br><br><br>
+              
+               <textarea  name="t1" style="font-size:20px;" readonly>Subject :-     <%=rs.getString("subject")%>
+Message:-    <%=rs.getString("message")%></textarea><br><br><br><br><br>
                
            <%}%>
-         </section>
+                
+              </div>
+              
+              </section>
     <section>
       <%@include file = "footer-tpo.jsp"%> 
   </section>

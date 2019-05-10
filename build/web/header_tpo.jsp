@@ -28,6 +28,24 @@
             }
 
         </style>
+        <%
+            int ct = 0;
+            try {
+
+                Class.forName("com.mysql.jdbc.Driver");
+                Connection conn = (Connection) DriverManager.getConnection("jdbc:mysql://localhost/placementcell", "root", "");
+                Statement st = conn.createStatement();
+                String x1 = "Select count(*) from queries where Status!=2";
+                ResultSet rs = st.executeQuery(x1);
+                while (rs.next()) {
+                    ct = rs.getInt(1);
+                }
+
+            } catch (Exception ex) {
+                out.print(ex);
+            }
+
+        %>
 
 
     </head>
@@ -74,11 +92,12 @@
 
                                     <li><a href="participation_tpo.jsp" >INTERESTED STUDENTS IN COMPANY</a></li>
                                     <li><a href="tpo_placed_student.jsp">PLACED STUDENTS</a></li>
-                                  
+
                                 </ul>
                             </li>
 
-                            <li><a href="Your_Queries.jsp" id="navbar-links">MESSAGE</a></li>
+
+                            <li><a href="Your_Queries.jsp" id="navbar-links">MESSAGES<%if (ct > 0) {%> <span class="badge badge-light"><%=ct%><%}%></span></a></li>
                             <li><a href="offcampus_student.jsp" id="navbar-links">OFFCAMPUS STUDENT</a></li>
 
                             <li class="dropdown">
@@ -90,7 +109,7 @@
                             </li>
                             <li><a href="paper_upload_tpo.jsp" id="navbar-links">UPLOAD PAPER</a></li> 
                             <li><a href="#" id="navbar-links">MAIL NEW COMPANY</a></li>
-                             <li><a href="result_announce.jsp" id="navbar-links">PUBLISH RESULT</a></li>
+                            <li><a href="result_announce.jsp" id="navbar-links">PUBLISH RESULT</a></li>
                             <li><a href="changepassword_tpo.jsp" id="navbar-links">CHANGE PASSWORD</a></li>
                         </ul>
                         <ul class="nav navbar-nav navbar-right" >

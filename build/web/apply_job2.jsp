@@ -18,7 +18,7 @@
 
         <script>
             function apply_receive(x) {
-              
+                //  alert(x);
                 window.location.href = "apply_receive1.jsp?companyid=" + x;
             }
              
@@ -98,8 +98,11 @@
                     <td><b>JOB LOCATION</b></td>
                     <td><%=rs.getString("job_location")%></td>
                 </tr>
-
                 <tr>
+                    <td><b>LAST DATE TO APPLY</b></td>
+                    <td><%=rs.getString("date")%></td>
+                </tr>
+                <tr class="r1">
                     <td colspan="2" style="text-align: center"><button class="btn btn-danger" onclick="apply_receive(<%=rs.getString("id")%>)">APPLY</button></td></tr>
             
             </table>

@@ -217,5 +217,8 @@
         </div>
 
 </section>
+        <section>
+            <%@include file = "footer-tpo.jsp"%> 
+        </section>
     </body>
 </html>

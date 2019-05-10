@@ -46,7 +46,7 @@
             }
 
             .navbar{
-                border: 1px solid transparent !important;
+                border:1px solid black !important;
                 background-color: white !important;
                 padding: 0px 10px 0px 0px !important;
                 width:100%;

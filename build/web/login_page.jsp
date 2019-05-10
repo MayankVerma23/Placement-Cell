@@ -224,9 +224,9 @@
 
 
                             <br>
-                            <i class="far fa-envelope fa-2x"></i><input class="textb" id="vat" style="margin-top: 50px"type="text" name="email" placeholder="">
+                            <i class="far fa-envelope fa-2x"></i><input class="textb" id="vat" style="margin-top: 50px"type="text" name="email" placeholder="" required>
                             <br>
-                            <i class="fas fa-lock fa-2x"></i> <input class="textb" style="margin-bottom: 50px;" type="password" name="password" placeholder="Password">
+                            <i class="fas fa-lock fa-2x"></i> <input class="textb" style="margin-bottom: 50px;" type="password" name="password" placeholder="Password" required>
                             <br>
                             <span style="color:red;">${errorMessage}</span> <br>
                             <a id="forgot-pass" href="forgetpassword_student.jsp">Forgot Password?</a>
@@ -244,11 +244,10 @@
                         <div class="info">
                             <h4>Support</h4>
                             <p style="font-size:15px;">
-                                Mr Someone <br>
-                                College Name<br>
+                                Placement Cell <br>
                                 Patiala<br>
                                 <strong>Phone:</strong> +1 5589 55488 55<br>
-                                <strong>Email:</strong> admin@mail.com<br>
+                                <strong>Email:</strong> Placement Cell@mail.com<br>
                             </p>
                         </div>
                     </div>

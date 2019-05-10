@@ -1,87 +1,136 @@
 <%-- 
-    Document   : abouttpo
-    Created on : 17 Mar, 2019, 2:20:29 PM
+    Document   : our_recruiter1
+    Created on : 9 May, 2019, 11:06:40 PM
     Author     : HP
 --%>
-<%@page import="java.sql.ResultSet"%>
-<%@page import="java.sql.Statement"%>
-<%@page import="java.sql.DriverManager"%>
-<%@page import="java.sql.Connection"%>
+
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
     <head>
-        <title>ABOUT</title>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>JSP Page</title>
 
-        <script>
-            $(document).ready(function () {
-                $("#div1").mouseenter(function () {
-                    $("#pic").slideDown(2000);
-                });
-            });
+        <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css'>
 
+        <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
-            $(document).ready(function () {
-                $("#div2").mouseenter(function () {
-                    $("#pic2").slideDown(2000);
-                });
-            });
-        </script>
-        <style> 
-            #first, #pic,#div1,#div2,#pic2{
-                padding: 5px;
-                text-align: center;
-                background-color: #e5eecc;
-                border: solid 1px #c3c3c3;
+        <style>
+            #fifth-section-box
+            {
+                background-color: white;
+                width:300px;
+                height:200px;
+                margin:0 auto;
+                padding:5px;
+                text-align:center;
+                font-size:20px;
             }
-            #second {
-
-                display: none;
-            }
-            #pic{
-
-                display: none;
-            }
-            #pic2{
-
-                display: none;
-            }
-            .text{    
-                font-family: "Times New Roman", Times, serif;
-                font-size: 24px;
-            }
-</style>
-
+        </style>
     </head>
     <body>
         <section>
             <%@include file = "index_navbar.jsp"%>
         </section>
-
-
+        
         <section>
+            <div class="parralax" style="background-image: url(background_images/image1.jpg);min-height:800px;background-attachment: fixed;background-position: center;background-repeat: no-repeat;background-size: cover;">
+                <div style="background-color:#00000042;">
+                    <div class="container" style="padding-bottom: 100px;padding-top:100px;">
+                        <div data-aos="zoom-out" data-aos-duration="3000"><h1 style="text-align: center;margin-bottom: 20px;"><b><span style="color:white;">OUR</span><span style="color:#62ff15;"> MAIN RECRUITERS</span></b></h1></div>
 
-            <div id="first">
-                <p class="text"><b><u>Department of Training & Placement:</u></b></p>
-                            <p class="text">   our Placement Office  is well-equipped with the latest technologies and world-class state-of-the-art Infrastructure for pre-placement 
-                                talks, seminars, workshops, counselling, meetings; group discussions, and personal interviews. The placement department works diligently
-                                towards providing students with genuine opportunities to give their career a kick-start. The Placement Office is managed by of a team of
-                                committed professionals, some of whom have seen 8 cycles of placement.</p></div>
+                        <div data-aos="zoom-in" data-aos-duration="3000" data-aos-delay="500">
+                            <div class="row" style="margin-top:50px;">
+                                <div class="col-md-4">
 
-                            <div id="div1" class="text"><h1><b><u>Our CSE Recruiters</u></b> </h1></div>
-                            
-                            <div>
-                                <div id="pic"><img src="background_images/cse.png" width="1500"></div>
+                                    <div id="fifth-section-box">
+                                        <div> <img src="svg_icons/comp1.jpg" height="190" width="170"></div>
+
+                                    </div>
+                                </div>
+
+                                <div class="col-md-4">
+                                    <div id="fifth-section-box">
+                                        <div > <img src="svg_icons/comp2.jpg" height="190" width="170"></div>
+
+
+                                    </div>
+                                </div>
+
+                                <div class="col-md-4">
+                                    <div id="fifth-section-box">
+
+                                        <div> <img src="svg_icons/comp9.png" height="190" width="170"></div>
+                                    </div>
+                                </div>
                             </div>
+                        </div>
+
+
+                        <div data-aos="zoom-in" data-aos-duration="3000" data-aos-delay="1000">    
+                            <div class="row" style="margin-top:50px;">
+                                <div class="col-md-4">
+                                    <div id="fifth-section-box">
+                                        <div> <img src="svg_icons/comp4.jpg" height="190" width="170"></div>
+
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div id="fifth-section-box">
+                                        <div> <img src="svg_icons/comp5.jpg" height="190" width="170"></div>
+
+                                    </div>
+                                </div>
+
+                                <div class="col-md-4">
+                                    <div id="fifth-section-box">
+                                        <div> <img src="svg_icons/comp6.jpg" height="190" width="170"></div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        
+                        <div data-aos="zoom-in" data-aos-duration="3000" data-aos-delay="1500">
+                        <div class="row" style="margin-top:50px;">
+                            <div class="col-md-4">
+                                
+                                    <div id="fifth-section-box">
+                                        <div> <img src="svg_icons/comp7.jpg" height="190" width="170"></div>
+
+                                    </div>
+                                </div>
                             
-                            <div id="div2" class="text"><h1><b><u>Our other field Recruiters</u></b> </h1></div>
-                            
-                            <div id="pic2"><img src="background_images/other.jpg" width="1500"></div>
+                            <div class="col-md-4">
+                                    <div id="fifth-section-box">
+                                        <div> <img src="svg_icons/comp8.png" height="190" width="170"></div>
+
+                                    </div>
+                                </div>
+                           
+
+                            <div class="col-md-4">
+                                    <div id="fifth-section-box">
+                                        <div> <img src="svg_icons/comp7.png" height="190" width="170"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
         </section>
+    </body>
 
 
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
+    <script src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js'></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 
-        </body>
+    <script>
+        AOS.init();
+    </script>
+
 </html>

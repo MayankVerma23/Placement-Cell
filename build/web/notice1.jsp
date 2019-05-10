@@ -45,15 +45,12 @@
                 text-align:center;
                 text-transform: capitalize;
             }
-            .line1{
-                border-color: #A9A9A9;
-            }
+
 
             .form-submit-button {
                 background: #333333;
                 border-color: #333333;
-                color: #ffffff;
-                margin-left:40%;
+                color: white;
                 height: 40px;
                 width: 150px;
                 font: bold 15px arial, sans-serif;
@@ -61,8 +58,15 @@
 
             input[type=checkbox]{
                 border: 0px;
-                width:100%;
-                height:2em;
+                width:10%;
+                height:1.5em;
+            }
+
+            #container-design{
+                background-color: wheat;
+                padding:30px 60px 30px 60px;;
+                border: 2px solid black;
+
             }
         </style>
     </head>
@@ -70,25 +74,28 @@
         <section>
             <%@include file = "header_tpo.jsp"%>
         </section>
-        <section>
 
 
-            <form action="notice2.jsp" method="post">
-                <h2 class="topics" ><i class="far fa-clipboard"></i> Your Notices</h2>
-                <hr class="line1">
+        <section  style="margin-top: 20px;margin-bottom:20px;min-height:400px;"> 
+            <div class="container" id="container-design">
+                <h1 style="text-align: center;margin-bottom:30px;"></h1>
+                <form action="notice2.jsp" method="post" style="text-align: center;">
+                    <h2 class="topics" ><i class="far fa-clipboard"></i>ADD NOTICE</h2><hr style="border: 1px solid black;">
 
-                <div class="inputBox">
-                    <label style="margin:0 auto;">MSG FOR</label><br>
-                    <input type="checkbox" name="student" value="student" style="float:left">Student</div>
-                <input type="checkbox" name="company"  value="company">Company<br>
-                <input type="checkbox" name="both"  value="common">Common<br>
-                <textarea cols="20" rows="8" name="t2" placeholder="SUBJECT" id="subject" required></textarea><br>
-                <textarea cols="60" rows="8" name="t1" placeholder="ADD NOTICE" required></textarea><br>
-                <input type="submit" class=form-submit-button value="Post Notice">
-            </form>
+                    <label style="font-size:20px;">MESSAGE FOR</label>
+                    <br/><br/>
+                    <label>Student</label><input type="checkbox" name="student" value="student">
+                    <label>Company</label><input type="checkbox" name="company"  value="company">
+                    <label>Common</label><input type="checkbox" name="both"  value="common">
 
-
+                    <br/><br/>
+                    <textarea cols="20" rows="8" name="t2" placeholder="SUBJECT" id="subject" required></textarea><br>
+                    <textarea cols="60" rows="8" name="t1" placeholder="ADD NOTICE" required></textarea><br>
+                    <button type="submit" class="form-submit-button">Post Notice</button>
+                </form>
+            </div>
         </section>
+
         <section>
             <%@include file = "footer-tpo.jsp"%> 
         </section>

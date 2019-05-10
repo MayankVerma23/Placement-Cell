@@ -4,6 +4,10 @@
     Author     : hp
 --%>
 
+<%@page import="java.sql.ResultSet"%>
+<%@page import="java.sql.Statement"%>
+<%@page import="java.sql.DriverManager"%>
+<%@page import="java.sql.Connection"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -23,6 +27,25 @@
                 color:black;
             }
         </style>
+        <%
+            int ct = 0;
+            try {
+
+                Class.forName("com.mysql.jdbc.Driver");
+                Connection con = (Connection) DriverManager.getConnection("jdbc:mysql://localhost/placementcell", "root", "");
+                Statement st = con.createStatement();
+                String x1 = "Select count(*) from queries where seen='0' and designation ='student'";
+
+                ResultSet rs = st.executeQuery(x1);
+                while (rs.next()) {
+                    ct = rs.getInt(1);
+                }
+            } catch (Exception ex) {
+                out.print(ex);
+            }
+
+        %>
+
     </head>
     <body>
         <section> 
@@ -46,7 +69,7 @@
                     <div class="collapse navbar-collapse" id="myNavbar">
                         <ul class="nav navbar-nav">
                             <li class="active"><a href="home_student.jsp" id="navbar-links">HOME</a></li>
-                              <li><a href="profile_student.jsp" id="navbar-links">PROFILE</a></li>
+                            <li><a href="profile_student.jsp" id="navbar-links">PROFILE</a></li>
                             <li class="dropdown">
                                 <a class="dropdown-toggle" data-toggle="dropdown" href="placement_student.jsp" id="navbar-links">COMPANIES INFORMATION<span class="caret"></span></a>
                                 <ul class="dropdown-menu">
@@ -57,7 +80,10 @@
                             </li>                          
                             <li><a href="contactf_stud.jsp" id="navbar-links">CONTACT FORM</a></li>
                             <li><a href="view_upload_paper_student.jsp" id="navbar-links">PREVIOUS YEAR PAPERS</a></li>
-                            <li><a href="your_inbox_student.jsp" id="navbar-links">MESSAGES</a></li>
+                            <!--                            <li><a href="your_inbox_student.jsp" id="navbar-links">MESSAGES</a></li>
+                            -->
+                            <li><a href="your_inbox_student.jsp"  id="navbar-links">MESSAGES <%if (ct > 0) {%> <span class="badge badge-light"><%=ct%><%}%></span></a></li>
+
                             <li><a href="changepassword_student.jsp" id="navbar-links">CHANGE PASSWORD</a></li>
                         </ul>
 

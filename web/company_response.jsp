@@ -14,7 +14,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-       <title>COMPANY RESPONSE</title>
+        <title>COMPANY RESPONSE</title>
 
         <style>
 
@@ -25,6 +25,13 @@
                 font-family:sans-serif;
                 <%--background:url(background_images/balls3.jpg);--%>
                 background-size:cover;
+            }
+            #container-design{
+                background-color: wheat;
+                padding:30px 60px 30px 60px;;
+
+                border: 2px solid black;
+                text-align:center;
             }
 
         </style>
@@ -103,51 +110,68 @@
 
     <body>
         <section>
-        <%@include file = "header_company.jsp"%>
+            <%@include file = "header_company.jsp"%>
         </section>
-        <section style="min-height: 500px">
-        <%!String comp_email = "";%>
-        <%!String comp_id = "", comp_status = "", comp_message = "", comp_date = "";%>
-        <%
-            HttpSession hs = request.getSession();
-            comp_email = hs.getAttribute("company_email").toString();
 
-            Class.forName("com.mysql.jdbc.Driver");
-            Connection conn = (Connection) DriverManager.getConnection("jdbc:mysql://localhost/placementcell", "root", "");
-            Statement stmt = conn.createStatement();
-            String x = "select * from companysignup where companyemail='" + comp_email + "'";
-            ResultSet rs = stmt.executeQuery(x);
-            while (rs.next()) {
-                comp_status = rs.getString("status");
-                comp_id = rs.getString("companyid");
-            }
+        <section style="min-height:400px;">
+            <div class="container" id="container-design" >
+                <div style="margin:0 auto;min-height:300px;">
+                    <%!String comp_email = "";%>
+                    <%!String comp_id = "", comp_status = "", comp_message = "", comp_date = "";%>
+                    <%            HttpSession hs = request.getSession();
+                        comp_email = hs.getAttribute("company_email").toString();
 
-            if (comp_status.equals("reject")) {
+                        Class.forName("com.mysql.jdbc.Driver");
+                        Connection conn = (Connection) DriverManager.getConnection("jdbc:mysql://localhost/placementcell", "root", "");
+                        Statement stmt = conn.createStatement();
+                        String x = "select * from companysignup where companyemail='" + comp_email + "'";
+                        ResultSet rs = stmt.executeQuery(x);
+                        while (rs.next()) {
+                            comp_status = rs.getString("status");
+                            comp_id = rs.getString("companyid");
+                        }
 
-                String z = "select * from message where companyid='" + comp_id + "'";
-                rs = stmt.executeQuery(z);
-                while (rs.next()) {
-                    comp_message = rs.getString("message");
+                        if (comp_status.equals("reject")) {
 
-                }
-                out.print(comp_message);
-            } else if (comp_status.equals("waiting")) {
-        %>
-        <div><h2>TPO DO NOT GIVE RESPONSE TO YOUR REQUEST YET</h2></div>
-        <div><h1>PLEASE WAIT</h1></div>
-        <% } else if (comp_status.equals("accept")) {
-            String y = "select * from approved_comp where companyid='" + comp_id + "'";
-            rs = stmt.executeQuery(y);
-            while (rs.next()) {
-                comp_message = rs.getString("msg");
-                comp_date = rs.getString("date");
-            }
-            out.print(comp_message + "  " + comp_date);
-        %>
-        <a href="accepted_comp_requirements.jsp">ADD REQUIREMENTS</a>
+                            String z = "select * from message where companyid='" + comp_id + "'";
+                            rs = stmt.executeQuery(z);
+                            while (rs.next()) {
+                                comp_message = rs.getString("message");
 
-        <%}%>
+                            }
+                    %>
+                    <label style="font-size:20px;">TPO DO NOT ACCEPT YOUR REQUEST</label><br/>
+                    <label style="font-size:20px;">REASON :-  <%=comp_message%></label><br/> 
+                    <a href="contactf_company.jsp"  style="color:white;"><button class="btn btn-danger"> CONTACT US FOR ANY QUERY</button> </a>
+
+
+                    <%   } else if (comp_status.equals("waiting")) {
+                    %>
+                    <label  style="font-size:20px;">TPO DO NOT GIVE RESPONSE TO YOUR REQUEST YET</label><br/>
+                    <label  style="font-size:20px;">PLEASE WAIT</label><br/>
+                    <a href="contactf_company.jsp"  style="color:white;"><button class="btn btn-danger"> CONTACT US FOR ANY QUERY</button> </a>
+
+                    <% } else if (comp_status.equals("accept")) {
+                        String y = "select * from approved_comp where companyid='" + comp_id + "'";
+                        rs = stmt.executeQuery(y);
+                        while (rs.next()) {
+                            comp_message = rs.getString("msg");
+                            comp_date = rs.getString("date");
+                        }
+
+                    %>
+
+                    <label  style="font-size:20px;">Message :- <%=comp_message%></label><br/>
+                    <label style="font-size:20px;">Date :-<%=comp_date%></label><br/><br/>
+                    <label style="font-size:20px;">NOW YOU CAN SEND US REQUIRMENT FOR JOB</label><br/> 
+                    <a href="accepted_comp_requirements.jsp"  style="color:white;"><button class="btn btn-danger"> ADD REQUIREMENTS</button></a>
+                </div>
+                <%}%>
+
+            </div>
+
         </section>
+
         <section>
             <%@include file = "footer-company.jsp"%>
         </section>

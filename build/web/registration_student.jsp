@@ -331,39 +331,38 @@
                 alert("sem7 cgpa not greater than 10");
                 return false;
             } else if (sem > 10) {
-                alert("sem8 cgpa not greater than 10");
+                alert("Sem8 Cgpa Not Greater Than 10");
                 return false;
             } else if (j > 10) {
-                alert("overall cgpa not greater than 10");
+                alert("Overall Cgpa Not Greater Than 10");
                 return false;
             } else if (length < 8)
             {
-                alert("Your password must be at least 8 characters long.");
+                alert("Your Password Must Be At Least 8 Characters Long.");
                 return false;
             } else if (flag_number === 0)
             {
-                alert("Your password must contain at least one digit .");
+                alert("Your Password Must Contain At Least One Digit .");
                 return false;
             } else if (flag_lowercase === 0)
             {
-                alert("Your password must contain at least a letter in lower case .");
+                alert("Your Password Must Contain At Least a Letter In LOWER CASE .");
                 return false;
             } else if (flag_upercase === 0)
             {
-                alert("Your password must contain at least a letter in uper case .");
+                alert("Your Password Must Contain At Least a Letter In UPER CASE .");
                 return false;
             } else
             {
                 var a = (document.getElementById("t1").value);
                 var b = (document.getElementById("t2").value);
                 if (a !== b) {
-                    alert("pass not match");
+                    alert("Password Not Match");
                     return false;
-                } else {
-                    alert("pass  match");
+                } else
+                {                    
                     return true;
                 }
-
             }
         }
     </script>

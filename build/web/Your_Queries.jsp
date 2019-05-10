@@ -61,18 +61,19 @@
 
     </head>
     <body>
-
+    <section>
         <!--Start of Navbar Section-->
         <%@include file = "header_tpo.jsp"%>
         <!--End of Navbar Section-->
-
+    </section>
+  <section> 
         <%! String name = "";
             String email = "";
             String subject = "";
             int id;
             String design = "";
         %>
-        <section> 
+      
             <table class="hover">
                 <tr>
                     <th>Name</th> 
@@ -126,7 +127,9 @@ catch (Exception ex) {
                 %>
             </table>
         </section><br>
+        <section>
             <%@include file = "footer-tpo.jsp"%>
+        </section>
                 </body>
                 </html>
 

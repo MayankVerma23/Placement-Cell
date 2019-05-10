@@ -180,5 +180,8 @@
                 </p>
             </div>
         </div>
+        <section>
+            <%@include file = "footer-tpo.jsp"%> 
+        </section>
     </body>
 </html>

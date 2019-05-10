@@ -54,7 +54,7 @@
         
         <script>
             function message(x) {
-                window.open('notice_message.jsp?id=' + x, 'popUpWindow', 'height=260,width=510,left=650,top=250,resizable=no,scrollbars=no,toolbar=no,menubar=no,location=no,directories=no, status=yes');
+                window.open('notice_message.jsp?id=' + x, 'popUpWindow', 'height=400,width=600,left=450,top=200,resizable=no,scrollbars=no,toolbar=no,menubar=no,location=no,directories=no, status=yes');
             }
         </script>
     </head>

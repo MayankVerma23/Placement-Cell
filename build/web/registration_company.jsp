@@ -48,33 +48,33 @@
                 }
 
                 if (!comp_name.match(/^[A-Za-z. ]+$/)) {
-                    alert("Name fill only with alphabate");
+                    alert("Name Fill Only With Alphabate");
                     return false;
                 }
                 else if (a.length < 10) {
-                    alert("Phoneno must be 10 digit");
+                    alert("Phoneno Must be 10 digit");
                     return false;
                 } else if (a.length > 10) {
-                    alert("Phoneno must be 10 digit");
+                    alert("Phoneno Must be 10 digit");
                     return false;
                 } else if ((a.charAt(0) != 9) && (a.charAt(0) != 8) && (a.charAt(0) != 7) && (a.charAt(0) != 6)) {
-                    alert("Phone number must start with 9,8,7 and 6");
+                    alert("Phone Number must start with 9,8,7 and 6");
                     return false;
                 } else if (lengthh < 8)
                 {
-                    alert("Your password must atleast 8 characters long .");
+                    alert("Your Password Must Be At Least 8 Characters Long.");
                     return false;
                 } else if (flag_number === 0)
                 {
-                    alert("Your password must contain at least one digit .");
+                    alert(Your Password Must Contain At Least One Digit .");
                     return false;
                 } else if (flag_lowercase === 0)
                 {
-                    alert("Your password must contain at least a letter in lower case .");
+                    alert("Your Password Must Contain At Least a Letter In LOWER CASE .");
                     return false;
                 } else if (flag_upercase === 0)
                 {
-                    alert("Your password must contain at least a letter in uper case .");
+                    alert(Your Password Must Contain At Least a Letter In UPER CASE .");
                     return false;
                 } else
                 {
@@ -84,7 +84,7 @@
                         alert("pass not match");
                         return false;
                     } else {
-                        alert("pass match");
+                       
                         return true;
                     }
                 }

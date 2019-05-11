@@ -1,11 +1,10 @@
 <html>
     <head>
-        <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css'>
         <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Arimo" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
 
-    
+
 
         <style>
             body{
@@ -133,32 +132,32 @@
         </style>
     </head>
     <body>
-         <section>
-
-
-             <%@include file = "index_navbar.jsp"%>
+        <section>
+            <%@include file = "index_navbar.jsp"%>
         </section>
+
         <div class="box1">
             <h1>ABOUT US</h1>
         </div>
+
         <div class="box2">
             <div class="content">
-                
-<h1>ABOUT US</h1>
+
+                <h1>ABOUT US</h1>
                 <div class="text-success">
                     <blockquote>    The Placement Cell plays a crucial role in locating job opportunities for Under Graduates and Post Graduates passing out from the college by keeping in touch with reputed firms and industrial establishments. The Placement Cell operates round the year to facilitate contacts between companies and graduates. The number of students placed through the campus interviews is continuously rising. On invitation, many reputed industries visit the institute to conduct interviews.<br><br>
 
                         We have been successful in maintaining our high placement statistics over the years and the fact that our students bear the recession blues with record breaking placements itself is a testimony to our quality. Our ingenious alumnae have set new standards in the corporate world through their estimable contributions and it is my firm conviction that we will continue that legacy in the years to come.<br><br>
 
                         The Placement Cell organizes career guidance programmes for all the students starting from first year. The cell arranges training programmes like Mock Interviews, Group Discussions, Communication Skills Workshop etc and it also organizes Public Sector Exam Training for students who are interested to join Government Sectors. It also invites HR Managers from different industries to conduct training programmes for final year students.<br>
-                    <br>
-                    The objective of the college Placement Cell is to help students identify their career goals and provide an edge into the present day competitive job market. We are keen to organize a Campus Placement Drive at our institute for the Final Year students.</blockquote>
+                        <br>
+                        The objective of the college Placement Cell is to help students identify their career goals and provide an edge into the present day competitive job market. We are keen to organize a Campus Placement Drive at our institute for the Final Year students.</blockquote>
                 </div>
-                
+
                 <h4 style="margin-top: 50px;">Our Objectives</h4>
-                <p> <u><b>Objectives of this department are as follows:</b></u></p>
-                <p class="text-success">                 
-                    
+                <p style="text-align: left"> <u><b>Objectives of this department are as follows:</b></u></p>
+                <p class="text-success" style="text-align: left">                 
+
                     1. Developing the students to meet the Industries recruitment process
                     <br>
                     2. To motivate students to develop Technical knowledge and soft skills in terms of career planning, goal setting
@@ -180,8 +179,11 @@
                 </p>
             </div>
         </div>
+        
+       
         <section>
-            <%@include file = "footer-tpo.jsp"%> 
+            <%@include file = "index_footer.jsp"%>
         </section>
+        
     </body>
 </html>

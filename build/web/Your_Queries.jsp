@@ -13,9 +13,9 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
-       
-           <title>Messages</title>
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+
+        <title>Messages</title>
         <style>
             table
             {
@@ -61,19 +61,19 @@
 
     </head>
     <body>
-    <section>
-        <!--Start of Navbar Section-->
-        <%@include file = "header_tpo.jsp"%>
-        <!--End of Navbar Section-->
-    </section>
-  <section> 
-        <%! String name = "";
-            String email = "";
-            String subject = "";
-            int id;
-            String design = "";
-        %>
-      
+        <section>
+            <!--Start of Navbar Section-->
+            <%@include file = "header_tpo.jsp"%>
+            <!--End of Navbar Section-->
+        </section>
+        <section> 
+            <%! String name = "";
+                String email = "";
+                String subject = "";
+                int id;
+                String design = "";
+            %>
+
             <table class="hover">
                 <tr>
                     <th>Name</th> 
@@ -90,7 +90,6 @@
                         Connection conn = (Connection) DriverManager.getConnection("jdbc:mysql://localhost/placementcell", "root", "");
                         Statement st = conn.createStatement();
                         String x1 = "Select * from queries where status='0' or status='1' order by ID desc";
-
                         ResultSet rs = st.executeQuery(x1);
                         while (rs.next()) {
                             id = rs.getInt("ID");
@@ -99,29 +98,30 @@
                             subject = rs.getString("Subject");
                             design = rs.getString("Designation");
                 %>
-                <tr>            
+                <tr>           
 
-                    <td><%if (design.equals("student"))
-                    {                        %>
+                    <td>
+                        <%
+                        if (design.equals("student")) {                       
+                        %>
                         <i class="fas fa-user-graduate"></i>
-                        <%                } else {
+                        <%                 }
+                        else {
                         %>
                         <i class="fas fa-building"></i>
                         <%
                             }
                         %>
-                    <%=name%></td>
+                        <%=name%></td>
                     <td><%=subject%></td>
                     <td><%=email%></td>
                     <td> <a href="tickets.jsp?id=<%=id%>"><i class="far fa-comment-dots fa-2x"></i></a></td>
                 </tr>
                 <%
-
                         }
-
-}
-
-catch (Exception ex) {
+                    } 
+                    catch (Exception ex) 
+                    {
                         out.println(ex);
                     }
                 %>
@@ -130,6 +130,6 @@ catch (Exception ex) {
         <section>
             <%@include file = "footer-tpo.jsp"%>
         </section>
-                </body>
-                </html>
+    </body>
+</html>
 

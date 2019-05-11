@@ -10,9 +10,6 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>JSP Page</title>
-
-        <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css'>
-
         <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
         <style>
@@ -32,7 +29,7 @@
         <section>
             <%@include file = "index_navbar.jsp"%>
         </section>
-        
+
         <section>
             <div class="parralax" style="background-image: url(background_images/image1.jpg);min-height:800px;background-attachment: fixed;background-position: center;background-repeat: no-repeat;background-size: cover;">
                 <div style="background-color:#00000042;">
@@ -90,27 +87,27 @@
                                 </div>
                             </div>
                         </div>
-                        
-                        
+
+
                         <div data-aos="zoom-in" data-aos-duration="3000" data-aos-delay="1500">
-                        <div class="row" style="margin-top:50px;">
-                            <div class="col-md-4">
-                                
+                            <div class="row" style="margin-top:50px;">
+                                <div class="col-md-4">
+
                                     <div id="fifth-section-box">
                                         <div> <img src="svg_icons/comp7.jpg" height="190" width="170"></div>
 
                                     </div>
                                 </div>
-                            
-                            <div class="col-md-4">
+
+                                <div class="col-md-4">
                                     <div id="fifth-section-box">
                                         <div> <img src="svg_icons/comp8.png" height="190" width="170"></div>
 
                                     </div>
                                 </div>
-                           
 
-                            <div class="col-md-4">
+
+                                <div class="col-md-4">
                                     <div id="fifth-section-box">
                                         <div> <img src="svg_icons/comp7.png" height="190" width="170"></div>
                                     </div>
@@ -125,12 +122,12 @@
     </body>
 
 
-    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
-    <script src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js'></script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 
     <script>
         AOS.init();
     </script>
-
+    <section>
+        <%@include file = "index_footer.jsp"%> 
+    </section>
 </html>

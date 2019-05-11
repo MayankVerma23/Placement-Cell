@@ -17,8 +17,12 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">      
 
     </head>
+    <body>
+        <section>
+            <%@include file = "header_student.jsp"%>
+        </section>
 
-    <body >
+
 
         <section style="min-height:500px;" class="container">
             <table class="table"  >
@@ -58,6 +62,7 @@
         <section>
             <%@include file = "footer-company.jsp"%>
         </section>
+
     </body>
 </html>
 

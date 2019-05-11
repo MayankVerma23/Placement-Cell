@@ -175,7 +175,7 @@
                     if ($("#company").hasClass('btn-highlighted'))
                         $("#company").removeClass('btn-highlighted');
                     $("#student").addClass('btn-highlighted');
-                    $("#vat").attr("placeholder", "Roll Number");
+                    $("#vat").attr("placeholder", "Enter Roll Number");
                 });
                 $("#company").click(function () {
                     $("#forgot-pass").attr("href", "forgetpassword_company.jsp");
@@ -185,7 +185,7 @@
                     if ($("#tpo").hasClass('btn-highlighted'))
                         $("#tpo").removeClass('btn-highlighted');
                     $("#company").addClass('btn-highlighted');
-                    $("#vat").attr("placeholder", "Email");
+                    $("#vat").attr("placeholder", "Enter Email");
 
                 });
                 $("#tpo").click(function () {
@@ -196,7 +196,7 @@
                     if ($("#company").hasClass('btn-highlighted'))
                         $("#company").removeClass('btn-highlighted');
                     $("#tpo").addClass('btn-highlighted');
-                    $("#vat").attr("placeholder", "Name");
+                    $("#vat").attr("placeholder", "Enter Name");
                 });
             });
         </script>
@@ -224,9 +224,9 @@
 
 
                             <br>
-                            <i class="far fa-envelope fa-2x"></i><input class="textb" id="vat" style="margin-top: 50px"type="text" name="email" placeholder="" required>
+                            <i class="far fa-envelope fa-2x"></i><input class="textb" id="vat" style="margin-top: 50px"type="text" name="email" placeholder="Enter Roll Number" required>
                             <br>
-                            <i class="fas fa-lock fa-2x"></i> <input class="textb" style="margin-bottom: 50px;" type="password" name="password" placeholder="Password" required>
+                            <i class="fas fa-lock fa-2x"></i> <input class="textb" style="margin-bottom: 50px;" type="password" name="password" placeholder="Enter Password" required>
                             <br>
                             <span style="color:red;">${errorMessage}</span> <br>
                             <a id="forgot-pass" href="forgetpassword_student.jsp">Forgot Password?</a>
@@ -246,7 +246,7 @@
                             <p style="font-size:15px;">
                                 Placement Cell <br>
                                 Patiala<br>
-                                <strong>Phone:</strong> +1 5589 55488 55<br>
+                                <strong>Phone:</strong> +91 86595458957<br>
                                 <strong>Email:</strong> Placement Cell@mail.com<br>
                             </p>
                         </div>

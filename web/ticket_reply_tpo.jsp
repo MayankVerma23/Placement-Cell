@@ -6,6 +6,7 @@
 
 
 
+<%@page import="java.sql.PreparedStatement"%>
 <%@page import="java.text.SimpleDateFormat"%>
 <%@page import="java.util.Calendar"%>
 <%@page import="java.util.Date"%>
@@ -57,14 +58,23 @@
             Class.forName("com.mysql.jdbc.Driver");
             Connection conn = (Connection) DriverManager.getConnection("jdbc:mysql://localhost/placementcell", "root", "");
             Statement stmt = conn.createStatement();
-            x = "insert into qmessages values('" + ids + "','" + name + "','" + sub + "','" + reply + "','tpo','" + Str + " at " + Str1 + "')";
-            y = "update queries set Status='" + statuskey + "',seen='0' where ID='" + ids + "'";
-            stmt.executeUpdate(x);
-            stmt.executeUpdate(y);
+                            PreparedStatement st = conn.prepareStatement("insert into qmessages values(?,?,?,?,?,?)");
+                st.setInt(1, ids);
+                st.setString(2, name);
+                st.setString(3, sub);
+                st.setString(4, reply);
+                st.setString(5, "tpo");
+                st.setString(6, Str+" at "+ Str1);
+                st.execute();
+                       
+             y = "update queries set Status='" + statuskey + "',seen='0' where ID='" + ids + "'";
+             stmt.executeUpdate(y);
         } catch (Exception ex) {
             out.print(ex);
         }
-        response.sendRedirect("tickets.jsp?id=" + ids);
+        
+       response.sendRedirect("tickets.jsp?id=" + ids);
+      
     %>
 
 </html>

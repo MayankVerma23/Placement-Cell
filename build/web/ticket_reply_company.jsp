@@ -1,5 +1,6 @@
 
 
+<%@page import="java.sql.PreparedStatement"%>
 <%@page import="java.text.SimpleDateFormat"%>
 <%@page import="java.util.Calendar"%>
 <%@page import="java.util.Date"%>
@@ -53,9 +54,17 @@
                 name = rs3.getString("companyname");
 
             }
-            x = "insert into qmessages values('" + ids + "','" + name + "','" + sub + "','" + reply + "','company','" + Str + " at " + Str1 + "')";
-
-            stmt.executeUpdate(x);
+                PreparedStatement st = conn.prepareStatement("insert into qmessages values(?,?,?,?,?,?)");
+                st.setString(1, ids);
+                st.setString(2, name);
+                st.setString(3, sub);
+                st.setString(4, reply);
+                st.setString(5, "company");
+                st.setString(6, Str+" at "+ Str1);
+                st.execute();
+                
+           
+            
         } catch (Exception ex) {
             out.print(ex);
         }

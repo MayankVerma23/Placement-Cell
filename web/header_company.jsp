@@ -27,7 +27,7 @@
 
         </style>
 
-
+    <%! String com_email1 = "", com_name1;%>
         <%
             int ct = 0;
             try {
@@ -41,6 +41,15 @@
                 while (rs.next()) {
                     ct = rs.getInt(1);
                 }
+                
+                HttpSession hs = request.getSession();
+            com_email1 = hs.getAttribute("company_email").toString();
+            String x = "select * from companysignup where companyemail='" + com_email1 + "'";
+            ResultSet rs1 = st.executeQuery(x);
+            while (rs1.next()) {
+
+                com_name1 = rs1.getString("companyname");
+            }
 
             } catch (Exception ex) {
                 out.print(ex);
@@ -54,6 +63,7 @@
             <div class="row">
                 <div class="col-lg-12">
                     <h1 style="float:left;padding-left:20px;">Placement Cell</h1>
+                    <h1 style="float:right;padding-right:20px;"><%=com_name1%></h1>
                 </div>
             </div>
         </section>
@@ -84,7 +94,7 @@
                             </li>
                             <li><a href="company_response.jsp" id="navbar-links">STATUS</a></li>
                             <li class="active"><a href="contactf_company.jsp" id="navbar-links">SUPPORT</a></li>
-                            <li><a href="your_inbox_company.jsp"  id="navbar-links">INBOX <%if (ct > 0) {%> <span class="badge badge-light"><%=ct%><%}%></span></a></li>
+                            <li><a href="your_inbox_company.jsp"  id="navbar-links">INBOX</a></li>
 
 
                             <li><a href="changepassword_company.jsp" id="navbar-links">CHANGE PASSWORD</a></li>

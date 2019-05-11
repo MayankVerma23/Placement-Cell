@@ -36,25 +36,30 @@
 
     </style>
 
-    <script>
+<!--    <script>
         function unplaced(x) {
             window.location.href = "unplaced_receive.jsp?studentid=" + x;
         }
-    </script>
+    </script>-->
 
 </head>
 <body>
-
+    <section>
     <!--Start of Navbar Section-->
     <%@include file = "header_company.jsp"%>
     <!--End of Navbar Section-->
-
-    <section> 
-        <table>
+    </section>
 
 
+        <section style="min-height:500px;" class="container">
+            <table class="table"  >
+                <tr style="background-color:black;color:white;">
+      <th>STUDENT NAME</th>
+                <th>STUDENT ROLL NO.</th>
+                <th>STUDENT  EMAIL ID</th>                 
+             </tr> 
          
-            <%                String status = "placed";
+            <%  String status = "placed";
                 HttpSession hs = request.getSession();
                 String comp_email = hs.getAttribute("company_email").toString();
                 try {
@@ -63,26 +68,13 @@
                     String fetchQuery = "select * from interestedstudents where company_email='" + comp_email + "' and status='" + status + "'";
                     Statement fetchStatement = conn.createStatement();
                     ResultSet rs = fetchStatement.executeQuery(fetchQuery);
-            %>
-
-            <tr>
-                <th>STUDENT NAME</th>
-                <th>STUDENT ROLL NO.</th>
-                <th>STUDENT  EMAIL ID</th>                 
-                <th>CHANGE RESULT </th>
-
-            </tr>           
-
-            <%
+          
                 while (rs.next()) {
             %> 
-            <tr>                             
+              <tr class="r1">                            
                 <td><%=rs.getString("student_name")%></td>
                 <td><%=rs.getString("student_rollno")%></td>
                 <td><%=rs.getString("student_email")%></td>
-
-                <td><button class="btn btn-danger" onclick="unplaced(<%=rs.getString("id")%>)">reject</button></td>
-
             </tr>
             <% }
 

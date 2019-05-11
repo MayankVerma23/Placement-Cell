@@ -1,6 +1,5 @@
 <html>
     <head>
-        <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css'>
         <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Arimo" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
@@ -225,8 +224,8 @@ guidelines, which are framed to facilitate the students to get maximum benefits.
                                     
             </div>
         </div>
-        <section>
-            <%@include file = "footer-tpo.jsp"%> 
+         <section>
+            <%@include file = "index_footer.jsp"%> 
         </section>
     </body>
 </html>

@@ -9,9 +9,22 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css'>
+     
 
         <title>HOME STUDENT</title>
+        <style>
+            
+            #notice1{
+              float:right;  
+            }
+            
+            #d1{
+               float:left;
+               margin-left:120px;
+               margin-top:15px;
+                
+            }
+            </style>
 
     </head>
 
@@ -20,12 +33,20 @@
         <section>
             <%@include file = "header_student.jsp"%>
         </section>
-
-        <section>
+        
+         
+        <section class="container" style="min-width:100%;">
+            <div id="notice1">
             <%@include file = "notice_student.jsp"%>
+            </div>
+            <div id="d1">
+            <%@include file = "stu_ex.jsp"%>
+            </div>
         </section>
-
-
+            
+            
+   
+    
         <section>
             <%@include file = "footer-student.jsp"%>
         </section>

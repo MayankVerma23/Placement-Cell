@@ -28,24 +28,7 @@
             }
 
         </style>
-        <%
-            int ct = 0;
-            try {
 
-                Class.forName("com.mysql.jdbc.Driver");
-                Connection conn = (Connection) DriverManager.getConnection("jdbc:mysql://localhost/placementcell", "root", "");
-                Statement st = conn.createStatement();
-                String x1 = "Select count(*) from queries where Status!=2";
-                ResultSet rs = st.executeQuery(x1);
-                while (rs.next()) {
-                    ct = rs.getInt(1);
-                }
-
-            } catch (Exception ex) {
-                out.print(ex);
-            }
-
-        %>
 
 
     </head>
@@ -69,9 +52,8 @@
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>                        
                         </button>
-
-
                     </div>
+                    
                     <div class="collapse navbar-collapse" id="myNavbar">
                         <ul class="nav navbar-nav">
                             <li class="active"><a href="home_tpo.jsp" id="navbar-links">HOME</a></li>
@@ -83,22 +65,25 @@
                                     <li><a href="approved_table.jsp" >APPROVED COMPANIES</a></li>
                                     <li><a href="declined_table.jsp" >DECLINED COMPNIES</a></li>
                                     <li><a href="company_responsetable.jsp" >ACCEPTED COMPANY REQUIREMENTS</a></li>
+                                    <li><a href="result_announce.jsp" >PUBLISH RESULT</a></li>
                                 </ul>
                             </li>
 
                             <li class="dropdown">
                                 <a class="dropdown-toggle" data-toggle="dropdown" href="#" id="navbar-links">STUDENTS INFORMATION<span class="caret"></span></a>
                                 <ul class="dropdown-menu">
-
                                     <li><a href="participation_tpo.jsp" >INTERESTED STUDENTS IN COMPANY</a></li>
                                     <li><a href="tpo_placed_student.jsp">PLACED STUDENTS</a></li>
-
                                 </ul>
                             </li>
 
-
-                            <li><a href="Your_Queries.jsp" id="navbar-links">MESSAGES<%if (ct > 0) {%> <span class="badge badge-light"><%=ct%><%}%></span></a></li>
-                            <li><a href="offcampus_student.jsp" id="navbar-links">OFFCAMPUS STUDENT</a></li>
+                            <li class="dropdown">
+                                <a class="dropdown-toggle" data-toggle="dropdown" href="#" id="navbar-links">OFFCAMPUS SECTION <span class="caret"></span></a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="offcampus_student.jsp">OFFCAMPUS STUDENT</a></li>
+                                    <li><a href="send_mail_offcampus_comp.jsp" >MAIL OFFCAMPUS STUDENTS</a></li>
+                                </ul>
+                            </li>
 
                             <li class="dropdown">
                                 <a class="dropdown-toggle" data-toggle="dropdown" href="#" id="navbar-links">NOTICE SECTION<span class="caret"></span></a>
@@ -107,9 +92,10 @@
                                     <li><a href="remove_notice.jsp">REMOVE NOTICE</a></li>
                                 </ul>
                             </li>
+                            
+                            <li><a href="Your_Queries.jsp" id="navbar-links">INBOX</a></li>
                             <li><a href="paper_upload_tpo.jsp" id="navbar-links">UPLOAD PAPER</a></li> 
-                            <li><a href="#" id="navbar-links">MAIL NEW COMPANY</a></li>
-                            <li><a href="result_announce.jsp" id="navbar-links">PUBLISH RESULT</a></li>
+                            <li><a href="mail_company.jsp" id="navbar-links">MAIL NEW COMPANY</a></li>
                             <li><a href="changepassword_tpo.jsp" id="navbar-links">CHANGE PASSWORD</a></li>
                         </ul>
                         <ul class="nav navbar-nav navbar-right" >

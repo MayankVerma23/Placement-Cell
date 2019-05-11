@@ -37,6 +37,9 @@
                 box-sizing:border-box;
                 border-radius:10px;
                 border: 1px solid black;
+                background-color: #add8e682;
+                color:white;
+                font-size:20px;
             }
 
             .update{

@@ -139,21 +139,7 @@
     </head>
     <body>
               
-              <%
-                  
-                           try{
-                               Class.forName("com.mysql.jdbc.Driver");
-         Connection conn=(Connection)DriverManager.getConnection("jdbc:mysql://localhost/placementcell","root","");
-         
-                               Statement stmt=conn.createStatement();
-                               String x3="Update queries set seen='1' where ID='"+id+"'";
-                              stmt.executeUpdate(x3);
-                           }
-                           catch(Exception ex){
-
-                               out.print(ex);
-               }
-              %>
+          
         <!--Start of Navbar Section-->
         
         <%@include file = "header_company.jsp"%>
@@ -188,11 +174,8 @@
          Connection conn=(Connection)DriverManager.getConnection("jdbc:mysql://localhost/placementcell","root","");
                      
         Statement st=conn.createStatement();
-          email=hs.getAttribute("company_email").toString();
-           
-             
-        
-      
+          email=hs.getAttribute("company_email").toString();         
+   
           String w = "select * from companysignup where companyemail='" +email+ "'";
             ResultSet rs3 = st.executeQuery(w);
             while (rs3.next()) {

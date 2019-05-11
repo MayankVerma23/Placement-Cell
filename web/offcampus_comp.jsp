@@ -47,9 +47,9 @@
             #container-design{
                 background-color: wheat;
                 padding:30px 60px 30px 60px;;
-                
+
                 border: 2px solid black;
-                
+
             }
         </style>
 
@@ -94,7 +94,7 @@
         </section> 
 
         <section>
-            <%@include file = "footer-tpo.jsp"%> 
+            <%@include file = "index_footer.jsp"%> 
         </section>
     </body>
 </html>

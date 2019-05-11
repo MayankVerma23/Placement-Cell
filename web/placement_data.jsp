@@ -12,14 +12,14 @@
 <html>
     <head>
 
-    <meta charset="UTF-8">
+        <meta charset="UTF-8">
         <title>INDEX NAVBAR</title>
 
         <style>
-            
+
             #s1{
                 margin-top:100px;
-                
+
             }
 
             .box1{
@@ -144,81 +144,81 @@
     </head>
     <body>
         <section>
-             <%@include file = "index_navbar.jsp"%>
+            <%@include file = "index_navbar.jsp"%>
         </section>
         <section>
-         <div class="box1">
-            <h1>PLACEMENT RECORD</h1>
-        </div>
+            <div class="box1">
+                <h1>PLACEMENT RECORD</h1>
+            </div>
         </section>
-        
+
         <section id="s1">
-    
-       <h1 style="margin-top: 50px;" ><b>Placement Data</b></h1>
-                <table style="margin-top: 50px;">
-                    <tr>
-                        <th></th>
-                        <th colspan="2" >All Branches(including Off-Campus)</th>
-                        <th >Total</th>
-                    </tr>
-                    <tr style="font-weight:700;">
-                        <td>Academic Year</td>
-                        <td>Companies Visited</td>
-                        <td>Total Offers</td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td>2013-2014</td>
-                        <td>400</td>
-                        <td>1200</td>
-                        <td>1000</td>
-                    </tr>
-                    <tr>
-                        <td>2014-2014</td>
-                        <td>400</td>
-                        <td>1200</td>
-                        <td>1000</td>
-                    </tr>
-                    <tr>
-                        <td>2015-2016</td>
-                        <td>400</td>
-                        <td>1200</td>
-                        <td>1000</td>
 
-                    </tr>
-                    <tr>
-                        <td>2016-2017</td>
-                        <td>400</td>
-                        <td>1200</td>
-                        <td>1000</td>
+            <h1 style="margin-top: 50px;" ><b>Placement Data</b></h1>
+            <table style="margin-top: 50px;">
+                <tr>
+                    <th></th>
+                    <th colspan="2" >All Branches(including Off-Campus)</th>
+                    <th >Total</th>
+                </tr>
+                <tr style="font-weight:700;">
+                    <td>Academic Year</td>
+                    <td>Companies Visited</td>
+                    <td>Total Offers</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>2013-2014</td>
+                    <td>400</td>
+                    <td>1200</td>
+                    <td>1000</td>
+                </tr>
+                <tr>
+                    <td>2014-2014</td>
+                    <td>400</td>
+                    <td>1200</td>
+                    <td>1000</td>
+                </tr>
+                <tr>
+                    <td>2015-2016</td>
+                    <td>400</td>
+                    <td>1200</td>
+                    <td>1000</td>
 
-                    </tr>
-                    <tr>
-                        <td>2017-2018</td>
-                        <td>400</td>
-                        <td>1200</td>
-                        <td>1000</td>
+                </tr>
+                <tr>
+                    <td>2016-2017</td>
+                    <td>400</td>
+                    <td>1200</td>
+                    <td>1000</td>
 
-                    </tr>
-                    <tr>
-                        <td>2018-2019*</td>
-                        <td>400</td>
-                        <td>1200</td>
-                        <td>1000</td>
+                </tr>
+                <tr>
+                    <td>2017-2018</td>
+                    <td>400</td>
+                    <td>1200</td>
+                    <td>1000</td>
 
-                    </tr>
-                </table>
-                <br>              
-                <br> 
-             
-         
-        <div class="box3" >
-            <p class>Over 1000! offers<br>300+ companies<br>6.4 Lpa avg package<p>
-        </div>
+                </tr>
+                <tr>
+                    <td>2018-2019*</td>
+                    <td>400</td>
+                    <td>1200</td>
+                    <td>1000</td>
 
-</section>
+                </tr>
+            </table>
+            <br>              
+            <br> 
+
+
+            <div class="box3" >
+                <p class>Over 1000! offers<br>300+ companies<br>6.4 Lpa avg package<p>
+            </div>
+
+        </section>
         <section>
-            <%@include file = "footer-tpo.jsp"%> 
+            <%@include file = "index_footer.jsp"%>
         </section>
     </body>
 </html>

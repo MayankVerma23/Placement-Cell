@@ -27,19 +27,24 @@
                 color:black;
             }
         </style>
+        <%! String roll_no2,name1;%>
         <%
-            int ct = 0;
+          
             try {
 
                 Class.forName("com.mysql.jdbc.Driver");
                 Connection con = (Connection) DriverManager.getConnection("jdbc:mysql://localhost/placementcell", "root", "");
-                Statement st = con.createStatement();
-                String x1 = "Select count(*) from queries where seen='0' and designation ='student'";
+                  HttpSession hss = request.getSession();
+                    roll_no2 = hss.getAttribute("stu_roll").toString();
+                    String fetchQuery1 = "select * from studentsignup where studentrollno='" + roll_no2 + "'";
+                    Statement fetchStatement1 = con.createStatement();
+                    ResultSet rs1 = fetchStatement1.executeQuery(fetchQuery1);
+                    while (rs1.next()) {
 
-                ResultSet rs = st.executeQuery(x1);
-                while (rs.next()) {
-                    ct = rs.getInt(1);
-                }
+                        name1 = rs1.getString("studentname");
+                    
+                    }
+                
             } catch (Exception ex) {
                 out.print(ex);
             }
@@ -52,6 +57,7 @@
             <div class="row">
                 <div class="col-lg-12">
                     <h1 style="float:left;padding-left:20px;">Placement Cell</h1>
+                     <h1 style="float:right;padding-right:20px;"><%=name1%></h1>
                 </div>
             </div>
         </section>
@@ -82,7 +88,7 @@
                             <li><a href="view_upload_paper_student.jsp" id="navbar-links">PREVIOUS YEAR PAPERS</a></li>
                             <!--                            <li><a href="your_inbox_student.jsp" id="navbar-links">MESSAGES</a></li>
                             -->
-                            <li><a href="your_inbox_student.jsp"  id="navbar-links">MESSAGES <%if (ct > 0) {%> <span class="badge badge-light"><%=ct%><%}%></span></a></li>
+                            <li><a href="your_inbox_student.jsp"  id="navbar-links">INBOX</a></li>
 
                             <li><a href="changepassword_student.jsp" id="navbar-links">CHANGE PASSWORD</a></li>
                         </ul>

@@ -98,14 +98,14 @@
                         <div class="row">
                             <div class="col-md-3">
                                 <div class="form-group">
-                                    <label for="ten">10 Percentage:</label>
+                                    <label for="ten">10th Percentage:</label>
                                     <input type="text" name="ten" class="form-control" id="drop" required >
                                 </div>
                             </div>
 
                             <div class="col-md-3">
                                 <div class="form-group">
-                                    <label for="twe">12 Percentage:</label>
+                                    <label for="twe">12th Percentage:</label>
                                     <input type="text" name="twe" class="form-control" id="drop" required >
                                 </div>
                             </div>
@@ -114,14 +114,14 @@
                         <div class="row">
                             <div class="col-md-3">
                                 <div class="form-group">
-                                    <label for="sem1">1st SEM CGPA:</label>
+                                    <label for="sem1">1st SEM SGPA:</label>
                                     <input type="text" name="sem1" class="form-control" id="s1" required >
                                 </div>
                             </div>
 
                             <div class="col-md-3">
                                 <div class="form-group">
-                                    <label for="sem2">2nd SEM CGPA:</label>
+                                    <label for="sem2">2nd SEM SGPA:</label>
                                     <input type="text" name="sem2" class="form-control" id="s2" required >
                                 </div>
                             </div>
@@ -130,14 +130,14 @@
                         <div class="row">
                             <div class="col-md-3">
                                 <div class="form-group">
-                                    <label for="sem3">3rd SEM CGPA:</label>
+                                    <label for="sem3">3rd SEM SGPA:</label>
                                     <input type="text" name="sem3" class="form-control" id="s3" required >
                                 </div>
                             </div>
 
                             <div class="col-md-3">
                                 <div class="form-group">
-                                    <label for="sem4">4th SEM CGPA:</label>
+                                    <label for="sem4">4th SEM SGPA:</label>
                                     <input type="text" name="sem4" class="form-control" id="s4" required >
                                 </div>
                             </div>
@@ -146,14 +146,14 @@
                         <div class="row">
                             <div class="col-md-3">
                                 <div class="form-group">
-                                    <label for="sem5">5th SEM CGPA:</label>
+                                    <label for="sem5">5th SEM SGPA:</label>
                                     <input type="text" name="sem5" class="form-control" id="s5" required >
                                 </div>
                             </div>
 
                             <div class="col-md-3">
                                 <div class="form-group">
-                                    <label for="sem6">6th SEM CGPA:</label>
+                                    <label for="sem6">6th SEM SGPA:</label>
                                     <input type="text" name="sem6" class="form-control" id="s6" required >
                                 </div>
                             </div>
@@ -162,14 +162,14 @@
                         <div class="row">
                             <div class="col-md-3">
                                 <div class="form-group">
-                                    <label for="sme7">7th SEM CGPA:</label>
+                                    <label for="sme7">7th SEM SGPA:</label>
                                     <input type="text" name="sem7" class="form-control" id="s7" required >
                                 </div>
                             </div>
 
                             <div class="col-md-3">
                                 <div class="form-group">
-                                    <label for="sem8">8th SEM CGPA:</label>
+                                    <label for="sem8">8th SEM SGPA:</label>
                                     <input type="text" name="sem8" class="form-control" id="s8" required >
                                 </div>
                             </div>

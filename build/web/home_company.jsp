@@ -15,19 +15,17 @@
          <title>HOME COMPANY</title>
         <style>
 
-            .box
+           .box
             {
-
-                margin:10px;
-                height:500px;
-                width:450px;
-                padding:40px;
-                background-color:#fff;
+                margin: 10px;
+                height:600px;
+                width:400px;
                 box-sizing:border-box;
-                box-shadow: 0 15px 25px rgba(0,0,0,.7);
                 border-radius:10px;
-
-
+                border: 1px solid black;
+                background-color: #add8e682;
+                color:white;
+                font-size:20px;
             }
             #d2{
                 width:100%;
@@ -45,7 +43,7 @@
         </style>
         <script>
             function message(x) {
-                window.open('notice_message.jsp?id=' + x, 'popUpWindow', 'height=260,width=510,left=650,top=250,resizable=no,scrollbars=no,toolbar=no,menubar=no,location=no,directories=no, status=yes');
+                window.open('notice_message.jsp?id=' + x, 'popUpWindow', 'height=400,width=600,left=450,top=200,resizable=no,scrollbars=no,toolbar=no,menubar=no,location=no,directories=no, status=yes');
             }
         </script>
     </head>
@@ -57,53 +55,8 @@
         <!--End of Navbar Section-->
     </section>
 
-        <%! String com_email = "", com_name;%>
-        <%            Class.forName("com.mysql.jdbc.Driver");
-            Connection conn = DriverManager.getConnection("jdbc:mysql://Localhost/placementcell", "root", "");
-
-            String fetchQuery = "select * from notice_table  where companymsg='company' or common='common' ";
-            Statement fetchStatement = conn.createStatement();
-
-            HttpSession hs = request.getSession();
-            com_email = hs.getAttribute("company_email").toString();
-            String x = "select * from companysignup where companyemail='" + com_email + "'";
-            ResultSet rs = fetchStatement.executeQuery(x);
-            while (rs.next()) {
-
-                com_name = rs.getString("companyname");
-            }
-        %>
-
-        <div id="d2">
-            <h2 class="topics" ><i class="far fa-clipboard"></i>WELCOME <%=com_name%></h2>
-            <hr class="line1">
-        </div>
-        <section>
-            <div class="box" >
-                <h1><B><u>NOTICE BOARD</u></b></h1>
-                <marquee direction="up" height="400" onmouseover="this.stop()" onmouseout="this.start()" scrolldelay="200">
-
-
-
-                    <%
-                        ResultSet rs1 = fetchStatement.executeQuery(fetchQuery);
-                        while (rs1.next()) {
-                    %> 
-
-
-
-                    <a onclick="message(<%=rs1.getString("id")%>)"><p class="notices"><b><%=rs1.getString("subject")%></b></p></a>                             
-
-
-
-
-
-                    <% }%>
-
-
-                </marquee>
-            </div>
-
+       <section>
+            <%@include file = "notice_company.jsp"%>
         </section>
 
         <!--Start of Footer Section-->

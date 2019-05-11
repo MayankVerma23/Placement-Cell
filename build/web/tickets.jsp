@@ -150,11 +150,6 @@
         <%@include file = "header_tpo.jsp"%>
         <!--End of Navbar Section-->  
         <div class="container">
-
-
-
-
-
             <%! String name = "";
                 String email = "";
                 String subject = "";
@@ -170,7 +165,6 @@
 
                 <%
                     id = Integer.parseInt(request.getParameter("id"));
-
                     try {
                         String stud = "student";
                         Class.forName("com.mysql.jdbc.Driver");

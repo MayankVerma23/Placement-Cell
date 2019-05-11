@@ -4,7 +4,7 @@
 
         <style>
             .col-md-3{
-                width:50%;
+                width:50% !important;
             }  
 
             input[type=radio] {
@@ -12,18 +12,21 @@
                 width: 100%;
                 height: 1em;
             }
+            .container{
+                padding: 0px !important;
+            }
         </style>
 
 
     </head>
 
-    <body >
+    <body style="background-image: url('background_images/bck2.jpg');background-attachment: fixed;background-size: cover;">
         <section>
             <%@include file = "index_navbar.jsp"%>
         </section>
 
 
-        <section class="container" style="background-color:#ffffff4a;padding:20px !important;border:2px solid black">
+        <section class="container" style="background-color:#ffffff4a;padding:20px !important;border:2px solid black;margin-top: 6%;margin-bottom:6%;">
 
             <div class="row" >
                 <div class="col-md-12">
@@ -46,10 +49,10 @@
                         </div>
                         <div class="form-group">
                             <label for="roll">ROLL NO:</label>
-                            <input type="text" name="roll" class="form-control" id="roll" <%--onkeyup="validrollno()"--%> required >
+                            <input type="text" name="roll" class="form-control" id="roll"  required >
                         </div>
 
-                        <div id="na"></div>
+                       
 
                         <div class="form-group">
                             <label for="email">EMAIL:</label>
@@ -85,6 +88,8 @@
                                 <label><input type="radio" name="gender" required value="Female"><b>Female</b></label>
                             </div>
                         </div>
+                        
+                        
                     </div>
 
                     <div class="col-md-6">
@@ -178,7 +183,7 @@
                             <input type="text" name="backlog" class="form-control" id="drop" required >
                         </div>
 
-                        <button  type="submit" class="btn btn-success" value="SignUp" style="width:40%;height:20%">SIGNUP</button>
+                         <button  type="submit" class="btn btn-success" value="SignUp" style="width:40%;height:5%">SIGNUP</button>
                     </div>
                 </form>
             </div>   
@@ -188,11 +193,12 @@
         </section>
 
 
+        <section>
+            <%@include file = "index_footer.jsp"%> 
+        </section>
     </body>
 
     <script>
-
-
         function sublist()
         {
             h1 = document.getElementById("degree").value;
@@ -269,7 +275,6 @@
 
 
 
-
             if (isNaN(a)) {
                 alert("Eneter only numeric value in Phoneno");
                 return false;
@@ -327,8 +332,5 @@
 
 
     </script>
-<section>
-            <%@include file = "footer-tpo.jsp"%> 
-        </section>
 
 </html>

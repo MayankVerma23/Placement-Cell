@@ -31,15 +31,15 @@
             function Approve(x)
             {
 
-                var r = confirm("R U SURE!! U WANT TO APPROVE");
+               // var r = confirm("R U SURE!! U WANT TO APPROVE");
 
-                if (r == true)
-                {
+               // if (r == true)
+                //{
                     window.open('approve_company.jsp?companyid=' + x, 'popUpWindow', 'height=400,width=600,left=450,top=150,resizable=yes,scrollbars=yes,toolbar=yes,menubar=no,location=no,directories=no, status=yes');
-                } else
-                {
+                //} else
+                //{
 
-                }
+                //}
             }
 
             function Decline(x)

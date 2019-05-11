@@ -61,28 +61,35 @@ public class studentsignup extends HttpServlet {
             String backlog = request.getParameter("backlog");
             String pass = request.getParameter("pass");
             String rolno = "";
+            String em1 = "";
 
             Class.forName("com.mysql.jdbc.Driver");
             Connection con = DriverManager.getConnection("jdbc:mysql://Localhost/placementcell", "root", "");
             Statement stmt = con.createStatement();
-            String y = "select * from studentsignup where studentrollno='" + roll + "'";
+            String y = "select * from studentsignup";
             ResultSet rs = stmt.executeQuery(y);
             while (rs.next()) {
                 rolno = rs.getString("studentrollno");
+                em1 = rs.getString("studentemail");
             }
             if (!roll.equals(rolno)) {
-                String x = "insert into studentsignup values(null,'" + name + "','" + roll + "','" + email + "','" + degree + "','" + branch + "','" + batch + "','" + phoneno + "','" + gender + "','" + ten + "','" + twe + "','" + sem1 + "','" + sem2 + "','" + sem3 + "','" + sem4 + "','" + sem5 + "','" + sem6 + "','" + sem7 + "','" + sem8 + "','" + cgpa + "','" + backlog + "','" + pass + "','" + "unplaced" + "')";
-                stmt.executeUpdate(x);
-           // request.setAttribute("roll", roll);
-                //request.getRequestDispatcher("image_studentt.jsp").forward(request, response);
-                response.sendRedirect("login_page.jsp");
+
+                if (!email.equals(em1)) {
+                    String x = "insert into studentsignup values(null,'" + name + "','" + roll + "','" + email + "','" + degree + "','" + branch + "','" + batch + "','" + phoneno + "','" + gender + "','" + ten + "','" + twe + "','" + sem1 + "','" + sem2 + "','" + sem3 + "','" + sem4 + "','" + sem5 + "','" + sem6 + "','" + sem7 + "','" + sem8 + "','" + cgpa + "','" + backlog + "','" + pass + "','" + "unplaced" + "')";
+                    stmt.executeUpdate(x);
+                    // request.setAttribute("roll", roll);
+                    //request.getRequestDispatcher("image_studentt.jsp").forward(request, response);
+                    response.sendRedirect("login_page.jsp");
+                } else {
+                    out.print("<script> window.alert('Email Already Use Please Select Another Email') </script>");
+                    out.print("<script> window.location.href='signup.jsp' </script>");
+                }
             } else {
                 out.print("<script> window.alert('RollNo Already Use Please Select Another RollNo') </script>");
                 out.print("<script> window.location.href='signup.jsp' </script>");
 
             }
-        } 
-        catch (Exception ex) {
+        } catch (Exception ex) {
             out.print(ex);
         }
 

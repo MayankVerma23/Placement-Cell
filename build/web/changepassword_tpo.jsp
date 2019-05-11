@@ -15,7 +15,7 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>CHANGEPASSWORD_TPO</title>
         <style>
-            
+
             .box
             {
                 margin: 0 auto;
@@ -126,6 +126,10 @@
                 {
                     alert("Your password must contain at least a letter in uper case .");
                     return false;
+                } else if (!password.match(/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9])(?!.*\s).{8,15}$/))
+                {
+                    alert("Your Password Must Contain At Least a speacial Character  .");
+                    return false;
                 } else
                 {
                     var a = (document.getElementById("t1").value);
@@ -134,7 +138,7 @@
                         alert("pass not match");
                         return false;
                     } else {
-                        alert("pass match");
+                       
                         return true;
                     }
 
@@ -147,78 +151,82 @@
     </head>
     <body>
         <section>
-        <%@include file = "header_tpo.jsp"%>
-         </section>
+            <%@include file = "header_tpo.jsp"%>
+        </section>
 
-        
-          <section style="min-height: 500px">
-        <div class="box">
-            <h2>CHANGE PASSWORD</h2>
-            <form action="changepassword_tpo.jsp" method="post" onsubmit="return checkpassword()" autocomplete="on">
-                <div class="inputBox">
-                    <input type="password" name="old_pass" required="">
-                    <label>OLD PASSWORD</label>
-                </div>
-                <div class="inputBox">
-                    <input type="password" name="new_pass" id="t1" required>
-                    <label>NEW PASSWORD</label>
-                </div>
-                <div class="inputBox">
-                    <input type="password" name="confirm_pass" id="t2" required="">
-                    <label>CONFIRM PASSWORD</label>
-                </div>
-                <input type="submit" name="" value="Submit">
-            </form>
-        </div>
-  
 
-    <%!
-        String oldpass = "", newpass = "", confirmpass = "", tpopass = "";
+        <section style="min-height: 500px">
+            <div class="box">
+                <h2>CHANGE PASSWORD</h2>
+                <form action="changepassword_tpo.jsp" method="post" onsubmit="return checkpassword()" autocomplete="on">
+                    <div class="inputBox">
+                        <input type="password" name="old_pass" required="">
+                        <label>OLD PASSWORD</label>
+                    </div>
+                    <div class="inputBox">
+                        <input type="password" name="new_pass" id="t1" required>
+                        <label>NEW PASSWORD</label>
+                    </div>
+                    <div class="inputBox">
+                        <input type="password" name="confirm_pass" id="t2" required="">
+                        <label>CONFIRM PASSWORD</label>
+                    </div>
+                    <input type="submit" name="" value="Submit">
+                </form>
+            </div>
 
-    %>
-    <%
-        oldpass = request.getParameter("old_pass");
-        newpass = request.getParameter("new_pass");
-        confirmpass = request.getParameter("confirm_pass");
 
-        HttpSession hs = request.getSession();
-        String tpo_username = hs.getAttribute("tpo_name").toString();
+            <%!
+                String oldpass = "", newpass = "", confirmpass = "", tpopass = "";
 
-        try {
-            Class.forName("com.mysql.jdbc.Driver");
-            Connection conn = DriverManager.getConnection("jdbc:mysql://Localhost/placementcell", "root", "");
-            Statement stmt = conn.createStatement();
-            String x = "select * from tpo_password where username='" + tpo_username + "'";
-            ResultSet rs = stmt.executeQuery(x);
-            while (rs.next()) {
-                tpopass = rs.getString("password");
+            %>
+            <%
+                oldpass = request.getParameter("old_pass");
+                newpass = request.getParameter("new_pass");
+                confirmpass = request.getParameter("confirm_pass");
 
-            }
+                HttpSession hs = request.getSession();
+                String tpo_username = hs.getAttribute("tpo_name").toString();
 
-            if (oldpass.equals(tpopass)) {
-                if (newpass.equals(confirmpass)) {
-                    String y = "update tpo_password set password='" + newpass + "' where username='" + tpo_username + "'";
-                    stmt.executeUpdate(y);
-                    out.print("<script>window.close();</script>");
-                } else {
-                    out.print("<script>alert('new password & confirm password must match')</script>");
+                try {
+                    Class.forName("com.mysql.jdbc.Driver");
+                    Connection conn = DriverManager.getConnection("jdbc:mysql://Localhost/placementcell", "root", "");
+                    Statement stmt = conn.createStatement();
+                    String x = "select * from tpo_password where username='" + tpo_username + "'";
+                    ResultSet rs = stmt.executeQuery(x);
+                    while (rs.next()) {
+                        tpopass = rs.getString("password");
+
+                    }
+
+                    if (oldpass.equals(tpopass)) {
+                        if (!oldpass.equals(newpass)) {
+                            if (newpass.equals(confirmpass)) {
+                                String y = "update tpo_password set password='" + newpass + "' where username='" + tpo_username + "'";
+                                stmt.executeUpdate(y);
+                                out.print("<script>window.close();</script>");
+                            } else {
+                                out.print("<script>alert('New Password & Confirm Password Must Match')</script>");
+                            }
+                        } else {
+                            out.print("<script>alert('Old Password And New Password Is Same')</script>");
+                        }
+                    } else {
+                        out.print("<script>alert('Enter Correct Password')</script>");
+                    }
+                } catch (NullPointerException e) {
+                    out.print(" ");
+
+                } catch (Exception e) {
+                    out.print(e);
                 }
-            } else {
-                out.print("<script>alert('enter correct password')</script>");
-            }
-        } catch (NullPointerException e) {
-            out.print(" ");
-
-        } catch (Exception e) {
-            out.print(e);
-        }
 
 
-    %>
-     </section>
-     <section>
-       <%@include file = "footer-tpo.jsp"%>   
-     </section>
-</body>
+            %>
+        </section>
+        <section>
+            <%@include file = "footer-tpo.jsp"%>   
+        </section>
+    </body>
 
 </html>

@@ -73,7 +73,7 @@
                     <div id="cards">
                         <div class="inner"><img class="card-img" src="background_images/2.jpg" alt="2 pic"></div>
                         <h5 class="card-title">OUR TEAM</h5>
-                        <a href="#"><button class="btn btn-success" id="card-button">View</button></a>
+                        <a href="our_team1.jsp"><button class="btn btn-success" id="card-button">View</button></a>
                     </div>
                 </div>
 

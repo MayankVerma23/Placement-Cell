@@ -32,13 +32,34 @@
 
 
     </head>
+  <%! String name1="" ;%>
+        <%
+          
+            try {
 
+                Class.forName("com.mysql.jdbc.Driver");
+                Connection con = (Connection) DriverManager.getConnection("jdbc:mysql://localhost/placementcell", "root", "");
+                    String fetchQuery1 = "select * from tpo_password";
+                    Statement fetchStatement1 = con.createStatement();
+                    ResultSet rs1 = fetchStatement1.executeQuery(fetchQuery1);
+                    while (rs1.next()) {
+
+                        name1 = rs1.getString("username");
+                    
+                    }
+                
+            } catch (Exception ex) {
+                out.print(ex);
+            }
+
+        %>
     <body>
 
         <section> 
             <div class="row">
                 <div class="col-lg-12">
                     <h1 style="float:left;padding-left:20px;">Placement Cell</h1>
+                       <h1 style="float:right;padding-right:20px;text-transform: uppercase"><%=name1%></h1>
                 </div>
             </div>
         </section>

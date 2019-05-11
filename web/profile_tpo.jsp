@@ -14,7 +14,7 @@
     <head>
         <title id="title">TPO PROFILE</title>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-       
+
         <style>
             table{
                 border:2px solid black;
@@ -33,40 +33,47 @@
         </style>
     </head>
     <body>
-        <%@include file = "header_tpo.jsp"%>
+        <section>
+            <%@include file = "header_tpo.jsp"%>
+        </section>
 
-        <%!String username = "", password = "";%>
-        <%
-            Class.forName("com.mysql.jdbc.Driver");
-            Connection conn = DriverManager.getConnection("jdbc:mysql://localhost/placementcell", "root", "");
-            Statement stmt = conn.createStatement();
-            String x = "select * from tpo_password";
-            ResultSet rs = stmt.executeQuery(x);
-            while (rs.next()) {
-                username = rs.getString("username");
-                password = rs.getString("password");
+        <section style="min-height: 400px">
+            <%!String username = "", password = "";%>
+            <%
+                Class.forName("com.mysql.jdbc.Driver");
+                Connection conn = DriverManager.getConnection("jdbc:mysql://localhost/placementcell", "root", "");
+                Statement stmt = conn.createStatement();
+                String x = "select * from tpo_password";
+                ResultSet rs = stmt.executeQuery(x);
+                while (rs.next()) {
+                    username = rs.getString("username");
+                    password = rs.getString("password");
 
-            }
-        %>
+                }
+            %>
 
-        <table class="table table-hover" style="width:85%;">
-            <tr class="r1">
-                <td><b>USERNAME</b></td>
-                <td></td>
-
-
-                <td><%=username%> </td>
-            </tr>
-            <tr>
-                <td><b>PASSWORD</b></td>
-                <td></td>
-
-                <td><%=password%></td>
-            </tr>
+            <table class="table table-hover" style="width:85%;">
+                <tr class="r1">
+                    <td><b>USERNAME</b></td>
+                    <td></td>
 
 
-        </table>
+                    <td><%=username%> </td>
+                </tr>
+                <tr>
+                    <td><b>PASSWORD</b></td>
+                    <td></td>
+
+                    <td><%=password%></td>
+                </tr>
+
+
+            </table>
+        </section>
+
+        <section>
             <%@include file = "footer-tpo.jsp"%>
+        </section>
     </body>
 
 </html>

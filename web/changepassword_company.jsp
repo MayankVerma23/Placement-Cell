@@ -126,6 +126,10 @@
                 {
                     alert("Your password must contain at least a letter in uper case .");
                     return false;
+                } else if (!password.match(/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9])(?!.*\s).{8,15}$/))
+                {
+                    alert("Your Password Must Contain At Least a speacial Character  .");
+                    return false;
                 } else
                 {
                     var a = (document.getElementById("t1").value);
@@ -134,7 +138,7 @@
                         alert("pass not match");
                         return false;
                     } else {
-                        alert("pass match");
+                        
                         return true;
                     }
 
@@ -148,84 +152,86 @@
 
     <body>
         <section>
-        <%@include file = "header_company.jsp"%>
-        <!--Start of form for changepassword for company-->
+            <%@include file = "header_company.jsp"%>
+            <!--Start of form for changepassword for company-->
         </section>
-        
-         <section style="min-height: 500px">
-        <div class="box">
 
-            <h2>CHANGE PASSWORD</h2>
-            
-            <form action="changepassword_company.jsp" method="post" onsubmit="return checkpassword()" autocomplete="on">
-                <div class="inputBox">
-                    <input type="password" name="old_pass" required>
-                    <label>OLD PASSWORD</label>
-                </div>
+        <section style="min-height: 500px">
+            <div class="box">
 
-                <div class="inputBox">
-                    <input type="password" name="new_pass" id="t1" required >
-                    <label>NEW PASSWORD</label>
-                </div>
+                <h2>CHANGE PASSWORD</h2>
 
-                <div class="inputBox">
-                    <input type="password" name="confirm_pass" id="t2" required>
-                    <label>CONFIRM PASSWORD</label>
-                </div>
+                <form action="changepassword_company.jsp" method="post" onsubmit="return checkpassword()" autocomplete="on">
+                    <div class="inputBox">
+                        <input type="password" name="old_pass" required>
+                        <label>OLD PASSWORD</label>
+                    </div>
 
-                <input type="submit" name="" value="Submit">
+                    <div class="inputBox">
+                        <input type="password" name="new_pass" id="t1" required >
+                        <label>NEW PASSWORD</label>
+                    </div>
 
-            </form>
-        </div>
-        <!--End of form for changepassword for company-->
+                    <div class="inputBox">
+                        <input type="password" name="confirm_pass" id="t2" required>
+                        <label>CONFIRM PASSWORD</label>
+                    </div>
+
+                    <input type="submit" name="" value="Submit">
+
+                </form>
+            </div>
+            <!--End of form for changepassword for company-->
 
 
-        <%!
-            String oldpass = "", newpass = "", confirmpass = "", tpopass = "", company_email = "";
+            <%!
+                String oldpass = "", newpass = "", confirmpass = "", tpopass = "", company_email = "";
 
-        %>
-        <%
-            oldpass = request.getParameter("old_pass");
-            newpass = request.getParameter("new_pass");
-            confirmpass = request.getParameter("confirm_pass");
+            %>
+            <%            oldpass = request.getParameter("old_pass");
+                newpass = request.getParameter("new_pass");
+                confirmpass = request.getParameter("confirm_pass");
 
-            //Session get to chnage the password of paticular user
-            HttpSession hs = request.getSession();
-            String company_email = hs.getAttribute("company_email").toString();
+                //Session get to chnage the password of paticular user
+                HttpSession hs = request.getSession();
+                String company_email = hs.getAttribute("company_email").toString();
 
-            try {
-                Class.forName("com.mysql.jdbc.Driver");
-                Connection con = DriverManager.getConnection("jdbc:mysql://Localhost/placementcell", "root", "");
-                Statement stmt = con.createStatement();
-                String x = "select * from companysignup where companyemail='" + company_email + "'";
-                ResultSet rs = stmt.executeQuery(x);
-                while (rs.next()) {
-                    confirmpass = rs.getString("companypassword");
-                }
-
-                if (oldpass.equals(confirmpass)) {
-                    if (newpass.equals(confirmpass)) {
-                        String y = "Update companysignup set companypassword='" + newpass + "' where companyemail='" + company_email + "'";
-                        stmt.executeUpdate(y);
-                        out.print("<script>window.close();</script>");
-
-                    } else {
-                        out.print("<script>alert('new password & confirm password must match')</script>");
+                try {
+                    Class.forName("com.mysql.jdbc.Driver");
+                    Connection con = DriverManager.getConnection("jdbc:mysql://Localhost/placementcell", "root", "");
+                    Statement stmt = con.createStatement();
+                    String x = "select * from companysignup where companyemail='" + company_email + "'";
+                    ResultSet rs = stmt.executeQuery(x);
+                    while (rs.next()) {
+                        confirmpass = rs.getString("companypassword");
                     }
-                } else {
-                    out.print("<script>alert('enter correct password')</script>");
+
+                    if (oldpass.equals(confirmpass)) {
+                        if (!oldpass.equals(newpass)) {
+                            if (newpass.equals(confirmpass)) {
+                                String y = "Update companysignup set companypassword='" + newpass + "' where companyemail='" + company_email + "'";
+                                stmt.executeUpdate(y);
+
+                            } else {
+                                out.print("<script>alert('New Password & Confirm Password Must Match')</script>");
+                            }
+                        } else {
+                            out.print("<script>alert('Old Password And New Password Is Same')</script>");
+                        }
+                    } else {
+                        out.print("<script>alert('Enter Correct Password')</script>");
+                    }
+                } catch (NullPointerException e) {
+                    out.print(" ");
+
+                } catch (Exception e) {
+                    out.print(e);
                 }
-            } catch (NullPointerException e) {
-                out.print(" ");
-
-            } catch (Exception e) {
-                out.print(e);
-            }
 
 
-        %>
-         </section>
-             
+            %>
+        </section>
+
         <section>
             <%@include file = "footer-company.jsp"%>
         </section>

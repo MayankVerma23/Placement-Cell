@@ -21,6 +21,9 @@
         .r1:hover{
             background-color: #add8e682;
         }
+        #t1{
+             width:30px;height:25px;
+        }
 
     </style>
 
@@ -74,7 +77,7 @@
                     <td><%=rs.getString("student_name")%></td>
                     <td><%=rs.getString("student_rollno")%></td>
                     <td><%=rs.getString("student_email")%></td>
-                    <td><input type="checkbox" value='<%=myid%>' name="checkbox-group" ></td>
+                    <td><input type="checkbox" value='<%=myid%>' name="checkbox-group" id="t1"></td>
                 </tr> 
                 <% } %>
                 <% } catch (Exception ex) {

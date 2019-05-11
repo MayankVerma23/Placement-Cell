@@ -16,7 +16,7 @@
         <title>CHANGEPASSWORD STUDENT</title>
 
         <style>
-         
+
             .box
             {
                 margin: 0 auto;
@@ -126,6 +126,10 @@
                 {
                     alert("Your password must contain at least a letter in uper case .");
                     return false;
+                } else if (!password.match(/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9])(?!.*\s).{8,15}$/))
+                {
+                    alert("Your Password Must Contain At Least a speacial Character  .");
+                    return false;
                 } else
                 {
                     var a = (document.getElementById("t1").value);
@@ -134,7 +138,7 @@
                         alert("pass not match");
                         return false;
                     } else {
-                        alert("pass match");
+                       
                         return true;
 
                     }
@@ -147,72 +151,81 @@
         </script>
     </head>
     <body>
-        
+
         <section>
             <%@include file = "header_student.jsp"%>
         </section>
-        
-        <section style="min-height: 500px">
-        <div class="box">
-            <h2>CHANGE PASSWORD</h2>
-            <form action="changepassword_student.jsp" method="post" onsubmit="return checkpassword()" autocomplete="on">
-                <div class="inputBox">
-                    <input type="text" name="old_pass" required="">
-                    <label>OLD PASSWORD</label>
-                </div>
-                <div class="inputBox">
-                    <input type="text" name="new_pass" id="t1" required >
-                    <label>NEW PASSWORD</label>
-                </div>
-                <div class="inputBox">
-                    <input type="text" name="confirm_pass" id="t2" required>
-                    <label>CONFIRM PASSWORD</label>
-                </div>
-                <input type="submit"  value="Submit" >
-            </form>
-        </div>
 
-        <%!
-            String oldpass = " ", newpass = "", confirmpass = "", stupass = "", rollno = " ";
+        <section style="min-height: 600px">
+            <div class="box">
+                <h2>CHANGE PASSWORD</h2>
+                <form action="changepassword_student.jsp" method="post" onsubmit="return checkpassword()" autocomplete="on">
+                    <div class="inputBox">
+                        <input type="text" name="old_pass" required="">
+                        <label>OLD PASSWORD</label>
+                    </div>
+                    <div class="inputBox">
+                        <input type="text" name="new_pass" id="t1" required >
+                        <label>NEW PASSWORD</label>
+                    </div>
+                    <div class="inputBox">
+                        <input type="text" name="confirm_pass" id="t2" required>
+                        <label>CONFIRM PASSWORD</label>
+                    </div>
+                    <input type="submit"  value="Submit" >
+                </form>
+            </div>
 
-        %>
-        <%
-            oldpass = request.getParameter("old_pass");
-            newpass = request.getParameter("new_pass");
-            confirmpass = request.getParameter("confirm_pass");
+            <%!
+                String oldpass = " ", newpass = "", confirmpass = "", stupass = "", rollno = " ";
 
-            HttpSession hs = request.getSession();
-            rollno = hs.getAttribute("stu_roll").toString();
+            %>
+            <%            oldpass = request.getParameter("old_pass");
+                newpass = request.getParameter("new_pass");
+                confirmpass = request.getParameter("confirm_pass");
 
-            try {
-                Class.forName("com.mysql.jdbc.Driver");
-                Connection con = DriverManager.getConnection("jdbc:mysql://Localhost/placementcell", "root", "");
-                Statement stmt = con.createStatement();
-                String x = "select * from studentsignup where studentrollno='" + rollno + "'";
-                ResultSet rs = stmt.executeQuery(x);
-                while (rs.next()) {
-                    stupass = rs.getString("studentpassword");
+                HttpSession hs = request.getSession();
+                rollno = hs.getAttribute("stu_roll").toString();
 
-                }
+                try {
+                    Class.forName("com.mysql.jdbc.Driver");
+                    Connection con = DriverManager.getConnection("jdbc:mysql://Localhost/placementcell", "root", "");
+                    Statement stmt = con.createStatement();
+                    String x = "select * from studentsignup where studentrollno='" + rollno + "'";
+                    ResultSet rs = stmt.executeQuery(x);
+                    while (rs.next()) {
+                        stupass = rs.getString("studentpassword");
 
-                if (oldpass.equals(stupass)) {
-                    if (newpass.equals(confirmpass)) {
-                        String y = "update studentsignup set studentpassword='" + newpass + "' where studentrollno='" + rollno + "'";
-                        stmt.executeUpdate(y);
-                        out.print("<script>window.close();</script>");
-                    } else {
-                        out.print("<script>alert('new password & confirm password must match')</script>");
                     }
-                } else {
-                    out.print("<script>alert('enter correct password')</script>");
-                }
-            } catch (NullPointerException e) {
-                out.print(" ");
-            } catch (Exception e) {
-                out.print(e);
-            }
 
-        %>
+                    if (oldpass.equals(stupass)) 
+                    {
+                        if (!oldpass.equals(newpass)) 
+                        {
+                            if (newpass.equals(confirmpass)) 
+                            {
+                                String y = "update studentsignup set studentpassword='" + newpass + "' where studentrollno='" + rollno + "'";
+                                stmt.executeUpdate(y);
+                                out.print("<script>window.close();</script>");
+                            } else
+                            {
+                                out.print("<script>alert('New Password & Confirm Password Must Match')</script>");
+                            }
+                        } else 
+                        {
+                            out.print("<script>alert('Old Password And New Password Is Same')</script>");
+                        }
+                    } else 
+                    {
+                        out.print("<script>alert('Enter Correct Password')</script>");
+                    }
+                } catch (NullPointerException e) {
+                    out.print(" ");
+                } catch (Exception e) {
+                    out.print(e);
+                }
+
+            %>
         </section>
         <section>
             <%@include file = "footer-student.jsp"%>

@@ -63,10 +63,10 @@
                     Class.forName("com.mysql.jdbc.Driver");
                     Connection con = DriverManager.getConnection("jdbc:mysql://localhost/placementcell", "root", "");
                     Statement stmt = con.createStatement();
-
                     String y = "select * from company_image where email='" + company_email + "'";
                     ResultSet rs1 = stmt.executeQuery(y);
-                    while (rs1.next()) {
+                    while (rs1.next())
+                    {
                         imgemail = rs1.getString("email");
                     }
                     if (!company_email.equals(imgemail)) { %>
@@ -86,7 +86,8 @@
 
             <!--End of Navbar Section-->
 
-            <%!String com_name = "", com_email = "", com_phno = "", com_location = "", com_Password = "", com_status = "", com_email1 = "";%>
+          
+            <%!String com_name = "", com_email = "", com_phno = "", com_location = "", com_Password = "", com_status = "";%>
 
             <%
                 HttpSession hs1 = request.getSession();
@@ -138,7 +139,7 @@
                         </td>
                     </tr>
             </table>
-
+        </section>
             <section>
                 <%@include file = "footer-company.jsp"%>
             </section>   

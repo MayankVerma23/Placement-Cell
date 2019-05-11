@@ -14,19 +14,20 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
     <style>
-     table{
-                border: 2px solid black;
-               }
-            
-            .r1:hover{
-                background-color: #add8e682;
-            }
+        table{
+            border: 2px solid black;
+        }
+
+        .r1:hover{
+            background-color: #add8e682;
+        }
     </style>
 
     <script>
         function viewprofile(x) {
-            window.open('offcampus_detail.jsp?studentid=' + x, 'popUpWindow', 'height=500,width=600,left=100,top=100,resizable=yes,scrollbars=yes,toolbar=yes,menubar=no,location=no,directories=no, status=yes');
-        }
+           // window.open('offcampus_detail.jsp?studentid=' + x, 'popUpWindow', 'height=500,width=600,left=100,top=100,resizable=yes,scrollbars=yes,toolbar=yes,menubar=no,location=no,directories=no, status=yes');
+     window.location.href="offcampus_detail.jsp?studentid=" +x;  
+    }
     </script>
 
 </head>
@@ -38,9 +39,9 @@
         <%@include file = "header_tpo.jsp"%>
         <!--End of Navbar Section-->
     </section>
-      <section style="min-height:500px;" class="container">
+    <section style="min-height:500px;" class="container">
         <div id="div1">
-           
+
             <table class="table" >
 
                 <tr style="background-color:black;color:white;">
@@ -69,5 +70,8 @@
             </table>
         </div>
     </section> 
+    <section>
+        <%@include file = "footer-tpo.jsp"%>
+    </section>
 </body>
 </html>

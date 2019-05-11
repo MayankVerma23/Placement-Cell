@@ -15,21 +15,22 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">       
         <title>PROFILE STUDENT</title>
 
-        <%@include file = "header_student.jsp"%>
-
         <script>
             function changeprofile1() {
-                var r = confirm("R U SURE!! U WANT CHANGES IN PROFILE");
-                if (r == true) {
-                    window.open('profile_student_1.jsp', 'popUpWindow', 'height=600,width=700,left=550,top=240,resizable=yes,scrollbars=yes,toolbar=yes,menubar=no,location=no,directories=no, status=yes');
-                }
+               // var r = confirm("R U SURE!! U WANT CHANGES IN PROFILE");
+              //  if (r == true) {
+                  //  window.open('profile_student_1.jsp', 'popUpWindow', 'height=600,width=700,left=550,top=240,resizable=yes,scrollbars=yes,toolbar=yes,menubar=no,location=no,directories=no, status=yes');
+                  window.location.href="profile_student_1.jsp";
+             //   }
             }
 
             function uploadimag() {
-                var r = confirm("R U SURE!! U WANT CHANGES IN PROFILE");
-                if (r == true) {
+            //    var r = confirm("R U SURE!! U WANT CHANGES IN PROFILE");
+               // if (r == true) {
                     window.open('image_studentt.jsp', 'popUpWindow', 'height=400,width=600,left=450,top=150,resizable=yes,scrollbars=yes,toolbar=yes,menubar=no,location=no,directories=no, status=yes');
-                }
+              //  }
+   //  window.location.href="image_studentt.jsp";
+          
             }
         </script>
 
@@ -51,7 +52,13 @@
     </head>
 
     <body>  
-        <%@include file = "pic.jsp"%>
+        <section>
+            <%@include file = "header_student.jsp"%>
+        </section>
+
+        <section>
+            <%@include file = "pic.jsp"%>
+        </section>
 
         <section>
             <%
@@ -86,7 +93,7 @@
 
 
             <%!String stuname = "", stuemail = "", studegree = "", stuphno = "", stugender = "", stupass = "",
-                    stu_batch, stu_ten, stu_twe, stu_sem1, stu_sem2, stu_sem3, stu_sem4, stu_sem5, stu_sem6, stu_sem7, stu_sem8, stu_cgpa, stu_branch, backlog;%>
+                        stu_batch, stu_ten, stu_twe, stu_sem1, stu_sem2, stu_sem3, stu_sem4, stu_sem5, stu_sem6, stu_sem7, stu_sem8, stu_cgpa, stu_branch, backlog;%>
 
             <%
                 Class.forName("com.mysql.jdbc.Driver");

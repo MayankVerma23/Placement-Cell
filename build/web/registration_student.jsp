@@ -30,7 +30,7 @@
             }
         </style>  
 
- 
+
     </head>
     <body>
 
@@ -204,7 +204,7 @@
 
     </body>
 
- <script>
+    <script>
         function sublist()
         {
             h1 = document.getElementById("degree").value;
@@ -309,32 +309,35 @@
             } else if ((a.charAt(0) != 9) && (a.charAt(0) != 8) && (a.charAt(0) != 7) && (a.charAt(0) != 6)) {
                 alert("Phone number must start with 9,8,7 and 6");
                 return false;
-            } else if (b > 10) {
-                alert("sem one cgpa not greater than 10");
+            } else if ((b > 10) || (b < 1))
+            {
+                alert("sem1 sgpa not greater than 10 and less than 1");
                 return false;
-            } else if (c > 10) {
-                alert("sem2 cgpa not greater than 10");
+            } else if ((c > 10) || (c < 1))
+            {
+                alert("sem2 sgpa not greater than 10 and less than 1");
                 return false;
-            } else if (d > 10) {
-                alert("sem3 cgpa not greater than 10");
+            } else if ((d > 10) || (d < 1))
+            {
+                alert("sem3 sgpa not greater than 10 and less than 1");
                 return false;
-            } else if (e > 10) {
-                alert("sem4 cgpa not greater than 10");
+            } else if ((e > 10) || (e < 1)) {
+                alert("sem4 sgpa not greater than 10 and less than 1");
                 return false;
-            } else if (f > 10) {
-                alert("sem5 cgpa not greater than 10");
+            } else if ((f > 10) || (f < 1)) {
+                alert("sem5 sgpa not greater than 10 and less than 1");
                 return false;
-            } else if (g > 10) {
-                alert("sem6 cgpa not greater than 10");
+            } else if ((g > 10) || (g < 1)) {
+                alert("sem6 sgpa not greater than 10 and less than 1");
                 return false;
-            } else if (h > 10) {
-                alert("sem7 cgpa not greater than 10");
+            } else if ((h > 10) || (h < 1)) {
+                alert("sem7 sgpa not greater than 10 and less than 1");
                 return false;
-            } else if (sem > 10) {
-                alert("Sem8 Cgpa Not Greater Than 10");
+            } else if ((sem > 10) || (sem < 1)) {
+                alert("Sem8 sgpa not greater than 10 and less than 1");
                 return false;
-            } else if (j > 10) {
-                alert("Overall Cgpa Not Greater Than 10");
+            } else if ((j > 10) || (j < 1)) {
+                alert("Overall Cgpa Not Greater Than 10 and less than 1");
                 return false;
             } else if (length < 8)
             {
@@ -352,6 +355,10 @@
             {
                 alert("Your Password Must Contain At Least a Letter In UPER CASE .");
                 return false;
+            } else if (!password.match(/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9])(?!.*\s).{8,15}$/))
+            {
+                alert("Your Password Must Contain At Least a speacial Character  .");
+                return false;
             } else
             {
                 var a = (document.getElementById("t1").value);
@@ -360,13 +367,13 @@
                     alert("Password Not Match");
                     return false;
                 } else
-                {                    
+                {
                     return true;
                 }
             }
         }
     </script>
 
-    
+
 </html>
 

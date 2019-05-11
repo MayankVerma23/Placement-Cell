@@ -26,7 +26,9 @@
     <%@include file = "header_tpo.jsp"%>
     <!--End of Navbar Section-->
     </section>
-    
+    <section style="min-height: 400px">
+        
+    </section>
     <section>
     <!--Start of Footer Section-->
     <%@include file = "footer-tpo.jsp"%>

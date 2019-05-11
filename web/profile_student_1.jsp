@@ -14,10 +14,7 @@
     <head>
         <title id="title">STUDENT PROFILE UPDATE</title>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css'>
-        <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
-        <script src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js'></script>
-
+       
 
         <style>
             table{
@@ -32,6 +29,11 @@
     </head>
 
     <body>
+         <section>
+            <%@include file = "header_student.jsp"%>
+        </section>
+        
+        <section style="height:600px" >
       
         <%!String stu_roll1 = "", sturoll = "", stuname = "", stuemail = "", studegree = "", stuphno = "", stugender = "", stupass = "", stubranch = "", stubatch = "", stutwe = "", stuten = "", stusem1 = "", stusem2 = "", stusem3 = "", stusem4 = "", stusem5 = "", stusem6 = "", stusem7 = "", stusem8 = "", stucgpa = "", stubacklog = "";%>
 
@@ -129,6 +131,10 @@
             </table>
 
         </form>
-
+        </section>
+                    
+        <section>
+            <%@include file = "footer-student.jsp"%>
+        </section>
     </body>
 </html>

@@ -127,6 +127,7 @@
         <script  src="js/index.js"></script>
     </head>
     <body>
+      
         <% HttpSession hs = request.getSession();%>
         <div class="darken">
             <div class="noise">

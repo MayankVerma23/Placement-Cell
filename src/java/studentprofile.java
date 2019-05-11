@@ -51,7 +51,7 @@ public class studentprofile extends HttpServlet {
                 Statement stm=conn.createStatement();
                 String str="update studentsignup set studentname='"+a+"', studentemail='"+c+"',studentdegree='"+d+"',studentphno='"+e+"',studentgender='"+g+"' where studentrollno='"+f+"'";
                 stm.executeUpdate(str);
-                 out.print("<script>window.close()</script>");           
+               response.sendRedirect("profile_student.jsp");
             }
             catch(Exception ex)
             {

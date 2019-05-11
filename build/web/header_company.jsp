@@ -29,19 +29,13 @@
 
     <%! String com_email1 = "", com_name1;%>
         <%
-            int ct = 0;
+          
             try {
 
                 Class.forName("com.mysql.jdbc.Driver");
                 Connection conn = (Connection) DriverManager.getConnection("jdbc:mysql://localhost/placementcell", "root", "");
                 Statement st = conn.createStatement();
-                String x1 = "Select count(*) from queries where seen='0' and designation='company'";
-
-                ResultSet rs = st.executeQuery(x1);
-                while (rs.next()) {
-                    ct = rs.getInt(1);
-                }
-                
+                 
                 HttpSession hs = request.getSession();
             com_email1 = hs.getAttribute("company_email").toString();
             String x = "select * from companysignup where companyemail='" + com_email1 + "'";

@@ -270,7 +270,7 @@
                     </div>
                     <div class="back">
                         <div class="inner">
-                            <p>Mayank verma (Student of Punjabi University)</p>
+                            <p>Mayank Verma (Student of Punjabi University,Patiala)</p>
                         </div>
                     </div>
                 </div>

@@ -22,29 +22,25 @@
                 border:2px solid black;
                 margin:0 auto;
             }
-
-            .r1{
-                background-color: #E3F2E1;
+            th,td{
+                padding:10px !important;
             }
-
-            #d4{
-                margin-left:50%; 
+            .r1:hover{
+                background-color: #add8e682;
             }
-            #heading{
-                font-size:34px;
-                text-align:center;
-                text-transform: uppercase;
-            }
+            
+            
         </style>
+    
     </head>
 
     <body>
         <section>
-            <%@include file = "index_navbar.jsp"%>
+            <%@include file = "header_tpo.jsp"%>
         </section>
 
-        <section style="margin-top:80px;">
-            <%!String companyid1 = "",companyyy_name="", studemail = "" ;%>
+        <section style="min-height:500px;" class="container">
+            <%!String companyid1 = "",companyyy_name="", studname="",studemail = "" ;%>
 
             <%
                 try {
@@ -60,20 +56,36 @@
 
                 String y = "select * from offcampus_table ";
                 rs = stmt.executeQuery(y);
-                
+               %>
+               <table style="min-width: 80%;">
+                   <tr style="background-color:black;color:white;">
+                   <th>Student Name</th>
+                   <th>Student Email</th>
+                   <th>Send Mail</th>
+                   </tr>
+            <% 
                 while (rs.next()) {
-                    studemail= rs.getString("email");
-                    response.sendRedirect("https://template0706.000webhostapp.com/placementCell/offcampus_student.php?email=" + studemail + "&&companyname=" + companyyy_name + "");
-                }
+                    %>
+                    <tr class="r1">
+                        <td><%=rs.getString("name")%></td>
+                        <td><%=rs.getString("email")%></td> 
+                        <td><button class="btn btn-success" onclick="send(<%=rs.getString("email")%>)">SEND</button></td>
+                    </tr>
+                    <%}
                 }
                 catch (Exception ex) {
                     out.print(ex);
                 }
                %> 
-               
+               </table>
         </section>
-
-       
-
-    </body>
+     
+       </body>
+           
+        <script>
+             function send(x) {   
+                window.location.href = "https://template0706.000webhostapp.com/placementCell/offcampus_student.php?email=" + x + "companyname=" +<%=companyyy_name%>;
+            }
+        </script>
+   
 </html>

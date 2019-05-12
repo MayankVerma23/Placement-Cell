@@ -46,7 +46,7 @@
                 <tr class="r1">
                     <td><%=rs.getString("companyname")%></td>                              
                     <td><%=rs.getString("company_email")%></td>
-                    <td><button class="btn btn-danger" onclick="student('<%=rs.getString("company_email")%>')">view result</button></td>                
+                    <td><button class="btn btn-danger" onclick="student('<%=rs.getString("company_email")%>')">VIEW RESULT</button></td>                
                 </tr>
                 <% }
                     }%>

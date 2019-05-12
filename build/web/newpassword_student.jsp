@@ -137,6 +137,10 @@
                 {
                     alert("Your password must contain at least a letter in uper case .");
                     return false;
+                } else if (!password.match(/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9])(?!.*\s).{8,15}$/))
+                {
+                    alert("Your Password Must Contain At Least a speacial Character  .");
+                    return false;
                 } else
                 {
                     var a = (document.getElementById("t1").value);
@@ -145,7 +149,7 @@
                         alert("pass not match");
                         return false;
                     } else {
-                        alert("pass  match");
+
                         return true;
                     }
 
@@ -160,11 +164,11 @@
             <form action="newpassword_student_update.jsp"   onsubmit="return checkpasswordd()" autocomplete="off">
                 <h2>SET NEW PASSWORD</h2>
                 <div class="inputBox">
-                    <input type="text" name="new_pass" id="t1" required>
+                    <input type="password" name="new_pass" id="t1" required>
                     <label>NEW PASSWORD</label>
                 </div>
                 <div class="inputBox">
-                    <input type="text" name="confirm_pass" id="t2" required>
+                    <input type="password" name="confirm_pass" id="t2" required>
                     <label>CONFIRM PASSWORD</label>
                 </div>
                 <input type="submit"  value="Submit">

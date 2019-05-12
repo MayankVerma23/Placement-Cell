@@ -444,7 +444,7 @@
                                     <%  ResultSet rs1 = fetchStatement.executeQuery(fetchQuery);
                                         while (rs1.next()) {
                                     %> 
-                                    <a  style="color:white;" href="offcampus_comp.jsp"><p style="text-align:center;"><b><%=rs1.getString("companyname")%></b></p></a>
+                                    <a  style="color:white;" href="offcampus_comp.jsp"><p style="text-align:center;text-transform: uppercase;"><b><%=rs1.getString("companyname")%></b></p></a>
 
                                         <%}%>
                                 </marquee>

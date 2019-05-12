@@ -40,7 +40,7 @@
 
                         <div class="form-group">
                             <label for="name">NAME:</label>
-                            <input type="text" name="name" class="form-control"  required>
+                            <input type="text" name="name" class="form-control" id="t9" required>
                         </div>
 
                         <div class="form-group">
@@ -49,7 +49,7 @@
                         </div>
                         <div class="form-group">
                             <label for="roll">ROLL NO:</label>
-                            <input type="text" name="roll" class="form-control" id="roll"  required >
+                            <input type="text" name="roll" class="form-control" id="t10"  required >
                         </div>
 
                        
@@ -262,6 +262,8 @@
             var flag_number = 0;
             var flag_lowercase = 0;
             var flag_upercase = 0;
+            var name = document.getElementById("t9").value;
+            var roll = document.getElementById("t10").value;          
             var a = document.getElementById("ph").value;
             var b = document.getElementById("s1").value;
             var c = document.getElementById("s2").value;
@@ -275,7 +277,13 @@
 
 
 
-            if (isNaN(a)) {
+            if (!name.match(/^[A-Za-z ]+$/)) {
+                alert("Name fill only with alphabate");
+                return false;
+            } else if (isNaN(roll)) {
+                alert("Eneter only numeric value in rollno");
+                return false;
+            } else if (isNaN(a)) {
                 alert("Eneter only numeric value in Phoneno");
                 return false;
             } else if (a.length < 10) {
@@ -287,45 +295,60 @@
             } else if ((a.charAt(0) != 9) && (a.charAt(0) != 8) && (a.charAt(0) != 7) && (a.charAt(0) != 6)) {
                 alert("Phone number must start with 9,8,7 and 6");
                 return false;
-            } else if (b > 10) {
-                alert("sem one cgpa not greater than 10");
+            } else if ((b > 10) || (b < 1))
+            {
+                alert("sem1 sgpa not greater than 10 and less than 1");
                 return false;
-            } else if (c > 10) {
-                alert("sem2 cgpa not greater than 10");
+            } else if ((c > 10) || (c < 1))
+            {
+                alert("sem2 sgpa not greater than 10 and less than 1");
                 return false;
-            } else if (d > 10) {
-                alert("sem3 cgpa not greater than 10");
+            } else if ((d > 10) || (d < 1))
+            {
+                alert("sem3 sgpa not greater than 10 and less than 1");
                 return false;
-            } else if (e > 10) {
-                alert("sem4 cgpa not greater than 10");
+            } else if ((e > 10) || (e < 1)) {
+                alert("sem4 sgpa not greater than 10 and less than 1");
                 return false;
-            } else if (f > 10) {
-                alert("sem5 cgpa not greater than 10");
+            } else if ((f > 10) || (f < 1)) {
+                alert("sem5 sgpa not greater than 10 and less than 1");
                 return false;
-            } else if (g > 10) {
-                alert("sem6 cgpa not greater than 10");
+            } else if ((g > 10) || (g < 1)) {
+                alert("sem6 sgpa not greater than 10 and less than 1");
                 return false;
-            } else if (h > 10) {
-                alert("sem7 cgpa not greater than 10");
+            } else if ((h > 10) || (h < 1)) {
+                alert("sem7 sgpa not greater than 10 and less than 1");
                 return false;
-            } else if (i > 10) {
-                alert("sem8 cgpa not greater than 10");
+            } else if ((i > 10) || (i < 1)) {
+                alert("Sem8 sgpa not greater than 10 and less than 1");
                 return false;
-            } else if (j > 10) {
-                alert("overall cgpa not greater than 10");
+            } else if ((j > 10) || (j < 1)) {
+                alert("Overall Cgpa Not Greater Than 10 and less than 1");
+                return false;
+            } else if (length < 8)
+            {
+                alert("Your Password Must Be At Least 8 Characters Long.");
+                return false;
+            } else if (flag_number === 0)
+            {
+                alert("Your Password Must Contain At Least One Digit .");
+                return false;
+            } else if (flag_lowercase === 0)
+            {
+                alert("Your Password Must Contain At Least a Letter In LOWER CASE .");
+                return false;
+            } else if (flag_upercase === 0)
+            {
+                alert("Your Password Must Contain At Least a Letter In UPER CASE .");
+                return false;
+            } else if (!password.match(/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9])(?!.*\s).{8,15}$/))
+            {
+                alert("Your Password Must Contain At Least a speacial Character  .");
                 return false;
             } else
-            {
-                var a = (document.getElementById("t1").value);
-                var b = (document.getElementById("t2").value);
-                if (a !== b) {
-                    alert("pass not match");
-                    return false;
-                } else {
-                    alert("pass  match");
+            {            
                     return true;
                 }
-
             }
         }
 

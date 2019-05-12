@@ -113,7 +113,7 @@
             <%@include file = "header_company.jsp"%>
         </section>
 
-        <section style="min-height:400px;">
+        <section style="min-height:500px;">
             <div class="container" id="container-design" >
                 <div style="margin:0 auto;min-height:300px;">
                     <%!String comp_email = "";%>

@@ -44,41 +44,52 @@
             }
             }
 
-            if (!comp_name.match(/^[A-Za-z. ]+$/)) {
+            if (!comp_name.match(/^[A-Za-z. ]+$/)) 
+            {
             alert("Name Fill Only With Alphabate");
             return false;
             }
-            else if (a.length < 10) {
+            else if (a.length < 10)
+            {
             alert("Phoneno Must be 10 digit");
             return false;
-            } else if (a.length > 10) {
+            }
+            else if (a.length > 10) 
+            {
             alert("Phoneno Must be 10 digit");
             return false;
-            } else if ((a.charAt(0) != 9) && (a.charAt(0) != 8) && (a.charAt(0) != 7) && (a.charAt(0) != 6)) {
+            } 
+            else if ((a.charAt(0) != 9) && (a.charAt(0) != 8) && (a.charAt(0) != 7) && (a.charAt(0) != 6)) 
+            {
             alert("Phone Number must start with 9,8,7 and 6");
             return false;
-            } else if (lengthh < 8)
+            }
+            else if (lengthh < 8)
             {
             alert("Your Password Must Be At Least 8 Characters Long.");
             return false;
-            } else if (flag_number === 0)
+            } 
+            else if (flag_number === 0)
             {
-            alert(Your Password Must Contain At Least One Digit.");
+            alert("Your Password Must Contain At Least One Digit.");
                     return false;
-            } else if (flag_lowercase === 0)
+            }
+            else if (flag_lowercase === 0)
             {
             alert("Your Password Must Contain At Least a Letter In LOWER CASE .");
             return false;
-            } else if (flag_upercase === 0)
+            }
+            else if (flag_upercase === 0)
             {
-            alert(Your Password Must Contain At Least a Letter In UPER CASE.");
+            alert("Your Password Must Contain At Least a Letter In UPER CASE.");
                     return false;
             }
-           else if (!password.match(/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9])(?!.*\s).{8,15}$/))
+             else if (!password.match(/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9])(?!.*\s).{8,15}$/))
             {
-            alert("Your Password Must Contain At Least a speacial Character  .");
-            return false;
-            }     else
+                alert("Your Password Must Contain At Least a speacial Character  .");
+                return false;
+            }
+            else
             {
             var a = (document.getElementById("comp_pass").value);
             var b = (document.getElementById("comp_confpass").value);

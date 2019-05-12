@@ -36,7 +36,7 @@
 
                 <div class="row">  
                     <div class="col-md-12">
-                        <form action="company_response_2.jsp" onsubmit="return valiDate()" method="post">
+                        <form action="company_response_2.jsp"  method="post">
 
                             <div class="form-group">
                                 <label>ELIGIBLE COURSES</label>
@@ -49,9 +49,9 @@
                                 <label>ELIGIBLE BRANCHES</label>
                                 <div id="branch1" hidden="">
                                     <input type="checkbox" name="branch1"  value="CSE" ><span id="s1">CSE</span>
-                                    <input type="checkbox" name="branch2"  value="ME" ><span id="s1">ME</span>
+                                    <input type="checkbox" name="branch2"  value="MCE" ><span id="s1">MCE</span>
                                     <input type="checkbox" name="branch3"  value="CIVIL"><span id="s1">CIVIL</span>
-                                    <input type="checkbox" name="branch4"  value="EE"><span id="s1">EE</span>
+                                    <input type="checkbox" name="branch4"  value="ECE"><span id="s1">ECE</span>
                                 </div>
                             </div>
 

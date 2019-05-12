@@ -38,7 +38,7 @@
                 Statement stmt = con.createStatement();
                 String y = "insert into notice_table values(null,'"+subject+"','" + notice1 + "','" + designation1 + "','" + designation2 + "','" + designation3 + "','"+strDate+"')";
                 stmt.executeUpdate(y);
-                out.print("<script> window.alert('NOTICE POST SUCCESSFULLY') </script>");
+//                out.print("<script> window.alert('NOTICE POST SUCCESSFULLY') </script>");
                 out.print("<script> window.location.href='home_tpo.jsp' </script>");
 
             } catch (Exception e) 

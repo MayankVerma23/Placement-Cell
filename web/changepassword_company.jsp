@@ -156,7 +156,7 @@
             <!--Start of form for changepassword for company-->
         </section>
 
-        <section style="min-height: 500px">
+        <section style="min-height: 600px">
             <div class="box">
 
                 <h2>CHANGE PASSWORD</h2>

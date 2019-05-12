@@ -66,7 +66,7 @@
 
         <%!String roll = "";%>
 
-        <section>
+        <section style="min-height: 600px">
             <div class="container"> 
 
                 <i class="fas fa-cogs fa-5x" style="color:84868D" ></i><br><br>

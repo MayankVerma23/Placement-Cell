@@ -40,6 +40,19 @@
             .line1{
                 border-color: #A9A9A9;
             }
+            
+             #notice1{
+              float:right;  
+            }
+            
+            #d1{
+               float:left;
+               margin-left:120px;
+               margin-top:-40px;
+               margin-bottom:30px;
+              
+                
+            }
         </style>
         <script>
             function message(x) {
@@ -55,9 +68,24 @@
         <!--End of Navbar Section-->
     </section>
 
-       <section>
+         
+         
+        
+        
+           <section class="container" style="min-width:100%;">
+            <div id="notice1">
             <%@include file = "notice_company.jsp"%>
+            </div>
+            <div id="d1">
+            <%@include file = "comp_ex.jsp"%>
+            </div>
         </section>
+            
+            
+            
+            
+        
+       
 
         <!--Start of Footer Section-->
         <section>

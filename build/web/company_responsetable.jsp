@@ -79,7 +79,7 @@
         <!--End of Navbar Section-->
         </section>
         <div id="container">
-            <section> 
+            <section style="min-height: 500px"> 
 
 
                 <%

@@ -28,10 +28,17 @@
             .r1:hover{
                 background-color: #add8e682;
             }
-            
-            
+
+
         </style>
-    
+
+   <script>
+        function send(x,y) {
+            alert(<%=companyyy_name%>);
+            window.location.href = "https://template0706.000webhostapp.com/placementCell/offcampus_student.php?email=" + x + "companyname=" +<%=companyyy_name%>;
+        }
+    </script>
+
     </head>
 
     <body>
@@ -40,52 +47,45 @@
         </section>
 
         <section style="min-height:500px;" class="container">
-            <%!String companyid1 = "",companyyy_name="", studname="",studemail = "" ;%>
+            <%!String companyid1 = "", companyyy_name = "", studname = "", studemail = "";%>
 
             <%
                 try {
-                companyid1 = request.getParameter("companyid");
-                Class.forName("com.mysql.jdbc.Driver");
-                Connection conn = DriverManager.getConnection("jdbc:mysql://localhost/placementcell", "root", "");
-                Statement stmt = conn.createStatement();
-                String x = "select * from companyrequirements where id='" + companyid1 + "'";
-                ResultSet rs = stmt.executeQuery(x);
-                while (rs.next()) {
-                    companyyy_name=rs.getString("companyname");
-                }
-
-                String y = "select * from offcampus_table ";
-                rs = stmt.executeQuery(y);
-               %>
-               <table style="min-width: 80%;">
-                   <tr style="background-color:black;color:white;">
-                   <th>Student Name</th>
-                   <th>Student Email</th>
-                   <th>Send Mail</th>
-                   </tr>
-            <% 
-                while (rs.next()) {
-                    %>
-                    <tr class="r1">
-                        <td><%=rs.getString("name")%></td>
-                        <td><%=rs.getString("email")%></td> 
-                        <td><button class="btn btn-success" onclick="send(<%=rs.getString("email")%>)">SEND</button></td>
-                    </tr>
-                    <%}
-                }
-                catch (Exception ex) {
-                    out.print(ex);
-                }
-               %> 
-               </table>
+                    companyid1 = request.getParameter("companyid");
+                    Class.forName("com.mysql.jdbc.Driver");
+                    Connection conn = DriverManager.getConnection("jdbc:mysql://localhost/placementcell", "root", "");
+                    Statement stmt = conn.createStatement();
+                    String x = "select * from companyrequirements where id='" + companyid1 + "'";
+                    ResultSet rs = stmt.executeQuery(x);
+                    while (rs.next()) {
+                        companyyy_name = rs.getString("companyname");
+                       }
+                    String y = "select * from offcampus_table ";
+                    rs = stmt.executeQuery(y);
+            %>
+           <table style="min-width: 80%;">
+                <tr style="background-color:black;color:white;">
+                    <th>Student Name</th>
+                    <th>Student Email</th>
+                    <th>Send Mail</th>
+                </tr>
+                <%
+                    while (rs.next()) {
+                %>
+                <tr class="r1">
+                    <td><%=rs.getString("name")%></td>
+                    <td><%=rs.getString("email")%></td> 
+                    <td><button class="btn btn-success" onclick="send('<%=rs.getString("email")%>','<%=companyyy_name%>')">SEND</button></td>
+                </tr>
+                <%}
+                    } catch (Exception ex) {
+                        out.print(ex);
+                    }
+                %> 
+            </table>
         </section>
-     
-       </body>
-           
-        <script>
-             function send(x) {   
-                window.location.href = "https://template0706.000webhostapp.com/placementCell/offcampus_student.php?email=" + x + "companyname=" +<%=companyyy_name%>;
-            }
-        </script>
-   
+
+    </body>
+ 
+
 </html>

@@ -24,26 +24,30 @@
             #navbar-links:hover{
                 color:black;
             }
+             h1{
+               
+                font-weight: bold;
+            }
 
         </style>
 
-    <%! String com_email1 = "", com_name1;%>
+        <%! String com_email1 = "", com_name1;%>
         <%
-          
+
             try {
 
                 Class.forName("com.mysql.jdbc.Driver");
                 Connection conn = (Connection) DriverManager.getConnection("jdbc:mysql://localhost/placementcell", "root", "");
                 Statement st = conn.createStatement();
-                 
-                HttpSession hs = request.getSession();
-            com_email1 = hs.getAttribute("company_email").toString();
-            String x = "select * from companysignup where companyemail='" + com_email1 + "'";
-            ResultSet rs1 = st.executeQuery(x);
-            while (rs1.next()) {
 
-                com_name1 = rs1.getString("companyname");
-            }
+                HttpSession hs = request.getSession();
+                com_email1 = hs.getAttribute("company_email").toString();
+                String x = "select * from companysignup where companyemail='" + com_email1 + "'";
+                ResultSet rs1 = st.executeQuery(x);
+                while (rs1.next()) {
+
+                    com_name1 = rs1.getString("companyname");
+                }
 
             } catch (Exception ex) {
                 out.print(ex);
@@ -71,9 +75,8 @@
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>                        
                         </button>
-
-
                     </div>
+                    
                     <div class="collapse navbar-collapse" id="myNavbar">
                         <ul class="nav navbar-nav">
                             <li class="active"><a href="home_company.jsp" id="navbar-links">HOME</a></li>
@@ -88,7 +91,7 @@
                             </li>
                             <li><a href="company_response.jsp" id="navbar-links">STATUS</a></li>
                             <li class="active"><a href="contactf_company.jsp" id="navbar-links">SUPPORT</a></li>
-                            <li><a href="your_inbox_company.jsp"  id="navbar-links">INBOX</a></li>
+                            <li><a href="company_inbox.jsp"  id="navbar-links">INBOX</a></li>
 
 
                             <li><a href="changepassword_company.jsp" id="navbar-links">CHANGE PASSWORD</a></li>

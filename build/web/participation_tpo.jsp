@@ -26,7 +26,7 @@
 
     <script>
         function student(x) {
-            window.open('compwise_interestedstudent_details.jsp?comp_email=' + x, 'popUpWindow', 'height=500,width=600,left=100,top=100,resizable=yes,scrollbars=yes,toolbar=yes,menubar=no,location=no,directories=no, status=yes');
+            window.location.href="compwise_interestedstudent_details.jsp?comp_email="+ x;
         }
     </script>
 </head>

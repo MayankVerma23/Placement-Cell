@@ -26,6 +26,10 @@
             #navbar-links:hover{
                 color:black;
             }
+               h1{
+               
+                font-weight: bold;
+            }
           
         </style>
         <%! String roll_no2,name1;%>
@@ -58,7 +62,7 @@
             <div class="row">
                 <div class="col-lg-12">
                     <h1 style="float:left;padding-left:20px;">Placement Cell</h1>
-                     <h1 style="float:right;padding-right:20px;text-transform: uppercase"><%=name1%></h1>
+                     <h1 style="float:right;padding-right:"><%=name1%></h1>
                 </div>
             </div>
         </section>

@@ -66,7 +66,8 @@
             <%@include file = "header_tpo.jsp"%>
             <!--End of Navbar Section-->
         </section>
-        <section> 
+            
+            <section style="min-height: 400px"> 
             <%! String name = "";
                 String email = "";
                 String subject = "";

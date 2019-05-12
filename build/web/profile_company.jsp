@@ -21,17 +21,17 @@
         <script>
             function changeprofile1()
             {
-                var r = confirm("R U SURE!! U WANT CHANGES IN PROFILE");
-                if (r == true) {
-                    window.open('profile_company_1.jsp', 'popUpWindow', 'height=500,width=600,left=650,top=250,resizable=yes,scrollbars=yes,toolbar=yes,menubar=no,location=no,directories=no, status=yes');
-                }
+                //var r = confirm("R U SURE!! U WANT CHANGES IN PROFILE");
+               // if (r == true) {
+                    window.open('profile_company_1.jsp', 'popUpWindow', 'height=500,width=600,left=350,top=250,resizable=yes,scrollbars=yes,toolbar=yes,menubar=no,location=no,directories=no, status=yes');
+               // }
             }
             function uploadimag()
             {
-                var r = confirm("R U SURE!! U WANT CHANGES IN PROFILE");
-                if (r == true) {
+               // var r = confirm("R U SURE!! U WANT CHANGES IN PROFILE");
+               // if (r == true) {
                     window.open('image_company.jsp', 'popUpWindow', 'height=400,width=600,left=450,top=150,resizable=yes,scrollbars=yes,toolbar=yes,menubar=no,location=no,directories=no, status=yes');
-                }
+               // }
             }
         </script>
         <style>
@@ -52,9 +52,11 @@
     </head>
 
     <body>
-        <%@include file = "pic.jsp"%>
-        
         <section>
+        <%@include file = "pic.jsp"%>
+        </section>
+        
+        <section style="min-height: 400px">
             <%
                 HttpSession hss = request.getSession();
                 String company_email = hss.getAttribute("company_email").toString();
@@ -74,7 +76,7 @@
             <!--Start of Navbar Section-->
 
              <div style="margin:10px;">
-                <h4>Please upload image</h4><button class="btn btn-danger" type="button" onclick="uploadimag()">UPLOAD IMAGE</button>
+                <h4>Please upload image</h4><button class="btn btn-danger" type="button" onclick="uploadimag()">UPLOAD LOGO</button>
             </div>
              <%} else {
 

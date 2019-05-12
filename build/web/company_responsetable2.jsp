@@ -22,10 +22,7 @@
         <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
 
         <script>
-            function back() {
-                window.close();
-
-            }
+          
         </script>
         <style>
             table{
@@ -249,7 +246,7 @@
             <tr>
                 <td colspan="3">
                     <div id="d4">      
-                        <button  class="btn btn-warning" onclick="back()">back</button>    
+                     <a href="home_tpo.jsp">   <button  class="btn btn-warning">back</button>   </a> 
                     </div>
                 </td>
             </tr>

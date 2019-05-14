@@ -290,7 +290,7 @@
                                 </div>
                             </div>
                         </div>-->
-            <div class="col" ontouchstart="this.classList.toggle('hover');">
+<!--            <div class="col" ontouchstart="this.classList.toggle('hover');">
                 <div class="container">
                     <div class="front" style="background-image: url(https://unsplash.it/503/503/)">
                         <div class="inner">
@@ -304,7 +304,7 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div>-->
 
         </div>
     </div>

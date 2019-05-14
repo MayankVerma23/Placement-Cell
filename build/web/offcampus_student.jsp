@@ -63,7 +63,7 @@
 
                 <tr class="r1">
                     <td><%=rs.getString("name")%></td>
-                    <td><button class="btn btn-danger" onclick="viewprofile(<%=rs.getString("id")%>)">view profile</button></td>
+                    <td><button class="btn btn-danger" onclick="viewprofile(<%=rs.getString("id")%>)">VIEW PROFILE</button></td>
                 </tr>
 
                 <% }%>

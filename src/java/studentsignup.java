@@ -74,16 +74,13 @@ public class studentsignup extends HttpServlet {
             }
             if (!roll.equals(rolno)) {
 
-                if (!email.equals(em1)) {
+             
                     String x = "insert into studentsignup values(null,'" + name + "','" + roll + "','" + email + "','" + degree + "','" + branch + "','" + batch + "','" + phoneno + "','" + gender + "','" + ten + "','" + twe + "','" + sem1 + "','" + sem2 + "','" + sem3 + "','" + sem4 + "','" + sem5 + "','" + sem6 + "','" + sem7 + "','" + sem8 + "','" + cgpa + "','" + backlog + "','" + pass + "','" + "unplaced" + "')";
                     stmt.executeUpdate(x);
                     // request.setAttribute("roll", roll);
                     //request.getRequestDispatcher("image_studentt.jsp").forward(request, response);
                     response.sendRedirect("login_page.jsp");
-                } else {
-                    out.print("<script> window.alert('Email Already Use Please Select Another Email') </script>");
-                    out.print("<script> window.location.href='signup.jsp' </script>");
-                }
+                
             } else {
                 out.print("<script> window.alert('RollNo Already Use Please Select Another RollNo') </script>");
                 out.print("<script> window.location.href='signup.jsp' </script>");

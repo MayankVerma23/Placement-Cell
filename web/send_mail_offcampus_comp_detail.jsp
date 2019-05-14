@@ -34,8 +34,8 @@
 
    <script>
         function send(x,y) {
-            alert(<%=companyyy_name%>);
-            window.location.href = "https://template0706.000webhostapp.com/placementCell/offcampus_student.php?email=" + x + "companyname=" +<%=companyyy_name%>;
+            alert(x + " : " + y);
+            window.location.href = "https://template0706.000webhostapp.com/placementCell/offcampus_student.php?email=" + x + "&companyname=" + y;
         }
     </script>
 

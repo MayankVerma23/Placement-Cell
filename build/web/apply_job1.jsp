@@ -103,7 +103,7 @@
 
                 <tr>                  
                     <td><%=rs2.getString("companyname")%></td>
-                    <td><button class="btn btn-danger" onclick="profile(<%=rs2.getString("id")%>)">VIEW PROFILE</button></td>
+                    <td><button class="btn btn-danger" onclick="profile(<%=rs2.getString("id")%>)">REQUIREMENTS</button></td>
                 </tr>
 
                 <% }
@@ -116,7 +116,7 @@
 
                 <tr>                  
                     <td><%=rs3.getString("companyname")%></td>
-                    <td><button class="btn btn-danger" onclick="profile(<%=rs3.getString("id")%>)">VIEW PROFILE</button></td>
+                    <td><button class="btn btn-danger" onclick="profile(<%=rs3.getString("id")%>)">REQUIREMENTS</button></td>
                 </tr>
 
                 <%}

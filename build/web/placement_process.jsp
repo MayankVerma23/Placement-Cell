@@ -167,9 +167,9 @@ companies in identifying the ?right? candidate for their organization. However, 
  <blockquote> The placement activity is primarily managed by the Placement Committee headed by Director of the institute as Chairperson with the
 help of the Manager Corporate Relations and other committee members which includes faculties and students from various departments.      
  </blockquote> </div>
-
-                <p> <u><b>The Broad Activities Undertaken by the Placement Cell are:</b></u></p>
-                <p class="text-success">                 
+      
+                <p style="text-align:left;"> <u><b>The Broad Activities Undertaken by the Placement Cell are:</b></u></p>
+                <p class="text-success" style="text-align:left;">                 
                     
                     1. Preparation of Placement Brochure for final placement.
                     <br>
@@ -185,7 +185,8 @@ help of the Manager Corporate Relations and other committee members which includ
                     <br>
                     7. General follow-up, joining formalities and other administrative activities.
                                     </p>
-                                    
+                                  
+                                                 
                                     <h2>Institute Placement Committee</h2>                    
                <div class="text-success">
  <blockquote> The placement related activities, at the Institute, are carried out by Placement committee ? it comprises of faculties from various departments of the institute. Student representatives from various branches who are in their final year are also appointed as committee members. The committee is headed by Director of the 

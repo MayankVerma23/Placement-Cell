@@ -66,7 +66,7 @@
                     <td><%=rs.getString("requiredbacklog")%></td>
                 </tr>
                 <tr class="r1">
-                    <td><b>PERCENTAGE REQUIRED</b></td>
+                    <td><b>OVERALL CGPA</b></td>
                     <td><%=rs.getString("requiredpercentage")%></td>
                 </tr>
 

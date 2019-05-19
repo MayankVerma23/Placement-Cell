@@ -43,8 +43,7 @@
                 <th>id</th>
                 <th>SUBJECT</th>
                 <th>MESSAGE</th>
-                <th>POSTED ON</th>
-            
+                <th>POSTED ON</th>            
                 <th>DELETE MESSAGE</th>
 
 
